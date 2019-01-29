@@ -20,5 +20,9 @@ int main(int argc, char **argv)
 //    });
     w.addButton(10,20, &b);
     w.show();
+
+    MidMessageDialog<MidQt5MsgDialog> d("Título", "Alô mundo");
+    d.show();
+
     return app.execute();
 }
