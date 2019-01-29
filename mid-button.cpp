@@ -1,4 +1,4 @@
-#include "Midbutton.h"
+#include "mid-button.h"
 
 /*MidButton::MidButton()
 {
