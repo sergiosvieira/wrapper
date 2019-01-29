@@ -3,10 +3,13 @@
 
 #include <QtWidgets>
 #include <memory>
+#include "mainwindow.h"
 
 class MidQt5
 {
     QApplication *a = nullptr;
+
+    MainWindow* w = nullptr;
 public:
     MidQt5()
     {
@@ -15,16 +18,22 @@ public:
     MidQt5(int width, int height)
     {
         int argc = 0;
-        QApplication a(argc, nullptr);
-        this->a = &a;
-        QWidget w;
-        w.show();
+        a = new QApplication(argc, nullptr);
+        w = new MainWindow();
+        w->show();
+
+        //QWidget w;
+        //w.show();
     }
     void show()
     {
+        //a = QCoreApplication::instance();
         a->exec();
     }
-    ~MidQt5(){}
+    ~MidQt5()
+    {
+        if (w == nullptr) delete w;
+    }
 };
 
 #endif /* __MID_QT5__ */
