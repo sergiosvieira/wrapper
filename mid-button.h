@@ -1,16 +1,16 @@
 #ifndef MIDBUTTON_H
 #define MIDBUTTON_H
 
-template <class Button>
+template <class T>
 class MidButton
 {
-    Button b;
+    T b;
 public:
     MidButton() {}
 
-    Button getReference()
+    T *getReference()
     {
-        return b;
+        return &b;
     }
 };
 

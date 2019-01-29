@@ -1,32 +1,31 @@
 #ifndef __MID_WINDOW__
 #define __MID_WINDOW__
 
-#include "Midbutton.h"
+#include "mid-button.h"
 
-template <class Frame>
+template <class T>
 class MidWindow
 {
     int width = 0;
     int height = 0;
-    Frame w;
+    T *w;
 public:
     MidWindow(int width, int height):
             width(width), height(height)
     {
+        w = new T();
     }
 
-    template <class MidButton>
-    void addButton(int x, int y, MidButton button)
+    template <class U>
+    void addButton(int x, int y, U *button)
     {
-        //T w;
-        w.addButton(x, y, button.getReference());
+        w->addButton(button->getReference());
     }
 
     virtual ~MidWindow(){}
     void show()
     {
-        //T w;
-        w.show();
+        w->show();
     }
 };
 
