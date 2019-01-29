@@ -12,24 +12,25 @@ class MidQt5Window: public QWidget
 public:
     explicit MidQt5Window(QWidget *parent = 0)
     {
-        QVBoxLayout *vlay = new QVBoxLayout();
+        /*QVBoxLayout *vlay = new QVBoxLayout();
         vlay->setSpacing(0);
         vlay->setContentsMargins(0, 0, 0, 0);
-        this->setLayout(vlay);
+        this->setLayout(vlay);*/
     }
 
     void addButton(MidQt5Button *button)
     {
         QPushButton *btn1 = new QPushButton("btn1");
-        if (this->layout() != nullptr)
+        if (this->layout() == nullptr)
         {
-            this->layout()->addWidget(btn1);
+            this->setLayout(new QVBoxLayout());
         }
+        this->layout()->addWidget(btn1);
     }
 
     void show()
     {
-        this->show();
+        this->setVisible(true);
     }
 
     ~MidQt5Window()
