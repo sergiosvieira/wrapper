@@ -1,12 +1,15 @@
-#ifndef MIDBUTTON_H
-#define MIDBUTTON_H
+#ifndef __MID_BUTTON__
+#define __MID_BUTTON__
 
 template <class T>
 class MidButton
 {
     T b;
 public:
-    MidButton() {}
+    MidButton(const char *title)
+    {
+        this->b.setText(title);
+    }
 
     T *getReference()
     {
@@ -14,4 +17,4 @@ public:
     }
 };
 
-#endif // MIDBUTTON_H
+#endif /* __MID_BUTTON__ */

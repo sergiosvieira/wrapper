@@ -2,6 +2,7 @@
 #define __MID_QT5_WINDOW__
 
 #include <QtWidgets>
+#include <QString>
 #include <memory>
 #include "mainwindow.h"
 #include "mid-qt5-button.h"
@@ -10,23 +11,23 @@ class MidQt5Window: public QWidget
 {
     Q_OBJECT
 public:
-    explicit MidQt5Window(int width, int height, QWidget *parent = 0)
+    explicit MidQt5Window(int width,
+                          int height,
+                          const char * title,
+                          QWidget *parent = 0)
     {
-        /*QVBoxLayout *vlay = new QVBoxLayout();
-        vlay->setSpacing(0);
-        vlay->setContentsMargins(0, 0, 0, 0);
-        this->setLayout(vlay);*/
-        resize(width, height);
+        this->setParent(parent);
+        this->resize(width, height);
+        this->setWindowTitle(QString(title));
     }
 
     void addButton(MidQt5Button *button)
     {
-        QPushButton *btn1 = new QPushButton("btn1");
         if (this->layout() == nullptr)
         {
             this->setLayout(new QVBoxLayout());
         }
-        this->layout()->addWidget(btn1);
+        this->layout()->addWidget(button);
     }
 
     void show()

@@ -10,11 +10,10 @@ class MidWindow
     int height = 0;
     T *w;
 public:
-    MidWindow(int width, int height):
+    MidWindow(int width, int height, const char *title = nullptr):
             width(width), height(height)
     {
-        //w = new T();
-        w = new T(width, height);
+        w = new T(width, height, title);
     }
 
     template <class U>

@@ -1,11 +1,16 @@
-#ifndef MIDQT5BUTTON_H
-#define MIDQT5BUTTON_H
+#ifndef __MID_QT5_BUTTON__
+#define __MID_QT5_BUTTON__
 
+#include <QPushButton>
 
-class MidQt5Button
+class MidQt5Button: public QPushButton
 {
 public:
     MidQt5Button();
+    void setCaption(const char *caption)
+    {
+        this->setText(QString(caption));
+    }
 };
 
-#endif // MIDQT5BUTTON_H
+#endif /* __MID_QT5_BUTTON__ */
