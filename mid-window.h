@@ -10,7 +10,9 @@ class MidWindow
     int height = 0;
     T *w;
 public:
-    MidWindow(int width, int height, const char *title = nullptr):
+    MidWindow(int width,
+              int height,
+              const char *title = nullptr):
             width(width), height(height)
     {
         w = new T(width, height, title);

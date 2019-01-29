@@ -14,5 +14,7 @@ HEADERS += \
     mid-application.h \
     mid-qt5-app.h \
     mid-qt5-window.h \
-    mid-window.h
+    mid-window.h \
+    mid-qt5-msg-dialog.h \
+    mid-msg-dialog.h
 
