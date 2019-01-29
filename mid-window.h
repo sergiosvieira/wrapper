@@ -13,7 +13,8 @@ public:
     MidWindow(int width, int height):
             width(width), height(height)
     {
-        w = new T();
+        //w = new T();
+        w = new T(width, height);
     }
 
     template <class U>
