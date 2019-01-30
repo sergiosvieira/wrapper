@@ -1,19 +1,23 @@
 #ifndef __MID_BUTTON__
 #define __MID_BUTTON__
 
-template <class T>
+#include "mid-window.h"
+
+template <class T, class U>
 class MidButton
 {
-    T b;
+    T* b;
+    MidWindow<U>* parent = nullptr;
 public:
-    MidButton(const char *title)
+    MidButton(MidWindow<U>* parent = nullptr, const char *title = ""): parent(parent)
     {
-        this->b.setText(title);
+        this->b = new T(parent);
+        this->b->setText(title);
     }
 
     T *getReference()
     {
-        return &b;
+        return b;
     }
 };
 

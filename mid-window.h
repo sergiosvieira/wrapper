@@ -1,8 +1,6 @@
 #ifndef __MID_WINDOW__
 #define __MID_WINDOW__
 
-#include "mid-button.h"
-
 template <class T>
 class MidWindow
 {
@@ -28,6 +26,11 @@ public:
     void show()
     {
         w->show();
+    }
+
+    T *getReference()
+    {
+        return w;
     }
 };
 

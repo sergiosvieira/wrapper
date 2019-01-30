@@ -4,7 +4,8 @@ TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     mid-button.cpp \
-    mid-qt5-button.cpp
+    mid-qt5-button.cpp \
+    mid-qt5-window.cpp
 
 #HEADERS += 
 

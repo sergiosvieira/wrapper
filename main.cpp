@@ -13,12 +13,16 @@ int main(int argc, char **argv)
 {
     MidApplication<MidQt5App> app(argc, argv);
     MidWindow<MidQt5Window> w(800, 600, "MidGui SIGA");
-    MidButton<MidQt5Button> b("Hello World Button");
+    MidButton<MidQt5Button, MidQt5Window> b(&w, "Hello World Button");
 //    b.onclick({
 //        MidMessageDialog<MidQt5MsgDialog> d("Alô mundo");
 //        d.show();
 //    });
     w.addButton(10,20, &b);
     w.show();
+
+    MidMessageDialog<MidQt5MsgDialog> d("Título", "Alô mundo");
+    d.show();
+
     return app.execute();
 }

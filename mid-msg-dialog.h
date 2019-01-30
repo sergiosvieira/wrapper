@@ -6,8 +6,9 @@ class MidMessageDialog
 {
     T m;
 public:
-    MidMessageDialog(const char* text)
+    MidMessageDialog(const char* title, const char* text)
     {
+        m.setTitle(title);
         m.setText(text);
     }
 
