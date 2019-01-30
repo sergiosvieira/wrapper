@@ -11,17 +11,20 @@ class MidWxApp
 {
     int argc;
     char **argv;
-    wxApp *app = nullptr;
+    wxApp* app = nullptr;
 public:
     MidWxApp(int argc, char **argv):
         argc(argc), argv(argv)
     {
         this->app = new wxApp();
+        wxApp::SetInstance(this->app);
+        wxEntry(argc, argv);
     }
     int execute()
     {
-        return static_cast<int>(this->app->Initialize(this->argc, (wchar_t **)this->argv));
+        this->app->OnInit();
     }
 };
+
 
 #endif /* __MID_WX_APP_ */

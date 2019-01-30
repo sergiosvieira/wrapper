@@ -10,7 +10,7 @@ public:
                 int height,
                 const char *title,
                 wxFrame *parent = nullptr):
-        wxFrame(parent, -1, title)
+        wxFrame(parent, wxID_ANY, title)
     {
         this->SetSize(0, 0, width, height);
     }
