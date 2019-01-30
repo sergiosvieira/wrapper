@@ -12,7 +12,7 @@ public:
                 wxFrame *parent = nullptr):
         wxFrame(parent, wxID_ANY, title)
     {
-        this->SetSize(0, 0, width, height);
+        this->SetSize(0, 20, width, height);
     }
     void show()
     {

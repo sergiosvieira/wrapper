@@ -18,11 +18,12 @@ public:
     {
         this->app = new wxApp();
         wxApp::SetInstance(this->app);
-        wxEntry(argc, argv);
+        wxEntryStart(argc, argv);
     }
     int execute()
     {
-        this->app->OnInit();
+        this->app->Initialize(argc, (wchar_t**)argv);
+        return this->app->OnRun();
     }
 };
 
