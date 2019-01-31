@@ -297,12 +297,22 @@ public:
 //wxIMPLEMENT_APP(MidWxWindow);
 //DECLARE_APP(MidWxWindow);
 
-//MAC
-//int main(int argc, char **argv)
+#define MAINWINDOWS INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, INT nCmdShow)
 
-//WINDOWS
-INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-    PSTR lpCmdLine, INT nCmdShow)
+#define MAINOSX int main(int argc, char **argv)
+
+#define WINDOWS
+
+#ifdef WINDOWS
+    MAINWINDOWS
+#endif // WINDOWS
+
+#ifdef OSX
+    MAINOSX
+#endif // WINDOWS
+
+/*INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+    PSTR lpCmdLine, INT nCmdShow)*/
 {
     MidApplication<MidWxApp> app(0, nullptr);
     MidWindow<MidWxWindow> w(800, 600, "MidGui SIGA");
