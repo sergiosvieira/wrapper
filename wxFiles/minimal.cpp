@@ -63,6 +63,9 @@ public:
 
 class MidWxWidgets;
 #include <wx/button.h>
+#ifndef wxUSE_GUI;
+#define wxUSE_GUI;
+#endif;
 
 class MidWXButton: public wxButton
 {
@@ -142,7 +145,7 @@ wxEND_EVENT_TABLE()*/
 // static object for many reasons) and also implements the accessor function
 // wxGetApp() which will return the reference of the right type (i.e. MyApp and
 // not wxApp)
-wxIMPLEMENT_APP(MyApp);
+//wxIMPLEMENT_APP(MyApp);
 
 // ============================================================================
 // implementation
@@ -186,6 +189,139 @@ public:
         msg->ShowModal();
     }
 };
+
+class MidWxApp
+{
+    int argc;
+    char **argv;
+    wxApp* app = nullptr;
+public:
+    MidWxApp(int argc, char **argv) :
+        argc(argc), argv(argv)
+    {
+        this->app = new wxApp();
+        wxApp::SetInstance(this->app);
+        wxEntryStart(argc, argv);
+    }
+    int execute()
+    {
+        this->app->Initialize(argc, (wchar_t**)argv);
+        return this->app->OnRun();
+    }
+};
+
+//wxIMPLEMENT_APP(MidWxWindow);
+//DECLARE_APP(MidWxWindow);
+
+template <class T>
+class MidApplication
+{
+    T *app = nullptr;
+public:
+    MidApplication(int argc, char **argv)
+    {
+        this->app = new T(argc, argv);
+    }
+    virtual ~MidApplication() {}
+    int execute()
+    {
+        return this->app->execute();
+    }
+};
+
+class MidWxButton;
+
+class MidWxWindow : public wxFrame
+{
+public:
+    MidWxWindow(int width,
+        int height,
+        const char *title,
+        wxFrame *parent = nullptr) :
+        wxFrame(parent, wxID_ANY, title)
+    {
+        this->SetSize(0, 20, width, height);
+        //this->SetTitle(title);
+    }
+
+    void MidWxWindow::addButton(MidWxButton *button)
+    {
+        this->SetSizeHints(wxDefaultSize, wxDefaultSize);
+
+        wxBoxSizer* bSizer1;
+        bSizer1 = new wxBoxSizer(wxVERTICAL);
+
+        wxButton* m_button1;
+        bSizer1->Add((wxButton*)button, 1, wxALL | wxEXPAND, 5);
+
+        this->SetSizer(bSizer1);
+        this->Layout();
+
+        this->Centre(wxBOTH);
+    }
+
+    void show()
+    {
+        this->Show(true);
+    }
+};
+
+class MidWxButton : public wxButton
+{
+private:
+    MidWindow<MidWxWindow>* parent = nullptr;
+public:
+    MidWxButton(MidWindow<MidWxWindow>* parent = nullptr)
+        //:wxButton((wxFrame*)parent, wxID_ANY)
+        :wxButton((wxWindow*)parent->getReference(), wxID_ANY)
+    {
+    }
+    MidWxButton() {}
+    void setCaption(const char *caption)
+    {
+        //this->setText(caption);
+        this->SetLabel(caption);
+    }
+
+    void setText(const char *caption)
+    {
+        //setText(QString(caption));
+        this->SetLabel(caption);
+    }
+    void setParent(MidWindow<MidWxWindow>* parent)
+    {
+        this->parent = parent;
+    }
+};
+
+//wxIMPLEMENT_APP(MidWxWindow);
+//DECLARE_APP(MidWxWindow);
+
+#define MAINWINDOWS INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, INT nCmdShow)
+
+#define MAINOSX int main(int argc, char **argv)
+
+#define WINDOWS
+
+#ifdef WINDOWS
+    MAINWINDOWS
+#endif // WINDOWS
+
+#ifdef OSX
+    MAINOSX
+#endif // WINDOWS
+
+/*INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+    PSTR lpCmdLine, INT nCmdShow)*/
+{
+    MidApplication<MidWxApp> app(0, nullptr);
+    MidWindow<MidWxWindow> w(800, 600, "MidGui SIGA");
+    MidButton<MidWxButton, MidWxWindow> b(&w, "Hello World Button");
+
+    w.addButton(10, 20, &b);
+    w.show();
+    return app.execute();
+}
 
 // 'Main program' equivalent: the program execution "starts" here
 bool MyApp::OnInit()
