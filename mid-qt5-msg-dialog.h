@@ -8,7 +8,9 @@ class MidQt5MsgDialog: public QMessageBox
     QMessageBox m;
 public:
     MidQt5MsgDialog() {}
-    MidQt5MsgDialog(const char* title, const char * text)
+    MidQt5MsgDialog(MidWindow<MidQt5Window> *parent,
+                    const char* title, 
+                    const char * text)
     {
         m.setWindowTitle(title);
         m.setText(text);

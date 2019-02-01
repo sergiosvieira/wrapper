@@ -3,13 +3,13 @@
 
 #include "mid-window.h"
 
-template <class T, class U>
+template <class T>
 class MidButton
 {
     T* b;
-    MidWindow<U>* parent = nullptr;
 public:
-    MidButton(MidWindow<U>* parent = nullptr, const char *title = ""): parent(parent)
+    template <class U>
+    MidButton(MidWindow<U>* parent = nullptr, const char *title = "")
     {
         this->b = new T(parent);
         this->b->setText(title);

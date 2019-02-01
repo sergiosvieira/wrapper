@@ -1,20 +1,26 @@
 #ifndef __MID_MESSAGE_DIALOG__
 #define __MID_MESSAGE_DIALOG__
 
+#include "mid-window.h"
+
 template <class T>
 class MidMessageDialog
 {
-    T m;
+    T *m = nullptr;
 public:
-    MidMessageDialog(const char* title, const char* text)
+    template <class U>
+    MidMessageDialog(MidWindow<U> *parent,
+                    const char* title, 
+                    const char* text)
     {
-        m.setTitle(title);
-        m.setText(text);
+        m = new T(parent, title, text);
+        m->setTitle(title);
+        m->setText(text);
     }
 
     void show()
     {
-        m.show();
+        m->show();
     }
 };
 
