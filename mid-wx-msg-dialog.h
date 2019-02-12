@@ -18,7 +18,7 @@ public:
         wxFrame *p = nullptr;
         if (parent != nullptr)
         {
-            p = &parent->get();
+            p = parent->get();
         }
         this->msg = new wxMessageDialog(p, text, title, wxOK | wxICON_INFORMATION);
     }
