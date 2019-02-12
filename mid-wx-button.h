@@ -10,7 +10,7 @@ class MidWxButton: public wxButton
     MidWindow<MidWxWindow> *parent = nullptr;
 public:
     MidWxButton(MidWindow<MidWxWindow> *parent = nullptr):
-        wxButton(&parent->get(), wxID_ANY, _("")) {}
+        wxButton(parent->get(), wxID_ANY, _("")) {}
     void setText(const char *title)
     {
         this->SetLabelText(title);

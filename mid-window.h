@@ -15,15 +15,18 @@ using std::is_reference;
 template <class T>
 class MidWindow: public MidObject
 {
+    T* ptr = nullptr;
+
     vector<shared_ptr<MidObject>> child;
 public:
     MidWindow(int width,
               int height,
               const char* title):
-        MidObject(T{width, height, title})
+        //MidObject(*(ptr = new T{width, height, title}))
+        MidObject((ptr = new T{ width, height, title }))
     {
         cout << "MidObject: ";
-        this->get().info();
+        this->get()->info();
     }
     MidWindow(const T& t): MidObject(t)
     {
@@ -44,14 +47,17 @@ public:
             this->child.push_back(make_shared<MidObject>(child));
         }
     }
-    virtual ~MidWindow(){}
-    T &get()
+    virtual ~MidWindow()
+    {
+        //delete ptr;
+    }
+    T* get()
     {
         return this->ref<T>();
     }
     void show()
     {
-        this->get().show();
+        this->get()->show();
     }
 };
 

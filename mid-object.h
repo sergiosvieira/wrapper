@@ -19,27 +19,28 @@ protected:
     template<class T>
     struct holder : holder_base{
         holder(): held_(){}
-        holder(T const& t): held_(t)
+        holder(T * t): held_(t)
         {
             cout << "holder::holder(t): ";
-            t.info();
+            t->info();
         }
         virtual ~holder(){}
         virtual holder_base* clone() const 
         {
             return new holder<T>(*this);
         }
-        T held_;
+        T* held_;
     };
     template<class T>
-    T& ref()
+    T* ref()
     {
         return static_cast<holder<T>*>(storage_)->held_;
     }    
 public:
     MidObject(): storage_(0){}
     template<class T>
-    MidObject(T const& t): storage_(new holder<T>(t))
+    //MidObject(T const& t): storage_(new holder<T>(t))
+    MidObject(T * t) : storage_(new holder<T>(t))
     {
         cout << "MidObject::MidObject(t)\n";
     }
