@@ -15,6 +15,8 @@ int main(int argc, char **argv)
 {
     MidApplication<MidWxApp> app(argc, argv);
     MidWindow<MidWxWindow> window(800, 600, "MidGui");
+    MidButton<MidWxButton> b1(&window, "Botão 01");
+    //window.addChild(&b1);
     window.show();
     return app.execute();
 }

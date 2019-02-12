@@ -22,11 +22,8 @@ public:
     MidWindow(int width,
               int height,
               const char* title):
-        //MidObject(*(ptr = new T{width, height, title}))
         MidObject((ptr = new T{ width, height, title }))
     {
-        cout << "MidObject: ";
-        this->get()->info();
     }
     MidWindow(const T& t): MidObject(t)
     {
@@ -45,6 +42,8 @@ public:
         if (child != nullptr)
         {
             this->child.push_back(make_shared<MidObject>(child));
+            // To Do: Layout
+            this->get()->addChild(child);
         }
     }
     virtual ~MidWindow()

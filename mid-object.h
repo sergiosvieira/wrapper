@@ -21,8 +21,6 @@ protected:
         holder(): held_(){}
         holder(T * t): held_(t)
         {
-            cout << "holder::holder(t): ";
-            t->info();
         }
         virtual ~holder(){}
         virtual holder_base* clone() const 

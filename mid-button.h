@@ -9,13 +9,14 @@ template <class T>
 class MidButton : public MidObject
 {
 	MidObject *parent = nullptr;
+	T *ptr = nullptr;
 public:
     template <class U>
     MidButton(MidWindow<U>* parent = nullptr, 
-    		  const char *title = "")
+    		  const char *title = ""):
+    	parent(parent),
+    	MidObject((ptr = new T{parent, title}))
     {
-        //this->o = new T(parent);
-        //this->o->setText(title);
     }
 };
 
