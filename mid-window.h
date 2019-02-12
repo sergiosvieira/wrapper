@@ -1,36 +1,57 @@
 #ifndef __MID_WINDOW__
 #define __MID_WINDOW__
 
+#include <vector>
+#include <iostream>
+#include <type_traits>
+#include "mid-object.h"
+
+using std::vector;
+using std::shared_ptr;
+using std::make_shared;
+using std::cout;
+using std::is_reference;
+
 template <class T>
-class MidWindow
+class MidWindow: public MidObject
 {
-    int width = 0;
-    int height = 0;
-    T *w;
+    vector<shared_ptr<MidObject>> child;
 public:
     MidWindow(int width,
               int height,
-              const char *title = nullptr):
-            width(width), height(height)
+              const char* title):
+        MidObject(T{width, height, title})
     {
-        w = new T(width, height, title);
+        cout << "MidObject: ";
+        this->get().info();
     }
-
-    template <class U>
-    void addButton(int x, int y, U *button)
+    MidWindow(const T& t): MidObject(t)
     {
-        w->addButton(button->getReference());
+        cout << "MidWindow::MidObject(t): ";
     }
-
+    int getWidth() const
+    {
+        return this->get().getWidth();
+    }
+    int getHeight() const
+    {
+        return this->get().getHeight();
+    }
+    void addChild(MidObject *child)
+    {
+        if (child != nullptr)
+        {
+            this->child.push_back(make_shared<MidObject>(child));
+        }
+    }
     virtual ~MidWindow(){}
+    T &get()
+    {
+        return this->ref<T>();
+    }
     void show()
     {
-        w->show();
-    }
-
-    T *getReference()
-    {
-        return w;
+        this->get().show();
     }
 };
 

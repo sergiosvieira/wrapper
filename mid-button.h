@@ -1,23 +1,21 @@
 #ifndef __MID_BUTTON__
 #define __MID_BUTTON__
 
+#include "mid-object.h"
 #include "mid-window.h"
 
+
 template <class T>
-class MidButton
+class MidButton : public MidObject
 {
-    T* b;
+	MidObject *parent = nullptr;
 public:
     template <class U>
-    MidButton(MidWindow<U>* parent = nullptr, const char *title = "")
+    MidButton(MidWindow<U>* parent = nullptr, 
+    		  const char *title = "")
     {
-        this->b = new T(parent);
-        this->b->setText(title);
-    }
-
-    T *getReference()
-    {
-        return b;
+        //this->o = new T(parent);
+        //this->o->setText(title);
     }
 };
 
