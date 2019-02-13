@@ -37,10 +37,8 @@ protected:
 public:
     MidObject(): storage_(0){}
     template<class T>
-    //MidObject(T const& t): storage_(new holder<T>(t))
     MidObject(T * t) : storage_(new holder<T>(t))
     {
-        cout << "MidObject::MidObject(t)\n";
     }
 };
 
