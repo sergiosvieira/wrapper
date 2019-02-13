@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <iostream>
-#include <wx/frame.h>
 
 using std::cout;
 

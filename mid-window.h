@@ -25,10 +25,7 @@ public:
         MidObject((ptr = new T{ width, height, title }))
     {
     }
-    MidWindow(const T& t): MidObject(t)
-    {
-        cout << "MidWindow::MidObject(t): ";
-    }
+    MidWindow(const T& t): MidObject(t){}
     int getWidth() const
     {
         return this->get().getWidth();

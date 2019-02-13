@@ -16,11 +16,7 @@ public:
                           int height,
                           const char * title,
                           QWidget *parent = 0);
-
-    void addButton(MidQt5Button *button);
-
     void show();
-
     ~MidQt5Window();
 };
 

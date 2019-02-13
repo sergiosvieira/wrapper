@@ -2,6 +2,7 @@
 #define __MID_QT5_MSG_DIALOG__
 
 #include <QMessageBox>
+#include "mid-qt5-window.h"
 
 class MidQt5MsgDialog: public QMessageBox
 {

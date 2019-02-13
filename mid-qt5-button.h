@@ -11,7 +11,9 @@ class MidQt5Button: public QPushButton
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Button(MidWindow<MidQt5Window>* parent = nullptr)
+    MidQt5Button(MidWindow<MidQt5Window>* parent = nullptr,
+                 const char *title = ""):
+        QPushButton (title, parent->get())
     {
     }
     MidQt5Button();
