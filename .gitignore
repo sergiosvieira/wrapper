@@ -31,3 +31,7 @@
 *.autosave
 
 # End of https://www.gitignore.io/api/qtcreator
+
+debug/*
+release/*
+qt5/*/*
