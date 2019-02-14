@@ -16,7 +16,10 @@ public:
         MidWindow<MidQt5Window>(width, height, title){}
     void slotClick()
     {
+        cout << "slotClick() of Window\n";
+        cout.flush();
 
+        this->get()->processButtonClick();
     }
 };
 
