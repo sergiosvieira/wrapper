@@ -21,6 +21,7 @@ int main(int argc, char **argv)
     //w.connect<MidQt5Button, MidQt5Window>(&b, SIGNAL(clicked()), &w, SLOT(clicked()));
 
     QObject *obj1 = (QObject*) b.ref<MidQt5Button>();
+    // Connecting ckicked() of QPushButton with clicked() of Button
     QObject::connect(obj1, SIGNAL(clicked()), &b, SLOT(clicked()));
 
     w.show();

@@ -22,11 +22,6 @@ public:
     void show();
     ~MidQt5Window();
 public slots:
-    void clicked()
-    {
-        cout << "Click()\n";
-        cout.flush();
-    }
 
     void processButtonClick()
     {

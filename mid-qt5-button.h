@@ -15,15 +15,12 @@ public:
                  const char *title = ""):
         QPushButton (title, parent->get())
     {
-        //QObject::connect(this, SIGNAL(clicked()), parent, SLOT(clicked()));
     }
     MidQt5Button();
     void setCaption(const char *caption)
     {
         this->setText(caption);
     }
-
-    void processButtonClick() {}
 
     void setButtonText(const char *caption)
     {
@@ -32,10 +29,6 @@ public:
     void setParent(MidWindow<MidQt5Window>* parent)
     {
         this->parent = parent;
-    }
-    void onClick()
-    {
-        cout << "Button clicked!\n";
     }
 };
 

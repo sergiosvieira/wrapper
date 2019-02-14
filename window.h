@@ -19,6 +19,7 @@ public:
         cout << "slotClick() of Window\n";
         cout.flush();
 
+        //Chama a função processButtonClick() of MidQt5Button
         this->get()->processButtonClick();
     }
 };
