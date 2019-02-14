@@ -2,18 +2,23 @@
 #define __MID_QT5_APP__
 
 #include <QtWidgets>
+#include <iostream>
 
-class MidQt5App
+using std::cout;
+
+class MidQt5App: public QApplication
 {
-    QApplication *app = nullptr;
+    //QApplication *app = nullptr;
 public:
-    MidQt5App(int argc, char **argv)
+    MidQt5App(int argc, char **argv):
+        QApplication(argc, argv){}
+    bool notify(QObject *receiver, QEvent *event) override
     {
-        this->app = new QApplication(argc, argv);
+        QApplication::notify(receiver, event);
     }
     int execute()
     {
-        return this->app->exec();
+        return this->exec();
     }
 };
 

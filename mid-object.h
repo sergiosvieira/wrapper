@@ -28,16 +28,14 @@ protected:
         }
         T* held_;
     };
+public:
+    MidObject(): storage_(0){}
+    template<class T>
+    MidObject(T * t) : storage_(new holder<T>(t)){}
     template<class T>
     T* ref()
     {
         return static_cast<holder<T>*>(storage_)->held_;
-    }    
-public:
-    MidObject(): storage_(0){}
-    template<class T>
-    MidObject(T * t) : storage_(new holder<T>(t))
-    {
     }
 };
 

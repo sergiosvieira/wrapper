@@ -3,8 +3,11 @@
 
 #include <QtWidgets>
 #include <QString>
+#include <iostream>
 #include <memory>
 #include "mainwindow.h"
+
+using std::cout;
 
 class MidQt5Button;
 
@@ -18,6 +21,12 @@ public:
                           QWidget *parent = 0);
     void show();
     ~MidQt5Window();
+public slots:
+    void clicked()
+    {
+        cout << "Click()\n";
+        cout.flush();
+    }
 };
 
 #endif /* __MID_QT5_WINDO__ */

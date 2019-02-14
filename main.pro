@@ -1,5 +1,5 @@
 QT += core gui widgets
-TARGET = main
+TARGET = main console
 TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
@@ -17,5 +17,7 @@ HEADERS += \
     mid-qt5-window.h \
     mid-window.h \
     mid-qt5-msg-dialog.h \
-    mid-msg-dialog.h
+    mid-msg-dialog.h \
+    window.h \
+    button.h
 

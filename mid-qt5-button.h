@@ -30,6 +30,10 @@ public:
     {
         this->parent = parent;
     }
+    void onClick()
+    {
+        cout << "Button clicked!\n";
+    }
 };
 
 #endif /* __MID_QT5_BUTTON__ */

@@ -18,6 +18,10 @@ public:
     	MidObject((ptr = new T{parent, title}))
     {
     }
+    void onClick()
+    {
+        ptr->onClick();
+    }
 };
 
 #endif /* __MID_BUTTON__ */
