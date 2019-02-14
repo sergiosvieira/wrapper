@@ -31,11 +31,24 @@ public:
                  MidObject *receiver,
                  const char *slot)
     {
+        /*this->get()->connect(sender->ref<U>(),
+                             signal,
+                             receiver->ref<V>(),
+                             slot);*/
         this->get()->connect(sender->ref<U>(),
                              signal,
                              receiver->ref<V>(),
                              slot);
     }
+
+    void processButtonClick()
+    {
+        std::cout << "processButtonClick() of MidWindow\n";
+        std::cout.flush();
+
+        this->get()->processButtonClick();
+    }
+
     MidWindow(const T& t): MidObject(t){}
     int getWidth() const
     {

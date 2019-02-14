@@ -27,6 +27,13 @@ public slots:
         cout << "Click()\n";
         cout.flush();
     }
+
+    void processButtonClick()
+    {
+        cout << "processButtonClick() of MidQt5Window\n";
+        cout << "=========================================\n\n";
+        cout.flush();
+    }
 };
 
 #endif /* __MID_QT5_WINDO__ */
