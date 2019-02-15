@@ -1,18 +1,16 @@
 #ifndef MIDHANDLER_H
 #define MIDHANDLER_H
 
+#include <functional>
+
+
 class MidHandler
 {
 public:
-    MidHandler(void (*procedure)()):
-        procedure(procedure)
-    {}
-
-
+	using Lambda = std::function<void()>;			
+    MidHandler(Lambda y): lambda(y){}
     ~MidHandler() {}
-    //virtual void procedure() = 0;
-
-    void (*procedure)() = nullptr;
+	Lambda lambda;    
 };
 
 #endif // MIDHANDLER_H
