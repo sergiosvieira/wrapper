@@ -18,6 +18,11 @@ public:
     	MidObject((ptr = new T{parent, title}))
     {
     }
+
+    void clicked()
+    {
+
+    }
 };
 
 #endif /* __MID_BUTTON__ */

@@ -7,6 +7,9 @@ SOURCES += main.cpp \
     mid-qt5-button.cpp \
     mid-qt5-window.cpp
 
+#CONFIG += c++11 console
+#CONFIG -= app_bundle
+
 #HEADERS += 
 
 HEADERS += \
@@ -19,5 +22,10 @@ HEADERS += \
     mid-qt5-msg-dialog.h \
     mid-msg-dialog.h \
     window.h \
-    button.h
+    button.h \
+    mid-connect.h \
+    mid-qt5-connect.h \
+    eventtable.h \
+    mid-handler.h \
+    mid-qt5-handler.h
 
