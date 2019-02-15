@@ -29,7 +29,7 @@ public:
      * \return
      */
     bool connect(
-            Button* source,   //Fonte do evento
+            MidObject* source,   //Fonte do evento
             EventTable eventTable,
             MidHandler* eventhandler
             )

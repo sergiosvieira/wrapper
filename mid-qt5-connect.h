@@ -14,7 +14,7 @@
 using std::cout;
 using std::endl;
 
-//class MidQt5Connect: public MidConnect, public QObject
+
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
@@ -29,7 +29,7 @@ public:
 
 
     bool connect(
-            Button* source,   //Fonte do evento
+            MidObject* source,   //Fonte do evento
             EventTable eventTable,
             MidHandler* eventhandler
             )
