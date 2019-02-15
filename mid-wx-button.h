@@ -2,6 +2,7 @@
 #define __MID_WX_BUTTON__
 
 #include <wx/button.h>
+#include "IDsdefinitions.h"
 
 class MidWxWindow;
 
@@ -11,7 +12,7 @@ class MidWxButton: public wxButton
 public:
     MidWxButton(MidWindow<MidWxWindow> *parent = nullptr,
                 const char *title = ""):
-        wxButton(parent->get(), wxID_ANY, title) {}
+        wxButton(parent->get(), BUTTON_Hello, title) {}
     void setText(const char *title)
     {
         this->SetLabelText(title);

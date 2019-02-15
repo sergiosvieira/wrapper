@@ -23,7 +23,7 @@ private:
 public:
     MidQt5Connect(MidWindow<MidQt5Window>* parent = nullptr):
         parent(parent){}
-    bool connect(Button* source,
+    bool connect(MidObject* source,
                  EventTable eventTable,
                  MidHandler* eventhandler)
     {

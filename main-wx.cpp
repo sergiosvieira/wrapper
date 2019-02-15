@@ -10,33 +10,27 @@
 
 #include <wx/msgdlg.h>
 
-#define MAINWINDOWS INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, INT nCmdShow)
+// #define WIN
 
-#define MAINOSX int main(int argc, char **argv)
-
-#define WINDOWS
-
-#ifdef WINDOWS
-MAINWINDOWS
-#endif // WINDOWS
-
-#ifdef OSX
-MAINOSX
-#endif // MAC
-
+#ifdef WIN
+    INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, INT nCmdShow)
 {
     int argc = 0;
-    char *argv = {};
-
-    MidApplication<MidWxApp> app(argc, &argv);
+    char **argv = {};
+#else
+    int main(int argc, char **argv)
+{
+#endif
+    MidApplication<MidWxApp> app(argc, argv);
     MidWindow<MidWxWindow> window(800, 600, "MidGui");
     MidButton<MidWxButton> b1(&window, "Botao 01");
 
     wxButton* ref = (wxButton*)b1.ref<MidWxButton>();
     ref->Bind(wxEVT_COMMAND_BUTTON_CLICKED,
-        [](wxCommandEvent&) {
-        int a = 10;
-        a = 20;
+        [&](wxCommandEvent&) {
+        MidMessageDialog<MidWxMsgDialog> m(&window, "SIGA", "Alo mundo");
+        m.show();
+        cout << "click\n";
     },
         BUTTON_Hello);
 
