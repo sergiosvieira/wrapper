@@ -1,5 +1,5 @@
 QT += core gui widgets
-TARGET = main console
+TARGET = main
 TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
@@ -7,7 +7,7 @@ SOURCES += main.cpp \
     mid-qt5-button.cpp \
     mid-qt5-window.cpp
 
-#CONFIG += c++11 console
+CONFIG += c++11 console
 #CONFIG -= app_bundle
 
 #HEADERS += 
