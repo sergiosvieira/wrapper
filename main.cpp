@@ -23,11 +23,10 @@ int main(int argc, char **argv)
     Window w(800, 600, "MidGui SIGA");
     Button b(&w, "Hello World Button");
     MidConnect<MidQt5Connect> connector (&w);
-    MidQT5Handler qt5Handler (
-                []()
-              {
-                 cout << "Event called in MidQT5Handler (Treating it)" << endl << endl;
-              });
+    MidQT5Handler qt5Handler ([&](){
+        MidMessageDialog<MidQt5MsgDialog> m(&w, "SIGA", "Alo mundo");
+        m.show();
+    });
     connector.connect(&b, EventTable::BUTTONCLICK, &qt5Handler);
     w.show();
     return app.execute();

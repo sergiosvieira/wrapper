@@ -23,33 +23,20 @@ private:
 
 public:
     MidQt5Connect(MidWindow<MidQt5Window>* parent = nullptr):
-        parent(parent)
+        parent(parent){}
+    bool connect(Button* source,
+                 EventTable eventTable,
+                 MidHandler* eventhandler)
     {
-    }
-
-
-    bool connect(
-            Button* source,   //Fonte do evento
-            EventTable eventTable,
-            MidHandler* eventhandler
-            )
-    {
-        //Implements the logic of connection in qt
-        QPushButton *obj = (QPushButton*) source->ref<MidQt5Button>();
-        if (obj != nullptr)
+        QPushButton *obj = dynamic_cast<QPushButton*>(source->ref<MidQt5Button>());
+        if (obj == nullptr) return false;
+        if (eventTable == EventTable::BUTTONCLICK)
         {
-            if (eventTable == EventTable::BUTTONCLICK)
-            {
-                /*QObject::connect(obj, &QPushButton::clicked, [&]()
-                {
-                    eventhandler->procedure();
-                });*/
-
-                if (eventhandler->procedure != nullptr)
-                    QObject::connect(obj, &QPushButton::clicked, eventhandler->procedure);
-            }
+            if (eventhandler->lambda != nullptr)
+                QObject::connect(obj, 
+                                 &QPushButton::clicked, 
+                                 eventhandler->lambda);
         }
-
         return true;
     }
 };
