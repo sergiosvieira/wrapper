@@ -7,7 +7,6 @@
 #include "mid-wx-window.h"
 #include "mid-wx-button.h"
 #include "mid-wx-msg-dialog.h"
-
 #include <wx/msgdlg.h>
 
 // #define WIN
@@ -22,13 +21,13 @@
 {
 #endif
     MidApplication<MidWxApp> app(argc, argv);
-    MidWindow<MidWxWindow> window(800, 600, "MidGui");
-    MidButton<MidWxButton> b1(&window, "Botao 01");
+    MidWindow<MidWxWindow> window(800, 600, "MidGui SIGA wxWidgets");
+    MidButton<MidWxButton> b1(&window, "Hello World Button");
 
     wxButton* ref = (wxButton*)b1.ref<MidWxButton>();
     ref->Bind(wxEVT_COMMAND_BUTTON_CLICKED,
         [&](wxCommandEvent&) {
-        MidMessageDialog<MidWxMsgDialog> m(&window, "SIGA", "Alo mundo");
+        MidMessageDialog<MidWxMsgDialog> m(&window, "SIGA", "Hello world!");
         m.show();
         cout << "click\n";
     },

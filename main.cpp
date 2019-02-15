@@ -20,14 +20,14 @@
 int main(int argc, char **argv)
 {
     MidApplication<MidQt5App> app(argc, argv);
-    Window w(800, 600, "MidGui SIGA");
-    Button b(&w, "Hello World Button");
-    MidConnect<MidQt5Connect> connector (&w);
+    Window window(800, 600, "MidGui SIGA QT5");
+    Button b1(&window, "Hello World Button");
+    MidConnect<MidQt5Connect> connector (&window);
     MidQT5Handler qt5Handler ([&](){
-        MidMessageDialog<MidQt5MsgDialog> m(&w, "SIGA", "Alo mundo");
+        MidMessageDialog<MidQt5MsgDialog> m(&window, "SIGA", "Hello world!");
         m.show();
     });
-    connector.connect(&b, EventTable::BUTTONCLICK, &qt5Handler);
-    w.show();
+    connector.connect(&b1, EventTable::BUTTONCLICK, &qt5Handler);
+    window.show();
     return app.execute();
 }

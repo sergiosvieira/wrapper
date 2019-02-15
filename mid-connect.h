@@ -17,9 +17,7 @@ public:
     template <class U>
     MidConnect(MidWindow<U>* parent = nullptr):
         parent(parent),
-        MidObject((ptr = new T{parent}))
-    {
-    }
+        MidObject((ptr = new T{parent})){}
 
     /*!
      * \brief connect
@@ -28,11 +26,9 @@ public:
      *
      * \return
      */
-    bool connect(
-            MidObject* source,   //Fonte do evento
-            EventTable eventTable,
-            MidHandler* eventhandler
-            )
+    bool connect(MidObject* source,
+                 EventTable eventTable,
+                 MidHandler* eventhandler)
     {
         ptr->connect(source, eventTable, eventhandler);
     }
