@@ -19,6 +19,8 @@ public:
         this->app = new wxApp();
         wxApp::SetInstance(this->app);
         wxEntryStart(argc, argv);
+		
+		this->app->OnInit(); //To deal with events
     }
     int execute()
     {

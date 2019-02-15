@@ -10,13 +10,36 @@
 
 #include <wx/msgdlg.h>
 
+#define MAINWINDOWS INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,PSTR lpCmdLine, INT nCmdShow)
 
-int main(int argc, char **argv)
+#define MAINOSX int main(int argc, char **argv)
+
+#define WINDOWS
+
+#ifdef WINDOWS
+MAINWINDOWS
+#endif // WINDOWS
+
+#ifdef OSX
+MAINOSX
+#endif // MAC
+
 {
-    MidApplication<MidWxApp> app(argc, argv);
+    int argc = 0;
+    char *argv = {};
+
+    MidApplication<MidWxApp> app(argc, &argv);
     MidWindow<MidWxWindow> window(800, 600, "MidGui");
-    MidButton<MidWxButton> b1(&window, "Botão 01");
-    //window.addChild(&b1);
+    MidButton<MidWxButton> b1(&window, "Botao 01");
+
+    wxButton* ref = (wxButton*)b1.ref<MidWxButton>();
+    ref->Bind(wxEVT_COMMAND_BUTTON_CLICKED,
+        [](wxCommandEvent&) {
+        int a = 10;
+        a = 20;
+    },
+        BUTTON_Hello);
+
     window.show();
     return app.execute();
 }
