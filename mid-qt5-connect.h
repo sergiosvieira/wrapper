@@ -14,7 +14,6 @@
 using std::cout;
 using std::endl;
 
-//class MidQt5Connect: public MidConnect, public QObject
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
