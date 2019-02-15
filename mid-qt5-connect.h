@@ -40,14 +40,13 @@ public:
         {
             if (eventTable == EventTable::BUTTONCLICK)
             {
-                QObject::connect(obj, &QPushButton::clicked, [&]()
+                /*QObject::connect(obj, &QPushButton::clicked, [&]()
                 {
-                    /*MidMessageDialog<MidQt5MsgDialog> msgDlg(parent, "SIGA", "This is a SIGA message");
-                        msgDlg.show();*/
-                    cout << "event called in MidQt5Connect" << endl;
-
                     eventhandler->procedure();
-                });
+                });*/
+
+                if (eventhandler->procedure != nullptr)
+                    QObject::connect(obj, &QPushButton::clicked, eventhandler->procedure);
             }
         }
 
