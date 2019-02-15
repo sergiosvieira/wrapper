@@ -30,7 +30,6 @@ public:
      */
     bool connect(
             Button* source,   //Fonte do evento
-            //void (MidObject::*signal)(bool),
             EventTable eventTable,
             MidHandler* eventhandler
             )

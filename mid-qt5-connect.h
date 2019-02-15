@@ -30,7 +30,6 @@ public:
 
     bool connect(
             Button* source,   //Fonte do evento
-            //void (MidObject::*signal)(bool),
             EventTable eventTable,
             MidHandler* eventhandler
             )
@@ -45,8 +44,9 @@ public:
                 {
                     /*MidMessageDialog<MidQt5MsgDialog> msgDlg(parent, "SIGA", "This is a SIGA message");
                         msgDlg.show();*/
-                    cout << "event called" << endl;
+                    cout << "event called in MidQt5Connect" << endl;
 
+                    eventhandler->procedure();
                 });
             }
         }

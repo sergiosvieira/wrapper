@@ -12,7 +12,7 @@ public:
     ~MidQT5Handler() {}
     virtual void procedure()
     {
-        cout << "Treating the event" << endl;
+        cout << "Event called in MidQT5Handler (Treating it)" << endl << endl;
     }
 };
 
