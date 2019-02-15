@@ -44,7 +44,7 @@ public:
                 {
                     /*MidMessageDialog<MidQt5MsgDialog> msgDlg(parent, "SIGA", "This is a SIGA message");
                         msgDlg.show();*/
-                    cout << "event called in MidQt5Connect" << endl;
+                    //cout << "event called in MidQt5Connect" << endl;
 
                     eventhandler->procedure();
                 });
