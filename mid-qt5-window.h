@@ -22,9 +22,11 @@ public:
     void show();
     ~MidQt5Window();
 public slots:
-    void clicked()
+
+    void processButtonClick()
     {
-        cout << "Click()\n";
+        cout << "processButtonClick() of MidQt5Window\n";
+        cout << "=========================================\n\n";
         cout.flush();
     }
 };

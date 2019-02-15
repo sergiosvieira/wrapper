@@ -18,9 +18,10 @@ public:
     	MidObject((ptr = new T{parent, title}))
     {
     }
-    void onClick()
+
+    void clicked()
     {
-        ptr->onClick();
+
     }
 };
 

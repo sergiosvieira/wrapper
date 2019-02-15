@@ -25,7 +25,7 @@ public:
         MidObject((ptr = new T{ width, height, title }))
     {
     }
-    template <typename U, typename V>
+    /*template <typename U, typename V>
     void connect(MidObject *sender,
                  const char *signal,
                  MidObject *receiver,
@@ -35,7 +35,16 @@ public:
                              signal,
                              receiver->ref<V>(),
                              slot);
+    }*/
+
+    void processButtonClick()
+    {
+        std::cout << "processButtonClick() of MidWindow\n";
+        std::cout.flush();
+
+        this->get()->processButtonClick();
     }
+
     MidWindow(const T& t): MidObject(t){}
     int getWidth() const
     {
