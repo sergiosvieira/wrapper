@@ -7,10 +7,10 @@
 class MidHandler
 {
 public:
-	using Lambda = std::function<void()>;			
+    using Lambda = std::function<bool()>;
     MidHandler(Lambda y): lambda(y){}
     ~MidHandler() {}
-	Lambda lambda;    
+    Lambda lambda;
 };
 
 #endif // MIDHANDLER_H

@@ -22,20 +22,9 @@ public:
     MidWindow(int width,
               int height,
               const char* title):
-        MidObject((ptr = new T{ width, height, title }))
+        MidObject(ptr = new T{ width, height, title })
     {
     }
-    /*template <typename U, typename V>
-    void connect(MidObject *sender,
-                 const char *signal,
-                 MidObject *receiver,
-                 const char *slot)
-    {
-        this->get()->connect(sender->ref<U>(),
-                             signal,
-                             receiver->ref<V>(),
-                             slot);
-    }*/
 
     void processButtonClick()
     {

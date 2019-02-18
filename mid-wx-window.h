@@ -17,7 +17,6 @@ public:
     }
     MidWxWindow(MidWxWindow const& other): wxFrame(nullptr, wxID_ANY, "", other.GetPosition(), other.GetSize())
     {
-        wxButton *b = new wxButton(this, wxID_ANY, "Botao");
     }
     void addChild(MidObject *object)
     {

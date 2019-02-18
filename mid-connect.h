@@ -5,8 +5,9 @@
 #include "mid-window.h"
 
 #include "eventtable.h"
-#include "button.h"
 #include "mid-handler.h"
+
+#include <iostream>
 
 template <class T>
 class MidConnect: public MidObject
@@ -15,9 +16,10 @@ class MidConnect: public MidObject
     T *ptr = nullptr;
 public:
     template <class U>
-    MidConnect(MidWindow<U>* parent = nullptr):
+    MidConnect(MidWindow<U>* parent = nullptr) :
         parent(parent),
-        MidObject((ptr = new T{parent})){}
+        ptr(new T{ parent }),
+        MidObject(ptr) {}
 
     /*!
      * \brief connect
@@ -30,7 +32,9 @@ public:
                  EventTable eventTable,
                  MidHandler* eventhandler)
     {
+        if (ptr == nullptr) throw std::exception();
         ptr->connect(source, eventTable, eventhandler);
+        return true;
     }
 };
 

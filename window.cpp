@@ -17,6 +17,7 @@ Window::Window(int width,
 	MidQT5Handler qt5Handler ([&](){
 	    MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Hello world!");
 	    m.show();
+        return true;
 	});
 	connector.connect(b1, EventTable::BUTTONCLICK, &qt5Handler);
 }
