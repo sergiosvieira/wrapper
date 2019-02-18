@@ -6,6 +6,8 @@
 #include <type_traits>
 #include "mid-object.h"
 
+#include "mid-layout.h"
+
 using std::vector;
 using std::shared_ptr;
 using std::make_shared;
@@ -63,6 +65,17 @@ public:
     void show()
     {
         this->get()->show();
+    }
+
+    template <class L>
+    void setLayout(MidLayout<L> layout)
+    {
+        if (this->get() == nullptr)
+        {
+            int a = 10;
+        }
+        this->get()->setLayout(layout.get());
+        //this->get()->setLayout(layout.ref<L>());
     }
 };
 

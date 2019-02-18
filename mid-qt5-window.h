@@ -29,6 +29,11 @@ public slots:
         cout << "=========================================\n\n";
         cout.flush();
     }
+
+    void setLayout(QLayout* layout)
+    {
+        setLayout(layout);
+    }
 };
 
 #endif /* __MID_QT5_WINDO__ */

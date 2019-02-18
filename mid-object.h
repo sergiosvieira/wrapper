@@ -37,6 +37,7 @@ public:
     {
         return static_cast<holder<T>*>(storage_)->held_;
     }
+    ~MidObject(){}
 };
 
 #endif /* __MID_OBJECT__ */

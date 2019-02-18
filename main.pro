@@ -29,5 +29,7 @@ HEADERS += \
     eventtable.h \
     mid-handler.h \
     mid-qt5-handler.h \
-    mid-object.h
+    mid-object.h \
+    mid-layout.h \
+    midqtverticallayout.h
 
