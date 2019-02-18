@@ -30,7 +30,7 @@ public slots:
         cout.flush();
     }
 
-    void setLayout(QLayout* layout)
+    void setMidLayout(QLayout* layout)
     {
         setLayout(layout);
     }

@@ -68,14 +68,9 @@ public:
     }
 
     template <class L>
-    void setLayout(MidLayout<L> layout)
+    void setMidLayout(MidLayout<L> layout)
     {
-        if (this->get() == nullptr)
-        {
-            int a = 10;
-        }
-        this->get()->setLayout(layout.get());
-        //this->get()->setLayout(layout.ref<L>());
+        this->get()->setMidLayout(layout.get());
     }
 };
 

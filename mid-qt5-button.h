@@ -13,7 +13,7 @@ private:
 public:
     MidQt5Button(MidWindow<MidQt5Window>* parent = nullptr,
                  const char *title = ""):
-        QPushButton (title, parent->get())
+        QPushButton (title, (parent != nullptr) ? parent->get() : nullptr)
     {
     }
     MidQt5Button();

@@ -17,9 +17,9 @@ Window::Window(int width,
 {
     MidLayout<MidQtVerticalLayout> layout;
 
-    Button *b1 = new Button(this, "Hello World Button 1");
-    Button *b2 = new Button(this, "Hello World Button 2");
-    Button *b3 = new Button(this, "Hello World Button 3");
+    Button *b1 = new Button(nullptr, "Hello World Button 1");
+    Button *b2 = new Button(nullptr, "Hello World Button 2");
+    Button *b3 = new Button(nullptr, "Hello World Button 3");
 
 	MidConnect<MidQt5Connect> connector (this);
 	MidQT5Handler qt5Handler ([&](){
@@ -28,13 +28,11 @@ Window::Window(int width,
         return true;
 	});
 	connector.connect(b1, EventTable::BUTTONCLICK, &qt5Handler);
-
+    connector.connect(b3, EventTable::BUTTONCLICK, &qt5Handler);
     layout.add(b1);
     layout.add(b2);
     layout.add(b3);
-
-    //implement setLayout(..)
-    setLayout(layout);
+    setMidLayout(layout);
 }
 
 

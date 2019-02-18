@@ -35,6 +35,7 @@ public:
     template<class T>
     T* ref()
     {
+        if (!this->storage_) return nullptr;
         return static_cast<holder<T>*>(storage_)->held_;
     }
     ~MidObject(){}
