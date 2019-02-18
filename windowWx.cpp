@@ -18,14 +18,14 @@ WindowWx::WindowWx(int width,
 	ButtonWx *b1 = new ButtonWx(this, "Hello World Button");
     wxButton* ref = (wxButton*)b1->ref<MidWxButton>();
 
-    MidConnect<MidWxConnect>* connector = new MidConnect<MidWxConnect>(this);
+    MidConnect<MidWxConnect> connector (this);
     MidWxHandler* wxHandler = new MidWxHandler([&]() {
         MidMessageDialog<MidWxMsgDialog> m(this, "SIGA", "Hello world!");
         m.show();
         return true;
     });
 
-    connector->connect(b1, EventTable::BUTTONCLICK, wxHandler);
+    connector.connect(b1, EventTable::BUTTONCLICK, wxHandler);
 }
 
 
