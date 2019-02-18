@@ -14,8 +14,9 @@ class Button: public MidButton<MidQt5Button>
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
     Button(MidWindow<MidQt5Window>* parent = nullptr,
+           long long int midID = 0,
               const char *title = ""):
-        MidButton<MidQt5Button>(parent, title), parent(parent) {}
+        MidButton<MidQt5Button>(parent, midID, title), parent(parent) {}
 };
 
 #endif // BUTTON_H

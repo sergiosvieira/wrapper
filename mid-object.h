@@ -8,6 +8,7 @@ using std::cout;
 
 class MidObject
 {
+    long long int id = 0;;
 protected:
     struct holder_base
     {
@@ -31,7 +32,14 @@ protected:
 public:
     MidObject(): storage_(0){}
     template<class T>
-    MidObject(T * t) : storage_(new holder<T>(t)){}
+    MidObject(T * t) : storage_(new holder<T>(t))
+    {
+        static long long int ids = 1;
+        this->id = ids++;
+    }
+
+    long long int getID() { return this->id; }
+
     template<class T>
     T* ref()
     {

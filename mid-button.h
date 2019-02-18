@@ -12,10 +12,11 @@ class MidButton : public MidObject
 	T *ptr = nullptr;
 public:
     template <class U>
-    MidButton(MidWindow<U>* parent = nullptr, 
+    MidButton(MidWindow<U>* parent = nullptr,
+        long long int midID = 0,
     		  const char *title = ""):
     	parent(parent),
-    	MidObject((ptr = new T{parent, title}))
+        MidObject((ptr = new T{midID, parent, title}))
     {
     }
 };

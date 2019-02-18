@@ -14,8 +14,9 @@ class ButtonWx: public MidButton<MidWxButton>
     MidWindow<MidWxWindow>* parent = nullptr;
 public:
     ButtonWx(MidWindow<MidWxWindow>* parent = nullptr,
+        long long int midID = 0,
               const char *title = ""):
-        MidButton<MidWxButton>(parent, title), parent(parent) {}
+        MidButton<MidWxButton>(parent, midID, title), parent(parent) {}
 };
 
 #endif // BUTTON_H

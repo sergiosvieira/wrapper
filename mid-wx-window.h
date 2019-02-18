@@ -25,6 +25,11 @@ public:
     {
         this->Show(true);
     }
+
+    void setMidLayout(wxSizer* layout)
+    {
+        SetSizer(layout);
+    }
 };
 
 #endif /* __MID_WX_WINDOW_ */
