@@ -31,5 +31,6 @@ HEADERS += \
     mid-qt5-handler.h \
     mid-object.h \
     mid-layout.h \
-    midqtverticallayout.h
+    midqtverticallayout.h \
+    mid-qt5-horizontal-layout.h
 

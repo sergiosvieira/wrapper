@@ -23,15 +23,20 @@ public:
         MidObject(ptr = new T{ })
     {
     }
-
     void add(MidObject *child)
     {
         if (child != nullptr)
         {
             this->child.push_back(make_shared<MidObject>(child));
-            // To Do: Layout
-            //this->get()->addChild(child);
             this->get()->add(child);
+        }
+    }
+    void addMidLayout(MidObject *child)
+    {
+        if (child != nullptr)
+        {
+            this->child.push_back(make_shared<MidObject>(child));
+            this->get()->addMidLayout(child);
         }
     }
     virtual ~MidLayout()

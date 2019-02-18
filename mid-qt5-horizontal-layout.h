@@ -1,16 +1,16 @@
-#ifndef MIDQTVERTICALLAYOUT_H
-#define MIDQTVERTICALLAYOUT_H
+#ifndef __MID_QT5_HORIZONTALLAYOUT__
+#define __MID_QT5_HORIZONTALLAYOUT__
 
-#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QWidget>
 #include <QPushButton>
 #include "mid-object.h"
 
-class MidQt5VerticalLayout: public QVBoxLayout
+class MidQt5HorizontalLayout: public QHBoxLayout
 {
 public:
-    MidQt5VerticalLayout():
-        QVBoxLayout(){}
+    MidQt5HorizontalLayout():
+        QHBoxLayout(){}
     void add(MidObject *object)
     {
         QWidget* widget = object->ref<QWidget>();
@@ -21,7 +21,8 @@ public:
         QLayout* layout = object->ref<QLayout>();
         if (layout != nullptr) addLayout(layout);
     }
-    ~MidQt5VerticalLayout() {}
+    ~MidQt5HorizontalLayout() {}
 };
 
-#endif // MIDQTVERTICALLAYOUT_H
+
+#endif // __MID_QT5_HORIZONTALLAYOUT__
