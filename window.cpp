@@ -1,6 +1,7 @@
 #include "window.h"
 
 #include "button.h"
+#include "checkbox.h"
 #include "mid-msg-dialog.h"
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
@@ -24,9 +25,9 @@ Window::Window(int width,
     h1->add(b2);
     MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();;
     Button *b3 = new Button(nullptr, 3, "Hello World Button 3");
-    Button *b4 = new Button(nullptr, 4, "Hello World Button 4");
+    Checkbox *c4 = new Checkbox(nullptr, 4, "Hello World Button 4");
     h2->add(b3);
-    h2->add(b4);
+    h2->add(c4);
     MidLayout<MidQt5HorizontalLayout> *h3 = new MidLayout<MidQt5HorizontalLayout>();
     Button *b5 = new Button(nullptr, 5, "Hello World Button 5");
     Button *b6 = new Button(nullptr, 6, "Hello World Button 6");

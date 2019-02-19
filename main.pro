@@ -6,7 +6,8 @@ SOURCES += main.cpp \
     mid-button.cpp \
     mid-qt5-button.cpp \
     mid-qt5-window.cpp \
-    window.cpp
+    window.cpp \
+    mid-qt5-check-box.cpp
 
 CONFIG += c++11 console
 #CONFIG -= app_bundle
@@ -32,5 +33,8 @@ HEADERS += \
     mid-object.h \
     mid-layout.h \
     midqtverticallayout.h \
-    mid-qt5-horizontal-layout.h
+    mid-qt5-horizontal-layout.h \
+    mid-check-box.h \
+    mid-qt5-check-box.h \
+    checkbox.h
 
