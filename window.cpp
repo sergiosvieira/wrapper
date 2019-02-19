@@ -19,6 +19,7 @@
 #include "date.h"
 #include "mid-date.h"
 #include "combo-box.h"
+#include "tab.h"
 
 
 Window::Window(int width,
@@ -72,7 +73,11 @@ Window::Window(int width,
     Date date(19, 2, 2019);
     DateEdit *de = new DateEdit(nullptr, 10, date);
 
-    Button *b11 = new Button(nullptr, 11, "Hello World Button 11");
+    //Button *b11 = new Button(nullptr, 11, "Hello World Button 11");
+    Tab *tab = new Tab(nullptr, 11);
+    tab->addMidTab(b1);
+    //tab->addMidTab(rb1);
+
     Button *b12 = new Button(nullptr, 12, "Hello World Button 12");
     Button *b13 = new Button(nullptr, 13, "Hello World Button 13");
     Button *b14 = new Button(nullptr, 14, "Hello World Button 14");
@@ -83,7 +88,7 @@ Window::Window(int width,
     h4->add(sp);
     h4->add(b9);
     h4->add(de);
-    h4->add(b11);
+    h4->add(tab);
     h4->add(b12);
     h4->add(b13);
     h4->add(b14);

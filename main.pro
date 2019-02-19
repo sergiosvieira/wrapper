@@ -65,5 +65,8 @@ HEADERS += \
     mid-date-edit.h \
     date-edit.h \
     mid-qt5-date-edit.h \
-    combo-box.h
+    combo-box.h \
+    mid-tab.h \
+    mid-qt5-tab.h \
+    tab.h
 
