@@ -24,39 +24,48 @@ public:
 
     void setMidRange(int minimum, int maximum)
     {
-        ptr->setMidRange(minimum, maximum);
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidRange(minimum, maximum);
     }
 
     void setMidValue(int value)
     {
-        ptr->setMidValue(value);
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidValue(value);
     }
 
     void setMidEnable(bool enable)
     {
-        ptr->setMidEnable(enable);
-    }
-
-    void setMidFormat(const QString &format)
-    {
-        ptr->setMidFormat(format);
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidEnable(enable);
     }
 
     void setMidMaximum(int maxValue)
     {
-        ptr->setMidMaximum(maxValue);
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidMaximum(maxValue);
     }
 
     void setMidMinimum(int maxValue)
     {
-        ptr->setMidMinimum(maxValue);
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidMinimum(maxValue);
     }
 
-    void setMidFont(const QFont &font)
+    int getMinValue()
     {
-        ptr->setMidFont(font);
-    }
+        T *obj = this->ref<T>();
+        if (obj) return obj->getMidMinValue();
 
+        return -1;
+    }
+    int getMaxValue()
+    {
+        T *obj = this->ref<T>();
+        if (obj)
+        return obj->getMidMaxValue();
+        return -1;
+    }
 };
 
 #endif /* __MID_PROGRESS_BAR__ */

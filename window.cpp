@@ -48,6 +48,10 @@ Window::Window(int width,
     h3->add(b5);
 
     Progressbar *p6 = new Progressbar(nullptr, 7);
+    int min = p6->getMinValue();
+    int max = p6->getMaxValue();
+    p6->setMidValue(30);
+
     h3->add(p6);
 
     TextLabel* tl = new TextLabel(nullptr, 5, "TL 5");
