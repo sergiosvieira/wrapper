@@ -38,14 +38,9 @@ Window::Window(int width,
     MidLayout<MidQt5HorizontalLayout> *h3 = new MidLayout<MidQt5HorizontalLayout>();
 
     Button *b5 = new Button(nullptr, 5, "Hello World Button 5");
-    Button *b6 = new Button(nullptr, 6, "Hello World Button 6");
-
     h3->add(b5);
-    h3->add(b6);
 
     Progressbar *p6 = new Progressbar(nullptr, 7);
-    //p6->setMidEnable(true);
-    //p6->setMidValue(30);
     h3->add(p6);
 
 
