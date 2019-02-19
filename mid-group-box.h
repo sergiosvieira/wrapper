@@ -20,7 +20,8 @@ public:
     template <class L>
     void setMidLayout(MidLayout<L> layout)
     {
-        this->get()->setMidLayout(layout.get());
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidLayout(layout.get());
     }
 };
 

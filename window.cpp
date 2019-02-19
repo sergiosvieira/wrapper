@@ -12,12 +12,13 @@
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
 #include "radio-button.h"
+#include "group-box.h"
 
 Window::Window(int width,
            	   int height,
            	   const char *title):
 	MidWindow<MidQt5Window>(width, height, title)
-{
+{    
     MidLayout<MidQt5VerticalLayout> *mainVertical = new MidLayout<MidQt5VerticalLayout>();
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     Button *b1 = new Button(nullptr, 1, "Hello World Button 1");
@@ -45,7 +46,11 @@ Window::Window(int width,
 	});
 	connector.connect(b1, EventTable::BUTTONCLICK, &qt5Handler);
     //connector.connect(b3, EventTable::BUTTONCLICK, &qt5Handler);
-    setMidLayout(*mainVertical);
+    GroupBox *gp = new GroupBox(nullptr, 1000, "Main Group Box");
+    gp->setMidLayout(*mainVertical);
+    MidLayout<MidQt5VerticalLayout> *windowLayout = new MidLayout<MidQt5VerticalLayout>();
+    windowLayout->add(gp);
+    setMidLayout(*windowLayout);
 }
 
 
