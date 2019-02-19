@@ -12,6 +12,7 @@
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
 #include "radio-button.h"
+#include "progress-bar.h"
 
 Window::Window(int width,
            	   int height,
@@ -38,8 +39,16 @@ Window::Window(int width,
 
     Button *b5 = new Button(nullptr, 5, "Hello World Button 5");
     Button *b6 = new Button(nullptr, 6, "Hello World Button 6");
+
     h3->add(b5);
     h3->add(b6);
+
+    Progressbar *p6 = new Progressbar(nullptr, 7);
+    //p6->setMidEnable(true);
+    //p6->setMidValue(30);
+    h3->add(p6);
+
+
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
     mainVertical->addMidLayout(h3);

@@ -7,7 +7,8 @@ SOURCES += main.cpp \
     mid-qt5-button.cpp \
     mid-qt5-window.cpp \
     window.cpp \
-    mid-qt5-check-box.cpp
+    mid-qt5-check-box.cpp \
+    mid-qt5-progress-bar.cpp
 
 CONFIG += c++11 console
 #CONFIG -= app_bundle
@@ -43,6 +44,9 @@ HEADERS += \
     radio-button.h \
     mid-text-field.h \
     mid-qt5-text-field.h \
+    mid-progress-bar.h \
+    mid-qt5-progress-bar.h \
+    progress-bar.h
 
 
 
