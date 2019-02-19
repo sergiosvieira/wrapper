@@ -16,8 +16,8 @@ public:
     MidQt5ProgressBar(MidWindow<MidQt5Window>* parent = nullptr, long long int midID = 0):
         QProgressBar ((parent != nullptr) ? parent->get() : nullptr)
     {
+        setRange(0, 100);
     }
-    MidQt5ProgressBar();
 
     void setMidRange(int minimum, int maximum)
     {
@@ -50,6 +50,15 @@ public:
     void setParent(MidWindow<MidQt5Window>* parent)
     {
         this->parent = parent;
+    }
+
+    int getMidMinValue()
+    {
+        return this->minimum();
+    }
+    int getMidMaxValue()
+    {
+        return this->maximum();
     }
 };
 

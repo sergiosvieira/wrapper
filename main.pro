@@ -63,3 +63,10 @@ HEADERS += \
     line.h \
     mid-line.h \
     mid-qt5-line.h \
+    mid-date.h \
+    mid-qt5-date.h \
+    date.h \
+    mid-date-edit.h \
+    date-edit.h \
+    mid-qt5-date-edit.h \
+    combo-box.h \
