@@ -14,6 +14,7 @@
 #include "radio-button.h"
 #include "group-box.h"
 #include "textlabel.h"
+#include "spin-box.h"
 
 Window::Window(int width,
            	   int height,
@@ -42,9 +43,36 @@ Window::Window(int width,
     Button *b6 = new Button(nullptr, 6, "Hello World Button 6");
     h3->add(tl);
     h3->add(b6);
+
+    MidLayout<MidQt5VerticalLayout> *h4 = new MidLayout<MidQt5VerticalLayout>();
+    Button *b7 = new Button(nullptr, 7, "Hello World Button 7");
+
+    SpinBox* sp = new SpinBox(nullptr, 8, 10, 77);
+
+    Button *b9 = new Button(nullptr, 9, "Hello World Button 9");
+    Button *b10 = new Button(nullptr, 10, "Hello World Button 10");
+    Button *b11 = new Button(nullptr, 11, "Hello World Button 11");
+    Button *b12 = new Button(nullptr, 12, "Hello World Button 12");
+    Button *b13 = new Button(nullptr, 13, "Hello World Button 13");
+    Button *b14 = new Button(nullptr, 14, "Hello World Button 14");
+    Button *b15 = new Button(nullptr, 15, "Hello World Button 15");
+    Button *b16 = new Button(nullptr, 16, "Hello World Button 16");
+
+    h4->add(b7);
+    h4->add(sp);
+    h4->add(b9);
+    h4->add(b10);
+    h4->add(b11);
+    h4->add(b12);
+    h4->add(b13);
+    h4->add(b14);
+    h4->add(b15);
+    h4->add(b16);
+
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
     mainVertical->addMidLayout(h3);
+    mainVertical->addMidLayout(h4);
 	MidConnect<MidQt5Connect> connector (this);
 	MidQT5Handler qt5Handler ([&](){
 	    MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Hello world!");
