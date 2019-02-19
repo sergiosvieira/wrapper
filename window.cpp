@@ -18,6 +18,8 @@
 #include "date-edit.h"
 #include "date.h"
 #include "mid-date.h"
+#include "combo-box.h"
+
 
 Window::Window(int width,
            	   int height,
@@ -48,7 +50,11 @@ Window::Window(int width,
     h3->add(b6);
 
     MidLayout<MidQt5VerticalLayout> *h4 = new MidLayout<MidQt5VerticalLayout>();
-    Button *b7 = new Button(nullptr, 7, "Hello World Button 7");
+
+    ComboBox *cb = new ComboBox(nullptr, 7);
+    cb->addMidItem("Item 01");
+    cb->addMidItem("Item 02");
+    cb->addMidItem("Item 03");
 
     SpinBox* sp = new SpinBox(nullptr, 8, 10, 77);
 
@@ -66,7 +72,7 @@ Window::Window(int width,
     Button *b15 = new Button(nullptr, 15, "Hello World Button 15");
     Button *b16 = new Button(nullptr, 16, "Hello World Button 16");
 
-    h4->add(b7);
+    h4->add(cb);
     h4->add(sp);
     h4->add(b9);
     //h4->add(de);
