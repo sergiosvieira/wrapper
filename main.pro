@@ -45,7 +45,10 @@ HEADERS += \
     mid-qt5-text-field.h \
     mid-text-label.h \
     mid-qt5-text-label.h \
-    textlabel.h
+    textlabel.h \
+    mid-spin-box.h \
+    mid-qt5-spin-box.h \
+    spin-box.h
 
 
 
