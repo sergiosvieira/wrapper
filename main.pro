@@ -32,5 +32,8 @@ HEADERS += \
     mid-object.h \
     mid-layout.h \
     midqtverticallayout.h \
-    mid-qt5-horizontal-layout.h
+    mid-qt5-horizontal-layout.h \
+    mid-radio-button.h \
+    mid-qt5-radio-button.h \
+    radio-button.h
 
