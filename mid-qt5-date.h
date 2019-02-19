@@ -12,7 +12,7 @@ public:
     MidQt5Date(int day = 1,
                int month = 1,
                int year = 1400):
-        QDate (day, month, year){}
+        QDate (year, month, day){}
     void setDay(int day)
     {
         setDate(day, month(), year());
