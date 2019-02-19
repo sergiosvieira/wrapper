@@ -6,7 +6,8 @@ SOURCES += main.cpp \
     mid-button.cpp \
     mid-qt5-button.cpp \
     mid-qt5-window.cpp \
-    window.cpp
+    window.cpp \
+    mid-qt5-check-box.cpp
 
 CONFIG += c++11 console
 #CONFIG -= app_bundle
@@ -24,6 +25,8 @@ HEADERS += \
     mid-msg-dialog.h \
     window.h \
     button.h \
+    checkbox.h \
+    textfield.h \
     mid-connect.h \
     mid-qt5-connect.h \
     eventtable.h \
@@ -33,6 +36,8 @@ HEADERS += \
     mid-layout.h \
     midqtverticallayout.h \
     mid-qt5-horizontal-layout.h \
+    mid-check-box.h \
+    mid-qt5-check-box.h \    
     mid-radio-button.h \
     mid-qt5-radio-button.h \
     radio-button.h \
@@ -42,4 +47,9 @@ HEADERS += \
     mid-group-box.h \
     mid-qt5-group-box.h \
     group-box.h
+    mid-text-label.h \
+    mid-qt5-text-label.h \
+    textlabel.h
+
+
 
