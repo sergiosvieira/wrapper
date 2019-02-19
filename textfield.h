@@ -18,8 +18,6 @@ public:
               const char *title = ""):
         MidTextField<MidQt5TextField>(parent, midID, title),
         parent(parent) {}
-
-    //void
 };
 
 #endif // TEXTFIELD_H

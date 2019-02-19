@@ -12,6 +12,7 @@
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
 #include "radio-button.h"
+#include "textlabel.h"
 
 Window::Window(int width,
            	   int height,
@@ -24,10 +25,10 @@ Window::Window(int width,
     Button *b1 = new Button(nullptr, 1, "Hello World Button 1");
     RadioButton *rb1 = new RadioButton(nullptr, 2, "Radio Button 1");
 
-    MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();;
+    MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();
 
+    TextField * tf = new TextField(nullptr, 3, "Text field text");
     Checkbox *c4 = new Checkbox(nullptr, 4, "Hello World Button 4");
-    TextField * tf = new TextField(nullptr, 2, "Text field text");
 
     h1->add(b1);
     h1->add(rb1);
@@ -36,9 +37,9 @@ Window::Window(int width,
 
     MidLayout<MidQt5HorizontalLayout> *h3 = new MidLayout<MidQt5HorizontalLayout>();
 
-    Button *b5 = new Button(nullptr, 5, "Hello World Button 5");
+    TextLabel* tl = new TextLabel(nullptr, 5, "TL 5");
     Button *b6 = new Button(nullptr, 6, "Hello World Button 6");
-    h3->add(b5);
+    h3->add(tl);
     h3->add(b6);
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
@@ -50,7 +51,6 @@ Window::Window(int width,
         return true;
 	});
 	connector.connect(b1, EventTable::BUTTONCLICK, &qt5Handler);
-    //connector.connect(b3, EventTable::BUTTONCLICK, &qt5Handler);
     setMidLayout(*mainVertical);
 }
 

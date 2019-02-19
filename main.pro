@@ -43,6 +43,9 @@ HEADERS += \
     radio-button.h \
     mid-text-field.h \
     mid-qt5-text-field.h \
+    mid-text-label.h \
+    mid-qt5-text-label.h \
+    textlabel.h
 
 
 
