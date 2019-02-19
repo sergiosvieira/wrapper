@@ -46,10 +46,9 @@ HEADERS += \
     textfield.h \
     mid-group-box.h \
     mid-qt5-group-box.h \
-    group-box.h
+    group-box.h \
     mid-text-label.h \
     mid-qt5-text-label.h \
-    textlabel.h
-
-
-
+    textlabel.h \
+    mid-combo-box.h \
+    mid-qt5-combo-box.h
