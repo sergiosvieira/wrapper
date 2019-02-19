@@ -35,5 +35,8 @@ HEADERS += \
     mid-qt5-horizontal-layout.h \
     mid-radio-button.h \
     mid-qt5-radio-button.h \
-    radio-button.h
+    radio-button.h \
+    mid-text-field.h \
+    mid-qt5-text-field.h \
+    textfield.h
 

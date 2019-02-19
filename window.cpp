@@ -1,6 +1,7 @@
 #include "window.h"
 
 #include "button.h"
+#include "textfield.h"
 #include "mid-msg-dialog.h"
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
