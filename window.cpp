@@ -67,13 +67,8 @@ Window::Window(int width,
     cb->addMidItem("Item 03");
 
     SpinBox* sp = new SpinBox(nullptr, 8, 10, 77);
-
     Button *b9 = new Button(nullptr, 9, "Hello World Button 9");
 
-    //Button *b10 = new Button(nullptr, 10, "Hello World Button 10");
-    //Date date(nullptr, 20, 9, 10, 1990);
-    //MidDate<MidQt5Date> date(nullptr, 20, 9, 10, 1990);
-    //DateEdit *de = new DateEdit(nullptr, 10, date);
     Date date(19, 2, 2019);
     DateEdit *de = new DateEdit(nullptr, 10, date);
 
