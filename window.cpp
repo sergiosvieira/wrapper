@@ -1,6 +1,7 @@
 #include "window.h"
 
 #include "button.h"
+#include "textfield.h"
 #include "mid-msg-dialog.h"
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
@@ -19,9 +20,9 @@ Window::Window(int width,
     MidLayout<MidQt5VerticalLayout> *mainVertical = new MidLayout<MidQt5VerticalLayout>();
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     Button *b1 = new Button(nullptr, 1, "Hello World Button 1");
-    Button *b2 = new Button(nullptr, 2, "Hello World Button 2");
+    TextField * tf = new TextField(nullptr, 2, "Text field text");
     h1->add(b1);
-    h1->add(b2);
+    h1->add(tf);
     MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();;
     Button *b3 = new Button(nullptr, 3, "Hello World Button 3");
     Button *b4 = new Button(nullptr, 4, "Hello World Button 4");

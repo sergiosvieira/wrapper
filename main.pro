@@ -32,5 +32,8 @@ HEADERS += \
     mid-object.h \
     mid-layout.h \
     midqtverticallayout.h \
-    mid-qt5-horizontal-layout.h
+    mid-qt5-horizontal-layout.h \
+    mid-text-field.h \
+    mid-qt5-text-field.h \
+    textfield.h
 
