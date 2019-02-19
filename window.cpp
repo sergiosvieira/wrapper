@@ -20,13 +20,13 @@ Window::Window(int width,
     MidLayout<MidQt5VerticalLayout> *mainVertical = new MidLayout<MidQt5VerticalLayout>();
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     Button *b1 = new Button(nullptr, 1, "Hello World Button 1");
-    TextField * tf = new TextField(nullptr, 2, "Text field text");
+    Button *b2 = new Button(nullptr, 2, "Hello World Button 2");
     h1->add(b1);
-    h1->add(tf);
-    MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();;
-    Button *b3 = new Button(nullptr, 3, "Hello World Button 3");
+    h1->add(b2);
+    MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();
+    TextField * tf = new TextField(nullptr, 2, "Text field text");
     Button *b4 = new Button(nullptr, 4, "Hello World Button 4");
-    h2->add(b3);
+    h2->add(tf);
     h2->add(b4);
     MidLayout<MidQt5HorizontalLayout> *h3 = new MidLayout<MidQt5HorizontalLayout>();
     Button *b5 = new Button(nullptr, 5, "Hello World Button 5");
@@ -45,7 +45,7 @@ Window::Window(int width,
         return true;
 	});
 	connector.connect(b1, EventTable::BUTTONCLICK, &qt5Handler);
-    connector.connect(b3, EventTable::BUTTONCLICK, &qt5Handler);
+    //connector.connect(b3, EventTable::BUTTONCLICK, &qt5Handler);
     setMidLayout(*mainVertical);
 }
 
