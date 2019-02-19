@@ -30,9 +30,6 @@ public:
 
     void processButtonClick()
     {
-        std::cout << "processButtonClick() of MidWindow\n";
-        std::cout.flush();
-
         this->get()->processButtonClick();
     }
 
