@@ -17,9 +17,7 @@ public:
         long long int midID = 0,
                 MidDate<V> date = {}):
         parent(parent),
-        MidObject((ptr = new T{date, parent}))
-    {
-    }
+        MidObject((ptr = new T{parent, midID, date})){}
 };
 
 #endif // MIDDATEEDIT_H

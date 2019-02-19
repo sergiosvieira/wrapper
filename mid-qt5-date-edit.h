@@ -3,9 +3,8 @@
 
 #include <QDateEdit>
 #include "mid-qt5-window.h"
-
 #include "mid-window.h"
-
+#include "mid-date.h"
 #include "mid-qt5-date.h"
 
 class MidQt5DateEdit: public QDateEdit
@@ -14,12 +13,10 @@ private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
     MidQt5DateEdit(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                   MidQt5Date date = {}):
-        QDateEdit (date, (parent != nullptr) ? parent->get() : nullptr)
-    {
-    }
-
+                   long long int midID = 0,
+                   MidDate<MidQt5Date> date = {}):
+        QDateEdit (*date.ref<QDate>(),
+                   (parent != nullptr) ? parent->get() : nullptr){}
     void setParent(MidWindow<MidQt5Window>* parent)
     {
         this->parent = parent;

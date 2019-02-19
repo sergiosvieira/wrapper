@@ -8,15 +8,11 @@
 
 class Date: public MidDate<MidQt5Date>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Date(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-             int day = 1,
-             int month = 1,
-             int year = 1400):
-        MidDate<MidQt5Date>(parent, midID, day, month, year),
-        parent(parent) {}
+    Date(int day = 1,
+        int month = 1,
+        int year = 1400):
+        MidDate<MidQt5Date>(day, month, year){}
 };
 
 #endif // DATE_H

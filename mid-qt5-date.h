@@ -8,18 +8,11 @@
 
 class MidQt5Date: public QDate
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Date(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-               int day = 1,
-             int month = 1,
-             int year = 1400):
-        QDate (day, month, year)
-    {
-    }
-
+    MidQt5Date(int day = 1,
+               int month = 1,
+               int year = 1400):
+        QDate (day, month, year){}
     void setDay(int day)
     {
         setDate(day, month(), year());

@@ -61,9 +61,11 @@ Window::Window(int width,
     Button *b9 = new Button(nullptr, 9, "Hello World Button 9");
 
     //Button *b10 = new Button(nullptr, 10, "Hello World Button 10");
-    Date date(nullptr, 20, 9, 10, 1990);
+    //Date date(nullptr, 20, 9, 10, 1990);
     //MidDate<MidQt5Date> date(nullptr, 20, 9, 10, 1990);
     //DateEdit *de = new DateEdit(nullptr, 10, date);
+    Date date(19, 2, 2019);
+    DateEdit *de = new DateEdit(nullptr, 10, date);
 
     Button *b11 = new Button(nullptr, 11, "Hello World Button 11");
     Button *b12 = new Button(nullptr, 12, "Hello World Button 12");
@@ -75,7 +77,7 @@ Window::Window(int width,
     h4->add(cb);
     h4->add(sp);
     h4->add(b9);
-    //h4->add(de);
+    h4->add(de);
     h4->add(b11);
     h4->add(b12);
     h4->add(b13);

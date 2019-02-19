@@ -9,19 +9,12 @@
 template <class T>
 class MidDate : public MidObject
 {
-    MidObject *parent = nullptr;
     T *ptr = nullptr;
 public:
-    template <class U>
-    MidDate(MidWindow<U>* parent = nullptr,
-        long long int midID = 0,
-              int day = 1,
+    MidDate(int day = 1,
             int month = 1,
             int year = 1400):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, day, month, year}))
-    {
-    }
+        MidObject((ptr = new T{day, month, year})){}
 };
 
 #endif // MIDDATE_H
