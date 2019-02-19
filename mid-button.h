@@ -16,7 +16,7 @@ public:
         long long int midID = 0,
     		  const char *title = ""):
     	parent(parent),
-        MidObject((ptr = new T{midID, parent, title}))
+        MidObject((ptr = new T{parent, midID, title}))
     {
     }
 };
