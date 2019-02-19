@@ -25,6 +25,8 @@ HEADERS += \
     mid-msg-dialog.h \
     window.h \
     button.h \
+    checkbox.h \
+    textfield.h \
     mid-connect.h \
     mid-qt5-connect.h \
     eventtable.h \
@@ -35,6 +37,12 @@ HEADERS += \
     midqtverticallayout.h \
     mid-qt5-horizontal-layout.h \
     mid-check-box.h \
-    mid-qt5-check-box.h \
-    checkbox.h
+    mid-qt5-check-box.h \    
+    mid-radio-button.h \
+    mid-qt5-radio-button.h \
+    radio-button.h \
+    mid-text-field.h \
+    mid-qt5-text-field.h \
+
+
 

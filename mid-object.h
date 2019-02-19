@@ -8,7 +8,7 @@ using std::cout;
 
 class MidObject
 {
-    long long int id = 0;;
+    long long int id = 0;
 protected:
     struct holder_base
     {
