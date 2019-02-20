@@ -22,10 +22,15 @@ public:
         this->parent = parent;
     }
 
-    void addMidTab(MidObject *object)
+    void addMidTab(MidObject *object, const char *tabTitle = "")
     {
         QWidget* pointer = object->ref<QWidget>();
-        addTab(pointer, "demo");
+        addTab(pointer, tabTitle);
+
+        /*QWidget* wid = new QWidget();
+        QFrame* frame = new QFrame(wid);
+        frame->setFrameShape(QFrame::VLine);
+        addTab(wid, "demo");*/
     }
 };
 

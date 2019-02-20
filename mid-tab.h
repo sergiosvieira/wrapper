@@ -20,10 +20,10 @@ public:
     {
     }
 
-    void addMidTab(MidObject *object)
+    void addMidTab(MidObject *object, const char *tabTitle = "")
     {
         T *obj = this->ref<T>();
-        if (obj) obj->addMidTab(object);
+        if (obj) obj->addMidTab(object, tabTitle);
 
         //ptr->addMidTab(object);
     }

@@ -73,13 +73,13 @@ Window::Window(int width,
     Date date(19, 2, 2019);
     DateEdit *de = new DateEdit(nullptr, id++, date);
 
-    MidWindow<MidQt5Window> *base1 = new MidWindow<MidQt5Window>(0,0,"");
-    MidWindow<MidQt5Window> *base2 = new MidWindow<MidQt5Window>(0,0,"");
+    MidWindow<MidQt5Window> *base1 = new MidWindow<MidQt5Window>(0,0,"h1");
+    MidWindow<MidQt5Window> *base2 = new MidWindow<MidQt5Window>(0,0,"h2");
     Button *b21 = new Button(base1, id++, "Hello World Button 21");
     Button *b22 = new Button(base2, id++, "Hello World Button 22");
     Tab *tab = new Tab(nullptr, id++);
-    tab->addMidTab(base1);
-    tab->addMidTab(base2);
+    tab->addMidTab(base1, "Aba 1");
+    tab->addMidTab(base2, "Aba 2");
 
     Button *b12 = new Button(nullptr, id++, "Hello World Button 12");
     Button *b13 = new Button(nullptr, id++, "Hello World Button 13");
