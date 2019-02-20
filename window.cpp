@@ -20,6 +20,7 @@
 #include "mid-date.h"
 #include "combo-box.h"
 #include "tab.h"
+#include "line.h"
 
 Window::Window(int width,
            	   int height,
@@ -41,12 +42,19 @@ Window::Window(int width,
     h1->add(b1);
     h1->add(rb1);
     h2->add(tf);
+
+    Line *hl = new Line(nullptr, id++, MidLineType::HORIZONAL);
+    h2->add(hl);
+
     h2->add(c4);
 
     MidLayout<MidQt5HorizontalLayout> *h3 = new MidLayout<MidQt5HorizontalLayout>();
 
     Button *b5 = new Button(nullptr, id++, "Hello World Button 5");
     h3->add(b5);
+
+    Line *vl = new Line(nullptr, id++,MidLineType::VERTICAL);
+    h3->add(vl);
 
     Progressbar *p6 = new Progressbar(nullptr, id++);
     int min = p6->getMinValue();

@@ -1,22 +1,22 @@
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef __LINE_H__
+#define __LINE_H__
 
 #include <iostream>
 #include "mid-line.h"
-#include "mid-qt5-button.h"
+#include "mid-qt5-line.h"
 
 #include "window.h"
 
 using std::cout;
 
-class Line: public MidButton<MidQt5Button>
+class Line: public MidLine<MidQt5Line>
 {
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Button(MidWindow<MidQt5Window>* parent = nullptr,
+    Line(MidWindow<MidQt5Window>* parent = nullptr,
            long long int midID = 0,
-              const char *title = ""):
-        MidButton<MidQt5Button>(parent, midID, title), parent(parent) {}
+              MidLineType lineType = MidLineType::VERTICAL):
+        MidLine<MidQt5Line>(parent, midID, lineType), parent(parent) {}
 };
 
-#endif // BUTTON_H
+#endif // __LINE_H__

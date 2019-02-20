@@ -71,5 +71,6 @@ HEADERS += \
     mid-qt5-date-edit.h \
     mid-tab.h \
     mid-qt5-tab.h \
-    tab.h
+    tab.h \
+    definitions.h
 
