@@ -22,6 +22,8 @@
 #include "tab.h"
 #include "line.h"
 #include "panel.h"
+#include "menu-bar.h"
+#include "menu.h"
 
 Window::Window(int width,
            	   int height,
@@ -130,6 +132,11 @@ Window::Window(int width,
     MidLayout<MidQt5VerticalLayout> *windowLayout = new MidLayout<MidQt5VerticalLayout>();
     windowLayout->add(gp);
     setMidLayout(*windowLayout);
+
+    MenuBar* menuBar = new MenuBar(nullptr, id++);
+    Menu* menu = new Menu(nullptr, id++, "File");
+    menuBar->addMidMenu(menu);
+    windowLayout->setMidMenuBar(menuBar);
 }
 
 

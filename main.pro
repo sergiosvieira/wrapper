@@ -75,5 +75,12 @@ HEADERS += \
     definitions.h \
     mid-panel.h \
     mid-qt5-panel.h \
-    panel.h
+    panel.h \
+    mid-menu-bar.h \
+    mid-qt5-menu-bar.h \
+    menu-bar.h \
+    mid-menu.h \
+    mid-qt5-menu.h \
+    menu.h \
+    mid-layout.h
 
