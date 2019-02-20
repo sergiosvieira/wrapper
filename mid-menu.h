@@ -24,10 +24,11 @@ public:
         return this->ref<T>();
     }
 
-    void addMidAction(const char *action)
+    template <class L>
+    void addMidAction(L *action)
     {
         T *obj = this->ref<T>();
-        if (obj) obj->addMidAction(action);
+        if (obj) obj->addMidAction(action->get());
     }
 };
 

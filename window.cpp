@@ -7,6 +7,7 @@
 #include "mid-connect.h"
 #include "mid-qt5-connect.h"
 #include "mid-qt5-button-handler.h"
+#include "mid-qt5-action-handler.h"
 #include "mid-layout.h"
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
@@ -24,6 +25,7 @@
 #include "panel.h"
 #include "menu-bar.h"
 #include "menu.h"
+#include "action.h"
 
 Window::Window(int width,
            	   int height,
@@ -135,18 +137,33 @@ Window::Window(int width,
 
     MenuBar* menuBar = new MenuBar(nullptr, id++);
     Menu* menuFile = new Menu(nullptr, id++, "File");
-    menuFile->addMidAction("Save");
-    menuFile->addMidAction("Exit");
+    Action* saveAction = new Action(nullptr,id++, "Save");
+    Action* exitAction = new Action(nullptr,id++, "Exit");
+    //menuFile->addMidAction("Save");
+    //menuFile->addMidAction("Exit");
+    menuFile->addMidAction(saveAction);
+    menuFile->addMidAction(exitAction);
     menuBar->addMidMenu(menuFile);
     Menu* menuView = new Menu(nullptr, id++, "View");
-    menuView->addMidAction("Zoom in");
-    menuView->addMidAction("Zoom out");
+    Action* zoomInAction = new Action(nullptr,id++, "Zoom in");
+    Action* zoomOutAction = new Action(nullptr,id++, "Zoom out");
+    menuView->addMidAction(zoomInAction);
+    menuView->addMidAction(zoomOutAction);
     menuBar->addMidMenu(menuView);
     Menu* menuAbout = new Menu(nullptr, id++, "Help");
-    menuAbout->addMidAction("Version");
-    menuAbout->addMidAction("About");
+    Action* versionAction = new Action(nullptr,id++, "Version");
+    Action* aboutAction = new Action(nullptr,id++, "About");
+    menuAbout->addMidAction(versionAction);
+    menuAbout->addMidAction(aboutAction);
     menuBar->addMidMenu(menuAbout);
     windowLayout->setMidMenuBar(menuBar);
+
+    MidQT5ActionHandler qt5ActionHandler ([&](){
+        MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Action trigerred!");
+        m.show();
+        return true;
+    });
+    connector.connect(saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
 }
 
 

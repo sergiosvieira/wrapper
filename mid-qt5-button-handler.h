@@ -2,7 +2,6 @@
 #define MIDQT5HANDLER_H
 
 #include <iostream>
-//#include "mid-handler.h"
 #include "mid-button-handler.h"
 
 class MidQT5ButtonHandler: public MidButtonHandler

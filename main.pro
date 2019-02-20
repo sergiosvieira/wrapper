@@ -83,5 +83,10 @@ HEADERS += \
     menu.h \
     mid-layout.h \
     mid-qt5-button-handler.h \
-    mid-button-handler.h
+    mid-button-handler.h \
+    mid-action-handler.h \
+    mid-qt5-action-handler.h \
+    mid-action.h \
+    mid-qt5-action.h \
+    action.h
 

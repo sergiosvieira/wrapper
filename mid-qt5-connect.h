@@ -38,6 +38,23 @@ public:
         }
         return true;
     }
+
+    bool connect(MidObject* source,
+                 EventTable eventTable,
+                 MidActionHandler* eventhandler)
+    {
+        QAction *obj = dynamic_cast<QAction*>(source->ref<QAction>());
+        if (obj == nullptr) return false;
+        if (eventTable == EventTable::ACTIONTRIGERRED)
+        {
+            if (eventhandler->lambda != nullptr)
+                QObject::connect(obj,
+                                 //&QPushButton::clicked,
+                                 &QAction::triggered,
+                                 eventhandler->lambda);
+        }
+        return true;
+    }
 };
 
 #endif // MIDQT5CONNECT_H

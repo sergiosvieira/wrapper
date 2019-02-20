@@ -27,7 +27,8 @@ public:
         this->parent = parent;
     }
 
-    void addMidAction(const char *action)
+    //void addMidAction(const char *action)
+    void addMidAction(QAction *action)
     {
         this->addAction(action);
     }

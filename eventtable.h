@@ -1,6 +1,6 @@
 #ifndef EVENTTABLE_H
 #define EVENTTABLE_H
 
-enum class EventTable { BUTTONCLICK, FRAMEENTER, FRAMEXIT };
+enum class EventTable { BUTTONCLICK, FRAMEENTER, FRAMEXIT, ACTIONTRIGERRED };
 
 #endif // EVENTTABLE_H
