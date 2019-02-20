@@ -72,5 +72,8 @@ HEADERS += \
     mid-tab.h \
     mid-qt5-tab.h \
     tab.h \
-    definitions.h
+    definitions.h \
+    mid-panel.h \
+    mid-qt5-panel.h \
+    panel.h
 

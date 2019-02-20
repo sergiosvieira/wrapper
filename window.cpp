@@ -21,6 +21,7 @@
 #include "combo-box.h"
 #include "tab.h"
 #include "line.h"
+#include "panel.h"
 
 Window::Window(int width,
            	   int height,
@@ -105,6 +106,13 @@ Window::Window(int width,
     h4->add(b14);
     h4->add(b15);
     h4->add(b16);
+
+    Panel *panel = new Panel(100, 100);
+    Button *b17 = new Button(nullptr, id++, "Hello World Button 17");
+    MidLayout<MidQt5VerticalLayout> *panelLayout = new MidLayout<MidQt5VerticalLayout>();
+    panelLayout->add(b17);
+    panel->setMidLayout(*panelLayout);
+    h4->add(panel);
 
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
