@@ -5,7 +5,7 @@
 #include "mid-qt5-window.h"
 #include "mid-qt5-button.h"
 #include "button.h"
-#include "mid-handler.h"
+#include "mid-button-handler.h"
 
 #include "QObject"
 #include "QPushButton"
@@ -25,7 +25,7 @@ public:
         parent(parent){}
     bool connect(MidObject* source,
                  EventTable eventTable,
-                 MidHandler* eventhandler)
+                 MidButtonHandler* eventhandler)
     {
         QPushButton *obj = dynamic_cast<QPushButton*>(source->ref<MidQt5Button>());
         if (obj == nullptr) return false;

@@ -32,7 +32,6 @@ HEADERS += \
     mid-qt5-connect.h \
     eventtable.h \
     mid-handler.h \
-    mid-qt5-handler.h \
     mid-object.h \
     mid-layout.h \
     midqtverticallayout.h \
@@ -82,5 +81,7 @@ HEADERS += \
     mid-menu.h \
     mid-qt5-menu.h \
     menu.h \
-    mid-layout.h
+    mid-layout.h \
+    mid-qt5-button-handler.h \
+    mid-button-handler.h
 

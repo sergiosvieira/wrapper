@@ -6,7 +6,7 @@
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
 #include "mid-qt5-connect.h"
-#include "mid-qt5-handler.h"
+#include "mid-qt5-button-handler.h"
 #include "mid-layout.h"
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
@@ -121,7 +121,7 @@ Window::Window(int width,
     mainVertical->addMidLayout(h3);
     mainVertical->addMidLayout(h4);
 	MidConnect<MidQt5Connect> connector (this);
-	MidQT5Handler qt5Handler ([&](){
+    MidQT5ButtonHandler qt5Handler ([&](){
 	    MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Hello world!");
 	    m.show();
         return true;
