@@ -134,8 +134,18 @@ Window::Window(int width,
     setMidLayout(*windowLayout);
 
     MenuBar* menuBar = new MenuBar(nullptr, id++);
-    Menu* menu = new Menu(nullptr, id++, "File");
-    menuBar->addMidMenu(menu);
+    Menu* menuFile = new Menu(nullptr, id++, "File");
+    menuFile->addMidAction("Save");
+    menuFile->addMidAction("Exit");
+    menuBar->addMidMenu(menuFile);
+    Menu* menuView = new Menu(nullptr, id++, "View");
+    menuView->addMidAction("Zoom in");
+    menuView->addMidAction("Zoom out");
+    menuBar->addMidMenu(menuView);
+    Menu* menuAbout = new Menu(nullptr, id++, "Help");
+    menuAbout->addMidAction("Version");
+    menuAbout->addMidAction("About");
+    menuBar->addMidMenu(menuAbout);
     windowLayout->setMidMenuBar(menuBar);
 }
 

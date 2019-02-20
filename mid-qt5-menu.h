@@ -26,6 +26,11 @@ public:
     {
         this->parent = parent;
     }
+
+    void addMidAction(const char *action)
+    {
+        this->addAction(action);
+    }
 };
 
 #endif // __MIDQT5MENU__

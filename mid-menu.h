@@ -23,6 +23,12 @@ public:
     {
         return this->ref<T>();
     }
+
+    void addMidAction(const char *action)
+    {
+        T *obj = this->ref<T>();
+        if (obj) obj->addMidAction(action);
+    }
 };
 
 #endif // __MIDMENU__
