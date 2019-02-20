@@ -26,13 +26,12 @@ public:
 
     void addMidTab(MidObject *object)
     {
-        //QWidget * pointer = (QWidget *)(object);
-        //addTab(pointer, "demo");
-
-        //QWidget* pointer = object->ref<QWidget>();
-        //addTab(pointer, "demo");
-
-        this->addTab(new QWidget(),"TAB 1");
+        QPushButton *button = object->ref<QPushButton>();
+        QVBoxLayout *layout = new QVBoxLayout();
+        layout->addWidget(button);
+        QWidget *widget = new QWidget();
+        widget->setLayout(layout);
+        this->addTab(widget, "Button Tab");
     }
 };
 
