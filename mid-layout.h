@@ -39,6 +39,14 @@ public:
             this->get()->addMidLayout(child);
         }
     }
+
+    template <class U>
+    void setMidMenuBar(U *menuBar)
+    {
+        T *obj = this->ref<T>();
+        if (obj) obj->setMidMenuBar(menuBar->get());
+    }
+
     virtual ~MidLayout()
     {
     }

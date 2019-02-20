@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QPushButton>
+#include <QMenuBar>
 #include "mid-object.h"
 
 class MidQt5VerticalLayout: public QVBoxLayout
@@ -22,6 +23,11 @@ public:
         if (layout != nullptr) addLayout(layout);
     }
     ~MidQt5VerticalLayout() {}
+
+    void setMidMenuBar(QMenuBar * menubar)
+    {
+        this->setMenuBar(menubar);
+    }
 };
 
 #endif // MIDQTVERTICALLAYOUT_H

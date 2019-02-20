@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QWidget>
 #include <QPushButton>
+#include <QMenuBar>
 #include "mid-object.h"
 
 class MidQt5HorizontalLayout: public QHBoxLayout
@@ -22,6 +23,11 @@ public:
         if (layout != nullptr) addLayout(layout);
     }
     ~MidQt5HorizontalLayout() {}
+
+    void setMidMenuBar(QMenuBar* menuBar)
+    {
+        this->setMenuBar(menuBar);
+    }
 };
 
 

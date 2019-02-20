@@ -19,76 +19,102 @@
 #include "date.h"
 #include "mid-date.h"
 #include "combo-box.h"
-
+#include "tab.h"
+#include "line.h"
+#include "panel.h"
+#include "menu-bar.h"
+#include "menu.h"
 
 Window::Window(int width,
            	   int height,
            	   const char *title):
 	MidWindow<MidQt5Window>(width, height, title)
-{    
+{
+    long long id = 1;
     MidLayout<MidQt5VerticalLayout> *mainVertical = new MidLayout<MidQt5VerticalLayout>();
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
 
-    Button *b1 = new Button(nullptr, 1, "Hello World Button 1");
-    RadioButton *rb1 = new RadioButton(nullptr, 2, "Radio Button 1");
+    Button *b1 = new Button(nullptr, id++, "Hello World Button 1");
+    RadioButton *rb1 = new RadioButton(nullptr, id++, "Radio Button 1");
 
     MidLayout<MidQt5VerticalLayout> *h2 = new MidLayout<MidQt5VerticalLayout>();
 
-    TextField * tf = new TextField(nullptr, 3, "Text field text");
-    Checkbox *c4 = new Checkbox(nullptr, 4, "Hello World Button 4");
+    TextField * tf = new TextField(nullptr, id++, "Text field text");
+    Checkbox *c4 = new Checkbox(nullptr, id++, "Hello World Button 4");
 
     h1->add(b1);
     h1->add(rb1);
     h2->add(tf);
+
+    Line *hl = new Line(nullptr, id++, MidLineType::HORIZONAL);
+    h2->add(hl);
+
     h2->add(c4);
 
     MidLayout<MidQt5HorizontalLayout> *h3 = new MidLayout<MidQt5HorizontalLayout>();
 
-    Button *b5 = new Button(nullptr, 5, "Hello World Button 5");
+    Button *b5 = new Button(nullptr, id++, "Hello World Button 5");
     h3->add(b5);
 
-    Progressbar *p6 = new Progressbar(nullptr, 7);
+    Line *vl = new Line(nullptr, id++,MidLineType::VERTICAL);
+    h3->add(vl);
+
+    Progressbar *p6 = new Progressbar(nullptr, id++);
     int min = p6->getMinValue();
     int max = p6->getMaxValue();
     p6->setMidValue(30);
 
     h3->add(p6);
 
-    TextLabel* tl = new TextLabel(nullptr, 5, "TL 5");
-    Button *b6 = new Button(nullptr, 6, "Hello World Button 6");
+    TextLabel* tl = new TextLabel(nullptr, id++, "TL 5");
+    Button *b6 = new Button(nullptr, id++, "Hello World Button 6");
     h3->add(tl);
     h3->add(b6);
 
     MidLayout<MidQt5VerticalLayout> *h4 = new MidLayout<MidQt5VerticalLayout>();
 
-    ComboBox *cb = new ComboBox(nullptr, 7);
+    ComboBox *cb = new ComboBox(nullptr, id++);
     cb->addMidItem("Item 01");
     cb->addMidItem("Item 02");
     cb->addMidItem("Item 03");
 
-    SpinBox* sp = new SpinBox(nullptr, 8, 10, 77);
-    Button *b9 = new Button(nullptr, 9, "Hello World Button 9");
+    SpinBox* sp = new SpinBox(nullptr, id++, 10, 77);
+    Button *b9 = new Button(nullptr, id++, "Hello World Button 9");
 
     Date date(19, 2, 2019);
-    DateEdit *de = new DateEdit(nullptr, 10, date);
+    DateEdit *de = new DateEdit(nullptr, id++, date);
 
-    Button *b11 = new Button(nullptr, 11, "Hello World Button 11");
-    Button *b12 = new Button(nullptr, 12, "Hello World Button 12");
-    Button *b13 = new Button(nullptr, 13, "Hello World Button 13");
-    Button *b14 = new Button(nullptr, 14, "Hello World Button 14");
-    Button *b15 = new Button(nullptr, 15, "Hello World Button 15");
-    Button *b16 = new Button(nullptr, 16, "Hello World Button 16");
+    MidWindow<MidQt5Window> *base1 = new MidWindow<MidQt5Window>(0,0,"h1");
+    MidWindow<MidQt5Window> *base2 = new MidWindow<MidQt5Window>(0,0,"h2");
+    Button *b21 = new Button(base1, id++, "Hello World Button 21");
+    Button *b22 = new Button(base2, id++, "Hello World Button 22");
+    Tab *tab = new Tab(nullptr, id++);
+    tab->addMidTab(base1, "Aba 1");
+    tab->addMidTab(base2, "Aba 2");
+
+    Button *b12 = new Button(nullptr, id++, "Hello World Button 12");
+    Button *b13 = new Button(nullptr, id++, "Hello World Button 13");
+    Button *b14 = new Button(nullptr, id++, "Hello World Button 14");
+    Button *b15 = new Button(nullptr, id++, "Hello World Button 15");
+    Button *b16 = new Button(nullptr, id++, "Hello World Button 16");
 
     h4->add(cb);
     h4->add(sp);
     h4->add(b9);
     h4->add(de);
-    h4->add(b11);
+    h4->add(tab);
     h4->add(b12);
     h4->add(b13);
     h4->add(b14);
     h4->add(b15);
     h4->add(b16);
+
+    Panel *panel = new Panel(100, 100);
+    Button *b17 = new Button(nullptr, id++, "Hello World Button 17");
+    MidLayout<MidQt5VerticalLayout> *panelLayout = new MidLayout<MidQt5VerticalLayout>();
+    panelLayout->add(b17);
+    panel->setMidLayout(*panelLayout);
+    h4->add(panel);
 
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
@@ -101,11 +127,26 @@ Window::Window(int width,
         return true;
 	});
 	connector.connect(b1, EventTable::BUTTONCLICK, &qt5Handler);
-    GroupBox *gp = new GroupBox(nullptr, 1000, "Main Group Box");
+    GroupBox *gp = new GroupBox(nullptr, id++, "Main Group Box");
     gp->setMidLayout(*mainVertical);
     MidLayout<MidQt5VerticalLayout> *windowLayout = new MidLayout<MidQt5VerticalLayout>();
     windowLayout->add(gp);
     setMidLayout(*windowLayout);
+
+    MenuBar* menuBar = new MenuBar(nullptr, id++);
+    Menu* menuFile = new Menu(nullptr, id++, "File");
+    menuFile->addMidAction("Save");
+    menuFile->addMidAction("Exit");
+    menuBar->addMidMenu(menuFile);
+    Menu* menuView = new Menu(nullptr, id++, "View");
+    menuView->addMidAction("Zoom in");
+    menuView->addMidAction("Zoom out");
+    menuBar->addMidMenu(menuView);
+    Menu* menuAbout = new Menu(nullptr, id++, "Help");
+    menuAbout->addMidAction("Version");
+    menuAbout->addMidAction("About");
+    menuBar->addMidMenu(menuAbout);
+    windowLayout->setMidMenuBar(menuBar);
 }
 
 

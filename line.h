@@ -1,6 +1,5 @@
-/*
-#ifndef LINE_H
-#define LINE_H
+#ifndef __LINE_H__
+#define __LINE_H__
 
 #include <iostream>
 #include "mid-line.h"
@@ -16,9 +15,8 @@ class Line: public MidLine<MidQt5Line>
 public:
     Line(MidWindow<MidQt5Window>* parent = nullptr,
            long long int midID = 0,
-              const char *title = ""):
-        Midline<MidQt5Line>(parent, midID), parent(parent) {}
+              MidLineType lineType = MidLineType::VERTICAL):
+        MidLine<MidQt5Line>(parent, midID, lineType), parent(parent) {}
 };
 
-#endif // LINE_H
-*/
+#endif // __LINE_H__
