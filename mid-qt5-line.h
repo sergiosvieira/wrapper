@@ -1,3 +1,4 @@
+
 #ifndef __MID_QT5_LINE__
 #define __MID_QT5_LINE__
 
@@ -5,19 +6,20 @@
 #include "mid-qt5-window.h"
 
 #include "mid-window.h"
-
-class MidQt5Button: public QPushButton
+/*
+class MidQt5Line: public QLine
 {
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Button(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *title = ""):
-        QPushButton (title, (parent != nullptr) ? parent->get() : nullptr)
+    MidQt5Line(MidWindow<MidQt5Window>* parent = nullptr,
+                 long long int midID = 0):
+        QLine((parent != nullptr) ? parent->get() : nullptr)
     {
     }
-    MidQt5Button();
+
+    //Empty constructor
+    MidQt5Line();
     void setCaption(const char *caption)
     {
         this->setText(caption);
@@ -32,5 +34,6 @@ public:
         this->parent = parent;
     }
 };
-
+*/
 #endif /* __MID_QT5_LINE__ */
+
