@@ -59,13 +59,16 @@ HEADERS += \
     mid-spin-box.h \
     mid-qt5-spin-box.h \
     spin-box.h \
+    combo-box.h \
+    line.h \
+    mid-line.h \
+    mid-qt5-line.h \
     mid-date.h \
     mid-qt5-date.h \
     date.h \
     mid-date-edit.h \
     date-edit.h \
     mid-qt5-date-edit.h \
-    combo-box.h \
     mid-tab.h \
     mid-qt5-tab.h \
     tab.h

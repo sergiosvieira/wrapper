@@ -15,8 +15,6 @@ public:
                  long long int midID = 0):
         QTabWidget ((parent != nullptr) ? parent->get() : nullptr)
     {
-        //this->addTab(new QWidget(),"TAB 1");
-        //this->addTab(new QWidget(),"TAB 2");
     }
 
     void setParent(MidWindow<MidQt5Window>* parent)
@@ -26,12 +24,8 @@ public:
 
     void addMidTab(MidObject *object)
     {
-        QPushButton *button = object->ref<QPushButton>();
-        QVBoxLayout *layout = new QVBoxLayout();
-        layout->addWidget(button);
-        QWidget *widget = new QWidget();
-        widget->setLayout(layout);
-        this->addTab(widget, "Button Tab");
+        QWidget* pointer = object->ref<QWidget>();
+        addTab(pointer, "demo");
     }
 };
 
