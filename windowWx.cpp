@@ -9,6 +9,7 @@
 #include "textlabelWx.h"
 #include "combo-box-wx.h"
 #include "radio-button-wx.h"
+#include "checkboxwx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -47,6 +48,7 @@ WindowWx::WindowWx(int width,
     cb->addMidItem("Item 03");
 
     RadioButtonWx *rb = new RadioButtonWx(this, id++, "radio button hello");
+    CheckBoxWx *checkBox = new CheckBoxWx(this, id++, "check box hello");
 
     h1->add(button);
     h1->add(progressBar);
@@ -57,6 +59,7 @@ WindowWx::WindowWx(int width,
     h2->add(tf);
     h2->add(cb);
     h2->add(rb);
+    h2->add(checkBox);
 
     progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();
