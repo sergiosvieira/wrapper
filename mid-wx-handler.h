@@ -1,13 +1,13 @@
-#ifndef MIDQT5HANDLER_H
-#define MIDQT5HANDLER_H
+#ifndef __MIDWXBUTTONHANDLER__
+#define __MIDWXBUTTONHANDLER__
 
 #include <iostream>
 
-class MidWxHandler: public MidHandler
+class MidWxButtonHandler: public MidButtonHandler
 {
 public:	
-    MidWxHandler(Lambda y): MidHandler(y){}
-    ~MidWxHandler() {}
+    MidWxButtonHandler(ButtonLambda y): MidButtonHandler(y){}
+    ~MidWxButtonHandler() {}
 };
 
-#endif // MIDQT5HANDLER_H
+#endif // __MIDWXBUTTONHANDLER__

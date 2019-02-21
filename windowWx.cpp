@@ -39,13 +39,13 @@ WindowWx::WindowWx(int width,
     mainVertical->addMidLayout(h3);
 
     MidConnect<MidWxConnect> connector(this);
-    MidWxHandler* wxHandler = new MidWxHandler([&]() {
+    MidWxButtonHandler* wxButtonHandler = new MidWxButtonHandler([&]() {
         MidMessageDialog<MidWxMsgDialog> m(this, "SIGA", "Hello world!");
         m.show();
         return true;
     });
-    connector.connect(b1, EventTable::BUTTONCLICK, wxHandler);
-    connector.connect(b3, EventTable::BUTTONCLICK, wxHandler);
+    connector.connect(b1, EventTable::BUTTONCLICK, wxButtonHandler);
+    connector.connect(b3, EventTable::BUTTONCLICK, wxButtonHandler);
     setMidLayout(*mainVertical);
 }
 
