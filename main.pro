@@ -91,5 +91,8 @@ HEADERS += \
     action.h \
     textEdit.h \
     mid-text-edit.h \
-    mid-qt5-text-edit.h
+    mid-qt5-text-edit.h \
+    mid-qt5-gauge.h \
+    mid-gauge.h \
+    gauge.h
 

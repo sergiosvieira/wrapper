@@ -1,24 +1,23 @@
-#ifndef __MID_QT5_PROGRESS_BAR__
-#define __MID_QT5_PROGRESS_BAR__
+#ifndef __MID_QT5_GAUGE__
+#define __MID_QT5_GAUGE__
 
 #include <QFont>
-#include <QProgressDialog>
+#include <QProgressBar>
 
 #include "mid-qt5-window.h"
 
 #include "mid-window.h"
 
-class MidQt5ProgressBar: public QProgressDialog
+class MidQt5Gauge: public QProgressBar
 {
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5ProgressBar(MidWindow<MidQt5Window>* parent = nullptr,
+    MidQt5Gauge(MidWindow<MidQt5Window>* parent = nullptr,
                       long long int midID = 0, int min = 0, int max = 100, const char *title = "", const char *msg = ""):
-        QProgressDialog (title, msg, min, max, (parent != nullptr) ? parent->get() : nullptr)
+        QProgressBar ((parent != nullptr) ? parent->get() : nullptr)
     {
         setRange(min, max);
-        setWindowTitle(title);
     }
 
     void setMidRange(int minimum, int maximum)
@@ -35,7 +34,7 @@ public:
     }
     void setMidFormat(const QString &format)
     {
-        //setFormat(format);
+        setFormat(format);
     }
     void setMidMaximum(int maxValue)
     {
@@ -64,4 +63,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_PROGRESS_BAR__ */
+#endif /* __MID_QT5_GAUGE__ */

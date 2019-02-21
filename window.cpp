@@ -24,6 +24,7 @@
 #include "line.h"
 #include "panel.h"
 #include "menu-bar.h"
+#include "gauge.h"
 #include "menu.h"
 #include "action.h"
 #include "textEdit.h"
@@ -62,12 +63,17 @@ Window::Window(int width,
     Line *vl = new Line(nullptr, id++,MidLineType::VERTICAL);
     h3->add(vl);
 
-    Progressbar *p6 = new Progressbar(nullptr, id++);
-    int min = p6->getMinValue();
-    int max = p6->getMaxValue();
-    p6->setMidValue(30);
+    Progressbar *pb = new Progressbar(nullptr, id++, 0, 0, "Operação", "Cancelar operação");
+    int min = pb->getMinValue();
+    int max = pb->getMaxValue();
+    pb->setMidValue(70);
+    //h3->add(pb);  //If you insert it, it will be displayed inside of the window
 
-    h3->add(p6);
+    Gauge *gauge = new Gauge(nullptr, id++);
+    min = gauge->getMinValue();
+    max = gauge->getMaxValue();
+    gauge->setMidValue(30);
+    h3->add(gauge);
 
     TextLabel* tl = new TextLabel(nullptr, id++, "TL 5");
     Button *b6 = new Button(nullptr, id++, "Hello World Button 6");
