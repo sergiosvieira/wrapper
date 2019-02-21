@@ -5,6 +5,7 @@
 
 #include "progressbarWx.h"
 #include "GaugeWx.h"
+#include "textlabelWx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -35,9 +36,12 @@ WindowWx::WindowWx(int width,
     gauge->setMidValue(40);
     gauge->setMidValue(87, "Hello world with 87 %");
 
+    TextLabelWx *label = new TextLabelWx(this, id++, "Hello World LABEL");
+
     h1->add(b1);
     h1->add(pb);
     h1->add(gauge);
+    h1->add(label);
 
     pb->closeMidProgressBar();
     //gauge->closeMidGauge();

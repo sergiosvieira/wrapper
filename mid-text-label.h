@@ -1,5 +1,5 @@
-#ifndef MIDQT5LABEL_H
-#define MIDQT5LABEL_H
+#ifndef __MIDTEXTLABEL__
+#define __MIDTEXTLABEL__
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -30,4 +30,4 @@ public:
     }
 };
 
-#endif // MIDQT5LABEL_H
+#endif // __MIDTEXTLABEL__
