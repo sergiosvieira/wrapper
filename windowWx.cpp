@@ -7,6 +7,7 @@
 #include "progressbarWx.h"
 #include "GaugeWx.h"
 #include "textlabelWx.h"
+#include "combo-box-wx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -39,6 +40,10 @@ WindowWx::WindowWx(int width,
 
     TextLabelWx *label = new TextLabelWx(this, id++, "Hello World LABEL");
     TextFieldWx *tf = new TextFieldWx(this, id++, "Hello World tf");
+    ComboBoxWx *cb = new ComboBoxWx(this, id++);
+    cb->addMidItem("Item 01");
+    cb->addMidItem("Item 02");
+    cb->addMidItem("Item 03");
 
     h1->add(button);
     h1->add(progressBar);
@@ -47,6 +52,7 @@ WindowWx::WindowWx(int width,
     MidLayout<MidWxVerticalLayout> *h2 = new MidLayout<MidWxVerticalLayout>();
     h2->add(label);
     h2->add(tf);
+    h2->add(cb);
 
     progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();
