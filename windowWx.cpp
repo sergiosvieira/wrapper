@@ -17,26 +17,14 @@ WindowWx::WindowWx(int width,
            	   const char *title):
 	MidWindow<MidWxWindow>(width, height, title)
 {
+    long long id = 1;
     MidLayout<MidWxVerticalLayout> *mainVertical = new MidLayout<MidWxVerticalLayout>();
     MidLayout<MidWxHorizontalLayout> *h1 = new MidLayout<MidWxHorizontalLayout>();
-    ButtonWx *b1 = new ButtonWx(this, 1, "Hello World Button 1");
-    ButtonWx *b2 = new ButtonWx(this, 2, "Hello World Button 2");
-    h1->add(b1);
-    h1->add(b2);
-    MidLayout<MidWxVerticalLayout> *h2 = new MidLayout<MidWxVerticalLayout>();;
-    ButtonWx *b3 = new ButtonWx(this, 3, "Hello World Button 3");
-    ButtonWx *b4 = new ButtonWx(this, 4, "Hello World Button 4");
-    h2->add(b3);
-    h2->add(b4);
-    MidLayout<MidWxHorizontalLayout> *h3 = new MidLayout<MidWxHorizontalLayout>();
-    ButtonWx *b5 = new ButtonWx(this, 5, "Hello World Button 5");
-    ButtonWx *b6 = new ButtonWx(this, 6, "Hello World Button 6");
-    h3->add(b5);
-    h3->add(b6);
 
+    ButtonWx *b1 = new ButtonWx(this, id++, "Hello World Button 1");
+
+    h1->add(b1);
     mainVertical->addMidLayout(h1);
-    mainVertical->addMidLayout(h2);
-    mainVertical->addMidLayout(h3);
 
     MidConnect<MidWxConnect> connector(this);
     MidWxButtonHandler* wxButtonHandler = new MidWxButtonHandler([&]() {
@@ -45,7 +33,6 @@ WindowWx::WindowWx(int width,
         return true;
     });
     connector.connect(b1, EventTable::BUTTONCLICK, wxButtonHandler);
-    connector.connect(b3, EventTable::BUTTONCLICK, wxButtonHandler);
     setMidLayout(*mainVertical);
 }
 
