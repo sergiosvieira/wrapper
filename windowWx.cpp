@@ -8,6 +8,7 @@
 #include "GaugeWx.h"
 #include "textlabelWx.h"
 #include "combo-box-wx.h"
+#include "radio-button-wx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -45,6 +46,8 @@ WindowWx::WindowWx(int width,
     cb->addMidItem("Item 02");
     cb->addMidItem("Item 03");
 
+    RadioButtonWx *rb = new RadioButtonWx(this, id++, "radio button hello");
+
     h1->add(button);
     h1->add(progressBar);
     h1->add(gauge);
@@ -53,6 +56,7 @@ WindowWx::WindowWx(int width,
     h2->add(label);
     h2->add(tf);
     h2->add(cb);
+    h2->add(rb);
 
     progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();
