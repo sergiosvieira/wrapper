@@ -2,6 +2,9 @@
 
 #include "mid-wx-button.h"
 #include "buttonWx.h"
+
+#include "progressbarWx.h"
+
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
 #include "mid-connect.h"
@@ -22,8 +25,15 @@ WindowWx::WindowWx(int width,
     MidLayout<MidWxHorizontalLayout> *h1 = new MidLayout<MidWxHorizontalLayout>();
 
     ButtonWx *b1 = new ButtonWx(this, id++, "Hello World Button 1");
+    ProgressbarWx *p1 = new ProgressbarWx(this, id++, 0, 100, wxString::FromUTF8("Título do Janela"), "Carregando algo:");
+    p1->setMidValue(30);
+    p1->setMidValue(77, "Hello world with 77 %");
 
     h1->add(b1);
+    h1->add(p1);
+
+    //p1->closeMidProgressBar();
+
     mainVertical->addMidLayout(h1);
 
     MidConnect<MidWxConnect> connector(this);
