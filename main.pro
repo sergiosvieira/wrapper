@@ -88,5 +88,8 @@ HEADERS += \
     mid-qt5-action-handler.h \
     mid-action.h \
     mid-qt5-action.h \
-    action.h
+    action.h \
+    textEdit.h \
+    mid-text-edit.h \
+    mid-qt5-text-edit.h
 

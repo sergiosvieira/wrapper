@@ -26,6 +26,7 @@
 #include "menu-bar.h"
 #include "menu.h"
 #include "action.h"
+#include "textEdit.h"
 
 Window::Window(int width,
            	   int height,
@@ -117,6 +118,12 @@ Window::Window(int width,
     panelLayout->add(b17);
     panel->setMidLayout(*panelLayout);
     h4->add(panel);
+
+    std::string msg = "A Funceme, como instituição pertencente ao Sistema de Gestão dos Recursos Hídricos do Estado do Ceará, vem implementando um conjunto de ações integradas, que visam obter e gerar, sistematicamente, uma série de informações que subsidiem os órgãos gestores no processo de gerenciamento e planejamento dos recursos hídricos, permitindo o aproveitamento, uso racional e preservação da água.\
+            A área de recursos hídricos da Funceme desenvolve projetos em diversas linhas de pesquisa, envolvendo qualidade das águas superficiais e subterrâneas, hidrologia básica, hidráulica de canais, operação de reservatórios, hidrogeologia, sedimentologia, drenagem urbana, interação rio-aquífero, acoplamento de previsão climática a modelagem hidrológica.\
+            Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
+    TextEdit* textEdit = new TextEdit(nullptr, id++, msg.c_str());
+    h4->add(textEdit);
 
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
