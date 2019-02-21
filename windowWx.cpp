@@ -2,6 +2,7 @@
 
 #include "mid-wx-button.h"
 #include "buttonWx.h"
+#include "textfieldWx.h"
 
 #include "progressbarWx.h"
 #include "GaugeWx.h"
@@ -26,27 +27,32 @@ WindowWx::WindowWx(int width,
     MidLayout<MidWxVerticalLayout> *mainVertical = new MidLayout<MidWxVerticalLayout>();
     MidLayout<MidWxHorizontalLayout> *h1 = new MidLayout<MidWxHorizontalLayout>();
 
-    ButtonWx *b1 = new ButtonWx(this, id++, "Hello World Button 1");
+    ButtonWx *button = new ButtonWx(this, id++, "Hello World Button 1");
 
-    ProgressbarWx *pb = new ProgressbarWx(this, id++, 0, 100, wxString::FromUTF8("Título do Janela"), "Carregando algo:");
-    pb->setMidValue(30);
-    pb->setMidValue(77, "Hello world with 77 %");
+    ProgressbarWx *progressBar = new ProgressbarWx(this, id++, 0, 100, wxString::FromUTF8("Título do Janela"), "Carregando algo:");
+    progressBar->setMidValue(30);
+    progressBar->setMidValue(77, "Hello world with 77 %");
 
     GaugeWx *gauge = new GaugeWx(this, id++, 0, 100);
     gauge->setMidValue(40);
     gauge->setMidValue(87, "Hello world with 87 %");
 
     TextLabelWx *label = new TextLabelWx(this, id++, "Hello World LABEL");
+    TextFieldWx *tf = new TextFieldWx(this, id++, "Hello World tf");
 
-    h1->add(b1);
-    h1->add(pb);
+    h1->add(button);
+    h1->add(progressBar);
     h1->add(gauge);
-    h1->add(label);
 
-    pb->closeMidProgressBar();
+    MidLayout<MidWxVerticalLayout> *h2 = new MidLayout<MidWxVerticalLayout>();
+    h2->add(label);
+    h2->add(tf);
+
+    progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();
 
     mainVertical->addMidLayout(h1);
+    mainVertical->addMidLayout(h2);
 
     MidConnect<MidWxConnect> connector(this);
     MidWxButtonHandler* wxButtonHandler = new MidWxButtonHandler([&]() {
@@ -54,7 +60,7 @@ WindowWx::WindowWx(int width,
         m.show();
         return true;
     });
-    connector.connect(b1, EventTable::BUTTONCLICK, wxButtonHandler);
+    connector.connect(button, EventTable::BUTTONCLICK, wxButtonHandler);
     setMidLayout(*mainVertical);
 }
 
