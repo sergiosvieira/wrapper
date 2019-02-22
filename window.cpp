@@ -28,6 +28,7 @@
 #include "menu.h"
 #include "action.h"
 #include "textEdit.h"
+#include "tabPage.h"
 
 Window::Window(int width,
            	   int height,
@@ -93,8 +94,10 @@ Window::Window(int width,
     Date date(19, 2, 2019);
     DateEdit *de = new DateEdit(nullptr, id++, date);
 
-    MidWindow<MidQt5Window> *base1 = new MidWindow<MidQt5Window>(0,0,"h1");
-    MidWindow<MidQt5Window> *base2 = new MidWindow<MidQt5Window>(0,0,"h2");
+    //MidWindow<MidQt5Window> *base1 = new MidWindow<MidQt5Window>(0,0,"h1");
+    TabPage *base1 = new TabPage(0,0,"h1");
+    //MidWindow<MidQt5Window> *base2 = new MidWindow<MidQt5Window>(0,0,"h2");
+    TabPage *base2 = new TabPage(0,0,"h2");
     Button *b21 = new Button(base1, id++, "Hello World Button 21");
     Button *b22 = new Button(base2, id++, "Hello World Button 22");
     Tab *tab = new Tab(nullptr, id++);
