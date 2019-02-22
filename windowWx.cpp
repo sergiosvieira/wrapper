@@ -3,6 +3,7 @@
 #include "mid-wx-button.h"
 #include "buttonWx.h"
 #include "textfieldWx.h"
+#include "textEditWx.h"
 
 #include "progressbarWx.h"
 #include "GaugeWx.h"
@@ -57,6 +58,11 @@ WindowWx::WindowWx(int width,
     CheckBoxWx *checkBox = new CheckBoxWx(this, id++, "check box hello");
     SpinBoxWx *spinBox = new SpinBoxWx(this, id++, 50, 77);
 
+    std::string msg = "A Funceme, como instituição pertencente ao Sistema de Gestão dos Recursos Hídricos do Estado do Ceará, vem implementando um conjunto de ações integradas, que visam obter e gerar, sistematicamente, uma série de informações que subsidiem os órgãos gestores no processo de gerenciamento e planejamento dos recursos hídricos, permitindo o aproveitamento, uso racional e preservação da água.\n\
+            A área de recursos hídricos da Funceme desenvolve projetos em diversas linhas de pesquisa, envolvendo qualidade das águas superficiais e subterrâneas, hidrologia básica, hidráulica de canais, operação de reservatórios, hidrogeologia, sedimentologia, drenagem urbana, interação rio-aquífero, acoplamento de previsão climática a modelagem hidrológica.\n\
+            Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
+    TextEditWx *textEdit = new TextEditWx(this, id++, msg.c_str());
+
     h1->add(button);
     h1->add(vertLine);
     h1->add(progressBar);
@@ -70,6 +76,7 @@ WindowWx::WindowWx(int width,
     h2->add(rb);
     h2->add(checkBox);
     h2->add(spinBox);
+    h2->add(textEdit);
 
     progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();
