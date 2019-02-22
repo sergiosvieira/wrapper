@@ -16,6 +16,7 @@
 #include "group-box-wx.h"
 #include "lineWx.h"
 #include "dateWx.h"
+#include "panelWx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -61,7 +62,6 @@ WindowWx::WindowWx(int width,
     SpinBoxWx *spinBox = new SpinBoxWx(this, id++, 50, 77);
     DateWx *date = new DateWx(19, 2, 2019);
     DateEditWx *de = new DateEditWx(this, id++, *date);
-    //DateEditWx *de = new DateEditWx(this, id++);
 
     std::string msg = "A Funceme, como instituição pertencente ao Sistema de Gestão dos Recursos Hídricos do Estado do Ceará, vem implementando um conjunto de ações integradas, que visam obter e gerar, sistematicamente, uma série de informações que subsidiem os órgãos gestores no processo de gerenciamento e planejamento dos recursos hídricos, permitindo o aproveitamento, uso racional e preservação da água.\n\
             A área de recursos hídricos da Funceme desenvolve projetos em diversas linhas de pesquisa, envolvendo qualidade das águas superficiais e subterrâneas, hidrologia básica, hidráulica de canais, operação de reservatórios, hidrogeologia, sedimentologia, drenagem urbana, interação rio-aquífero, acoplamento de previsão climática a modelagem hidrológica.\n\
@@ -83,6 +83,14 @@ WindowWx::WindowWx(int width,
     h2->add(spinBox);
     h2->add(textEdit);
     h2->add(de);
+
+    //Está funcionando, mas vou comentar
+    /*PanelWx *panel = new PanelWx(this, 100, 100);
+    ButtonWx *b17 = new ButtonWx(this, id++, "Button in panel"); //O pai de Button deve ser panel
+    MidLayout<MidWxVerticalLayout> *panelLayout = new MidLayout<MidWxVerticalLayout>();
+    panelLayout->add(b17);
+    panel->setMidLayout(*panelLayout);
+    h2->add(panel);*/
 
     progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();

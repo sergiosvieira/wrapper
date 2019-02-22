@@ -118,8 +118,8 @@ Window::Window(int width,
     h4->add(b15);
     h4->add(b16);
 
-    Panel *panel = new Panel(100, 100);
-    Button *b17 = new Button(nullptr, id++, "Hello World Button 17");
+    Panel *panel = new Panel(this, 100, 100);
+    Button *b17 = new Button(this, id++, "Hello World Button 17");
     MidLayout<MidQt5VerticalLayout> *panelLayout = new MidLayout<MidQt5VerticalLayout>();
     panelLayout->add(b17);
     panel->setMidLayout(*panelLayout);

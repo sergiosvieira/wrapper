@@ -7,6 +7,7 @@
 #include "mid-object.h"
 
 #include "mid-layout.h"
+#include "mid-window.h"
 
 using std::vector;
 using std::shared_ptr;
@@ -17,13 +18,20 @@ using std::is_reference;
 template <class T>
 class MidPanel: public MidObject
 {
+    MidObject *parent = nullptr;
     T* ptr = nullptr;
 
     vector<shared_ptr<MidObject>> child;
 public:
-    MidPanel(int width,
-              int height):
-        MidObject(ptr = new T{ width, height})
+
+    template <class U>
+    MidPanel(
+        MidWindow<U>* parent = nullptr,
+        int width = 600,
+        int height = 800
+    ):
+        MidObject(ptr = new T{parent, width, height}),
+        parent(parent)
     {
     }
 
