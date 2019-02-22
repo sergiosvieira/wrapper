@@ -10,6 +10,7 @@
 #include "combo-box-wx.h"
 #include "radio-button-wx.h"
 #include "checkboxwx.h"
+#include "spin-box-wx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -49,6 +50,7 @@ WindowWx::WindowWx(int width,
 
     RadioButtonWx *rb = new RadioButtonWx(this, id++, "radio button hello");
     CheckBoxWx *checkBox = new CheckBoxWx(this, id++, "check box hello");
+    SpinBoxWx *spinBox = new SpinBoxWx(this, id++, 50, 77);
 
     h1->add(button);
     h1->add(progressBar);
@@ -60,6 +62,7 @@ WindowWx::WindowWx(int width,
     h2->add(cb);
     h2->add(rb);
     h2->add(checkBox);
+    h2->add(spinBox);
 
     progressBar->closeMidProgressBar();
     //gauge->closeMidGauge();
