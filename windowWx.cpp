@@ -19,6 +19,9 @@
 #include "panelWx.h"
 #include "tabWx.h"
 
+//#include "panelWx2.h"
+#include "tabPageWx.h"
+
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
 #include "mid-connect.h"
@@ -75,6 +78,14 @@ WindowWx::WindowWx(int width,
     tabContainer->addMidTab(panelTab1, "Aba 1");
     tabContainer->addMidTab(panelTab2, "Aba 1");*/
 
+    TabWx *tabContainer = new TabWx(this, id++);
+    TabPageWx *panelTab1 = new TabPageWx(tabContainer, 100, 100); //Deve ter tabContainer como pai
+    TabPageWx *panelTab2 = new TabPageWx(tabContainer, 100, 100); //Deve ter tabContainer como pai
+    tabContainer->addMidTab(panelTab1, "Aba 1");
+    tabContainer->addMidTab(panelTab2, "Aba 2");
+
+    //panelTab1->setMidLayout
+
     h1->add(button);
     h1->add(vertLine);
     h1->add(progressBar);
@@ -90,7 +101,7 @@ WindowWx::WindowWx(int width,
     h2->add(spinBox);
     h2->add(textEdit);
     h2->add(de);
-    //h2->add(tabContainer);
+    h2->add(tabContainer);
 
     //Está funcionando, mas vou comentar
     /*PanelWx *panel = new PanelWx(this, 100, 100);

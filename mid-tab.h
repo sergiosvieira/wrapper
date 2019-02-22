@@ -28,6 +28,11 @@ public:
 
         //ptr->addMidTab(object);
     }
+
+    T* get()
+    {
+        return this->ref<T>();
+    }
 };
 
 #endif // MIDTAB_H
