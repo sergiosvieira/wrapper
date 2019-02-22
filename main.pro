@@ -94,5 +94,6 @@ HEADERS += \
     mid-qt5-text-edit.h \
     mid-qt5-gauge.h \
     mid-gauge.h \
-    gauge.h
+    gauge.h \
+    tabPage.h
 
