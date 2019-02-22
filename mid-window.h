@@ -19,7 +19,7 @@ class MidWindow: public MidObject
 {
     T* ptr = nullptr;
 
-    vector<shared_ptr<MidObject>> child;
+    vector<MidObject> child;
 public:
     MidWindow(int width,
               int height,
@@ -46,7 +46,7 @@ public:
     {
         if (child != nullptr)
         {
-            this->child.push_back(make_shared<MidObject>(child));
+            this->child.push_back(child);
             // To Do: Layout
             this->get()->addChild(child);
         }
@@ -55,19 +55,18 @@ public:
     {
         //delete ptr;
     }
-    T* get()
-    {
-        return this->ref<T>();
-    }
     void show()
     {
-        this->get()->show();
+        T *obj = static_cast<T*>(this->get());
+        obj->show();
     }
 
     template <class L>
     void setMidLayout(MidLayout<L> layout)
     {
-        this->get()->setMidLayout(layout.get());
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidLayout(layout.get());
+        //this->get()->setMidLayout(layout.get());
     }
 };
 

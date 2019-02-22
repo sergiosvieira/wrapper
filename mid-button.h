@@ -4,18 +4,15 @@
 #include "mid-object.h"
 #include "mid-window.h"
 
-
 template <class T>
 class MidButton : public MidObject
 {
-	MidObject *parent = nullptr;
-	T *ptr = nullptr;
+    MidObject parent = nullptr;
 public:
-    MidButton(MidObject* parent = nullptr,
-        long long int midID = 0,
-    		  const char *title = ""):
-    	parent(parent),
-        MidObject((ptr = new T{parent, midID, title})){}
+    MidButton(Id id = 0,
+              const std::string &title = "",
+              MidObject parent = nullptr):
+        MidObject(new T{id, title, parent}){}
 };
 
 #endif /* __MID_BUTTON__ */

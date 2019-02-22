@@ -7,13 +7,11 @@
 
 class RadioButton: public MidRadioButton<MidQt5RadioButton>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    RadioButton(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidRadioButton<MidQt5RadioButton>(parent, midID, title), parent(parent) {}
-
+    RadioButton(Id id = 0,
+                const std::string &title = "",
+                MidObject parent = nullptr):
+        MidRadioButton<MidQt5RadioButton>(id, title, parent){}
 };
 
 #endif // __RADIO_BUTTON__

@@ -10,7 +10,7 @@ SOURCES += main.cpp \
     mid-qt5-check-box.cpp \
     mid-qt5-progress-bar.cpp
 
-CONFIG += c++11 console
+CONFIG += c++17 console
 #CONFIG -= app_bundle
 
 #HEADERS += 

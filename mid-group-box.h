@@ -8,19 +8,15 @@
 template <class T>
 class MidGroupBox: public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidGroupBox(MidWindow<U>* parent = nullptr,
-                   long long int midID = 0,
-                   const char *title = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, title})){}
+    MidGroupBox(Id id = 0,
+                const std::string &title = "",
+                MidObject parent = nullptr):
+        MidObject(new T{id, title, parent}){}
     template <class L>
-    void setMidLayout(MidLayout<L> layout)
+    void setMidLayout(MidLayout<L> &layout)
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidLayout(layout.get());
     }
 };

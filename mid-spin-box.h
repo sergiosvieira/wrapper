@@ -7,22 +7,16 @@
 template <class T>
 class MidSpinBox : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidSpinBox(MidWindow<U>* parent = nullptr,
-        long long int midID = 0,
-              int minValue = 0,
-               int maxValue = 100):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, minValue, maxValue}))
-    {
-    }
-
+    MidSpinBox(Id id = 0,
+               int minValue = 0,
+               int maxValue = 100,
+               MidObject parent = nullptr):
+        MidObject(new T{id, minValue, maxValue, parent}){}
     int getMidValue()
     {
-        return ptr->getMidValue();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getMidValue();
     }
 };
 

@@ -11,11 +11,10 @@ using std::cout;
 
 class Progressbar: public MidProgressBar<MidQt5ProgressBar>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Progressbar(MidWindow<MidQt5Window>* parent = nullptr,
-                long long int midID = 0):
-        MidProgressBar<MidQt5ProgressBar>(parent, midID), parent(parent) {}
+    Progressbar(Id id = 0,
+                MidObject parent = nullptr):
+        MidProgressBar<MidQt5ProgressBar>(id, parent){}
 
 };
 

@@ -10,13 +10,11 @@
 
 class DateEdit: public MidDateEdit<MidQt5DateEdit>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    DateEdit(MidWindow<MidQt5Window>* parent = nullptr,
-             long long int midID = 0,
-             MidDate<MidQt5Date> date = {}):
-        MidDateEdit<MidQt5DateEdit>(parent, midID, date),
-        parent(parent) {}
+    DateEdit(Id id = 0,
+             MidDate<MidQt5Date> date = {},
+             MidObject parent = nullptr):
+        MidDateEdit<MidQt5DateEdit>(id, date, parent){}
 };
 
 #endif // __DATE_EDIT__

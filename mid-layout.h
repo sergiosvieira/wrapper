@@ -27,7 +27,7 @@ public:
     {
         if (child != nullptr)
         {
-            this->child.push_back(make_shared<MidObject>(child));
+            this->child.push_back(child);
             this->get()->add(child);
         }
     }
@@ -35,18 +35,13 @@ public:
     {
         if (child != nullptr)
         {
-            this->child.push_back(make_shared<MidObject>(child));
+            this->child.push_back(child);
             this->get()->addMidLayout(child);
         }
     }
     virtual ~MidLayout()
     {
     }
-    T* get()
-    {
-        return this->ref<T>();
-    }
-
 };
 
 #endif // MIDLAYOUT_H

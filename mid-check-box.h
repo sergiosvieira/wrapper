@@ -16,9 +16,7 @@ public:
         long long int midID = 0,
     		  const char *title = ""):
     	parent(parent),
-        MidObject((ptr = new T{parent, midID, title}))
-    {
-    }
+        MidObject((ptr = new T{parent, midID, title})){}
 };
 
 #endif /* __MID_CHECK_BOX__ */

@@ -7,26 +7,20 @@
 template <class T>
 class MidTextLabel : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidTextLabel(MidWindow<U>* parent = nullptr,
-        long long int midID = 0,
-              const char *text = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, text}))
+    MidTextLabel(Id id = 0,
+                 const std::string &text = "",
+                 MidObject parent = nullptr):
+        MidObject(new T{id, text, parent}){}
+    std::string getMidText()
     {
+        T *obj = static_cast<T*>(this->get());
+        return obj->getText();
     }
-
-    const char * getText()
+    void setMidText(const std::string &text)
     {
-        return ptr->getText();
-    }
-
-    void setMidText(const char *caption)
-    {
-        ptr->setMidText(caption);
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidText(text);
     }
 };
 

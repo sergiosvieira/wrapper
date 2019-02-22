@@ -9,12 +9,13 @@
 class MidQt5CheckBox: public QCheckBox
 {
 private:
-    MidWindow<MidQt5Window>* parent = nullptr;
+    MidObject* parent = nullptr;
 public:
-    MidQt5CheckBox(MidWindow<MidQt5Window>* parent = nullptr,
+    template <typename T>
+    MidQt5CheckBox(MidObject* parent = nullptr,
                  long long int midID = 0,
                  const char *title = ""):
-        QCheckBox(title, (parent != nullptr) ? parent->get() : nullptr)
+        QCheckBox(title, (parent != nullptr) ? static_cast<T*>(parent->get()) : nullptr)
     {
     }
     MidQt5CheckBox();

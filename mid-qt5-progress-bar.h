@@ -10,15 +10,13 @@
 
 class MidQt5ProgressBar: public  QProgressBar
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5ProgressBar(MidWindow<MidQt5Window>* parent = nullptr, long long int midID = 0):
-        QProgressBar ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5ProgressBar(Id id = 0,
+                      MidObject parent = nullptr):
+        QProgressBar (static_cast<QWidget*>(parent.get()))
     {
         setRange(0, 100);
     }
-
     void setMidRange(int minimum, int maximum)
     {
         this->setRange(minimum, maximum);
@@ -47,11 +45,6 @@ public:
     {
         setFont(font);
     }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
-    }
-
     int getMidMinValue()
     {
         return this->minimum();

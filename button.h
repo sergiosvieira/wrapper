@@ -11,13 +11,11 @@ using std::cout;
 
 class Button: public MidButton<MidQt5Button>
 {
-    MidObject* parent = nullptr;
 public:
-    Button(MidObject *parent = nullptr,
-           long long int midID = 0,
-           const char *title = ""):
-        MidButton<MidQt5Button>(parent, midID, title),
-        parent(parent) {}
+    Button(Id id = 0,
+           const std::string &title = "",
+           MidObject parent = nullptr):
+        MidButton<MidQt5Button>(id, title, parent){}
 };
 
 #endif // BUTTON_H
