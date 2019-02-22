@@ -11,6 +11,7 @@
 #include "radio-button-wx.h"
 #include "checkboxwx.h"
 #include "spin-box-wx.h"
+#include "group-box-wx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -70,6 +71,20 @@ WindowWx::WindowWx(int width,
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
 
+
+
+    //novo layout
+    GroupBoxWx *gp = new GroupBoxWx(this, id++, "Main Group Box");
+    gp->setMidLayout(*mainVertical);
+
+    MidLayout<MidWxVerticalLayout> *windowLayout = new MidLayout<MidWxVerticalLayout>();
+    windowLayout->add(gp);
+    setMidLayout(*windowLayout);
+
+
+
+
+
     MidConnect<MidWxConnect> connector(this);
     MidWxButtonHandler* wxButtonHandler = new MidWxButtonHandler([&]() {
         MidMessageDialog<MidWxMsgDialog> m(this, "SIGA", "Hello world!");
@@ -77,7 +92,7 @@ WindowWx::WindowWx(int width,
         return true;
     });
     connector.connect(button, EventTable::BUTTONCLICK, wxButtonHandler);
-    setMidLayout(*mainVertical);
+    //setMidLayout(*mainVertical);
 }
 
 
