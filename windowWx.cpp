@@ -17,6 +17,7 @@
 #include "lineWx.h"
 #include "dateWx.h"
 #include "panelWx.h"
+#include "tabWx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -68,6 +69,12 @@ WindowWx::WindowWx(int width,
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
     TextEditWx *textEdit = new TextEditWx(this, id++, msg.c_str());
 
+    /*TabWx *tabContainer = new TabWx(this, id++);
+    PanelWx *panelTab1 = new PanelWx(this, 100, 100); //Deve ter tabContainer como pai
+    PanelWx *panelTab2 = new PanelWx(this, 100, 100); //Deve ter tabContainer como pai
+    tabContainer->addMidTab(panelTab1, "Aba 1");
+    tabContainer->addMidTab(panelTab2, "Aba 1");*/
+
     h1->add(button);
     h1->add(vertLine);
     h1->add(progressBar);
@@ -83,6 +90,7 @@ WindowWx::WindowWx(int width,
     h2->add(spinBox);
     h2->add(textEdit);
     h2->add(de);
+    //h2->add(tabContainer);
 
     //Está funcionando, mas vou comentar
     /*PanelWx *panel = new PanelWx(this, 100, 100);

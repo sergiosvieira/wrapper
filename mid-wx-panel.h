@@ -11,19 +11,19 @@
 
 using std::cout;
 
-class MidWxPanel: public wxWindow
+class MidWxPanel : public wxPanel
 {
     MidWindow<MidWxWindow>* parent = nullptr;
+
+    //wxWindow *parentTest = nullptr;
 public:
     explicit MidWxPanel(
         MidWindow<MidWxWindow>* parent = nullptr,
         int width = 600,
         int height = 800):
-        wxWindow(parent->get(), wxID_ANY, wxDefaultPosition,
-            wxSize(width, height))
+        wxPanel((parent->get()), wxID_ANY, wxDefaultPosition,
+            wxSize(width, height)), parent(parent)
     {
-        //this->SetParent(parent);
-        //this->resize(width, height);
     }
 
     void show() {}
@@ -31,7 +31,6 @@ public:
 
     void setMidLayout(wxSizer* layout)
     {
-        //setLayout(layout);
         SetSizer(layout);
     }
 };

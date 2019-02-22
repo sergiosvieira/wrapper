@@ -20,6 +20,7 @@ public:
     {
     }
 
+    
     void addMidTab(MidObject *object, const char *tabTitle = "")
     {
         T *obj = this->ref<T>();
