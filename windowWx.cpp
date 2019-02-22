@@ -12,6 +12,7 @@
 #include "checkboxwx.h"
 #include "spin-box-wx.h"
 #include "group-box-wx.h"
+#include "lineWx.h"
 
 #include "mid-msg-dialog.h"
 #include "mid-wx-msg-dialog.h"
@@ -34,6 +35,9 @@ WindowWx::WindowWx(int width,
 
     ButtonWx *button = new ButtonWx(this, id++, "Hello World Button 1");
 
+    LineWx *vertLine = new LineWx(this, id++, MidLineType::VERTICAL);
+    LineWx *horLine = new LineWx(this, id++, MidLineType::HORIZONAL);
+
     ProgressbarWx *progressBar = new ProgressbarWx(this, id++, 0, 100, wxString::FromUTF8("Título do Janela"), "Carregando algo:");
     progressBar->setMidValue(30);
     progressBar->setMidValue(77, "Hello world with 77 %");
@@ -54,11 +58,13 @@ WindowWx::WindowWx(int width,
     SpinBoxWx *spinBox = new SpinBoxWx(this, id++, 50, 77);
 
     h1->add(button);
+    h1->add(vertLine);
     h1->add(progressBar);
     h1->add(gauge);
 
     MidLayout<MidWxVerticalLayout> *h2 = new MidLayout<MidWxVerticalLayout>();
     h2->add(label);
+    h2->add(horLine);
     h2->add(tf);
     h2->add(cb);
     h2->add(rb);
