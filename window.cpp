@@ -32,6 +32,13 @@ Window::Window(int width,
     this->radioButton1 = new RadioButton{1, "Radio Button 1", nullptr};
     vLayout->add(*button1);
     vLayout->add(*radioButton1);
+    this->textField1 = new TextField(2, "Text field text", nullptr);
+    vLayout->add(*textField1);
+    this->progressBar1 = new Progressbar(3, nullptr);
+    int min = progressBar1->getMinValue();
+    int max = progressBar1->getMaxValue();
+    progressBar1->setMidValue(30);
+    vLayout->add(*progressBar1);
     this->setMidLayout(*vLayout);
 }
 
@@ -39,6 +46,7 @@ Window::~Window()
 {
     if (this->button1) delete button1;
     if (this->radioButton1) delete radioButton1;
+    if (this->textField1) delete textField1;
 }
 
 

@@ -7,11 +7,15 @@
 
 class Button;
 class RadioButton;
+class TextField;
+class Progressbar;
 
 class Window: public MidWindow<MidQt5Window>
 {
     Button *button1 = nullptr;
     RadioButton *radioButton1 = nullptr;
+    TextField *textField1 = nullptr;
+    Progressbar *progressBar1 = nullptr;
 public:
     Window(int width,
            int height,
