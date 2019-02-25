@@ -9,6 +9,8 @@ class Button;
 class RadioButton;
 class TextField;
 class Progressbar;
+class TextLabel;
+class ComboBox;
 
 class Window: public MidWindow<MidQt5Window>
 {
@@ -16,6 +18,8 @@ class Window: public MidWindow<MidQt5Window>
     RadioButton *radioButton1 = nullptr;
     TextField *textField1 = nullptr;
     Progressbar *progressBar1 = nullptr;
+    TextLabel* textLabel1 = nullptr;
+    ComboBox *cb1 = nullptr;
 public:
     Window(int width,
            int height,

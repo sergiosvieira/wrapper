@@ -39,6 +39,13 @@ Window::Window(int width,
     int max = progressBar1->getMaxValue();
     progressBar1->setMidValue(30);
     vLayout->add(*progressBar1);
+    this->textLabel1 = new TextLabel(4, "TL 5", nullptr);
+    vLayout->add(*textLabel1);
+    this->cb1 = new ComboBox(5, nullptr);
+    cb1->addMidItem("Item 01");
+    cb1->addMidItem("Item 02");
+    cb1->addMidItem("Item 03");
+    vLayout->add(*cb1);
     this->setMidLayout(*vLayout);
 }
 
@@ -47,6 +54,9 @@ Window::~Window()
     if (this->button1) delete button1;
     if (this->radioButton1) delete radioButton1;
     if (this->textField1) delete textField1;
+    if (this->progressBar1) delete progressBar1;
+    if (this->textLabel1) delete textLabel1;
+    if (this->cb1) delete cb1;
 }
 
 
