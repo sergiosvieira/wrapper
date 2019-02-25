@@ -46,6 +46,11 @@ Window::Window(int width,
     cb1->addMidItem("Item 02");
     cb1->addMidItem("Item 03");
     vLayout->add(*cb1);
+    this->sp1 = new SpinBox(6, 10, 77, nullptr);
+    vLayout->add(*sp1);
+    Date date(19, 2, 2019);
+    this->dateEdit1 = new DateEdit(7, date, nullptr);
+    vLayout->add(*dateEdit1);
     this->setMidLayout(*vLayout);
 }
 
@@ -57,6 +62,7 @@ Window::~Window()
     if (this->progressBar1) delete progressBar1;
     if (this->textLabel1) delete textLabel1;
     if (this->cb1) delete cb1;
+    if (this->sp1) delete sp1;
 }
 
 

@@ -11,6 +11,8 @@ class TextField;
 class Progressbar;
 class TextLabel;
 class ComboBox;
+class SpinBox;
+class DateEdit;
 
 class Window: public MidWindow<MidQt5Window>
 {
@@ -20,6 +22,8 @@ class Window: public MidWindow<MidQt5Window>
     Progressbar *progressBar1 = nullptr;
     TextLabel* textLabel1 = nullptr;
     ComboBox *cb1 = nullptr;
+    SpinBox* sp1 = nullptr;
+    DateEdit * dateEdit1 = nullptr;
 public:
     Window(int width,
            int height,
