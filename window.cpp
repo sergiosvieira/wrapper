@@ -29,13 +29,16 @@ Window::Window(int width,
 {
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1 = new Button{0, "Botão 01", nullptr};
+    this->radioButton1 = new RadioButton{1, "Radio Button 1", nullptr};
     vLayout->add(*button1);
+    vLayout->add(*radioButton1);
     this->setMidLayout(*vLayout);
 }
 
 Window::~Window()
 {
     if (this->button1) delete button1;
+    if (this->radioButton1) delete radioButton1;
 }
 
 
