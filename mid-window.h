@@ -17,14 +17,6 @@ public:
               int height,
               const char* title):
         MidObject(new T{ width, height, title }){}
-    int getWidth() const
-    {
-        return this->get().getWidth();
-    }
-    int getHeight() const
-    {
-        return this->get().getHeight();
-    }
     void addChild(MidObject child)
     {
         this->get()->addChild(child);
@@ -34,7 +26,6 @@ public:
         T *obj = static_cast<T*>(this->get());
         obj->show();
     }
-
     template <class L>
     void setMidLayout(MidLayout<L> layout)
     {

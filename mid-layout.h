@@ -14,30 +14,16 @@ using std::cout;
 template <class T>
 class MidLayout: public MidObject
 {
-private:
-    T* ptr = nullptr;
-
-    vector<shared_ptr<MidObject>> child;
 public:
     MidLayout():
-        MidObject(ptr = new T{ })
+        MidObject(new T{ }){}
+    void add(MidObject child)
     {
+        this->get()->add(child);
     }
-    void add(MidObject *child)
+    void addMidLayout(MidObject child)
     {
-        if (child != nullptr)
-        {
-            this->child.push_back(child);
-            this->get()->add(child);
-        }
-    }
-    void addMidLayout(MidObject *child)
-    {
-        if (child != nullptr)
-        {
-            this->child.push_back(child);
-            this->get()->addMidLayout(child);
-        }
+        this->get()->addMidLayout(child);
     }
     virtual ~MidLayout()
     {

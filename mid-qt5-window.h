@@ -22,14 +22,6 @@ public:
     void show();
     ~MidQt5Window();
 public slots:
-
-    void processButtonClick()
-    {
-        cout << "processButtonClick() of MidQt5Window\n";
-        cout << "=========================================\n\n";
-        cout.flush();
-    }
-
     void setMidLayout(QLayout* layout)
     {
         setLayout(layout);
