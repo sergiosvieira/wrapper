@@ -19,7 +19,8 @@ public:
         MidObject(new T{ }){}
     void add(MidObject child)
     {
-        this->get()->add(child);
+        T *obj = static_cast<T*>(this->get());
+        obj->add(child);
     }
     void addMidLayout(MidObject child)
     {

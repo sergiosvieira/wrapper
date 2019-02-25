@@ -23,9 +23,19 @@
 
 Window::Window(int width,
            	   int height,
-           	   const char *title):
-	MidWindow<MidQt5Window>(width, height, title)
+               const std::string &title,
+               MidObject parent):
+    MidWindow<MidQt5Window>(width, height, title, parent)
 {
+    MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
+    this->button1 = new Button{0, "Botão 01", nullptr};
+    vLayout->add(*button1);
+    this->setMidLayout(*vLayout);
+}
+
+Window::~Window()
+{
+    if (this->button1) delete button1;
 }
 
 

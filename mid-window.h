@@ -15,22 +15,23 @@ class MidWindow: public MidObject
 public:
     MidWindow(int width,
               int height,
-              const char* title):
-        MidObject(new T{ width, height, title }){}
+              const std::string &title,
+              MidObject parent):
+        MidObject(new T{ width, height, title, parent }){}
     void addChild(MidObject child)
     {
-        this->get()->addChild(child);
+        T *obj = static_cast<T*>(this->get());
+        obj->show();
     }
     void show()
     {
         T *obj = static_cast<T*>(this->get());
         obj->show();
     }
-    template <class L>
-    void setMidLayout(MidLayout<L> layout)
+    void setMidLayout(MidObject layout)
     {
         T *obj = static_cast<T*>(this->get());
-        obj->setMidLayout(layout.get());
+        obj->setMidLayout(layout);
     }
 };
 

@@ -7,7 +7,6 @@
 template <class T>
 class MidButton : public MidObject
 {
-    MidObject parent = nullptr;
 public:
     MidButton(Id id = 0,
               const std::string &title = "",
