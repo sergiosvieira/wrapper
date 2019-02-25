@@ -5,35 +5,18 @@
 #include <iostream>
 #include <type_traits>
 #include "mid-object.h"
-
 #include "mid-layout.h"
 
-using std::vector;
 using std::shared_ptr;
-using std::make_shared;
-using std::cout;
-using std::is_reference;
 
 template <class T>
 class MidWindow: public MidObject
 {
-    T* ptr = nullptr;
-
-    vector<MidObject> child;
 public:
     MidWindow(int width,
               int height,
               const char* title):
-        MidObject(ptr = new T{ width, height, title })
-    {
-    }
-
-    void processButtonClick()
-    {
-        this->get()->processButtonClick();
-    }
-
-    MidWindow(const T& t): MidObject(t){}
+        MidObject(new T{ width, height, title }){}
     int getWidth() const
     {
         return this->get().getWidth();
@@ -42,18 +25,9 @@ public:
     {
         return this->get().getHeight();
     }
-    void addChild(MidObject *child)
+    void addChild(MidObject child)
     {
-        if (child != nullptr)
-        {
-            this->child.push_back(child);
-            // To Do: Layout
-            this->get()->addChild(child);
-        }
-    }
-    virtual ~MidWindow()
-    {
-        //delete ptr;
+        this->get()->addChild(child);
     }
     void show()
     {
@@ -66,7 +40,6 @@ public:
     {
         T *obj = static_cast<T*>(this->get());
         obj->setMidLayout(layout.get());
-        //this->get()->setMidLayout(layout.get());
     }
 };
 
