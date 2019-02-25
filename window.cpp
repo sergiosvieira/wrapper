@@ -51,6 +51,12 @@ Window::Window(int width,
     Date date(19, 2, 2019);
     this->dateEdit1 = new DateEdit(7, date, nullptr);
     vLayout->add(*dateEdit1);
+    this->base1 = new MidWindow<MidQt5Window>(0,0,"base1", nullptr);
+    this->base2 = new MidWindow<MidQt5Window>(0,0,"base2", nullptr);
+    this->tab1 = new Tab(8, "tab1", nullptr);
+    tab1->addMidTab(*base1);
+    tab1->addMidTab(*base2);
+    vLayout->add(*tab1);
     this->setMidLayout(*vLayout);
 }
 
@@ -63,6 +69,8 @@ Window::~Window()
     if (this->textLabel1) delete textLabel1;
     if (this->cb1) delete cb1;
     if (this->sp1) delete sp1;
+    if (this->dateEdit1) delete dateEdit1;
+    if (this->tab1) delete tab1;
 }
 
 

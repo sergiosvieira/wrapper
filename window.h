@@ -13,6 +13,7 @@ class TextLabel;
 class ComboBox;
 class SpinBox;
 class DateEdit;
+class Tab;
 
 class Window: public MidWindow<MidQt5Window>
 {
@@ -24,6 +25,9 @@ class Window: public MidWindow<MidQt5Window>
     ComboBox *cb1 = nullptr;
     SpinBox* sp1 = nullptr;
     DateEdit * dateEdit1 = nullptr;
+    Tab * tab1 = nullptr;
+    MidWindow<MidQt5Window> *base1 = nullptr;
+    MidWindow<MidQt5Window> *base2 = nullptr;
 public:
     Window(int width,
            int height,
