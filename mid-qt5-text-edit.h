@@ -8,34 +8,26 @@
 
 class MidQt5TextEdit: public QPlainTextEdit
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5TextEdit(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *title = ""):
-        QPlainTextEdit (title, (parent != nullptr) ? parent->get() : nullptr)
-    {
-    }
-    MidQt5TextEdit(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0):
-        QPlainTextEdit ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5TextEdit
+    (
+        Id midID = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        QPlainTextEdit (title.c_str(), static_cast<QWidget*>(parent.get()))
     {
     }
 
-    const char * getText()
+    std::string getText()
     {
         QString text = this->toPlainText();
-        return text.toStdString().c_str();
+        return text.toStdString();
     }
 
-    void setMidText(const char *caption)
+    void setMidText(const std::string &caption)
     {
-        setPlainText(QString(caption));
-    }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
+        setPlainText(QString(caption.c_str()));
     }
 };
 
