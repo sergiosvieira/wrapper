@@ -17,6 +17,7 @@ class Tab;
 class GroupBox;
 class CheckBox;
 class TextEdit;
+class TabPage;
 
 class Window: public MidWindow<MidQt5Window>
 {
@@ -31,8 +32,8 @@ class Window: public MidWindow<MidQt5Window>
     SpinBox* sp1 = nullptr;
     DateEdit * dateEdit1 = nullptr;
     Tab * tab1 = nullptr;
-    MidWindow<MidQt5Window> *base1 = nullptr;
-    MidWindow<MidQt5Window> *base2 = nullptr;
+    TabPage *base1 = nullptr;
+    TabPage *base2 = nullptr;
     GroupBox *gp1 = nullptr;
     CheckBox *chBox1 = nullptr;
     TextEdit *textEdit1 = nullptr;

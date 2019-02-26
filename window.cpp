@@ -27,6 +27,7 @@
 #include "line.h"
 #include "textEdit.h"
 #include "panel.h"
+#include "tabPage.h"
 
 Window::Window(int width,
            	   int height,
@@ -74,9 +75,22 @@ Window::Window(int width,
     vLayout->add(*panel);
 
 
-    this->base1 = new MidWindow<MidQt5Window>(0,0,"base1", nullptr);
-    this->base2 = new MidWindow<MidQt5Window>(0,0,"base2", nullptr);
     this->tab1 = new Tab(8, "tab1", nullptr);
+    this->base1 = new TabPage(id++, 600, 800, "base1", nullptr);
+
+    Button *buttonTab1 = new Button{id++, "Botão tab1", nullptr};
+    MidLayout<MidQt5VerticalLayout> *vLayoutTab1 = new MidLayout<MidQt5VerticalLayout>();
+    vLayoutTab1->add(*buttonTab1);
+    this->base1->setMidLayout(*vLayoutTab1);
+
+    Button *buttonTab2 = new Button{id++, "Botão tab2", nullptr};
+    this->base2 = new TabPage(id++,600, 800, "base2", nullptr);
+    MidLayout<MidQt5VerticalLayout> *vLayoutTab2 = new MidLayout<MidQt5VerticalLayout>();
+    vLayoutTab2->add(*buttonTab2);
+    this->base2->setMidLayout(*vLayoutTab2);
+
+
+
     tab1->addMidTab(*base1, "tab1");
     tab1->addMidTab(*base2, "tab2");
     vLayout->add(*tab1);
