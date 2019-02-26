@@ -8,34 +8,18 @@
 
 class MidQt5TextField: public QLineEdit
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5TextField(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *title = ""):
-        QLineEdit (title, (parent != nullptr) ? parent->get() : nullptr)
+    MidQt5TextField(Id id = 0,
+                    const std::string &text = "",
+                    MidObject parent = nullptr):
+        QLineEdit (QString(text.c_str()), static_cast<QWidget*>(parent.get())){}
+    std::string getMidText()
     {
+        return this->text().toStdString().c_str();
     }
-    MidQt5TextField(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0):
-        QLineEdit ((parent != nullptr) ? parent->get() : nullptr)
+    void setMidText(const std::string &text)
     {
-    }
-
-    const char * getText()
-    {
-        QString text = this->text();
-        return text.toStdString().c_str();
-    }
-
-    void setMidText(const char *caption)
-    {
-        setText(QString(caption));
-    }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
+        setText(QString(text.c_str()));
     }
 };
 

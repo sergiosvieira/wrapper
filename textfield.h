@@ -11,13 +11,12 @@ using std::cout;
 
 class TextField: public MidTextField<MidQt5TextField>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
+    MidObject parent = nullptr;
 public:
-    TextField(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidTextField<MidQt5TextField>(parent, midID, title),
-        parent(parent) {}
+    TextField(Id id = 0,
+              const std::string &text = "",
+              MidObject parent = nullptr):
+        MidTextField<MidQt5TextField>(id, text, parent){}
 };
 
 #endif // TEXTFIELD_H

@@ -15,12 +15,13 @@ class MidQt5Panel: public QWidget
 {
     Q_OBJECT
 public:
-    explicit MidQt5Panel(MidWindow<MidQt5Window>* parent = nullptr,
-                         int width = 600,
-                          int height = 800
-                          )
+    explicit MidQt5Panel
+    (
+            MidObject parent = nullptr,
+            int width = 600,
+            int height = 800
+    ) : QWidget(static_cast<QWidget*>(parent.get()))
     {
-        this->setParent((parent != nullptr) ? parent->get() : nullptr);
         this->resize(width, height);
     }
 

@@ -6,6 +6,7 @@
 #include <iostream>
 #include <memory>
 #include "mainwindow.h"
+#include "mid-object.h"
 
 using std::cout;
 
@@ -17,22 +18,12 @@ class MidQt5Window: public QWidget
 public:
     explicit MidQt5Window(int width,
                           int height,
-                          const char * title,
-                          QWidget *parent = 0);
+                          const std::string &title,
+                          MidObject parent);
     void show();
-    ~MidQt5Window();
-public slots:
-
-    void processButtonClick()
+    void setMidLayout(MidObject layout)
     {
-        cout << "processButtonClick() of MidQt5Window\n";
-        cout << "=========================================\n\n";
-        cout.flush();
-    }
-
-    void setMidLayout(QLayout* layout)
-    {
-        setLayout(layout);
+        setLayout(static_cast<QLayout*>(layout.get()));
     }
 };
 

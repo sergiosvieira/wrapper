@@ -6,12 +6,11 @@
 
 class GroupBox: public MidGroupBox<MidQt5GroupBox>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    GroupBox(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidGroupBox<MidQt5GroupBox>(parent, midID, title), parent(parent) {}
+    GroupBox(Id id = 0,
+             const std::string &title = "",
+             MidObject parent = nullptr):
+        MidGroupBox<MidQt5GroupBox>(id, title, parent){}
 };
 
 #endif // __GROUP_BOX__

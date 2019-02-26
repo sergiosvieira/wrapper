@@ -35,3 +35,12 @@
 debug/*
 release/*
 qt5/*/*
+
+.qmake.stash
+Makefile
+Makefile.Debug
+Makefile.Release
+main.pro.user
+main.pro.user.211efd7
+object_script.main.Debug
+object_script.main.Release

@@ -9,18 +9,12 @@
 
 class MidQt5DateEdit: public QDateEdit
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5DateEdit(MidWindow<MidQt5Window>* parent = nullptr,
-                   long long int midID = 0,
-                   MidDate<MidQt5Date> date = {}):
-        QDateEdit (*date.ref<QDate>(),
-                   (parent != nullptr) ? parent->get() : nullptr){}
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
-    }
+    MidQt5DateEdit(Id id = 0,
+                   MidObject date = nullptr,
+                   MidObject parent = nullptr):
+        QDateEdit (*static_cast<QDate*>(date.get()),
+                   static_cast<QWidget*>(parent.get())){}
 };
 
 

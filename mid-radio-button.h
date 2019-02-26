@@ -7,15 +7,11 @@
 template <class T>
 class MidRadioButton : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidRadioButton(MidWindow<U>* parent = nullptr,
-                   long long int midID = 0,
-                   const char *title = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, title})){}
+    MidRadioButton(Id id = 0,
+                   const std::string &title = "",
+                   MidObject parent = nullptr):
+        MidObject(new T{id, title, parent}){}
 };
 
 #endif // __MID_RADIO_BUTTON__

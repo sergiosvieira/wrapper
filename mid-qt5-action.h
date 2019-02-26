@@ -8,13 +8,11 @@
 
 class MidQt5Action: public QAction
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Action(MidWindow<MidQt5Window>* parent = nullptr,
+    MidQt5Action(MidObject parent = nullptr,
                  long long int midID = 0,
                  const char *title = ""):
-        QAction (title, (parent != nullptr) ? parent->get() : nullptr)
+        QAction (title, static_cast<QWidget*>(parent.get()))
     {
     }
 
@@ -26,10 +24,6 @@ public:
     void setActionText(const char *caption)
     {
         setText(QString(caption));
-    }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
     }
 };
 

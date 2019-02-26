@@ -7,17 +7,14 @@
 
 #include "window.h"
 
-using std::cout;
-
 class SpinBox: public MidSpinBox<MidQt5SpinBox>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    SpinBox(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
+    SpinBox(Id id = 0,
             int minValue = 0,
-             int maxValue = 100):
-        MidSpinBox<MidQt5SpinBox>(parent, midID, minValue, maxValue), parent(parent) {}
+            int maxValue = 100,
+            MidObject parent = nullptr):
+        MidSpinBox<MidQt5SpinBox>(id, minValue, maxValue, parent){}
 };
 
 #endif // SPINBOX_H
