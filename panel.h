@@ -9,12 +9,14 @@
 
 class Panel: public MidPanel<MidQt5Panel>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Panel(MidWindow<MidQt5Window>* parent = nullptr,
-          int width = 600,
-          int height = 800):
-            MidPanel<MidQt5Panel>(parent, width, height)
+    Panel
+    (
+        int width = 600,
+        int height = 800,
+        MidObject parent = nullptr
+    ):
+            MidPanel<MidQt5Panel>(width, height, parent)
         {}
 };
 

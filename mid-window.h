@@ -18,11 +18,6 @@ public:
               const std::string &title,
               MidObject parent):
         MidObject(new T{ width, height, title, parent }){}
-    void addChild(MidObject child)
-    {
-        T *obj = static_cast<T*>(this->get());
-        obj->show();
-    }
     void show()
     {
         T *obj = static_cast<T*>(this->get());

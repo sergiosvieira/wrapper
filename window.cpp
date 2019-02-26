@@ -26,6 +26,7 @@
 #include "action.h"
 #include "line.h"
 #include "textEdit.h"
+#include "panel.h"
 
 Window::Window(int width,
            	   int height,
@@ -64,6 +65,13 @@ Window::Window(int width,
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
     this->textEdit1 = new TextEdit(id++, msg, nullptr);
     vLayout->add(*textEdit1);
+
+    Panel *panel = new Panel(100, 100, *this);
+    Button *b17 = new Button(id++, "Hello World Button 17", *panel);
+    MidLayout<MidQt5VerticalLayout> *panelLayout = new MidLayout<MidQt5VerticalLayout>();
+    panelLayout->add(*b17);
+    panel->setMidLayout(*panelLayout);
+    vLayout->add(*panel);
 
 
     this->base1 = new MidWindow<MidQt5Window>(0,0,"base1", nullptr);
