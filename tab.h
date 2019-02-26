@@ -7,11 +7,18 @@
 
 #include "window.h"
 
-using std::cout;
-
+/*!
+ * \brief The Tab class
+ */
 class Tab: public MidTab<MidQt5Tab>
 {
 public:
+    /*!
+     * \brief Tab
+     * \param id
+     * \param title
+     * \param parent
+     */
     Tab(Id id = 0,
         const std::string &title = "",
         MidObject parent = nullptr):

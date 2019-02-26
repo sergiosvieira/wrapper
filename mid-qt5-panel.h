@@ -9,12 +9,19 @@
 #include "mid-window.h"
 #include "mid-qt5-window.h"
 
-using std::cout;
-
+/*!
+ * \brief The MidQt5Panel class
+ */
 class MidQt5Panel: public QWidget
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief MidQt5Panel
+     * \param parent
+     * \param width
+     * \param height
+     */
     explicit MidQt5Panel
     (
             MidObject parent = nullptr,
@@ -25,9 +32,20 @@ public:
         this->resize(width, height);
     }
 
-    void show();
+    /*!
+     * \brief show
+     */
+    void show(){}
+
+    /*!
+    \brief ~MidQt5Panel
+    */
     ~MidQt5Panel() {}
 
+    /*!
+     * \brief setMidLayout
+     * \param layout
+     */
     void setMidLayout(QLayout* layout)
     {
         setLayout(layout);

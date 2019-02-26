@@ -7,11 +7,19 @@
 
 #include "window.h"
 
-using std::cout;
 
+/*!
+ * \brief The TextLabel class
+ */
 class TextLabel: public MidTextLabel<MidQt5TextLabel>
 {
 public:
+    /*!
+     * \brief TextLabel
+     * \param id
+     * \param title
+     * \param parent
+     */
     TextLabel(Id id = 0,
               const std::string &title = "",
               MidObject parent = nullptr):

@@ -17,6 +17,9 @@ class Tab;
 class GroupBox;
 class CheckBox;
 
+/*!
+ * \brief The Window class
+ */
 class Window: public MidWindow<MidQt5Window>
 {
     Button *button1 = nullptr;
@@ -35,6 +38,13 @@ class Window: public MidWindow<MidQt5Window>
     GroupBox *gp1 = nullptr;
     CheckBox *chBox1 = nullptr;
 public:
+    /*!
+     * \brief Window
+     * \param width
+     * \param height
+     * \param title
+     * \param object
+     */
     Window(int width,
            int height,
            const std::string &title,

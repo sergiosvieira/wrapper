@@ -4,6 +4,9 @@
 #include "mid-object.h"
 #include "mid-window.h"
 
+/*!
+ * \brief The MidTextEdit class
+ */
 template <class T>
 class MidTextEdit : public MidObject
 {
@@ -19,11 +22,19 @@ public:
     {
     }
 
+    /*!
+     * \brief getText
+     * \return
+     */
     const char * getText()
     {
         return ptr->getText();
     }
 
+    /*!
+     * \brief setMidText
+     * \param caption
+     */
     void setMidText(const char *caption)
     {
         ptr->setMidText(caption);
