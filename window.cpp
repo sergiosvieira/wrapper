@@ -73,8 +73,12 @@ Window::Window(int width,
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     this->button2 = new Button{id++, "Botão 02", nullptr};
     this->radioButton2 = new RadioButton{id++, "Radio Button 2", nullptr};
+
+    this->chBox1 = new CheckBox(id++, "Hello World CheckBox", nullptr);
+
     h1->add(*button2);
     h1->add(*radioButton2);
+    h1->add(*chBox1);
     gp1->setMidLayout(*h1);
     vLayout->add(*gp1);
 

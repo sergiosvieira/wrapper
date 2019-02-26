@@ -9,15 +9,16 @@
 
 using std::cout;
 
-class Checkbox: public MidCheckBox<MidQt5CheckBox>
+class CheckBox: public MidCheckBox<MidQt5CheckBox>
 {
-    MidObject* parent = nullptr;
 public:
-//    Checkbox(MidObject* parent = nullptr,
-//           long long int midID = 0,
-//              const char *title = ""):
-//        MidCheckBox<MidQt5CheckBox>(parent, midID, title),
-//        parent(parent) {}
+    CheckBox
+    (
+        long long int midID = 0,
+        const char *title = "",
+        MidObject parent = nullptr
+    ):
+        MidCheckBox<MidQt5CheckBox>(midID, title, parent){}
 };
 
 #endif // CHECKBOX_H
