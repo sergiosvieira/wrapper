@@ -13,11 +13,10 @@ public:
                 const std::string &title = "",
                 MidObject parent = nullptr):
         MidObject(new T{id, title, parent}){}
-    template <class L>
-    void setMidLayout(MidLayout<L> &layout)
+    void setMidLayout(MidObject layout)
     {
         T *obj = static_cast<T*>(this->get());
-        if (obj) obj->setMidLayout(layout.get());
+        if (obj) obj->setMidLayout(layout);
     }
 };
 

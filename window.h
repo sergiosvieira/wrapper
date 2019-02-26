@@ -20,6 +20,8 @@ class Window: public MidWindow<MidQt5Window>
 {
     Button *button1 = nullptr;
     RadioButton *radioButton1 = nullptr;
+    Button *button2 = nullptr;
+    RadioButton *radioButton2 = nullptr;
     TextField *textField1 = nullptr;
     Progressbar *progressBar1 = nullptr;
     TextLabel* textLabel1 = nullptr;

@@ -14,9 +14,9 @@ public:
                    MidObject parent = nullptr):
         QGroupBox (QString(title.c_str()),
                    static_cast<QWidget*>(parent.get())){}
-    void setMidLayout(QLayout* layout)
+    void setMidLayout(MidObject layout)
     {
-        this->setLayout(layout);
+        this->setLayout(static_cast<QLayout*>(layout.get()));
     }
 };
 

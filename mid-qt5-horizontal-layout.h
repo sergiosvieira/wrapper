@@ -11,14 +11,14 @@ class MidQt5HorizontalLayout: public QHBoxLayout
 public:
     MidQt5HorizontalLayout():
         QHBoxLayout(){}
-    void add(MidObject *object)
+    void add(MidObject object)
     {
-        QWidget* widget = static_cast<QWidget*>(object->get());
+        QWidget* widget = static_cast<QWidget*>(object.get());
         if (widget != nullptr) addWidget(widget);
     }
-    void addMidLayout(MidObject *object)
+    void addMidLayout(MidObject object)
     {
-        QLayout* layout = static_cast<QLayout*>(object->get());
+        QLayout* layout = static_cast<QLayout*>(object.get());
         if (layout != nullptr) addLayout(layout);
     }
     ~MidQt5HorizontalLayout() {}

@@ -65,6 +65,12 @@ Window::Window(int width,
     });
     connector->connect(button1, EventTable::BUTTONCLICK, &qt5Handler);
     this->gp1 = new GroupBox(8, "Main Group Box", nullptr);
+    MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
+    this->button2 = new Button{9, "Botão 02", nullptr};
+    this->radioButton2 = new RadioButton{10, "Radio Button 2", nullptr};
+    h1->add(*button2);
+    h1->add(*radioButton2);
+    gp1->setMidLayout(*h1);
     vLayout->add(*gp1);
     this->setMidLayout(*vLayout);
 }
@@ -81,6 +87,8 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
+    if (this->button2) delete button2;
+    if (this->radioButton2) delete radioButton2;
 
 }
 
