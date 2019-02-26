@@ -24,8 +24,9 @@ public:
     }
     ~MidQt5HorizontalLayout() {}
 
-    void setMidMenuBar(QMenuBar* menuBar)
+    void setMidMenuBar(MidObject object)
     {
+        QMenuBar* menuBar = static_cast<QMenuBar*>(object.get());
         this->setMenuBar(menuBar);
     }
 };

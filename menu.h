@@ -11,12 +11,15 @@ using std::cout;
 
 class Menu: public MidMenu<MidQt5Menu>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Menu(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidMenu<MidQt5Menu>(parent, midID, title), parent(parent) {}
+    Menu
+    (
+
+        long long int midID = 0,
+        const char *title = "",
+        MidObject parent = nullptr
+    ):
+        MidMenu<MidQt5Menu>(midID, title, parent) {}
 };
 
 #endif // __MENU__

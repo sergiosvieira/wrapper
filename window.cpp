@@ -20,6 +20,9 @@
 #include "mid-date.h"
 #include "combo-box.h"
 #include "tab.h"
+#include "menu-bar.h"
+#include "menu.h"
+#include "action.h"
 
 Window::Window(int width,
            	   int height,
@@ -27,29 +30,30 @@ Window::Window(int width,
                MidObject parent):
     MidWindow<MidQt5Window>(width, height, title, parent)
 {
+    long long id = 1;
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-    this->button1 = new Button{0, "Botão 01", nullptr};
-    this->radioButton1 = new RadioButton{1, "Radio Button 1", nullptr};
+    this->button1 = new Button{id++, "Botão 01", nullptr};
+    this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
     vLayout->add(*radioButton1);
-    this->textField1 = new TextField(2, "Text field text", nullptr);
+    this->textField1 = new TextField(id++, "Text field text", nullptr);
     vLayout->add(*textField1);
-    this->progressBar1 = new ProgressBar(3, 0, 100, "title", "msg", nullptr);
+    this->progressBar1 = new ProgressBar(id++, 0, 100, "title", "msg", nullptr);
     int min = progressBar1->getMinValue();
     int max = progressBar1->getMaxValue();
     progressBar1->setMidValue(30);
     vLayout->add(*progressBar1);
-    this->textLabel1 = new TextLabel(4, "TL 5", nullptr);
+    this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
     vLayout->add(*textLabel1);
-    this->cb1 = new ComboBox(5, nullptr);
+    this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
     cb1->addMidItem("Item 02");
     cb1->addMidItem("Item 03");
     vLayout->add(*cb1);
-    this->sp1 = new SpinBox(6, 10, 77, nullptr);
+    this->sp1 = new SpinBox(id++, 10, 77, nullptr);
     vLayout->add(*sp1);
     Date date(19, 2, 2019);
-    this->dateEdit1 = new DateEdit(7, date, nullptr);
+    this->dateEdit1 = new DateEdit(id++, date, nullptr);
     vLayout->add(*dateEdit1);
     this->base1 = new MidWindow<MidQt5Window>(0,0,"base1", nullptr);
     this->base2 = new MidWindow<MidQt5Window>(0,0,"base2", nullptr);
@@ -64,14 +68,23 @@ Window::Window(int width,
         return true;
     });
     connector->connect(button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
-    this->gp1 = new GroupBox(8, "Main Group Box", nullptr);
+    this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
-    this->button2 = new Button{9, "Botão 02", nullptr};
-    this->radioButton2 = new RadioButton{10, "Radio Button 2", nullptr};
+    this->button2 = new Button{id++, "Botão 02", nullptr};
+    this->radioButton2 = new RadioButton{id++, "Radio Button 2", nullptr};
     h1->add(*button2);
     h1->add(*radioButton2);
     gp1->setMidLayout(*h1);
     vLayout->add(*gp1);
+
+    MenuBar* menuBar = new MenuBar(id++, nullptr);
+    Menu* menuFile = new Menu(id++, "File", nullptr);
+    Action* saveAction = new Action(id++, "Save", nullptr);
+    Action* exitAction = new Action(id++, "Exit", nullptr);
+    menuFile->addMidAction(*saveAction);
+    menuFile->addMidAction(*exitAction);
+    menuBar->addMidMenu(*menuFile);
+    vLayout->setMidMenuBar(*menuBar);
     this->setMidLayout(*vLayout);
 }
 

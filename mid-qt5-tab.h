@@ -18,7 +18,7 @@ public:
     void addMidTab(MidObject object, const char *tabTitle)
     {
         QWidget* widget = static_cast<QWidget*>(object.get());
-        addTab(widget, "tabTitle");
+        addTab(widget, tabTitle);
     }
 };
 

@@ -8,8 +8,6 @@
 template <class T>
 class MidTab : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
     MidTab(Id id = 0,
            const std::string &title = "",

@@ -27,11 +27,10 @@ public:
         this->get()->addMidLayout(child);
     }
 
-    template <class U>
-    void setMidMenuBar(U *menuBar)
+    void setMidMenuBar(MidObject menuBar)
     {
         T *obj = static_cast<T*>(this->get());
-        if (obj) obj->setMidMenuBar(menuBar->get());
+        if (obj) obj->setMidMenuBar(menuBar);
     }
 
     virtual ~MidLayout()

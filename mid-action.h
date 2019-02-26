@@ -7,21 +7,15 @@
 template <class T>
 class MidAction : public MidObject
 {
-        MidObject *parent = nullptr;
-        T *ptr = nullptr;
 public:
-    template <class U>
-    MidAction(MidWindow<U>* parent = nullptr,
+    MidAction
+    (
         long long int midID = 0,
-                  const char *title = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, title}))
+        const char *title = "",
+        MidObject parent = nullptr
+    ):
+        MidObject(new T{midID, title, parent})
     {
-    }
-
-    T* get()
-    {
-        return this->ref<T>();
     }
 };
 

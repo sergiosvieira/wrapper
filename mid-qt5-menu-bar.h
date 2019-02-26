@@ -9,21 +9,19 @@
 class MidQt5MenuBar: public QMenuBar
 {
 private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5MenuBar(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0):
-        QMenuBar ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5MenuBar
+    (
+        Id midID = 0,
+        MidObject parent = nullptr
+    ):
+        QMenuBar (static_cast<QWidget*>(parent.get()))
     {
     }
 
-    void setParent(MidWindow<MidQt5Window>* parent)
+    void addMidMenu(MidObject object)
     {
-        this->parent = parent;
-    }
-
-    void addMidMenu(QMenu* menu)
-    {
+        QMenu *menu = static_cast<QMenu*>(object.get());
         this->addMenu(menu);
     }
 };

@@ -24,9 +24,10 @@ public:
     }
     ~MidQt5VerticalLayout() {}
 
-    void setMidMenuBar(QMenuBar * menubar)
+    void setMidMenuBar(MidObject object)
     {
-        this->setMenuBar(menubar);
+        QMenuBar* menuBar = static_cast<QMenuBar*>(object.get());
+        this->setMenuBar(menuBar);
     }
 };
 

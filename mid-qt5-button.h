@@ -9,7 +9,6 @@
 
 class MidQt5Button: public QPushButton
 {
-    MidObject parent = nullptr;
 public:
     MidQt5Button(Id id = 0,
                  const std::string &title = "",
