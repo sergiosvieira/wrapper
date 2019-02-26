@@ -64,6 +64,8 @@ Window::Window(int width,
         return true;
     });
     connector->connect(button1, EventTable::BUTTONCLICK, &qt5Handler);
+    this->gp1 = new GroupBox(8, "Main Group Box", nullptr);
+    vLayout->add(*gp1);
     this->setMidLayout(*vLayout);
 }
 
@@ -78,6 +80,8 @@ Window::~Window()
     if (this->sp1) delete sp1;
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
+    if (this->gp1) delete gp1;
+
 }
 
 

@@ -14,6 +14,7 @@ class ComboBox;
 class SpinBox;
 class DateEdit;
 class Tab;
+class GroupBox;
 
 class Window: public MidWindow<MidQt5Window>
 {
@@ -28,6 +29,7 @@ class Window: public MidWindow<MidQt5Window>
     Tab * tab1 = nullptr;
     MidWindow<MidQt5Window> *base1 = nullptr;
     MidWindow<MidQt5Window> *base2 = nullptr;
+    GroupBox *gp1 = nullptr;
 public:
     Window(int width,
            int height,
