@@ -44,7 +44,7 @@ Window::Window(int width,
     int min = progressBar1->getMinValue();
     int max = progressBar1->getMaxValue();
     progressBar1->setMidValue(30);
-    vLayout->add(*progressBar1);
+    //vLayout->add(*progressBar1);
     this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
     vLayout->add(*textLabel1);
     this->cb1 = new ComboBox(id++, nullptr);
