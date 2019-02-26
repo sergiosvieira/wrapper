@@ -10,18 +10,19 @@
 
 #include <iostream>
 
+/*!
+ * MidConnect Template
+ */
 template <class T>
 class MidConnect: public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidConnect(MidWindow<U>* parent = nullptr) :
-        parent(parent),
-        ptr(new T{ parent }),
-        MidObject(ptr) {}
-
+    /*!
+     * \brief MidConnect
+     * \param parent
+     */
+    MidConnect(MidObject parent = nullptr) :
+        MidObject(new T{ parent }) {}
     /*!
      * \brief connect
      * \param source: source of the event
@@ -29,16 +30,15 @@ public:
      *
      * \return
      */
-    bool connect(MidObject* source,
+    bool connect(MidObject source,
                  EventTable eventTable,
                  MidButtonHandler* eventhandler)
     {
-        if (ptr == nullptr) throw std::exception();
-        ptr->connect(source, eventTable, eventhandler);
+        T *obj = static_cast<T*>(source);
+        if (obj) return obj->connect(source, eventTable, eventhandler);
         return true;
-    }
-
-    bool connect(MidObject* source,
+    }    
+    bool connect(MidObject source,
                  EventTable eventTable,
                  MidActionHandler* eventhandler)
     {

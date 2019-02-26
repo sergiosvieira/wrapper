@@ -5,18 +5,22 @@
 #include "mid-line.h"
 #include "mid-qt5-line.h"
 
-#include "window.h"
-
-using std::cout;
-
+/*!
+ * \brief The Line class
+ */
 class Line: public MidLine<MidQt5Line>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Line(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              MidLineType lineType = MidLineType::VERTICAL):
-        MidLine<MidQt5Line>(parent, midID, lineType), parent(parent) {}
+    /*!
+     * \brief Line
+     * \param parent
+     * \param midID
+     * \param lineType
+     */
+    Line(Id id = 0,
+         MidLineType lineType = MidLineType::VERTICAL,
+         MidObject parent = nullptr):
+        MidLine<MidQt5Line>(id, lineType, parent){}
 };
 
 #endif // __LINE_H__

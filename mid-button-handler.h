@@ -3,12 +3,28 @@
 
 #include <functional>
 
+/*!
+ * \brief The MidButtonHandler class
+ */
 class MidButtonHandler
 {
 public:
+    /*!
+     * ButtonLambda
+     */
     using ButtonLambda = std::function<bool()>;
+    /*!
+     * \brief MidButtonHandler
+     * \param y
+     */
     MidButtonHandler(ButtonLambda y): lambda(y){}
-    ~MidButtonHandler() {}
+    /*!
+     * \brief ~MidButtonHandler
+     */
+    virtual ~MidButtonHandler() {}
+    /*!
+     * \brief lambda
+     */
     ButtonLambda lambda;
 };
 

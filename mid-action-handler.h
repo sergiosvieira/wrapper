@@ -3,12 +3,28 @@
 
 #include <functional>
 
+/*!
+ * \brief The MidActionHandler class
+ */
 class MidActionHandler
 {
 public:
+    /*!
+     * ActionLambda
+     */
     using ActionLambda = std::function<bool()>;
+    /*!
+     * \brief MidActionHandler
+     * \param y
+     */
     MidActionHandler(ActionLambda y): lambda(y){}
-    ~MidActionHandler() {}
+    /*!
+     * \brief ~MidActionHandler
+     */
+    virtual ~MidActionHandler() {}
+    /*!
+     * \brief lambda
+     */
     ActionLambda lambda;
 };
 

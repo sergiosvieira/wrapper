@@ -4,68 +4,99 @@
 #include "mid-object.h"
 #include "mid-window.h"
 
+/*!
+ *  MidGauge class
+ */
 template <class T>
 class MidGauge : public MidObject
 {
-	MidObject *parent = nullptr;
-	T *ptr = nullptr;
 public:
-    template <class U>
-    MidGauge(MidWindow<U>* parent = nullptr,
-        long long int midID = 0, int min = 0, int max = 100):
-    	parent(parent),
-        MidObject((ptr = new T{parent, midID, min, max}))
-    {
-    }
-
+    /*!
+     * \brief MidGauge
+     * \param id
+     * \param min
+     * \param max
+     * \param parent
+     */
+    MidGauge(Id id = 0,
+             int min = 0,
+             int max = 100,
+             MidObject parent = nullptr):
+        MidObject(new T{id, min, max, parent}){}
+    /*!
+     * \brief setMidRange
+     * \param minimum
+     * \param maximum
+     */
     void setMidRange(int minimum, int maximum)
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidRange(minimum, maximum);
     }
-
+    /*!
+     * \brief setMidValue
+     * \param value
+     * \param msg
+     */
     void setMidValue(int value, const char *msg = "")
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidValue(value, msg);
     }
-
+    /*!
+     * \brief setMidEnable
+     * \param enable
+     */
     void setMidEnable(bool enable)
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidEnable(enable);
     }
-
+    /*!
+     * \brief setMidMaximum
+     * \param maxValue
+     */
     void setMidMaximum(int maxValue)
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidMaximum(maxValue);
     }
-
+    /*!
+     * \brief setMidMinimum
+     * \param maxValue
+     */
     void setMidMinimum(int maxValue)
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidMinimum(maxValue);
     }
-
+    /*!
+     * \brief getMinValue
+     * \return
+     */
     int getMinValue()
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) return obj->getMidMinValue();
-
         return -1;
     }
+    /*!
+     * \brief getMaxValue
+     * \return
+     */
     int getMaxValue()
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj)
         return obj->getMidMaxValue();
         return -1;
     }
-
+    /*!
+     * \brief closeMidGauge
+     */
     void closeMidGauge()
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->closeMidGauge();
     }
 };

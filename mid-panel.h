@@ -5,76 +5,72 @@
 #include <iostream>
 #include <type_traits>
 #include "mid-object.h"
-
 #include "mid-layout.h"
 #include "mid-window.h"
 
-using std::vector;
-using std::shared_ptr;
-using std::make_shared;
-using std::cout;
-using std::is_reference;
 
+/*!
+ * \brief The MidPanel class
+ */
 template <class T>
 class MidPanel: public MidObject
 {
-    MidObject *parent = nullptr;
-    T* ptr = nullptr;
-
-    vector<shared_ptr<MidObject>> child;
 public:
-
-    template <class U>
+    /*!
+     * \brief MidPanel
+     * \param width
+     * \param height
+     * \param parent
+     */
     MidPanel(
-        MidWindow<U>* parent = nullptr,
         int width = 600,
-        int height = 800
+        int height = 800,
+        MidObject parent = nullptr
     ):
-        MidObject(ptr = new T{parent, width, height}),
-        parent(parent)
+        MidObject(new T{width, height, parent}){}
+    /*!
+     * \brief getWidth
+     * \return
+     */
+    int getMidWidth() const
     {
+        T *obj = static_cast<T*>(this->get());
+        return obj->getMidWidth();
     }
-
-    void processButtonClick()
+    /*!
+     * \brief getHeight
+     * \return
+     */
+    int getMidHeight() const
     {
-        this->get()->processButtonClick();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getMidHeight();
     }
-
-    MidPanel(const T& t): MidObject(t){}
-    int getWidth() const
+    /*!
+     * \brief addChild
+     * \param child
+     */
+    void addMidChild(MidObject child)
     {
-        return this->get().getWidth();
+        T *obj = static_cast<T*>(this->get());
+        return obj->addMidChild(child);
     }
-    int getHeight() const
+    /*!
+     * \brief show
+     */
+    void midShow()
     {
-        return this->get().getHeight();
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->midShow();
     }
-    void addChild(MidObject *child)
+    /*!
+     * \brief setMidLayout
+     * \param layout
+     */
+    void setMidLayout(MidObject layout)
     {
-        if (child != nullptr)
-        {
-            this->child.push_back(make_shared<MidObject>(child));
-            // To Do: Layout
-            this->get()->addChild(child);
-        }
-    }
-    virtual ~MidPanel()
-    {
-        //delete ptr;
-    }
-    T* get()
-    {
-        return this->ref<T>();
-    }
-    void show()
-    {
-        this->get()->show();
-    }
-
-    template <class L>
-    void setMidLayout(MidLayout<L> layout)
-    {
-        this->get()->setMidLayout(layout.get());
+        T *obj = static_cast<T*>(this->get());
+        return obj->setMidLayout(layout);
     }
 };
 

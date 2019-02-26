@@ -8,11 +8,20 @@
 #include "mid-date-edit.h"
 #include "mid-date.h"
 
+/*!
+ * \brief The DateEdit class
+ */
 class DateEdit: public MidDateEdit<MidQt5DateEdit>
 {
 public:
+    /*!
+      * \brief DateEdit
+      * \param id
+      * \param date
+      * \param parent
+      */
     DateEdit(Id id = 0,
-             MidDate<MidQt5Date> date = {},
+             MidObject date = nullptr,
              MidObject parent = nullptr):
         MidDateEdit<MidQt5DateEdit>(id, date, parent){}
 };

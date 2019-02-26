@@ -4,10 +4,19 @@
 #include "mid-object.h"
 #include "mid-window.h"
 
+/*!
+ * MidAction Template
+ */
 template <class T>
 class MidAction : public MidObject
 {
 public:
+    /*!
+     * \brief MidAction
+     * \param id
+     * \param title
+     * \param parent
+     */
     MidAction
     (
         Id id = 0,

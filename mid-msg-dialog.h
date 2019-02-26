@@ -3,11 +3,20 @@
 
 #include "mid-window.h"
 
+/*!
+ * MidMessageDialog Template
+ */
 template <class T>
 class MidMessageDialog
 {
     T *m = nullptr;
 public:
+    /*!
+     * \brief MidMessageDialog
+     * \param parent
+     * \param title
+     * \param text
+     */
     template <class U>
     MidMessageDialog(MidWindow<U> *parent,
                     const char* title, 
@@ -17,7 +26,9 @@ public:
         m->setTitle(title);
         m->setText(text);
     }
-
+    /*!
+     * \brief show
+     */
     void show()
     {
         m->show();

@@ -3,13 +3,21 @@
 
 #include "mid-object.h"
 #include "mid-window.h"
-
 #include "mid-date.h"
 
+/*!
+ * MidDateEdit Template
+ */
 template <class T>
 class MidDateEdit : public MidObject
 {
 public:
+    /*!
+     * \brief MidDateEdit
+     * \param id
+     * \param date
+     * \param parent
+     */
     MidDateEdit(Id id = 0,
                 MidObject date = nullptr,
                 MidObject parent = nullptr):

@@ -6,36 +6,47 @@
 #include <vector>
 #include <iostream>
 
-using std::vector;
-using std::shared_ptr;
-using std::make_shared;
-using std::cout;
-
+/*!
+ * MidLayout Template
+ */
 template <class T>
 class MidLayout: public MidObject
 {
 public:
-    MidLayout():
-        MidObject(new T{ }){}
+    /*!
+     * \brief MidLayout
+     */
+    MidLayout(): MidObject(new T{}){}
+    /*!
+     * \brief add
+     * \param child
+     */
     void add(MidObject child)
     {
         T *obj = static_cast<T*>(this->get());
         obj->add(child);
     }
+    /*!
+     * \brief addMidLayout
+     * \param child
+     */
     void addMidLayout(MidObject child)
     {
         this->get()->addMidLayout(child);
     }
-
+    /*!
+     * \brief setMidMenuBar
+     * \param menuBar
+     */
     void setMidMenuBar(MidObject menuBar)
     {
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidMenuBar(menuBar);
     }
-
-    virtual ~MidLayout()
-    {
-    }
+    /*!
+     * \brief ~MidLayout
+     */
+    virtual ~MidLayout(){}
 };
 
 #endif // MIDLAYOUT_H

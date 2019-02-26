@@ -4,21 +4,30 @@
 #include "mid-object.h"
 #include "mid-window.h"
 
+/*!
+ * MidMenu Template
+ */
 template <class T>
 class MidMenu : public MidObject
 {
-
 public:
+    /*!
+     * \brief MidMenu
+     * \param id
+     * \param title
+     * \param parent
+     */
     MidMenu
     (
-        long long int midID = 0,
-        const char *title = "",
+        Id id = 0,
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        MidObject(new T{midID, title, parent})
-    {
-    }
-
+        MidObject(new T{id, title, parent}){}
+    /*!
+     * \brief addMidAction
+     * \param action
+     */
     void addMidAction(MidObject action)
     {
         T *obj = static_cast<T*>(this->get());
