@@ -24,6 +24,7 @@
 #include "menu-bar.h"
 #include "menu.h"
 #include "action.h"
+#include "line.h"
 
 Window::Window(int width,
            	   int height,
@@ -78,8 +79,16 @@ Window::Window(int width,
 
     h1->add(*button2);
     h1->add(*radioButton2);
+
+    Line *vl = new Line(id++, MidLineType::VERTICAL, nullptr);
+    h1->add(*vl);
+
     h1->add(*chBox1);
     gp1->setMidLayout(*h1);
+
+    Line *hl = new Line(id++, MidLineType::HORIZONAL, nullptr);
+    vLayout->add(*hl);
+
     vLayout->add(*gp1);
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);

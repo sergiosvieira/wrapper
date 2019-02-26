@@ -7,16 +7,17 @@
 
 #include "window.h"
 
-using std::cout;
 
 class Line: public MidLine<MidQt5Line>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Line(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              MidLineType lineType = MidLineType::VERTICAL):
-        MidLine<MidQt5Line>(parent, midID, lineType), parent(parent) {}
+    Line
+    (
+        Id midID = 0,
+        MidLineType lineType = MidLineType::VERTICAL,
+        MidObject parent = nullptr
+    ):
+        MidLine<MidQt5Line>(midID, lineType, parent) {}
 };
 
 #endif // __LINE_H__
