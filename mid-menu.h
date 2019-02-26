@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- * MidMenu Template
+ * \brief MidMenu Template
  */
 template <class T>
 class MidMenu : public MidObject

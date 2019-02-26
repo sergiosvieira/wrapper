@@ -4,11 +4,21 @@
 #include <iostream>
 #include "mid-button-handler.h"
 
+/*!
+ * \brief The MidQT5ButtonHandler class
+ */
 class MidQT5ButtonHandler: public MidButtonHandler
 {
 public:	
+    /*!
+     * \brief MidQT5ButtonHandler
+     * \param y
+     */
     MidQT5ButtonHandler(ButtonLambda y): MidButtonHandler(y){}
-    ~MidQT5ButtonHandler() {}
+    /*!
+     * \brief ~MidQT5ButtonHandler
+     */
+    virtual ~MidQT5ButtonHandler() {}
 };
 
 #endif // MIDQT5HANDLER_H

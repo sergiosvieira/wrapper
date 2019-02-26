@@ -10,7 +10,7 @@
 
 
 /*!
- * \brief The MidPanel class
+ * \brief The MidPanel template
  */
 template <class T>
 class MidPanel: public MidObject

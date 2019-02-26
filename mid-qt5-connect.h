@@ -12,9 +12,10 @@
 #include "QPushButton"
 
 #include <iostream>
-using std::cout;
-using std::endl;
 
+/*!
+ * \brief The MidQt5Connect class
+ */
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
@@ -22,8 +23,19 @@ private:
     MidWindow<MidQt5Window>* parent = nullptr;
 
 public:
+    /*!
+     * \brief MidQt5Connect
+     * \param parent
+     */
     MidQt5Connect(MidWindow<MidQt5Window>* parent = nullptr):
         parent(parent){}
+    /*!
+     * \brief connect
+     * \param source
+     * \param eventTable
+     * \param eventhandler
+     * \return
+     */
     bool connect(MidObject* source,
                  EventTable eventTable,
                  MidButtonHandler* eventhandler)
@@ -39,7 +51,13 @@ public:
         }
         return true;
     }
-
+    /*!
+     * \brief connect
+     * \param source
+     * \param eventTable
+     * \param eventhandler
+     * \return
+     */
     bool connect(MidObject* source,
                  EventTable eventTable,
                  MidActionHandler* eventhandler)

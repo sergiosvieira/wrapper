@@ -4,7 +4,7 @@
 #include "mid-window.h"
 
 /*!
- * MidMessageDialog Template
+ * \brief MidMessageDialog Template
  */
 template <class T>
 class MidMessageDialog

@@ -6,10 +6,18 @@
 
 #include "mid-window.h"
 
-
+/*!
+ * \brief The MidQt5Button class
+ */
 class MidQt5Button: public QPushButton
 {
 public:
+    /*!
+     * \brief MidQt5Button
+     * \param id
+     * \param title
+     * \param parent
+     */
     MidQt5Button(Id id = 0,
                  const std::string &title = "",
                  MidObject parent = nullptr):

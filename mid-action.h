@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- * MidAction Template
+ * \brief MidAction Template
  */
 template <class T>
 class MidAction : public MidObject

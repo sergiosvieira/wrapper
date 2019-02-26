@@ -12,7 +12,13 @@
 template <class T>
 class MidLine : public MidObject
 {
-public:    
+public:
+    /*!
+     * \brief MidLine
+     * \param id
+     * \param lineType
+     * \param parent
+     */
     MidLine(Id id = 0,
             MidLineType lineType = MidLineType::VERTICAL,
             MidObject parent = nullptr):

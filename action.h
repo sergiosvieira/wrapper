@@ -5,9 +5,6 @@
 #include "mid-action.h"
 #include "mid-qt5-action.h"
 
-#include "window.h"
-
-using std::cout;
 
 /*!
  * \brief The Action class
@@ -15,6 +12,12 @@ using std::cout;
 class Action: public MidAction<MidQt5Action>
 {
 public:
+    /*!
+     * \brief Action
+     * \param id
+     * \param title
+     * \param parent
+     */
     Action
     (
         Id id = 0,

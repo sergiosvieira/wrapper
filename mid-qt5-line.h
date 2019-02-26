@@ -7,11 +7,20 @@
 
 #include "mid-window.h"
 
+/*!
+ * \brief The MidQt5Line class
+ */
 class MidQt5Line: public QFrame
 {
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
+    /*!
+     * \brief MidQt5Line
+     * \param parent
+     * \param midID
+     * \param type
+     */
     MidQt5Line(MidWindow<MidQt5Window>* parent = nullptr,
                  long long int midID = 0,
                  MidLineType type = MidLineType::VERTICAL):
@@ -26,7 +35,10 @@ public:
             this->setFrameShape(QFrame::HLine);
         }
     }
-
+    /*!
+     * \brief setParent
+     * \param parent
+     */
     void setParent(MidWindow<MidQt5Window>* parent)
     {
         this->parent = parent;
