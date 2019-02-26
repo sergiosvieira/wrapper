@@ -5,7 +5,8 @@
 #include "mid-window.h"
 
 #include "eventtable.h"
-#include "mid-handler.h"
+#include "mid-button-handler.h"
+#include "mid-action-handler.h"
 
 #include <iostream>
 
@@ -30,7 +31,16 @@ public:
      */
     bool connect(MidObject* source,
                  EventTable eventTable,
-                 MidHandler* eventhandler)
+                 MidButtonHandler* eventhandler)
+    {
+        if (ptr == nullptr) throw std::exception();
+        ptr->connect(source, eventTable, eventhandler);
+        return true;
+    }
+
+    bool connect(MidObject* source,
+                 EventTable eventTable,
+                 MidActionHandler* eventhandler)
     {
         if (ptr == nullptr) throw std::exception();
         ptr->connect(source, eventTable, eventhandler);

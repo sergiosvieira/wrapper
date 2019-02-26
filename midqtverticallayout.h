@@ -4,6 +4,7 @@
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QPushButton>
+#include <QMenuBar>
 #include "mid-object.h"
 
 class MidQt5VerticalLayout: public QVBoxLayout
@@ -11,17 +12,23 @@ class MidQt5VerticalLayout: public QVBoxLayout
 public:
     MidQt5VerticalLayout():
         QVBoxLayout(){}
-    void add(MidObject *object)
+    void add(MidObject object)
     {
-        QWidget* widget = object->ref<QWidget>();
+        QWidget* widget = static_cast<QWidget*>(object.get());
         if (widget != nullptr) addWidget(widget);
     }
-    void addMidLayout(MidObject *object)
+    void addMidLayout(MidObject object)
     {
-        QLayout* layout = object->ref<QLayout>();
+        QLayout* layout = static_cast<QLayout*>(object.get());
         if (layout != nullptr) addLayout(layout);
     }
     ~MidQt5VerticalLayout() {}
+
+    void setMidMenuBar(MidObject object)
+    {
+        QMenuBar* menuBar = static_cast<QMenuBar*>(object.get());
+        this->setMenuBar(menuBar);
+    }
 };
 
 #endif // MIDQTVERTICALLAYOUT_H

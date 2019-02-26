@@ -8,13 +8,14 @@
 
 class MidQt5CheckBox: public QCheckBox
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5CheckBox(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *title = ""):
-        QCheckBox(title, (parent != nullptr) ? parent->get() : nullptr)
+    MidQt5CheckBox
+    (
+        Id midID = 0,
+        const char *title = "",
+        MidObject parent = nullptr
+    ):
+        QCheckBox(title, static_cast<QWidget*>(parent.get()))
     {
     }
     MidQt5CheckBox();
@@ -26,10 +27,6 @@ public:
     void setButtonText(const char *caption)
     {
         setText(QString(caption));
-    }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
     }
 };
 

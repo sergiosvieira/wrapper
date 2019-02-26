@@ -35,5 +35,8 @@
 debug/*
 release/*
 qt5/*/*
-main.pro.user
+.qmake.stash
 Makefile
+Makefile.Debug
+Makefile.Release
+main.pro.user

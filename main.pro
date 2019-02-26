@@ -10,7 +10,7 @@ SOURCES += main.cpp \
     mid-qt5-check-box.cpp \
     mid-qt5-progress-bar.cpp
 
-CONFIG += c++11 console
+CONFIG += c++17 console
 #CONFIG -= app_bundle
 
 #HEADERS += 
@@ -32,7 +32,6 @@ HEADERS += \
     mid-qt5-connect.h \
     eventtable.h \
     mid-handler.h \
-    mid-qt5-handler.h \
     mid-object.h \
     mid-layout.h \
     midqtverticallayout.h \
@@ -71,5 +70,30 @@ HEADERS += \
     mid-qt5-date-edit.h \
     mid-tab.h \
     mid-qt5-tab.h \
-    tab.h
+    tab.h \
+    definitions.h \
+    mid-panel.h \
+    mid-qt5-panel.h \
+    panel.h \
+    mid-menu-bar.h \
+    mid-qt5-menu-bar.h \
+    menu-bar.h \
+    mid-menu.h \
+    mid-qt5-menu.h \
+    menu.h \
+    mid-layout.h \
+    mid-qt5-button-handler.h \
+    mid-button-handler.h \
+    mid-action-handler.h \
+    mid-qt5-action-handler.h \
+    mid-action.h \
+    mid-qt5-action.h \
+    action.h \
+    textEdit.h \
+    mid-text-edit.h \
+    mid-qt5-text-edit.h \
+    mid-qt5-gauge.h \
+    mid-gauge.h \
+    gauge.h \
+    tabPage.h
 

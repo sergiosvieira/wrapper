@@ -8,13 +8,11 @@
 
 class MidQt5RadioButton: public QRadioButton
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5RadioButton(MidWindow<MidQt5Window>* parent = nullptr,
-                      long long int midID = 0,
-                      const char *title = ""):
-        QRadioButton (title, (parent != nullptr) ? parent->get() : nullptr){}
+    MidQt5RadioButton(Id id = 0,
+                      const std::string &title = "",
+                      MidObject parent = nullptr):
+        QRadioButton (QString(title.c_str()), static_cast<QWidget*>(parent.get())){}
 };
 
 

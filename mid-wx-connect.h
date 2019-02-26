@@ -5,7 +5,7 @@
 #include "mid-wx-window.h"
 #include "mid-wx-button.h"
 #include "buttonWx.h"
-#include "mid-handler.h"
+#include "mid-button-handler.h"
 
 #include <iostream>
 using std::cout;
@@ -21,7 +21,7 @@ public:
         parent(parent){}
     bool connect(MidObject* source,
                  EventTable eventTable,
-                 MidHandler* eventhandler)
+                 MidButtonHandler* eventhandler)
         
     {
         if (eventTable == EventTable::BUTTONCLICK)

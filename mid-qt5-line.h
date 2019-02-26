@@ -1,32 +1,32 @@
 #ifndef __MID_QT5_LINE__
 #define __MID_QT5_LINE__
 
-#include <QLine>
+#include <QFrame>
+#include "definitions.h"
 #include "mid-qt5-window.h"
 
 #include "mid-window.h"
 
-class MidQt5Button: public QPushButton
+class MidQt5Line: public QFrame
 {
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Button(MidWindow<MidQt5Window>* parent = nullptr,
+    MidQt5Line(MidWindow<MidQt5Window>* parent = nullptr,
                  long long int midID = 0,
-                 const char *title = ""):
-        QPushButton (title, (parent != nullptr) ? parent->get() : nullptr)
+                 MidLineType type = MidLineType::VERTICAL):
+        QFrame ((parent != nullptr) ? parent->get() : nullptr)
     {
-    }
-    MidQt5Button();
-    void setCaption(const char *caption)
-    {
-        this->setText(caption);
+        if (type == MidLineType::VERTICAL)
+        {
+            this->setFrameShape(QFrame::VLine);
+        }
+        else if (type == MidLineType::HORIZONAL)
+        {
+            this->setFrameShape(QFrame::HLine);
+        }
     }
 
-    void setButtonText(const char *caption)
-    {
-        setText(QString(caption));
-    }
     void setParent(MidWindow<MidQt5Window>* parent)
     {
         this->parent = parent;

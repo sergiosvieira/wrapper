@@ -11,21 +11,14 @@ class MidQt5Tab: public QTabWidget
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Tab(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0):
-        QTabWidget ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5Tab(Id id = 0,
+              const std::string &title = "",
+              MidObject parent = nullptr):
+        QTabWidget (static_cast<QWidget*>(parent.get())){}
+    void addMidTab(MidObject object, const char *tabTitle)
     {
-    }
-
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
-    }
-
-    void addMidTab(MidObject *object)
-    {
-        QWidget* pointer = object->ref<QWidget>();
-        addTab(pointer, "demo");
+        QWidget* widget = static_cast<QWidget*>(object.get());
+        addTab(widget, tabTitle);
     }
 };
 

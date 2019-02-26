@@ -2,28 +2,37 @@
 #define __MID_QT5_PROGRESS_BAR__
 
 #include <QFont>
-#include <QProgressBar>
+#include <QProgressDialog>
 
 #include "mid-qt5-window.h"
 
 #include "mid-window.h"
 
-class MidQt5ProgressBar: public  QProgressBar
+class MidQt5ProgressBar: public QProgressDialog
 {
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5ProgressBar(MidWindow<MidQt5Window>* parent = nullptr, long long int midID = 0):
-        QProgressBar ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5ProgressBar
+    (
+            Id id = 0,
+            int min = 0,
+            int max = 100,
+            const char *title = "",
+            const char *msg = "",
+            MidObject parent = nullptr
+    ):
+        QProgressDialog (title, msg, min, max, static_cast<QWidget*>(parent.get()))
     {
-        setRange(0, 100);
+        setRange(min, max);
+        setWindowTitle(title);
     }
 
     void setMidRange(int minimum, int maximum)
     {
         this->setRange(minimum, maximum);
     }
-    void setMidValue(int value)
+    void setMidValue(int value, const char *msg = "")
     {
         setValue(value);
     }
@@ -33,7 +42,7 @@ public:
     }
     void setMidFormat(const QString &format)
     {
-        setFormat(format);
+        //setFormat(format);
     }
     void setMidMaximum(int maxValue)
     {
@@ -47,11 +56,6 @@ public:
     {
         setFont(font);
     }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
-    }
-
     int getMidMinValue()
     {
         return this->minimum();

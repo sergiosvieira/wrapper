@@ -9,13 +9,19 @@
 
 using std::cout;
 
-class Progressbar: public MidProgressBar<MidQt5ProgressBar>
+class ProgressBar: public MidProgressBar<MidQt5ProgressBar>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Progressbar(MidWindow<MidQt5Window>* parent = nullptr,
-                long long int midID = 0):
-        MidProgressBar<MidQt5ProgressBar>(parent, midID), parent(parent) {}
+    ProgressBar
+(
+	Id id = 0,
+	int min = 0,
+	int max = 100,
+	const char *title = "",
+	const char *msg = "",			
+    MidObject parent = nullptr
+):
+        MidProgressBar<MidQt5ProgressBar>(id, min, max, title, msg, parent){}
 
 };
 
