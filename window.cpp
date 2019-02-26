@@ -7,6 +7,7 @@
 #include "mid-connect.h"
 #include "mid-qt5-connect.h"
 #include "mid-qt5-button-handler.h"
+#include "mid-qt5-action-handler.h"
 #include "mid-layout.h"
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
@@ -85,6 +86,13 @@ Window::Window(int width,
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
     vLayout->setMidMenuBar(*menuBar);
+
+    MidQT5ActionHandler qt5ActionHandler ([&](){
+        MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Action trigerred!");
+        m.show();
+        return true;
+    });
+    connector->connect(saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
     this->setMidLayout(*vLayout);
 }
 
