@@ -11,11 +11,11 @@ class MidQt5Action: public QAction
 public:
     MidQt5Action
     (
-        long long int midID = 0,
-        const char *title = "",
+        Id id = 0,
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        QAction (title, static_cast<QWidget*>(parent.get()))
+        QAction (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
     }
 

@@ -9,16 +9,19 @@
 
 using std::cout;
 
+/*!
+ * \brief The Action class
+ */
 class Action: public MidAction<MidQt5Action>
 {
 public:
     Action
     (
-        long long int midID = 0,
-        const char *title = "",
+        Id id = 0,
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        MidAction<MidQt5Action>(midID, title, parent) {}
+        MidAction<MidQt5Action>(id, title, parent) {}
 };
 
 #endif // __ACTION__
