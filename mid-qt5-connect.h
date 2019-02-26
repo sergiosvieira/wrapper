@@ -27,7 +27,7 @@ public:
                  EventTable eventTable,
                  MidHandler* eventhandler)
     {
-        QPushButton *obj = static_cast<MidQt5Button*>(parent->get());
+        QPushButton *obj = static_cast<MidQt5Button*>(source->get());
         if (obj == nullptr) return false;
         if (eventTable == EventTable::BUTTONCLICK)
         {

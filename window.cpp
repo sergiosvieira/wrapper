@@ -57,6 +57,13 @@ Window::Window(int width,
     tab1->addMidTab(*base1);
     tab1->addMidTab(*base2);
     vLayout->add(*tab1);
+    MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(this);
+    MidQT5Handler qt5Handler ([&](){
+        MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Hello world!");
+        m.show();
+        return true;
+    });
+    connector->connect(button1, EventTable::BUTTONCLICK, &qt5Handler);
     this->setMidLayout(*vLayout);
 }
 
