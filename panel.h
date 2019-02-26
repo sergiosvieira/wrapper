@@ -7,10 +7,19 @@
 
 #include "window.h"
 
+/*!
+ * \brief The Panel class
+ */
 class Panel: public MidPanel<MidQt5Panel>
 {
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
+    /*!
+     * \brief Panel
+     * \param parent
+     * \param width
+     * \param height
+     */
     Panel(MidWindow<MidQt5Window>* parent = nullptr,
           int width = 600,
           int height = 800):

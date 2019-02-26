@@ -5,10 +5,18 @@
 #include "mid-window.h"
 #include "mid-qt5-window.h"
 
-
+/*!
+ * \brief The MidQt5RadioButton class
+ */
 class MidQt5RadioButton: public QRadioButton
 {
 public:
+    /*!
+     * \brief MidQt5RadioButton
+     * \param id
+     * \param title
+     * \param parent
+     */
     MidQt5RadioButton(Id id = 0,
                       const std::string &title = "",
                       MidObject parent = nullptr):

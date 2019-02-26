@@ -10,12 +10,19 @@
 
 #include "window.h"
 
-using std::cout;
-
+/*!
+ * \brief The TabPage class
+ */
 class TabPage: public MidWindow<MidQt5Window>
 {
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
+    /*!
+     * \brief TabPage
+     * \param parent
+     * \param midID
+     * \param title
+     */
     TabPage(MidWindow<MidQt5Window>* parent = nullptr,
            long long int midID = 0,
               const char *title = ""):

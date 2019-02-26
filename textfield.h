@@ -7,12 +7,20 @@
 
 #include "window.h"
 
-using std::cout;
 
+/*!
+ * \brief The TextField class
+ */
 class TextField: public MidTextField<MidQt5TextField>
 {
     MidObject parent = nullptr;
 public:
+    /*!
+     * \brief TextField
+     * \param id
+     * \param text
+     * \param parent
+     */
     TextField(Id id = 0,
               const std::string &text = "",
               MidObject parent = nullptr):

@@ -7,9 +7,19 @@
 
 #include "window.h"
 
+/*!
+ * \brief The SpinBox class
+ */
 class SpinBox: public MidSpinBox<MidQt5SpinBox>
 {
 public:
+    /*!
+     * \brief SpinBox
+     * \param id
+     * \param minValue
+     * \param maxValue
+     * \param parent
+     */
     SpinBox(Id id = 0,
             int minValue = 0,
             int maxValue = 100,

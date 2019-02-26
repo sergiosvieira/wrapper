@@ -6,11 +6,20 @@
 
 #include "mid-window.h"
 
+/*!
+ * \brief The MidQt5Tab class
+ */
 class MidQt5Tab: public QTabWidget
 {
 private:
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
+    /*!
+     * \brief MidQt5Tab
+     * \param id
+     * \param title
+     * \param parent
+     */
     MidQt5Tab(Id id = 0,
               const std::string &title = "",
               MidObject parent = nullptr):

@@ -7,12 +7,19 @@
 
 #include "window.h"
 
-using std::cout;
-
+/*!
+ * \brief The TextEdit class
+ */
 class TextEdit: public MidTextEdit<MidQt5TextEdit>
 {
     MidWindow<MidQt5Window>* parent = nullptr;
 public:
+    /*!
+     * \brief TextEdit
+     * \param parent
+     * \param midID
+     * \param title
+     */
     TextEdit(MidWindow<MidQt5Window>* parent = nullptr,
            long long int midID = 0,
               const char *title = ""):
