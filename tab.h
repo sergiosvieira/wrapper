@@ -7,8 +7,6 @@
 
 #include "window.h"
 
-using std::cout;
-
 class Tab: public MidTab<MidQt5Tab>
 {
 public:

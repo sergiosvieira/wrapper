@@ -10,8 +10,6 @@
 
 class MidQt5ProgressBar: public QProgressDialog
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
     MidQt5ProgressBar
     (

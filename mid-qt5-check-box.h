@@ -18,7 +18,6 @@ public:
         QCheckBox(title.c_str(), static_cast<QWidget*>(parent.get()))
     {
     }
-    MidQt5CheckBox();
     void setCaption(const char *caption)
     {
         this->setText(caption);

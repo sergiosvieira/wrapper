@@ -9,8 +9,6 @@
 #include "mid-window.h"
 #include "mid-qt5-window.h"
 
-using std::cout;
-
 class MidQt5Panel: public QWidget
 {
     Q_OBJECT
@@ -25,7 +23,7 @@ public:
         this->resize(width, height);
     }
 
-    void show();
+    void show(){}
     ~MidQt5Panel() {}
 
     void setMidLayout(MidObject layout)

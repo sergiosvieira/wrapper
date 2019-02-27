@@ -8,17 +8,15 @@
 
 class MidQt5Tab: public QTabWidget
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
     MidQt5Tab(Id id = 0,
               const std::string &title = "",
               MidObject parent = nullptr):
         QTabWidget (static_cast<QWidget*>(parent.get())){}
-    void addMidTab(MidObject object, const char *tabTitle)
+    void addMidTab(MidObject object, const std::string& tabTitle)
     {
         QWidget* widget = static_cast<QWidget*>(object.get());
-        addTab(widget, tabTitle);
+        addTab(widget, tabTitle.c_str());
     }
 };
 

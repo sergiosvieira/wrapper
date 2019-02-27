@@ -7,8 +7,6 @@
 
 #include "window.h"
 
-using std::cout;
-
 class TextLabel: public MidTextLabel<MidQt5TextLabel>
 {
 public:
