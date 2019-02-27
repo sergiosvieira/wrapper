@@ -48,19 +48,10 @@ public:
         T *obj = static_cast<T*>(this->get());
         return obj->getHeight();
     }
-    /*void addChild(MidObject *child)
-    {
-        if (child != nullptr)
-        {
-            this->child.push_back(make_shared<MidObject>(child));
-            // To Do: Layout
-            this->get()->addChild(child);
-        }
-    }*/
+
     virtual ~MidPanel()
-    {
-        //delete ptr;
-    }
+    { }
+
     void show()
     {
         T *obj = static_cast<T*>(this->get());

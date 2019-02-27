@@ -8,18 +8,19 @@
 
 class MidWxGroupBox: public wxStaticBox
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxGroupBox(MidWindow<MidWxWindow>* parent = nullptr,
-                      long long int midID = 0,
-                      const char *title = ""):
-        wxStaticBox((parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-            midID,
+    MidWxGroupBox
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        wxStaticBox(static_cast<wxWindow*>(parent.get()),
+            id,
             title){}
-    void setMidLayout(wxSizer* layout)
+    void setMidLayout(MidObject layout)
     {
-        this->SetSizer(layout);
+        this->SetSizer(static_cast<wxSizer*>(layout.get()));
     }
 };
 

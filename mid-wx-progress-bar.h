@@ -10,15 +10,17 @@ class MidWxWindow;
 
 class MidWxProgressbar : public wxProgressDialog
 {
-    MidWindow<MidWxWindow> *parent = nullptr;
 public:
-    MidWxProgressbar(MidWindow<MidWxWindow> *parent = nullptr,
-        long long int midID = 0,
+    MidWxProgressbar
+    (
+        Id id = 0,
         int min = 0,
         int max = 100,
-        const char *title = "",
-        const char *msg = "") :
-        wxProgressDialog(wxString(title), wxString(msg), max, parent != nullptr ? (wxFrame*)(parent->get()) : nullptr) {}
+        const std::string &title = "",
+        const std::string &msg = "",
+        MidObject parent = nullptr
+    ) :
+        wxProgressDialog(wxString(title), wxString(msg), max, static_cast<wxWindow*>(parent.get())) {}
 
     void setMidRange(int minimum, int maximum)
     {
@@ -43,11 +45,6 @@ public:
     void setMidMinimum(int maxValue)
     {
         //SetMinimum(maxValue);
-    }
-    
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
     }
 
     int getMidMinValue()

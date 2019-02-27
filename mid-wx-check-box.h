@@ -8,26 +8,23 @@
 
 class MidWxCheckBox: public wxCheckBox
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxCheckBox(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *title = ""):
+    MidWxCheckBox
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
         wxCheckBox(
-        (parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-            midID,
-            wxString(title))
+            static_cast<wxWindow*>(parent.get()),
+            id,
+            wxString(title.c_str()))
     {
     }
 
     void setMidText(const char *caption)
     {
         SetLabel(wxString(caption));
-    }
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
     }
 };
 

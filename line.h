@@ -7,6 +7,7 @@
 
 #include "window.h"
 
+
 class Line: public MidLine<MidQt5Line>
 {
 public:

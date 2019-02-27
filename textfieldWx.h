@@ -11,13 +11,12 @@ using std::cout;
 
 class TextFieldWx: public MidTextField<MidWxTextField>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    TextFieldWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidTextField<MidWxTextField>(parent, midID, title),
-        parent(parent) {}
+    TextFieldWx(Id id = 0,
+        const std::string &text = "",
+        MidObject parent = nullptr):
+        MidTextField<MidWxTextField>(id, text, parent)
+        {}
 };
 
 #endif // TEXTFIELDWX_H

@@ -9,7 +9,7 @@
 class MidQt5TextLabel: public QLabel
 {
 public:
-    MidQt5TextLabel(Id id  = 0,
+    MidQt5TextLabel(Id d  = 0,
                     const std::string &text = "",
                     MidObject parent = nullptr):
         QLabel (QString(text.c_str()), static_cast<QWidget*>(parent.get())){}

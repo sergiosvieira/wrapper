@@ -6,12 +6,13 @@
 
 class ComboBoxWx: public MidComboBox<MidWxComboBox>
 {
-     MidWindow<MidWxWindow>* parent = nullptr;
 public:
-     ComboBoxWx(MidWindow<MidWxWindow>* parent = nullptr,
-              long long int midID = 0):
-        MidComboBox<MidWxComboBox>(parent, midID),
-        parent(parent){}
+     ComboBoxWx
+     (
+         Id id = 0,
+         MidObject parent = nullptr
+     ):
+        MidComboBox<MidWxComboBox>(id, parent){}
 };
 
 #endif // __COMBO_BOX_WX__

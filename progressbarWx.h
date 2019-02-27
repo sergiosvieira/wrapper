@@ -7,21 +7,19 @@
 
 #include "windowWx.h"
 
-using std::cout;
-
 class ProgressbarWx : public MidProgressBar<MidWxProgressbar>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    ProgressbarWx(MidWindow<MidWxWindow>* parent = nullptr,
-        long long int midID = 0,
+    ProgressbarWx
+    (
+        Id id = 0,
         int min = 0,
         int max = 100,
-        const char *title = "",
-        const char *msg = "") :
-        MidProgressBar<MidWxProgressbar>(parent, midID, min, max, title, msg), parent(parent) {}
-
-   
+        const std::string &title = "",
+        const std::string &msg = "",
+        MidObject parent = nullptr
+    ) :
+        MidProgressBar<MidWxProgressbar>(id, min, max, title, msg, parent) {}
 };
 
 #endif // PROGRESSBAR_H

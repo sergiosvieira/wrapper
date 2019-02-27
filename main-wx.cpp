@@ -24,7 +24,10 @@
 {
 #endif
     MidApplication<MidWxApp> app(argc, argv);
-    WindowWx window(800, 600, "MidGui SIGA wxWidgets");
-    window.show();
-    return app.execute();
+    WindowWx* window = new WindowWx(800, 600, "MidGui SIGA wxWidgets");
+    window->show();
+    int ret = app.execute();
+
+    //if (window != nullptr) delete window;
+    return ret;
 }

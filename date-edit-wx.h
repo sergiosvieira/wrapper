@@ -10,13 +10,14 @@
 
 class DateEditWx: public MidDateEdit<MidWxDateEdit>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    DateEditWx(MidWindow<MidWxWindow>* parent = nullptr,
-             long long int midID = 0,
-             MidDate<MidWxDate> date = {}):
-        MidDateEdit<MidWxDateEdit>(parent, midID, date),
-        parent(parent) {}
+    DateEditWx
+    (
+        Id id = 0,
+        MidDate<MidWxDate> date = {},
+        MidObject parent = nullptr
+    ):
+        MidDateEdit<MidWxDateEdit>(id, date, parent) {}
 };
 
 #endif // __DATE_EDIT_WX__

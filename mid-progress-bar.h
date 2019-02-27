@@ -8,8 +8,6 @@
 template <class T>
 class MidProgressBar : public MidObject
 {
-	MidObject *parent = nullptr;
-	T *ptr = nullptr;
 public:
     MidProgressBar
 (

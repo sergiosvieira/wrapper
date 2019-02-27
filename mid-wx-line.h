@@ -9,16 +9,18 @@
 
 class MidWxLine: public wxStaticLine
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxLine(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0,
-                 MidLineType type = MidLineType::VERTICAL):
-        wxStaticLine(
-        (parent != nullptr) ? parent->get() : nullptr,
+    MidWxLine
+    (
+        Id midID = 0,
+        MidLineType type = MidLineType::VERTICAL,
+        MidObject parent = nullptr
+    ):
+        wxStaticLine
+        (
+            static_cast<wxWindow*>(parent.get()),
             midID
-            )
+        )
     {
         if (type == MidLineType::VERTICAL)
         {
@@ -28,11 +30,6 @@ public:
         {
             this->SetWindowStyle(wxLI_HORIZONTAL);
         }
-    }
-
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
     }
 };
 

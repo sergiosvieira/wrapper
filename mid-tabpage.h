@@ -18,63 +18,52 @@ using std::is_reference;
 template <class T>
 class MidTabPage: public MidObject
 {
-    MidObject *parent = nullptr;
-    T* ptr = nullptr;
-
     vector<shared_ptr<MidObject>> child;
 public:
 
-    template <class U>
-    MidTabPage(
-        MidTab<U>* parent = nullptr,
+    MidTabPage
+    (
+        Id id = 0,
         int width = 600,
-        int height = 800
-    ):
-        MidObject(ptr = new T{parent, width, height}),
-        parent(parent)
+        int height = 800,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ) :
+        MidObject(new T{id, width, height, title, parent})
     {
     }
 
     void processButtonClick()
     {
-        this->get()->processButtonClick();
+        T *obj = static_cast<T*>(this->get());
+        obj->processButtonClick();
     }
 
-    MidTabPage(const T& t): MidObject(t){}
+    MidTabPage(const T& t) : MidObject(t) {}
     int getWidth() const
     {
-        return this->get().getWidth();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getWidth();
     }
     int getHeight() const
     {
-        return this->get().getHeight();
-    }
-    void addChild(MidObject *child)
-    {
-        if (child != nullptr)
-        {
-            this->child.push_back(make_shared<MidObject>(child));
-            // To Do: Layout
-            this->get()->addChild(child);
-        }
-    }
-    virtual ~MidTabPage()
-    {
-        //delete ptr;
-    }
-    T* get()
-    {
-        return this->ref<T>();
-    }
-    void show()
-    {
-        this->get()->show();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getHeight();
     }
 
-    template <class L>
-    void setMidLayout(MidLayout<L> layout)
+    virtual ~MidTabPage()
+    { }
+
+    void show()
     {
-        this->get()->setMidLayout(layout.get());
+        T *obj = static_cast<T*>(this->get());
+        obj->show();
+    }
+
+    void setMidLayout(MidObject layout)
+    {
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidLayout(layout);
     }
 };
 

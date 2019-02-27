@@ -9,9 +9,13 @@ class MidWxWindow: public wxFrame
 public:
     MidWxWindow(int width,
                 int height,
-                const char *title,
-                wxFrame *parent = nullptr):
-        wxFrame(parent, wxID_ANY, title)
+                const std::string &title,
+                MidObject parent):
+        wxFrame(
+            static_cast<wxWindow*>(parent.get()),
+            wxID_ANY,
+            title.c_str()
+        )
     {
         this->SetSize(0, 20, width, height);
     }

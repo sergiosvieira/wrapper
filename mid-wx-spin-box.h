@@ -8,21 +8,17 @@
 
 class MidWxSpinBox: public wxSpinCtrl
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxSpinBox(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0,
-                 int minValue = 0,
-                  int maxValue = 100):
-        wxSpinCtrl((parent != nullptr) ? parent->get() : nullptr)
+    MidWxSpinBox
+    (
+        Id id = 0,
+        int minValue = 0,
+        int maxValue = 100,
+        MidObject parent = nullptr
+    ):
+        wxSpinCtrl(static_cast<wxWindow*>(parent.get()))
     {
         SetRange(minValue, maxValue);
-    }
-
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
     }
 
     int getMidValue()

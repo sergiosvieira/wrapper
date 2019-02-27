@@ -8,32 +8,29 @@
 
 class MidWxTextField: public wxTextCtrl
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxTextField(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *text = ""):
+    MidWxTextField
+    (
+        Id id = 0,
+        const std::string &text = "",
+        MidObject parent = nullptr
+    ):
         wxTextCtrl(
-            (parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-                midID,
+            static_cast<wxWindow*>(parent.get()),
+                id,
                 wxString(text)
         )
     {
     }
 
-    const char * getText()
+    std::string getText()
     {
-        return GetLabelText().ToStdString().c_str();
+        return GetLabelText().ToStdString();
     }
 
-    void setMidText(const char *caption)
+    void setMidText(const std::string& text)
     {
-        SetLabel(wxString(caption));
-    }
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
+        SetLabel(text.c_str());
     }
 };
 

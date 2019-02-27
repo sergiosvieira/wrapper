@@ -19,7 +19,6 @@
 #include "panelWx.h"
 #include "tabWx.h"
 
-//#include "panelWx2.h"
 #include "tabPageWx.h"
 
 #include "mid-msg-dialog.h"
@@ -33,11 +32,14 @@
 #include "mid-wx-horizontal-layout.h"
 
 WindowWx::WindowWx(int width,
-           	   int height,
-           	   const char *title):
-	MidWindow<MidWxWindow>(width, height, title)
+           	       int height,
+                   const std::string &title,
+                   MidObject parent):
+	MidWindow<MidWxWindow>(width, height, title, parent)
 {
-    long long id = 1;
+
+
+    /*long long id = 1;
     MidLayout<MidWxVerticalLayout> *mainVertical = new MidLayout<MidWxVerticalLayout>();
     MidLayout<MidWxHorizontalLayout> *h1 = new MidLayout<MidWxHorizontalLayout>();
 
@@ -72,19 +74,11 @@ WindowWx::WindowWx(int width,
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
     TextEditWx *textEdit = new TextEditWx(this, id++, msg.c_str());
 
-    /*TabWx *tabContainer = new TabWx(this, id++);
-    PanelWx *panelTab1 = new PanelWx(this, 100, 100); //Deve ter tabContainer como pai
-    PanelWx *panelTab2 = new PanelWx(this, 100, 100); //Deve ter tabContainer como pai
-    tabContainer->addMidTab(panelTab1, "Aba 1");
-    tabContainer->addMidTab(panelTab2, "Aba 1");*/
-
     TabWx *tabContainer = new TabWx(this, id++);
     TabPageWx *panelTab1 = new TabPageWx(tabContainer, 100, 100); //Deve ter tabContainer como pai
     TabPageWx *panelTab2 = new TabPageWx(tabContainer, 100, 100); //Deve ter tabContainer como pai
     tabContainer->addMidTab(panelTab1, "Aba 1");
     tabContainer->addMidTab(panelTab2, "Aba 2");
-
-    //panelTab1->setMidLayout
 
     h1->add(button);
     h1->add(vertLine);
@@ -103,16 +97,7 @@ WindowWx::WindowWx(int width,
     h2->add(de);
     h2->add(tabContainer);
 
-    //Está funcionando, mas vou comentar
-    /*PanelWx *panel = new PanelWx(this, 100, 100);
-    ButtonWx *b17 = new ButtonWx(this, id++, "Button in panel"); //O pai de Button deve ser panel
-    MidLayout<MidWxVerticalLayout> *panelLayout = new MidLayout<MidWxVerticalLayout>();
-    panelLayout->add(b17);
-    panel->setMidLayout(*panelLayout);
-    h2->add(panel);*/
-
     progressBar->closeMidProgressBar();
-    //gauge->closeMidGauge();
 
     mainVertical->addMidLayout(h1);
     mainVertical->addMidLayout(h2);
@@ -127,18 +112,19 @@ WindowWx::WindowWx(int width,
     windowLayout->add(gp);
     setMidLayout(*windowLayout);
 
-
-
-
-
     MidConnect<MidWxConnect> connector(this);
     MidWxButtonHandler* wxButtonHandler = new MidWxButtonHandler([&]() {
         MidMessageDialog<MidWxMsgDialog> m(this, "SIGA", "Hello world!");
         m.show();
         return true;
     });
-    connector.connect(button, EventTable::BUTTONCLICK, wxButtonHandler);
-    //setMidLayout(*mainVertical);
+    connector.connect(button, EventTable::BUTTONCLICK, wxButtonHandler);*/
+}
+
+WindowWx::~WindowWx()
+{
+    
+
 }
 
 
