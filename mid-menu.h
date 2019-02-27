@@ -7,28 +7,22 @@
 template <class T>
 class MidMenu : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
+
 public:
-    template <class U>
-    MidMenu(MidWindow<U>* parent = nullptr,
+    MidMenu
+    (
         long long int midID = 0,
-            const char *title = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, title}))
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidObject(new T{midID, title, parent})
     {
     }
 
-    T* get()
+    void addMidAction(MidObject action)
     {
-        return this->ref<T>();
-    }
-
-    template <class L>
-    void addMidAction(L *action)
-    {
-        T *obj = this->ref<T>();
-        if (obj) obj->addMidAction(action->get());
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->addMidAction(action);
     }
 };
 

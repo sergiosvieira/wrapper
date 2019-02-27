@@ -7,17 +7,13 @@
 template <class T>
 class MidComboBox: public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidComboBox(MidWindow<U>* parent = nullptr,
-                long long int midID = 0):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID})){}
-    void addMidItem(const char* item)
+    MidComboBox(Id id = 0,
+                MidObject parent = nullptr):
+        MidObject(new T{id, parent}){}
+    void addMidItem(const std::string &item)
     {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->addMidItem(item);
     }
 };

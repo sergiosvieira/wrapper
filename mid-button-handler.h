@@ -2,8 +2,9 @@
 #define _MIDBUTTONHANDLER__
 
 #include <functional>
+#include "mid-handler.h"
 
-class MidButtonHandler
+class MidButtonHandler: public MidHandler
 {
 public:
     using ButtonLambda = std::function<bool()>;

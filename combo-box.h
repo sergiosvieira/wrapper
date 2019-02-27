@@ -6,12 +6,10 @@
 
 class ComboBox: public MidComboBox<MidQt5ComboBox>
 {
-     MidWindow<MidQt5Window>* parent = nullptr;
 public:
-     ComboBox(MidWindow<MidQt5Window>* parent = nullptr,
-              long long int midID = 0):
-        MidComboBox<MidQt5ComboBox>(parent, midID),
-        parent(parent){}
+     ComboBox(Id id = 0,
+              MidObject parent = nullptr):
+        MidComboBox<MidQt5ComboBox>(id, parent){}
 };
 
 #endif // __COMBO_BOX__

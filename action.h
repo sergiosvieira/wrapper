@@ -9,14 +9,19 @@
 
 using std::cout;
 
+/*!
+ * \brief The Action class
+ */
 class Action: public MidAction<MidQt5Action>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Action(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidAction<MidQt5Action>(parent, midID, title), parent(parent) {}
+    Action
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidAction<MidQt5Action>(id, title, parent) {}
 };
 
 #endif // __ACTION__

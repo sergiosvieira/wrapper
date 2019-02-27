@@ -11,11 +11,11 @@ using std::cout;
 
 class Tab: public MidTab<MidQt5Tab>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    Tab(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0):
-        MidTab<MidQt5Tab>(parent, midID), parent(parent) {}
+    Tab(Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr):
+        MidTab<MidQt5Tab>(id, title, parent){}
 };
 
 #endif // __TAB_H__

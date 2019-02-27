@@ -6,6 +6,8 @@
 #include "mid-qt5-button.h"
 #include "button.h"
 #include "mid-button-handler.h"
+#include "mid-qt5-action.h"
+#include "mid-qt5-connect-factory.h"
 
 #include "QObject"
 #include "QPushButton"
@@ -17,43 +19,16 @@ using std::endl;
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
-
 public:
-    MidQt5Connect(MidWindow<MidQt5Window>* parent = nullptr):
-        parent(parent){}
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidButtonHandler* eventhandler)
+    MidQt5Connect(MidObject parent = nullptr){}
+    bool connect
+    (
+        MidObject source,
+        EventTable eventTable,
+        MidHandler* eventHandler
+    )
     {
-        QPushButton *obj = dynamic_cast<QPushButton*>(source->ref<MidQt5Button>());
-        if (obj == nullptr) return false;
-        if (eventTable == EventTable::BUTTONCLICK)
-        {
-            if (eventhandler->lambda != nullptr)
-                QObject::connect(obj, 
-                                 &QPushButton::clicked, 
-                                 eventhandler->lambda);
-        }
-        return true;
-    }
-
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidActionHandler* eventhandler)
-    {
-        QAction *obj = dynamic_cast<QAction*>(source->ref<QAction>());
-        if (obj == nullptr) return false;
-        if (eventTable == EventTable::ACTIONTRIGERRED)
-        {
-            if (eventhandler->lambda != nullptr)
-                QObject::connect(obj,
-                                 //&QPushButton::clicked,
-                                 &QAction::triggered,
-                                 eventhandler->lambda);
-        }
-        return true;
+        return MidQt5ConnectFactory::make(eventTable, source, eventHandler);
     }
 };
 

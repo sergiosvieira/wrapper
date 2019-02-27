@@ -7,6 +7,7 @@
 #include "mid-object.h"
 
 #include "mid-layout.h"
+#include "mid-window.h"
 
 using std::vector;
 using std::shared_ptr;
@@ -17,31 +18,37 @@ using std::is_reference;
 template <class T>
 class MidPanel: public MidObject
 {
-    T* ptr = nullptr;
-
     vector<shared_ptr<MidObject>> child;
 public:
-    MidPanel(int width,
-              int height):
-        MidObject(ptr = new T{ width, height})
+
+    MidPanel
+    (
+        int width = 600,
+        int height = 800,
+        MidObject parent = nullptr
+    ):
+        MidObject(new T{width, height, parent})
     {
     }
 
     void processButtonClick()
     {
-        this->get()->processButtonClick();
+        T *obj = static_cast<T*>(this->get());
+        obj->processButtonClick();
     }
 
     MidPanel(const T& t): MidObject(t){}
     int getWidth() const
     {
-        return this->get().getWidth();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getWidth();
     }
     int getHeight() const
     {
-        return this->get().getHeight();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getHeight();
     }
-    void addChild(MidObject *child)
+    /*void addChild(MidObject *child)
     {
         if (child != nullptr)
         {
@@ -49,24 +56,21 @@ public:
             // To Do: Layout
             this->get()->addChild(child);
         }
-    }
+    }*/
     virtual ~MidPanel()
     {
         //delete ptr;
     }
-    T* get()
-    {
-        return this->ref<T>();
-    }
     void show()
     {
-        this->get()->show();
+        T *obj = static_cast<T*>(this->get());
+        obj->show();
     }
 
-    template <class L>
-    void setMidLayout(MidLayout<L> layout)
+    void setMidLayout(MidObject layout)
     {
-        this->get()->setMidLayout(layout.get());
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidLayout(layout);
     }
 };
 

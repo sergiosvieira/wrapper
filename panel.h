@@ -5,11 +5,18 @@
 #include "mid-panel.h"
 #include "mid-qt5-panel.h"
 
+#include "window.h"
+
 class Panel: public MidPanel<MidQt5Panel>
 {
 public:
-    Panel(int width, int height):
-            MidPanel<MidQt5Panel>(width, height)
+    Panel
+    (
+        int width = 600,
+        int height = 800,
+        MidObject parent = nullptr
+    ):
+            MidPanel<MidQt5Panel>(width, height, parent)
         {}
 };
 

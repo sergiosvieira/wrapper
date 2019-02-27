@@ -11,13 +11,11 @@ using std::cout;
 
 class TextLabel: public MidTextLabel<MidQt5TextLabel>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    TextLabel(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidTextLabel<MidQt5TextLabel>(parent, midID, title),
-        parent(parent) {}
+    TextLabel(Id id = 0,
+              const std::string &title = "",
+              MidObject parent = nullptr):
+        MidTextLabel<MidQt5TextLabel>(id, title, parent){}
 };
 
 #endif // TEXTLABEL_H

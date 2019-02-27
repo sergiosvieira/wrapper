@@ -2,8 +2,9 @@
 #define MIDACTIONHANDLER_H
 
 #include <functional>
+#include "mid-handler.h"
 
-class MidActionHandler
+class MidActionHandler: public MidHandler
 {
 public:
     using ActionLambda = std::function<bool()>;

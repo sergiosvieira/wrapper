@@ -7,26 +7,27 @@
 template <class T>
 class MidTextEdit : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidTextEdit(MidWindow<U>* parent = nullptr,
+    MidTextEdit
+    (
         long long int midID = 0,
-              const char *title = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID, title}))
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidObject(new T{midID, title, parent})
     {
     }
 
-    const char * getText()
+    std::string getText()
     {
-        return ptr->getText();
+        T *obj = static_cast<T*>(this->get());
+        return obj->getText();
     }
 
-    void setMidText(const char *caption)
+    void setMidText(const std::string &caption)
     {
-        ptr->setMidText(caption);
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidText(caption);
     }
 };
 

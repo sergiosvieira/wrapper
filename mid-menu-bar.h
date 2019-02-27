@@ -9,27 +9,19 @@
 template <class T>
 class MidMenuBar : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidMenuBar(MidWindow<U>* parent = nullptr,
-        long long int midID = 0):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID}))
+    MidMenuBar
+    (
+        Id midID = 0,
+        MidObject parent = nullptr
+    ):
+        MidObject(new T{midID, parent})
     {
     }
-
-    template <class V>
-    void addMidMenu(MidMenu<V>* menu)
+    void addMidMenu(MidObject menu)
     {
-        T *obj = this->ref<T>();
-        if (obj) obj->addMidMenu(menu->get());
-    }
-
-    T* get()
-    {
-        return this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->addMidMenu(menu);
     }
 };
 

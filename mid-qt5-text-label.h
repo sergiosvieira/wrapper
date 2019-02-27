@@ -8,34 +8,19 @@
 
 class MidQt5TextLabel: public QLabel
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5TextLabel(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *text = ""):
-        QLabel (text, (parent != nullptr) ? parent->get() : nullptr)
-    {
-    }
-    MidQt5TextLabel(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0):
-        QLabel ((parent != nullptr) ? parent->get() : nullptr)
-    {
-    }
-
-    const char * getText()
+    MidQt5TextLabel(Id d  = 0,
+                    const std::string &text = "",
+                    MidObject parent = nullptr):
+        QLabel (QString(text.c_str()), static_cast<QWidget*>(parent.get())){}
+    std::string getMidText()
     {
         QString text = this->text();
         return text.toStdString().c_str();
     }
-
-    void setMidText(const char *caption)
+    void setMidText(const std::string &text)
     {
-        setText(QString(caption));
-    }
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
+        setText(QString(text.c_str()));
     }
 };
 

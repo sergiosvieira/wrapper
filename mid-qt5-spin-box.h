@@ -8,23 +8,15 @@
 
 class MidQt5SpinBox: public QSpinBox
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5SpinBox(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 int minValue = 0,
-                  int maxValue = 100):
-        QSpinBox ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5SpinBox(Id id = 0,
+                  int minValue = 0,
+                  int maxValue = 100,
+                  MidObject parent = nullptr):
+        QSpinBox (static_cast<QWidget*>(parent.get()))
     {
         setRange(minValue, maxValue);
     }
-
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
-    }
-
     int getMidValue()
     {
         return value();

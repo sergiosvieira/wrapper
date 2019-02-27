@@ -9,15 +9,14 @@
 template <class T>
 class MidLine : public MidObject
 {
-	MidObject *parent = nullptr;
-	T *ptr = nullptr;
 public:
-    template <class U>
-    MidLine(MidWindow<U>* parent = nullptr,
+    MidLine
+    (
         long long int midID = 0,
-              MidLineType lineType = MidLineType::VERTICAL):
-    	parent(parent),
-        MidObject((ptr = new T{parent, midID, lineType}))
+        MidLineType lineType = MidLineType::VERTICAL,
+        MidObject parent = nullptr
+    ):
+        MidObject(new T{midID, lineType, parent})
     {
     }
 };

@@ -8,24 +8,15 @@
 template <class T>
 class MidTab : public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidTab(MidWindow<U>* parent = nullptr,
-        long long int midID = 0,
-              const char *title = ""):
-        parent(parent),
-        MidObject((ptr = new T{parent, midID}))
+    MidTab(Id id = 0,
+           const std::string &title = "",
+           MidObject parent = nullptr):
+        MidObject(new T{id, title, parent}){}
+    void addMidTab(MidObject object, const char *tabTitle)
     {
-    }
-
-    void addMidTab(MidObject *object, const char *tabTitle = "")
-    {
-        T *obj = this->ref<T>();
+        T *obj = static_cast<T*>(this->get());
         if (obj) obj->addMidTab(object, tabTitle);
-
-        //ptr->addMidTab(object);
     }
 };
 

@@ -5,20 +5,16 @@
 #include "mid-window.h"
 #include "mid-qt5-window.h"
 
-
 class MidQt5ComboBox: public QComboBox
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5ComboBox(MidWindow<MidQt5Window>* parent = nullptr,
-                   long long int midID = 0):
-        QComboBox ((parent != nullptr) ? parent->get() : nullptr){}
-    void addMidItem(const char* item)
+    MidQt5ComboBox(Id id = 0,
+                   MidObject parent = nullptr):
+        QComboBox (static_cast<QWidget*>(parent.get())){}
+    void addMidItem(const std::string &item)
     {
-        this->addItem(QString(item));
+        this->addItem(QString(item.c_str()));
     }
 };
-
 
 #endif // __MID_QT5_COMBO_BOX__

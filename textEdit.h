@@ -7,17 +7,18 @@
 
 #include "window.h"
 
-using std::cout;
 
 class TextEdit: public MidTextEdit<MidQt5TextEdit>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    TextEdit(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidTextEdit<MidQt5TextEdit>(parent, midID, title),
-        parent(parent) {}
+    TextEdit
+    (
+        Id midID = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidTextEdit<MidQt5TextEdit>(midID, title, parent)
+        {}
 };
 
 #endif // __TEXTEDIT__

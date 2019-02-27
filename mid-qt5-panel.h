@@ -6,6 +6,8 @@
 #include <iostream>
 #include <memory>
 #include "mainwindow.h"
+#include "mid-window.h"
+#include "mid-qt5-window.h"
 
 using std::cout;
 
@@ -13,20 +15,22 @@ class MidQt5Panel: public QWidget
 {
     Q_OBJECT
 public:
-    explicit MidQt5Panel(int width,
-                          int height,
-                          QWidget *parent = 0)
+    explicit MidQt5Panel
+    (
+            int width = 600,
+            int height = 800,
+            MidObject parent = nullptr
+    ) : QWidget(static_cast<QWidget*>(parent.get()))
     {
-        this->setParent(parent);
         this->resize(width, height);
     }
 
     void show();
     ~MidQt5Panel() {}
 
-    void setMidLayout(QLayout* layout)
+    void setMidLayout(MidObject layout)
     {
-        setLayout(layout);
+        setLayout(static_cast<QLayout*>(layout.get()));
     }
 };
 
