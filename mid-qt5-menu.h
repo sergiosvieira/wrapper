@@ -20,11 +20,11 @@ public:
      */
     MidQt5Menu
     (
-        long long int midID = 0,
-        const char *title = "",
+        Id midID = 0,
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        QMenu (title, static_cast<QWidget*>(parent.get()))
+        QMenu (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
     }
     /*!

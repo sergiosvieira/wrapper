@@ -21,10 +21,10 @@ public:
     MidQt5CheckBox
     (
         Id midID = 0,
-        const char *title = "",
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        QCheckBox(title, static_cast<QWidget*>(parent.get()))
+        QCheckBox(QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
     }
     /*!

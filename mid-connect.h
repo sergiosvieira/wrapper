@@ -34,18 +34,10 @@ public:
                  EventTable eventTable,
                  MidButtonHandler* eventhandler)
     {
-        T *obj = static_cast<T*>(source);
+        T *obj = static_cast<T*>(source.get());
         if (obj) return obj->connect(source, eventTable, eventhandler);
         return true;
     }    
-    bool connect(MidObject source,
-                 EventTable eventTable,
-                 MidActionHandler* eventhandler)
-    {
-        if (ptr == nullptr) throw std::exception();
-        ptr->connect(source, eventTable, eventhandler);
-        return true;
-    }
 };
 
 #endif // MIDCONNECT_H
