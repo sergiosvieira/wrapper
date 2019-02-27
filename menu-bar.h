@@ -1,5 +1,5 @@
-#ifndef __MENUBAR__
-#define __MENUBAR__
+#ifndef MENU_BAR_H
+#define MENU_BAR_H
 
 #include <iostream>
 #include "mid-menu-bar.h"
@@ -24,4 +24,4 @@ public:
         MidMenuBar<MidQt5MenuBar>(midID, parent) {}
 };
 
-#endif // __MENUBAR__
+#endif // MENU_BAR_H

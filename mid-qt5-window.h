@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_WINDOW__
-#define __MID_QT5_WINDOW__
+#ifndef MID_QT5_WINDOW_H
+#define MID_QT5_WINDOW_H
 
 #include <QtWidgets>
 #include <QString>
@@ -43,4 +43,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_WINDO__ */
+#endif /* MID_QT5_WINDOW_H */

@@ -1,5 +1,5 @@
-#ifndef MIDLAYOUT_H
-#define MIDLAYOUT_H
+#ifndef MID_LAYOUT_H
+#define MID_LAYOUT_H
 
 #include "mid-object.h"
 
@@ -49,4 +49,4 @@ public:
     virtual ~MidLayout(){}
 };
 
-#endif // MIDLAYOUT_H
+#endif // MID_LAYOUT_H

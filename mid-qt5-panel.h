@@ -1,5 +1,5 @@
-#ifndef __MIDQT5PANEL__
-#define __MIDQT5PANEL__
+#ifndef MID_QT5_PANEL_H
+#define MID_QT5_PANEL_H
 
 #include <QtWidgets>
 #include <QString>
@@ -40,8 +40,7 @@ public:
     /*!
     \brief ~MidQt5Panel
     */
-    ~MidQt5Panel() {}
-
+    virtual ~MidQt5Panel() {}
     /*!
      * \brief setMidLayout
      * \param layout
@@ -52,4 +51,4 @@ public:
     }
 };
 
-#endif // __MIDQT5PANEL__
+#endif // MID_QT5_PANEL_H

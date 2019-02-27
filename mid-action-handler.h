@@ -1,5 +1,5 @@
-#ifndef MIDACTIONHANDLER_H
-#define MIDACTIONHANDLER_H
+#ifndef MID_ACTION_HANDLER_H
+#define MID_ACTION_HANDLER_H
 
 #include <functional>
 #include "mid-handler.h"
@@ -29,4 +29,4 @@ public:
     ActionLambda lambda;
 };
 
-#endif // MIDACTIONHANDLER_H
+#endif // MID_ACTION_HANDLER_H

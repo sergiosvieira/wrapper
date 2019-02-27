@@ -1,5 +1,5 @@
-#ifndef _MIDBUTTONHANDLER__
-#define _MIDBUTTONHANDLER__
+#ifndef MID_BUTTON_HANDLER_H
+#define MID_BUTTON_HANDLER_H
 
 #include <functional>
 #include "mid-handler.h"
@@ -29,4 +29,4 @@ public:
     ButtonLambda lambda;
 };
 
-#endif // _MIDBUTTONHANDLER__
+#endif // MID_BUTTON_HANDLER_H

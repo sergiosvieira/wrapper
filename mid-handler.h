@@ -1,5 +1,5 @@
-#ifndef MIDHANDLER_H
-#define MIDHANDLER_H
+#ifndef MID_HANDLER_H
+#define MID_HANDLER_H
 
 #include <functional>
 
@@ -19,4 +19,4 @@ public:
     virtual ~MidHandler() {}
 };
 
-#endif // MIDHANDLER_H
+#endif // MID_HANDLER_H

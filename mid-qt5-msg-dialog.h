@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_MSG_DIALOG__
-#define __MID_QT5_MSG_DIALOG__
+#ifndef MID_QT5_MSG_DIALOG_H
+#define MID_QT5_MSG_DIALOG_H
 
 #include <QMessageBox>
 #include "mid-qt5-window.h"
@@ -61,4 +61,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_MSG_DIALOG__ */
+#endif /* MID_QT5_MSG_DIALOG_H */

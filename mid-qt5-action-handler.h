@@ -1,5 +1,5 @@
-#ifndef MIDQT5ACTIONHANDLER_H
-#define MIDQT5ACTIONHANDLER_H
+#ifndef MID_QT5_ACTION_HANDLER_H
+#define MID_QT5_ACTION_HANDLER_H
 
 #include <iostream>
 #include "mid-action-handler.h"
@@ -21,4 +21,4 @@ public:
     virtual ~MidQT5ActionHandler() {}
 };
 
-#endif // MIDQT5ACTIONHANDLER_H
+#endif // MID_QT5_ACTION_HANDLER_H

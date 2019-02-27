@@ -1,5 +1,5 @@
-#ifndef MIDTEXTFIELD_H
-#define MIDTEXTFIELD_H
+#ifndef MID_TEXT_FIELD_H
+#define MID_TEXT_FIELD_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -43,4 +43,4 @@ public:
     }
 };
 
-#endif // MIDTEXTFIELD_H
+#endif // MID_TEXT_FIELD_H

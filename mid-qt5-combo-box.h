@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_COMBO_BOX__
-#define __MID_QT5_COMBO_BOX__
+#ifndef MID_QT5_COMBO_BOX_H
+#define MID_QT5_COMBO_BOX_H
 
 #include <QComboBox>
 #include "mid-window.h"
@@ -29,4 +29,4 @@ public:
     }
 };
 
-#endif // __MID_QT5_COMBO_BOX__
+#endif // MID_QT5_COMBO_BOX_H

@@ -1,5 +1,5 @@
-#ifndef __DEFINITIONS__
-#define __DEFINITIONS__
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 
 /*!
  * \brief The MidLineType enum

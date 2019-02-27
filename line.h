@@ -1,5 +1,5 @@
-#ifndef __LINE_H__
-#define __LINE_H__
+#ifndef LINE_H
+#define LINE_H
 
 #include <iostream>
 #include "mid-line.h"
@@ -23,4 +23,4 @@ public:
         MidLine<MidQt5Line>(id, lineType, parent){}
 };
 
-#endif // __LINE_H__
+#endif // LINE_H

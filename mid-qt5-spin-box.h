@@ -1,5 +1,5 @@
-#ifndef MIDQT5SPINBOX_H
-#define MIDQT5SPINBOX_H
+#ifndef MID_QT5_SPIN_BOX_H
+#define MID_QT5_SPIN_BOX_H
 
 #include <QSpinBox>
 #include "mid-qt5-window.h"
@@ -38,4 +38,4 @@ public:
     }
 };
 
-#endif // MIDQT5SPINBOX_H
+#endif // MID_QT5_SPIN_BOX_H

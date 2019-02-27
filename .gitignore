@@ -50,3 +50,4 @@ moc_*
 main-wx*
 main.app*
 main.pro*
+.DS_Store

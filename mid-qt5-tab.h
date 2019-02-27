@@ -1,5 +1,5 @@
-#ifndef __MIDQT5TAB__
-#define __MIDQT5TAB__
+#ifndef MID_QT5_TAB_H
+#define MID_QT5_TAB_H
 
 #include <QTabWidget>
 #include "mid-qt5-window.h"
@@ -31,4 +31,4 @@ public:
     }
 };
 
-#endif // __MIDQT5TAB__
+#endif // MID_QT5_TAB_H

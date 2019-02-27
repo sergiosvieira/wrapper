@@ -1,5 +1,5 @@
-#ifndef MIDQT5DATE_H
-#define MIDQT5DATE_H
+#ifndef MID_QT5_DATE_H
+#define MID_QT5_DATE_H
 
 #include <QDate>
 #include "mid-qt5-window.h"
@@ -48,4 +48,4 @@ public:
     }
 };
 
-#endif // MIDQT5DATE_H
+#endif // MID_QT5_DATE_H

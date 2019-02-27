@@ -1,5 +1,5 @@
-#ifndef __MID_GAUGE__
-#define __MID_GAUGE__
+#ifndef MID_GAUGE_H
+#define MID_GAUGE_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -101,4 +101,4 @@ public:
     }
 };
 
-#endif /* __MID_GAUGE__ */
+#endif /* MID_GAUGE_H */

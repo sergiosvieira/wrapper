@@ -1,5 +1,5 @@
-#ifndef __MID_COMBO_BOX__
-#define __MID_COMBO_BOX__
+#ifndef MID_COMBO_BOX_H
+#define MID_COMBO_BOX_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -30,4 +30,4 @@ public:
     }
 };
 
-#endif // __MID_COMBO_BOX__
+#endif // MID_COMBO_BOX_H

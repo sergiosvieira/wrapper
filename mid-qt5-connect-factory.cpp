@@ -11,7 +11,6 @@ MidQt5ConnectFactory::MapOfCallbacks MidQt5ConnectFactory::mapOfCallbacks =
 {
     {EventTable::BUTTONCLICK, &MidQt5ConnectFactory::makeMidQt5Button},
     {EventTable::ACTIONTRIGERRED, &MidQt5ConnectFactory::makeMidQt5Action}
-
 };
 
 bool MidQt5ConnectFactory::makeMidQt5Button

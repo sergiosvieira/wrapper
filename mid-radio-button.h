@@ -1,5 +1,5 @@
-#ifndef __MID_RADIO_BUTTON__
-#define __MID_RADIO_BUTTON__
+#ifndef MID_RADIO_BUTTON_H
+#define MID_RADIO_BUTTON_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -23,4 +23,4 @@ public:
         MidObject(new T{id, title, parent}){}
 };
 
-#endif // __MID_RADIO_BUTTON__
+#endif // MID_RADIO_BUTTON_H

@@ -1,5 +1,5 @@
-#ifndef __MIDQT5MENUBAR__
-#define __MIDQT5MENUBAR__
+#ifndef MID_QT5_MENU_BAR_H
+#define MID_QT5_MENU_BAR_H
 
 #include <QMenuBar>
 #include "mid-qt5-window.h"
@@ -36,4 +36,4 @@ public:
     }
 };
 
-#endif // __MIDQT5MENUBAR__
+#endif // MID_QT5_MENU_BAR_H

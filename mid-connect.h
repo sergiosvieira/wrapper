@@ -1,5 +1,5 @@
-#ifndef MIDCONNECT_H
-#define MIDCONNECT_H
+#ifndef MID_CONNECT_H
+#define MID_CONNECT_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -43,4 +43,4 @@ public:
     }
 };
 
-#endif // MIDCONNECT_H
+#endif // MID_CONNECT_H

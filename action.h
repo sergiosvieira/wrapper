@@ -1,5 +1,5 @@
-#ifndef __ACTION__
-#define __ACTION__
+#ifndef ACTION_H
+#define ACTION_H
 
 #include <iostream>
 #include "mid-action.h"
@@ -27,4 +27,4 @@ public:
         MidAction<MidQt5Action>(id, title, parent) {}
 };
 
-#endif // __ACTION__
+#endif // ACTION_H

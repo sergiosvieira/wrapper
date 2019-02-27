@@ -1,5 +1,5 @@
-#ifndef __MID_WINDOW__
-#define __MID_WINDOW__
+#ifndef MID_WINDOW_H
+#define MID_WINDOW_H
 
 #include <vector>
 #include <iostream>
@@ -47,4 +47,4 @@ public:
     }
 };
 
-#endif /* __MID_WINDOW__ */
+#endif /* MID_WINDOW_H */

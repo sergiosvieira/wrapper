@@ -1,5 +1,5 @@
-#ifndef __MIDQT5TEXTEDIT__
-#define __MIDQT5TEXTEDIT__
+#ifndef MID_QT5_TEXT_EDIT_H
+#define MID_QT5_TEXT_EDIT_H
 
 #include <QPlainTextEdit>
 #include "mid-qt5-window.h"
@@ -44,4 +44,4 @@ public:
     }
 };
 
-#endif // __MIDQT5TEXTEDIT__
+#endif // MID_QT5_TEXT_EDIT_H

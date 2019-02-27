@@ -1,5 +1,5 @@
-#ifndef MIDSPINBOX_H
-#define MIDSPINBOX_H
+#ifndef MID_SPIN_BOX_H
+#define MID_SPIN_BOX_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -35,4 +35,4 @@ public:
     }
 };
 
-#endif // MIDSPINBOX_H
+#endif // MID_SPIN_BOX_H

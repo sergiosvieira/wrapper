@@ -1,5 +1,5 @@
-#ifndef __RADIO_BUTTON__
-#define __RADIO_BUTTON__
+#ifndef RADIO_BUTTON_H
+#define RADIO_BUTTON_H
 
 #include "mid-radio-button.h"
 #include "mid-qt5-radio-button.h"
@@ -22,4 +22,4 @@ public:
         MidRadioButton<MidQt5RadioButton>(id, title, parent){}
 };
 
-#endif // __RADIO_BUTTON__
+#endif // RADIO_BUTTON_H

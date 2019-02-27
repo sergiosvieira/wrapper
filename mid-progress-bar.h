@@ -1,5 +1,5 @@
-#ifndef __MID_PROGRESS_BAR__
-#define __MID_PROGRESS_BAR__
+#ifndef MID_PROGRESS_BAR_H
+#define MID_PROGRESS_BAR_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -101,4 +101,4 @@ public:
     }
 };
 
-#endif /* __MID_PROGRESS_BAR__ */
+#endif /* MID_PROGRESS_BAR_H */

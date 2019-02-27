@@ -1,5 +1,5 @@
-#ifndef __MID_APPLICATION__
-#define __MID_APPLICATION__
+#ifndef MID_APPLICATION_H
+#define MID_APPLICATION_H
 
 /*!
  * \brief MidApplication Template
@@ -35,4 +35,4 @@ public:
     }
 };
 
-#endif /* __MID_APPLICATION__ */
+#endif /* MID_APPLICATION_H */

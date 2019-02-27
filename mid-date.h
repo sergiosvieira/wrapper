@@ -1,5 +1,5 @@
-#ifndef MIDDATE_H
-#define MIDDATE_H
+#ifndef MID_DATE_H
+#define MID_DATE_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -25,4 +25,4 @@ public:
         MidObject(new T{day, month, year}){}
 };
 
-#endif // MIDDATE_H
+#endif // MID_DATE_H

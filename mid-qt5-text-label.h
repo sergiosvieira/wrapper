@@ -1,5 +1,5 @@
-#ifndef MIDQT5TEXTLABEL_H
-#define MIDQT5TEXTLABEL_H
+#ifndef MID_QT5_TEXT_LABEL_H
+#define MID_QT5_TEXT_LABEL_H
 
 #include <QLineEdit>
 #include "mid-qt5-window.h"
@@ -43,4 +43,4 @@ public:
     }
 };
 
-#endif // MIDQT5TEXTLABEL_H
+#endif // MID_QT5_TEXT_LABEL_H

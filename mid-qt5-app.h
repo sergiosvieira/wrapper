@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_APP__
-#define __MID_QT5_APP__
+#ifndef MID_QT5_APP_H
+#define MID_QT5_APP_H
 
 #include <QtWidgets>
 #include <iostream>
@@ -37,4 +37,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_APP__ */
+#endif /* MID_QT5_APP_H */

@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_RADIO_BUTTON__
-#define __MID_QT5_RADIO_BUTTON__
+#ifndef MID_QT5_RADIO_BUTTON_H
+#define MID_QT5_RADIO_BUTTON_H
 
 #include <QRadioButton>
 #include "mid-window.h"
@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif // __MID_QT5_RADIO_BUTTON__
+#endif // MID_QT5_RADIO_BUTTON_H

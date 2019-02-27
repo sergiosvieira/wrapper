@@ -1,5 +1,5 @@
-#ifndef MIDDATEEDIT_H
-#define MIDDATEEDIT_H
+#ifndef MID_DATE_EDIT_H
+#define MID_DATE_EDIT_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -24,4 +24,4 @@ public:
         MidObject(new T{id, date, parent}){}
 };
 
-#endif // MIDDATEEDIT_H
+#endif // MID_DATE_EDIT_H

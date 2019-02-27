@@ -1,5 +1,5 @@
-#ifndef __MIDQT5MENU__
-#define __MIDQT5MENU__
+#ifndef MID_QT5_MENU_H
+#define MID_QT5_MENU_H
 
 #include <QMenu>
 #include "mid-qt5-window.h"
@@ -46,4 +46,4 @@ public:
     }
 };
 
-#endif // __MIDQT5MENU__
+#endif // MID_QT5_MENU_H

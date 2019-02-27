@@ -1,11 +1,9 @@
-#ifndef __MID_QT5_PROGRESS_BAR__
-#define __MID_QT5_PROGRESS_BAR__
+#ifndef MID_QT5_PROGRESS_BAR_H
+#define MID_QT5_PROGRESS_BAR_H
 
 #include <QFont>
 #include <QProgressDialog>
-
 #include "mid-qt5-window.h"
-
 #include "mid-window.h"
 
 /*!
@@ -119,4 +117,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_PROGRESS_BAR__ */
+#endif /* MID_QT5_PROGRESS_BAR_H */

@@ -1,5 +1,5 @@
-#ifndef __MID_MESSAGE_DIALOG__
-#define __MID_MESSAGE_DIALOG__
+#ifndef MID_MESSAGE_DIALOG_H
+#define MID_MESSAGE_DIALOG_H
 
 #include "mid-window.h"
 
@@ -33,4 +33,4 @@ public:
     }
 };
 
-#endif /* __MID_MESSAGE_DIALOG__ */
+#endif /* MID_MESSAGE_DIALOG_H */

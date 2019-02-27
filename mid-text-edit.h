@@ -1,5 +1,5 @@
-#ifndef __MIDTEXTEDIT__
-#define __MIDTEXTEDIT__
+#ifndef MID_TEXT_EDIT_H
+#define MID_TEXT_EDIT_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -42,4 +42,4 @@ public:
     }
 };
 
-#endif // __MIDTEXTEDIT__
+#endif // MID_TEXT_EDIT_H

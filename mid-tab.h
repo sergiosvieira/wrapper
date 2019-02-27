@@ -1,5 +1,5 @@
-#ifndef MIDTAB_H
-#define MIDTAB_H
+#ifndef MID_TAB_H
+#define MID_TAB_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -34,4 +34,4 @@ public:
     }
 };
 
-#endif // MIDTAB_H
+#endif // MID_TAB_H

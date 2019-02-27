@@ -1,5 +1,5 @@
-#ifndef MIDQT5CONNECT_H
-#define MIDQT5CONNECT_H
+#ifndef MID_QT5_CONNECT_H
+#define MID_QT5_CONNECT_H
 
 #include "mid-connect.h"
 #include "mid-qt5-window.h"
@@ -44,4 +44,4 @@ public:
     }
 };
 
-#endif // MIDQT5CONNECT_H
+#endif // MID_QT5_CONNECT_H

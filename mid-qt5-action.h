@@ -1,5 +1,5 @@
-#ifndef __MIDQT5ACTION__
-#define __MIDQT5ACTION__
+#ifndef MID_QT5_ACTION_H
+#define MID_QT5_ACTION_H
 
 #include <QAction>
 #include "mid-qt5-window.h"
@@ -45,4 +45,4 @@ public:
     }
 };
 
-#endif // __MIDQT5ACTION__
+#endif // MID_QT5_ACTION_H

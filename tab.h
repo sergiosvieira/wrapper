@@ -1,5 +1,5 @@
-#ifndef __TAB_H__
-#define __TAB_H__
+#ifndef TAB_H
+#define TAB_H
 
 #include <iostream>
 #include "mid-tab.h"
@@ -25,4 +25,4 @@ public:
         MidTab<MidQt5Tab>(id, title, parent){}
 };
 
-#endif // __TAB_H__
+#endif // TAB_H

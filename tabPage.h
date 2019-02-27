@@ -1,7 +1,5 @@
-//MidWindow<MidQt5Window> *base1 = new MidWindow<MidQt5Window>(0,0,"h1");
-
-#ifndef __TABPAGE__
-#define __TABPAGE__
+#ifndef TAB_PAGE_H
+#define TAB_PAGE_H
 
 #include <iostream>
 #include "mid-window.h"
@@ -35,4 +33,4 @@ public:
         MidWindow<MidQt5Window>(width, height, title, parent) {}
 };
 
-#endif // __TABPAGE__
+#endif // TAB_PAGE_H

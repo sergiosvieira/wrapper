@@ -1,5 +1,5 @@
-#ifndef MIDQTVERTICALLAYOUT_H
-#define MIDQTVERTICALLAYOUT_H
+#ifndef MID_QT_VERTICAL_LAYOUT_H
+#define MID_QT_VERTICAL_LAYOUT_H
 
 #include <QVBoxLayout>
 #include <QWidget>
@@ -38,12 +38,10 @@ public:
         QLayout* layout = static_cast<QLayout*>(object.get());
         if (layout != nullptr) addLayout(layout);
     }
-
     /*!
     * \brief ~MidQt5VerticalLayout
     * */
-    ~MidQt5VerticalLayout() {}
-
+    virtual ~MidQt5VerticalLayout() {}
     /*!
      * \brief setMidMenuBar
      * \param object
@@ -55,4 +53,4 @@ public:
     }
 };
 
-#endif // MIDQTVERTICALLAYOUT_H
+#endif // MID_QT_VERTICAL_LAYOUT_H

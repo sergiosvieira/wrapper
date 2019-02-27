@@ -1,5 +1,5 @@
-#ifndef TEXTLABEL_H
-#define TEXTLABEL_H
+#ifndef TEXT_LABEL_H
+#define TEXT_LABEL_H
 
 #include <iostream>
 #include "mid-text-label.h"
@@ -26,4 +26,4 @@ public:
         MidTextLabel<MidQt5TextLabel>(id, title, parent){}
 };
 
-#endif // TEXTLABEL_H
+#endif // TEXT_LABEL_H

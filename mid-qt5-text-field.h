@@ -1,5 +1,5 @@
-#ifndef MIDQT5TEXTFIELD_H
-#define MIDQT5TEXTFIELD_H
+#ifndef MID_QT5_TEXT_FIELD_H
+#define MID_QT5_TEXT_FIELD_H
 
 #include <QLineEdit>
 #include "mid-qt5-window.h"
@@ -42,4 +42,4 @@ public:
     }
 };
 
-#endif // MIDQT5TEXTFIELD_H
+#endif // MID_QT5_TEXT_FIELD_H

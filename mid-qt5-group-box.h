@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_GROUP_BOX__
-#define __MID_QT5_GROUP_BOX__
+#ifndef MID_QT5_GROUP_BOX_H
+#define MID_QT5_GROUP_BOX_H
 
 #include <QGroupBox>
 #include "mid-window.h"
@@ -33,4 +33,4 @@ public:
 };
 
 
-#endif // __MID_QT5_GROUP_BOX__
+#endif // MID_QT5_GROUP_BOX_H

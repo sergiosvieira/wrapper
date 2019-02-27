@@ -1,5 +1,5 @@
-#ifndef MIDQT5HANDLER_H
-#define MIDQT5HANDLER_H
+#ifndef MID_QT5_HANDLER_H
+#define MID_QT5_HANDLER_H
 
 #include <iostream>
 #include "mid-button-handler.h"
@@ -21,4 +21,4 @@ public:
     virtual ~MidQT5ButtonHandler() {}
 };
 
-#endif // MIDQT5HANDLER_H
+#endif // MID_QT5_HANDLER_H

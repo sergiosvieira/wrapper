@@ -1,5 +1,5 @@
-#ifndef __MID_BUTTON__
-#define __MID_BUTTON__
+#ifndef MID_BUTTON_H
+#define MID_BUTTON_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -23,4 +23,4 @@ public:
         MidObject(new T{id, title, parent}){}
 };
 
-#endif /* __MID_BUTTON__ */
+#endif /* MID_BUTTON_H */

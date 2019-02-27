@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_CHECK_BOX__
-#define __MID_QT5_CHECK_BOX__
+#ifndef MID_QT5_CHECK_BOX_H
+#define MID_QT5_CHECK_BOX_H
 
 #include <QCheckBox>
 #include "mid-qt5-window.h"
@@ -49,4 +49,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_CHECKBOX__ */
+#endif /* MID_QT5_CHECK_BOX_H */

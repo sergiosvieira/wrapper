@@ -1,5 +1,5 @@
-#ifndef __MIDACTION__
-#define __MIDACTION__
+#ifndef MID_ACTION_H
+#define MID_ACTION_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -28,4 +28,4 @@ public:
     }
 };
 
-#endif // __MIDACTION__
+#endif // MID_ACTION_H

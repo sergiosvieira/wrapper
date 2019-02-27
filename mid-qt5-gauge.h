@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_GAUGE__
-#define __MID_QT5_GAUGE__
+#ifndef MID_QT5_GAUGE_H
+#define MID_QT5_GAUGE_H
 
 #include <QFont>
 #include <QProgressBar>
@@ -115,4 +115,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_GAUGE__ */
+#endif /* MID_QT5_GAUGE_H */

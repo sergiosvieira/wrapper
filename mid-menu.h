@@ -1,5 +1,5 @@
-#ifndef __MIDMENU__
-#define __MIDMENU__
+#ifndef MID_MENU_H
+#define MID_MENU_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -35,4 +35,4 @@ public:
     }
 };
 
-#endif // __MIDMENU__
+#endif // MID_MENU_H

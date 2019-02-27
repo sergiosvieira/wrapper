@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_BUTTON__
-#define __MID_QT5_BUTTON__
+#ifndef MID_QT5_BUTTON_H
+#define MID_QT5_BUTTON_H
 
 #include <QPushButton>
 #include "mid-qt5-window.h"
@@ -24,4 +24,4 @@ public:
         QPushButton(QString(title.c_str()), static_cast<QWidget*>(parent.get())){}
 };
 
-#endif /* __MID_QT5_BUTTON__ */
+#endif /* MID_QT5_BUTTON_H */

@@ -1,5 +1,5 @@
-#ifndef __GAUGE__
-#define __GAUGE__
+#ifndef GAUGE_H
+#define GAUGE_H
 
 #include <iostream>
 #include "mid-gauge.h"
@@ -21,4 +21,4 @@ public:
         MidGauge<MidQt5Gauge>(parent, midID){}
 };
 
-#endif // __GAUGE__
+#endif // GAUGE_H

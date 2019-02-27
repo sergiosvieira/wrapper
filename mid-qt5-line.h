@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_LINE__
-#define __MID_QT5_LINE__
+#ifndef MID_QT5_LINE_H
+#define MID_QT5_LINE_H
 
 #include <QFrame>
 #include "definitions.h"
@@ -38,4 +38,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_LINE__ */
+#endif /* MID_QT5_LINE_H */

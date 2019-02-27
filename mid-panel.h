@@ -1,5 +1,5 @@
-#ifndef __MIDPANEL__
-#define __MIDPANEL__
+#ifndef MID_PANEL_H
+#define MID_PANEL_H
 
 #include <vector>
 #include <iostream>
@@ -65,4 +65,4 @@ public:
     }
 };
 
-#endif // __MIDPANEL__
+#endif // MID_PANEL_H

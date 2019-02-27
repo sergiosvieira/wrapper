@@ -1,5 +1,5 @@
-#ifndef TEXTFIELD_H
-#define TEXTFIELD_H
+#ifndef TEXT_FIELD_H
+#define TEXT_FIELD_H
 
 #include <iostream>
 #include "mid-text-field.h"
@@ -26,4 +26,4 @@ public:
         MidTextField<MidQt5TextField>(id, text, parent){}
 };
 
-#endif // TEXTFIELD_H
+#endif // TEXT_FIELD_H

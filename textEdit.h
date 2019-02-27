@@ -1,5 +1,5 @@
-#ifndef __TEXTEDIT__
-#define __TEXTEDIT__
+#ifndef TEXT_EDIT_H
+#define TEXT_EDIT_H
 
 #include <iostream>
 #include "mid-text-edit.h"
@@ -26,4 +26,4 @@ public:
         {}
 };
 
-#endif // __TEXTEDIT__
+#endif // TEXT_EDIT_H

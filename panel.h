@@ -1,5 +1,5 @@
-#ifndef __PANEL__
-#define __PANEL__
+#ifndef PANEL_H
+#define PANEL_H
 
 #include <iostream>
 #include "mid-panel.h"
@@ -29,4 +29,4 @@ public:
         {}
 };
 
-#endif // __PANEL__
+#endif // PANEL_H

@@ -1,5 +1,5 @@
-#ifndef __MID_LINE__
-#define __MID_LINE__
+#ifndef MID_LINE_H
+#define MID_LINE_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -25,4 +25,4 @@ public:
         MidObject(new T{id, lineType, parent}){}
 };
 
-#endif /* __MID_LINE__ */
+#endif /* MID_LINE_H */

@@ -1,5 +1,5 @@
-#ifndef __DATE_EDIT__
-#define __DATE_EDIT__
+#ifndef DATE_EDIT_H
+#define DATE_EDIT_H
 
 #include <iostream>
 #include "mid-date-edit.h"

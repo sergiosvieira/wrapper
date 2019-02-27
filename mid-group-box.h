@@ -1,5 +1,5 @@
-#ifndef __MID_GROUP_BOX__
-#define __MID_GROUP_BOX__
+#ifndef MID_GROUP_BOX_H
+#define MID_GROUP_BOX_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -32,4 +32,4 @@ public:
     }
 };
 
-#endif // __MID_GROUP_BOX__
+#endif // MID_GROUP_BOX_H

@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_HORIZONTALLAYOUT__
-#define __MID_QT5_HORIZONTALLAYOUT__
+#ifndef MID_QT5_HORIZONTAL_LAYOUT_H
+#define MID_QT5_HORIZONTAL_LAYOUT_H
 
 #include <QHBoxLayout>
 #include <QWidget>
@@ -52,4 +52,4 @@ public:
 };
 
 
-#endif // __MID_QT5_HORIZONTALLAYOUT__
+#endif // MID_QT5_HORIZONTAL_LAYOUT_H

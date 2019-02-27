@@ -1,5 +1,5 @@
-#ifndef __MIDTEXTLABEL__
-#define __MIDTEXTLABEL__
+#ifndef MID_TEXT_LABEL_H
+#define MID_TEXT_LABEL_H
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -43,4 +43,4 @@ public:
     }
 };
 
-#endif // __MIDTEXTLABEL__
+#endif // MID_TEXT_LABEL_H
