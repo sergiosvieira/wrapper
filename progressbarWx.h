@@ -1,5 +1,5 @@
-#ifndef PROGRESSBAR_H
-#define PROGRESSBAR_H
+#ifndef __PROGRESSBARWX__
+#define __PROGRESSBARWX__
 
 #include <iostream>
 #include "mid-progress-bar.h"
@@ -7,10 +7,10 @@
 
 #include "windowWx.h"
 
-class ProgressbarWx : public MidProgressBar<MidWxProgressbar>
+class ProgressBarWx : public MidProgressBar<MidWxProgressbar>
 {
 public:
-    ProgressbarWx
+    ProgressBarWx
     (
         Id id = 0,
         int min = 0,
@@ -22,5 +22,5 @@ public:
         MidProgressBar<MidWxProgressbar>(id, min, max, title, msg, parent) {}
 };
 
-#endif // PROGRESSBAR_H
+#endif // __PROGRESSBARWX__
 

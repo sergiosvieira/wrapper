@@ -33,9 +33,10 @@ public:
     void show() {}
     ~MidWxTabPage() {}
 
-    void setMidLayout(wxSizer* layout)
+    void setMidLayout(MidObject layout)
     {
-        SetSizer(layout);
+        wxSizer* sizer = static_cast<wxSizer*>(layout.get());
+        SetSizer(sizer);
     }
 };
 

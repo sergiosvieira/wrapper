@@ -31,6 +31,7 @@ public:
     void show()
     {
         this->ShowModal();
+        //this->Show();
     }
 };
 

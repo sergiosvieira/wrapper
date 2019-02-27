@@ -9,16 +9,16 @@ class MidWxHorizontalLayout: public wxBoxSizer
 public:
     MidWxHorizontalLayout():
         wxBoxSizer(wxHORIZONTAL) {}
-    void add(MidObject *object)
+    void add(MidObject object)
     {
-        wxWindow* widget = static_cast<wxWindow*>(object->get());
+        wxWindow* widget = static_cast<wxWindow*>(object.get());
         if (widget != nullptr)
             Add(widget, 1, wxEXPAND | wxALL, 5);
             //Add(widget);
     }
-    void addMidLayout(MidObject *object)
+    void addMidLayout(MidObject object)
     {
-        wxSizer* sizer = static_cast<wxSizer*>(object->get());
+        wxSizer* sizer = static_cast<wxSizer*>(object.get());
         if (sizer != nullptr)
             //Add(sizer);
             Add(sizer, 1, wxEXPAND | wxALL, 5);

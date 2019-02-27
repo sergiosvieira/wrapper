@@ -20,7 +20,7 @@ public:
         const std::string &msg = "",
         MidObject parent = nullptr
     ) :
-        wxProgressDialog(wxString(title), wxString(msg), max, static_cast<wxWindow*>(parent.get())) {}
+        wxProgressDialog(wxString(title), wxString(msg), max, static_cast<wxWindow*>(parent.get()), wxPD_APP_MODAL | wxPD_CAN_ABORT) {}
 
     void setMidRange(int minimum, int maximum)
     {

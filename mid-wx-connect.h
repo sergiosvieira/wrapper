@@ -16,23 +16,24 @@ class MidWxConnect
 public:
     MidWxConnect(MidObject parent = nullptr)
         {}
-    bool connect(MidObject* source,
+    bool connect(MidObject source,
                  EventTable eventTable,
-                 MidButtonHandler* eventhandler)
+                 MidHandler* eventhandler)
         
     {
         if (eventTable == EventTable::BUTTONCLICK)
         {
-            MidWxButton *ref = static_cast<MidWxButton*>(source->get());
-            //wxButton* ref = (wxButton*)source->ref<MidWxButton>();
-            auto& f = eventhandler->lambda;
+            MidWxButton *ref = static_cast<MidWxButton*>(source.get());
+
+            MidButtonHandler* pointer = dynamic_cast<MidButtonHandler*>(eventhandler);
+
+            auto &f = pointer->lambda;
             ref->Bind(wxEVT_COMMAND_BUTTON_CLICKED,
-                [&](wxCommandEvent&) {
+                [&f](wxCommandEvent&) {
                 f(); //Calling the function
+                //pointer->lambda();
             },
-                //source->getID());
                 ref->GetId());
-                //BUTTON_Hello);
         }
 
         return true;
