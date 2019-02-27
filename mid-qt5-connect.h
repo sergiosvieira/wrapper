@@ -26,33 +26,29 @@ public:
         parent(parent){}
     bool connect(MidObject* source,
                  EventTable eventTable,
-                 MidButtonHandler* eventhandler)
+                 MidHandler* eventhandler)
     {
-        QPushButton *obj = static_cast<MidQt5Button*>(source->get());
-        if (obj == nullptr) return false;
         if (eventTable == EventTable::BUTTONCLICK)
         {
-            if (eventhandler->lambda != nullptr)
+            QPushButton *obj = static_cast<MidQt5Button*>(source->get());
+            if (obj == nullptr) return false;
+            MidButtonHandler* pointer = dynamic_cast<MidButtonHandler*>(eventhandler);
+            if (pointer != nullptr && pointer->lambda != nullptr)
                 QObject::connect(obj, 
                                  &QPushButton::clicked, 
-                                 eventhandler->lambda);
+                                 pointer->lambda);
         }
-        return true;
-    }
-
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidActionHandler* eventhandler)
-    {
-        QAction *obj = static_cast<MidQt5Action*>(source->get());
-        if (obj == nullptr) return false;
-        if (eventTable == EventTable::ACTIONTRIGERRED)
+        else if (eventTable == EventTable::ACTIONTRIGERRED)
         {
-            if (eventhandler->lambda != nullptr)
+            QAction *obj = static_cast<MidQt5Action*>(source->get());
+            if (obj == nullptr) return false;
+            MidActionHandler* pointer = dynamic_cast<MidActionHandler*>(eventhandler);
+            if (pointer != nullptr && pointer->lambda != nullptr)
                 QObject::connect(obj,
                                  &QAction::triggered,
-                                 eventhandler->lambda);
+                                 pointer->lambda);
         }
+
         return true;
     }
 };

@@ -31,16 +31,7 @@ public:
      */
     bool connect(MidObject* source,
                  EventTable eventTable,
-                 MidButtonHandler* eventhandler)
-    {
-        if (ptr == nullptr) throw std::exception();
-        ptr->connect(source, eventTable, eventhandler);
-        return true;
-    }
-
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidActionHandler* eventhandler)
+                 MidHandler* eventhandler)
     {
         if (ptr == nullptr) throw std::exception();
         ptr->connect(source, eventTable, eventhandler);
