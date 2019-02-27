@@ -11,9 +11,9 @@ public:
     MidQt5ComboBox(Id id = 0,
                    MidObject parent = nullptr):
         QComboBox (static_cast<QWidget*>(parent.get())){}
-    void addMidItem(const char* item)
+    void addMidItem(const std::string &item)
     {
-        this->addItem(QString(item));
+        this->addItem(QString(item.c_str()));
     }
 };
 

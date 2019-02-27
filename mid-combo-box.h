@@ -11,7 +11,7 @@ public:
     MidComboBox(Id id = 0,
                 MidObject parent = nullptr):
         MidObject(new T{id, parent}){}
-    void addMidItem(const char* item)
+    void addMidItem(const std::string &item)
     {
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->addMidItem(item);

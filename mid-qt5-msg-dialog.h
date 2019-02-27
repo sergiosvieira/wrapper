@@ -6,27 +6,30 @@
 
 class MidQt5MsgDialog: public QMessageBox
 {
-    QMessageBox m;
 public:
     MidQt5MsgDialog() {}
-    MidQt5MsgDialog(MidWindow<MidQt5Window> *parent,
-                    const char* title, 
-                    const char * text)
+    MidQt5MsgDialog
+    (
+        Id id = 0,
+        const std::string &title = "",
+        const std::string &text = "",
+        MidObject parent = nullptr
+    )
     {
-        m.setWindowTitle(title);
-        m.setText(text);
+        this->setWindowTitle(title.c_str());
+        this->setText(text.c_str());
     }
-    void setText(const char *text)
+    void setMidText(const std::string &text)
     {
-        m.setText(text);
+        this->setText(text.c_str());
     }
-    void setTitle(const char *title)
+    void setMidTitle(const std::string &title)
     {
-        m.setWindowTitle(title);
+        this->setWindowTitle(title.c_str());
     }
     void show()
     {
-        m.exec();
+        this->exec();
     }
 };
 

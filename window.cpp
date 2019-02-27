@@ -96,7 +96,7 @@ Window::Window(int width,
     vLayout->add(*tab1);
     MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
     MidQT5ButtonHandler qt5ButtonHandler ([&](){
-        MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Hello world!");
+        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
         return true;
     });
@@ -132,7 +132,7 @@ Window::Window(int width,
     vLayout->setMidMenuBar(*menuBar);
 
     MidQT5ActionHandler qt5ActionHandler ([&](){
-        MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Action trigerred!");
+        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
         return true;
     });

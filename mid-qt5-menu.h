@@ -12,10 +12,10 @@ public:
     MidQt5Menu
     (
         long long int midID = 0,
-        const char *title = "",
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        QMenu (title, static_cast<QWidget*>(parent.get()))
+        QMenu (title.c_str(), static_cast<QWidget*>(parent.get()))
     {
     }
 

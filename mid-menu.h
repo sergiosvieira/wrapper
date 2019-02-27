@@ -12,7 +12,7 @@ public:
     MidMenu
     (
         long long int midID = 0,
-        const char *title = "",
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
         MidObject(new T{midID, title, parent})

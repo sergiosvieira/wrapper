@@ -12,7 +12,7 @@ public:
     MidCheckBox
     (
         Id midID = 0,
-        const char *title = "",
+        const std::string &title = "",
         MidObject parent = nullptr
      ):
         MidObject(new T{midID, title, parent}){}
