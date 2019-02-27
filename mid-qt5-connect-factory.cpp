@@ -16,11 +16,11 @@ MidQt5ConnectFactory::MapOfCallbacks MidQt5ConnectFactory::mapOfCallbacks =
 
 bool MidQt5ConnectFactory::makeMidQt5Button
 (
-        MidObject* source,
+        MidObject source,
         MidHandler* eventHandler
 )
 {
-    QPushButton *obj = static_cast<MidQt5Button*>(source->get());
+    QPushButton *obj = static_cast<MidQt5Button*>(source.get());
     if (obj == nullptr) return false;
     MidButtonHandler* pointer = dynamic_cast<MidButtonHandler*>(eventHandler);
     if (pointer != nullptr && pointer->lambda != nullptr)
@@ -35,11 +35,11 @@ bool MidQt5ConnectFactory::makeMidQt5Button
 
 bool MidQt5ConnectFactory::makeMidQt5Action
 (
-        MidObject* source,
+        MidObject source,
         MidHandler* eventHandler
 )
 {
-    QAction *obj = static_cast<MidQt5Action*>(source->get());
+    QAction *obj = static_cast<MidQt5Action*>(source.get());
     if (obj == nullptr) return false;
     MidActionHandler* pointer = dynamic_cast<MidActionHandler*>(eventHandler);
     if (pointer != nullptr && pointer->lambda != nullptr)
@@ -52,7 +52,7 @@ bool MidQt5ConnectFactory::makeMidQt5Action
 bool MidQt5ConnectFactory::make
 (
         EventTable eventTable,
-        MidObject* source,
+        MidObject source,
         MidHandler* eventHandler
 )
 {

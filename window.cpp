@@ -94,13 +94,13 @@ Window::Window(int width,
     tab1->addMidTab(*base1, "tab1");
     tab1->addMidTab(*base2, "tab2");
     vLayout->add(*tab1);
-    MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(this);
+    MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
     MidQT5ButtonHandler qt5ButtonHandler ([&](){
         MidMessageDialog<MidQt5MsgDialog> m(this, "SIGA", "Hello world!");
         m.show();
         return true;
     });
-    connector->connect(button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+    connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
     this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     this->button2 = new Button{id++, "Botão 02", nullptr};
@@ -136,7 +136,7 @@ Window::Window(int width,
         m.show();
         return true;
     });
-    connector->connect(saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
+    connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
     this->setMidLayout(*vLayout);
 }
 

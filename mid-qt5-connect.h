@@ -19,14 +19,14 @@ using std::endl;
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
-    MidQt5Connect(MidWindow<MidQt5Window>* parent = nullptr):
-        parent(parent){}
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidHandler* eventHandler)
+    MidQt5Connect(MidObject parent = nullptr){}
+    bool connect
+    (
+        MidObject source,
+        EventTable eventTable,
+        MidHandler* eventHandler
+    )
     {
         return MidQt5ConnectFactory::make(eventTable, source, eventHandler);
     }

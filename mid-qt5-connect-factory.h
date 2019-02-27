@@ -11,26 +11,26 @@ class MidHandler;
 
 class MidQt5ConnectFactory
 {
-    using Funcs =  std::function<bool(MidObject*, MidHandler*)>;
+    using Funcs =  std::function<bool(MidObject, MidHandler*)>;
     using MapOfCallbacks = std::map<EventTable, Funcs>;
     static MapOfCallbacks mapOfCallbacks;
 public:
     static bool make
     (
         EventTable eventTable,
-        MidObject* source,
+        MidObject source,
         MidHandler* eventHandler
     );
 
 protected:
     static bool makeMidQt5Button
     (
-        MidObject *source,
+        MidObject source,
         MidHandler *eventhandler
     );
     static bool makeMidQt5Action
     (
-        MidObject *source,
+        MidObject source,
         MidHandler *eventHandler
     );
 };

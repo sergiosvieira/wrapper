@@ -13,14 +13,9 @@
 template <class T>
 class MidConnect: public MidObject
 {
-    MidObject *parent = nullptr;
-    T *ptr = nullptr;
 public:
-    template <class U>
-    MidConnect(MidWindow<U>* parent = nullptr) :
-        parent(parent),
-        ptr(new T{ parent }),
-        MidObject(ptr) {}
+    MidConnect(MidObject parent = nullptr) :
+        MidObject(new T{ parent }) {}
 
     /*!
      * \brief connect
@@ -29,12 +24,16 @@ public:
      *
      * \return
      */
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidHandler* eventhandler)
+    bool connect
+    (
+        MidObject source,
+        EventTable eventTable,
+        MidHandler* eventhandler
+    )
     {
-        if (ptr == nullptr) throw std::exception();
-        ptr->connect(source, eventTable, eventhandler);
+        T *obj = static_cast<T*>(this->get());
+        if (obj == nullptr) throw std::exception();
+        obj->connect(source, eventTable, eventhandler);
         return true;
     }
 };
