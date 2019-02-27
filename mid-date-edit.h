@@ -6,7 +6,7 @@
 #include "mid-date.h"
 
 /*!
- * MidDateEdit Template
+ * \brief MidDateEdit Template
  */
 template <class T>
 class MidDateEdit : public MidObject

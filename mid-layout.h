@@ -7,7 +7,7 @@
 #include <iostream>
 
 /*!
- * MidLayout Template
+ * \brief MidLayout Template
  */
 template <class T>
 class MidLayout: public MidObject

@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- * MidGroupBox Template
+ * \brief MidGroupBox Template
  */
 template <class T>
 class MidGroupBox: public MidObject

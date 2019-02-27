@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- *  MidGauge class
+ *  \brief MidGauge class
  */
 template <class T>
 class MidGauge : public MidObject

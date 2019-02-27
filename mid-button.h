@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- * MidButton Template
+ * \brief MidButton Template
  */
 template <class T>
 class MidButton : public MidObject

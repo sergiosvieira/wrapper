@@ -7,7 +7,7 @@
 //Minimum value of date: 1400-Jan-01
 
 /*!
- * MidDate Template
+ * \brief MidDate Template
  */
 template <class T>
 class MidDate : public MidObject

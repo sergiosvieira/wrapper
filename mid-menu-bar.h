@@ -6,7 +6,7 @@
 #include "mid-menu.h"
 
 /*!
- * MidMenuBar Template
+ * \brief MidMenuBar Template
  */
 template <class T>
 class MidMenuBar : public MidObject

@@ -11,7 +11,7 @@
 #include <iostream>
 
 /*!
- * MidConnect Template
+ * \brief MidConnect Template
  */
 template <class T>
 class MidConnect: public MidObject

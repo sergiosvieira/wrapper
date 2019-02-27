@@ -7,7 +7,7 @@
 #include "definitions.h"
 
 /*!
- * MidLine Template
+ * \brief MidLine Template
  */
 template <class T>
 class MidLine : public MidObject

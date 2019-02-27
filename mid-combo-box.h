@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- * MidComponentBox Template
+ * \brief MidComponentBox Template
  */
 template <class T>
 class MidComboBox: public MidObject

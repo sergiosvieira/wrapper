@@ -5,7 +5,7 @@
 #include "mid-window.h"
 
 /*!
- * MidCheckBox Template
+ * \brief MidCheckBox Template
  */
 template <class T>
 class MidCheckBox : public MidObject

@@ -2,7 +2,7 @@
 #define __MID_APPLICATION__
 
 /*!
- * MidApplication Template
+ * \brief MidApplication Template
  */
 template <class T>
 class MidApplication
