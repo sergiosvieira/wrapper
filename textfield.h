@@ -11,7 +11,6 @@ using std::cout;
 
 class TextField: public MidTextField<MidQt5TextField>
 {
-    MidObject parent = nullptr;
 public:
     TextField(Id id = 0,
               const std::string &text = "",

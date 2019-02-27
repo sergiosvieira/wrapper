@@ -7,17 +7,21 @@
 class MidQt5MsgDialog: public QMessageBox
 {
 public:
-    MidQt5MsgDialog() {}
     MidQt5MsgDialog
     (
         Id id = 0,
         const std::string &title = "",
         const std::string &text = "",
         MidObject parent = nullptr
-    )
+    ):
+        QMessageBox(
+            QMessageBox::Icon::Information,
+            title.c_str(),
+            text.c_str(),
+            NoButton,
+            static_cast<QWidget*>(parent.get())
+            )
     {
-        this->setWindowTitle(title.c_str());
-        this->setText(text.c_str());
     }
     void setMidText(const std::string &text)
     {
