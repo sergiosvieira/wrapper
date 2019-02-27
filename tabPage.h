@@ -15,18 +15,24 @@
  */
 class TabPage: public MidWindow<MidQt5Window>
 {
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
     /*!
      * \brief TabPage
-     * \param parent
      * \param midID
+     * \param width
+     * \param height
      * \param title
+     * \param parent
      */
-    TabPage(MidWindow<MidQt5Window>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidWindow<MidQt5Window>(0,0, title), parent(parent) {}
+    TabPage
+    (
+        Id midID = 0,
+        int width = 600,
+        int height = 800,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidWindow<MidQt5Window>(width, height, title, parent) {}
 };
 
 #endif // __TABPAGE__

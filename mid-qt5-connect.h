@@ -7,6 +7,7 @@
 #include "button.h"
 #include "mid-button-handler.h"
 #include "mid-qt5-action.h"
+#include "mid-qt5-connect-factory.h"
 
 #include "QObject"
 #include "QPushButton"
@@ -19,16 +20,12 @@
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
-
 public:
     /*!
      * \brief MidQt5Connect
      * \param parent
      */
-    MidQt5Connect(MidWindow<MidQt5Window>* parent = nullptr):
-        parent(parent){}
+    MidQt5Connect(MidObject parent = nullptr){}
     /*!
      * \brief connect
      * \param source
@@ -36,42 +33,14 @@ public:
      * \param eventhandler
      * \return
      */
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidButtonHandler* eventhandler)
+    bool connect
+    (
+        MidObject source,
+        EventTable eventTable,
+        MidHandler* eventHandler
+    )
     {
-        QPushButton *obj = static_cast<MidQt5Button*>(source->get());
-        if (obj == nullptr) return false;
-        if (eventTable == EventTable::BUTTONCLICK)
-        {
-            if (eventhandler->lambda != nullptr)
-                QObject::connect(obj, 
-                                 &QPushButton::clicked, 
-                                 eventhandler->lambda);
-        }
-        return true;
-    }
-    /*!
-     * \brief connect
-     * \param source
-     * \param eventTable
-     * \param eventhandler
-     * \return
-     */
-    bool connect(MidObject* source,
-                 EventTable eventTable,
-                 MidActionHandler* eventhandler)
-    {
-        QAction *obj = static_cast<MidQt5Action*>(source->get());
-        if (obj == nullptr) return false;
-        if (eventTable == EventTable::ACTIONTRIGERRED)
-        {
-            if (eventhandler->lambda != nullptr)
-                QObject::connect(obj,
-                                 &QAction::triggered,
-                                 eventhandler->lambda);
-        }
-        return true;
+        return MidQt5ConnectFactory::make(eventTable, source, eventHandler);
     }
 };
 

@@ -7,9 +7,8 @@
  * \brief MidMessageDialog Template
  */
 template <class T>
-class MidMessageDialog
+class MidMessageDialog : public MidObject
 {
-    T *m = nullptr;
 public:
     /*!
      * \brief MidMessageDialog
@@ -17,21 +16,20 @@ public:
      * \param title
      * \param text
      */
-    template <class U>
-    MidMessageDialog(MidWindow<U> *parent,
-                    const char* title, 
-                    const char* text)
-    {
-        m = new T(parent, title, text);
-        m->setTitle(title);
-        m->setText(text);
-    }
+    MidMessageDialog
+    (
+        Id id = 0,
+        const std::string &title = "",
+        const std::string &text = "",
+        MidObject parent = nullptr
+    ):MidObject (new T(id, title, text, parent)){}
     /*!
      * \brief show
      */
     void show()
     {
-        m->show();
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->show();
     }
 };
 

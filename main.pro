@@ -8,13 +8,13 @@ SOURCES += main.cpp \
     mid-qt5-window.cpp \
     window.cpp \
     mid-qt5-check-box.cpp \
-    mid-qt5-progress-bar.cpp
+    mid-qt5-progress-bar.cpp \
+    mid-qt5-connect-factory.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
 
-#HEADERS += 
-
+#HEADERS +=
 HEADERS += \
     mid-button.h \
     mid-qt5-button.h \
@@ -95,5 +95,6 @@ HEADERS += \
     mid-qt5-gauge.h \
     mid-gauge.h \
     gauge.h \
-    tabPage.h
+    tabPage.h \
+    mid-qt5-connect-factory.h \
 

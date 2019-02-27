@@ -2,11 +2,12 @@
 #define _MIDBUTTONHANDLER__
 
 #include <functional>
+#include "mid-handler.h"
 
 /*!
  * \brief The MidButtonHandler class
  */
-class MidButtonHandler
+class MidButtonHandler: public MidHandler
 {
 public:
     /*!

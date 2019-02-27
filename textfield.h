@@ -13,7 +13,6 @@
  */
 class TextField: public MidTextField<MidQt5TextField>
 {
-    MidObject parent = nullptr;
 public:
     /*!
      * \brief TextField

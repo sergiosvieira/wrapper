@@ -2,11 +2,12 @@
 #define MIDACTIONHANDLER_H
 
 #include <functional>
+#include "mid-handler.h"
 
 /*!
  * \brief The MidActionHandler class
  */
-class MidActionHandler
+class MidActionHandler: public MidHandler
 {
 public:
     /*!

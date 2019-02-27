@@ -12,8 +12,6 @@
  */
 class MidQt5Line: public QFrame
 {
-private:
-    MidWindow<MidQt5Window>* parent = nullptr;
 public:
     /*!
      * \brief MidQt5Line
@@ -21,10 +19,13 @@ public:
      * \param midID
      * \param type
      */
-    MidQt5Line(MidWindow<MidQt5Window>* parent = nullptr,
-                 long long int midID = 0,
-                 MidLineType type = MidLineType::VERTICAL):
-        QFrame ((parent != nullptr) ? parent->get() : nullptr)
+    MidQt5Line
+    (
+        Id midID = 0,
+        MidLineType type = MidLineType::VERTICAL,
+        MidObject parent = nullptr
+    ):
+        QFrame (static_cast<QWidget*>(parent.get()))
     {
         if (type == MidLineType::VERTICAL)
         {
@@ -34,14 +35,6 @@ public:
         {
             this->setFrameShape(QFrame::HLine);
         }
-    }
-    /*!
-     * \brief setParent
-     * \param parent
-     */
-    void setParent(MidWindow<MidQt5Window>* parent)
-    {
-        this->parent = parent;
     }
 };
 

@@ -30,14 +30,14 @@ public:
             Id id = 0,
             int min = 0,
             int max = 100,
-            const char *title = "",
-            const char *msg = "",
+            const std::string &title = "",
+            const std::string &msg = "",
             MidObject parent = nullptr
     ):
-        QProgressDialog (title, msg, min, max, static_cast<QWidget*>(parent.get()))
+        QProgressDialog (title.c_str(), msg.c_str(), min, max, static_cast<QWidget*>(parent.get()))
     {
         setRange(min, max);
-        setWindowTitle(title);
+        setWindowTitle(title.c_str());
     }
 
     /*!

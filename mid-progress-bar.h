@@ -18,8 +18,8 @@ public:
 	Id id = 0, 
 	int min = 0, 
 	int max = 100, 
-	const char *title = "", 
-	const char *msg = "",
+    const std::string &title = "",
+    const std::string &msg = "",
 	MidObject parent = nullptr
 ):
         MidObject(new T{id, min, max, title, msg, parent}){}

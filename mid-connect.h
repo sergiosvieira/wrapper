@@ -30,14 +30,17 @@ public:
      *
      * \return
      */
-    bool connect(MidObject source,
-                 EventTable eventTable,
-                 MidButtonHandler* eventhandler)
+    bool connect
+    (
+        MidObject source,
+        EventTable eventTable,
+        MidHandler* eventhandler
+    )
     {
-        T *obj = static_cast<T*>(source.get());
-        if (obj) return obj->connect(source, eventTable, eventhandler);
+        T *obj = static_cast<T*>(this->get());
+        obj->connect(source, eventTable, eventhandler);
         return true;
-    }    
+    }
 };
 
 #endif // MIDCONNECT_H

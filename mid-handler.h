@@ -9,17 +9,14 @@
 class MidHandler
 {
 public:
-    using Lambda = std::function<bool()>;
     /*!
      * \brief MidHandler
-     * \param y
      */
-    MidHandler(Lambda y): lambda(y){}
+    MidHandler(){}
     /*!
      * \brief ~MidHandler
      */
     virtual ~MidHandler() {}
-    Lambda lambda;
 };
 
 #endif // MIDHANDLER_H

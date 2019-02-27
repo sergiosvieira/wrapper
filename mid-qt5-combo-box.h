@@ -23,9 +23,9 @@ public:
      * \brief addMidItem
      * \param item
      */
-    void addMidItem(const char* item)
+    void addMidItem(const std::string &item)
     {
-        this->addItem(QString(item));
+        this->addItem(QString(item.c_str()));
     }
 };
 

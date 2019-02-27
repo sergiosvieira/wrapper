@@ -47,15 +47,6 @@ public:
         return obj->getMidHeight();
     }
     /*!
-     * \brief addChild
-     * \param child
-     */
-    void addMidChild(MidObject child)
-    {
-        T *obj = static_cast<T*>(this->get());
-        return obj->addMidChild(child);
-    }
-    /*!
      * \brief show
      */
     void midShow()

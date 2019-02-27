@@ -24,9 +24,9 @@ public:
      */
     explicit MidQt5Panel
     (
-            MidObject parent = nullptr,
             int width = 600,
-            int height = 800
+            int height = 800,
+            MidObject parent = nullptr
     ) : QWidget(static_cast<QWidget*>(parent.get()))
     {
         this->resize(width, height);
@@ -46,9 +46,9 @@ public:
      * \brief setMidLayout
      * \param layout
      */
-    void setMidLayout(QLayout* layout)
+    void setMidLayout(MidObject layout)
     {
-        setLayout(layout);
+        setLayout(static_cast<QLayout*>(layout.get()));
     }
 };
 

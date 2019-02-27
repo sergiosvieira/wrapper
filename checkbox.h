@@ -20,7 +20,7 @@ public:
     CheckBox
     (
         long long int midID = 0,
-        const char *title = "",
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
         MidCheckBox<MidQt5CheckBox>(midID, title, parent){}
