@@ -92,6 +92,8 @@ HEADERS += \
     mid-image.h \
     mid-list-box.h \
     mid-qt5-list-box.h \
+    mid-tool-bar.h \
+    mid-qt5-tool-bar.h \
     mid-image-label.h \
     mid-qt5-image.h \
     mid-qt5-status-bar.h \

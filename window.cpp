@@ -43,6 +43,7 @@ Window::Window(int width,
     long long id = 1;
 
     this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
+    this->toolBar = new MidToolBar<MidQt5ToolBar>(id++, "SIGA", *this);
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1 = new Button{id++, "Botão 01", nullptr};    
@@ -171,6 +172,9 @@ Window::Window(int width,
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Action* saveAction = new Action(id++, "Save", nullptr);
     Action* exitAction = new Action(id++, "Exit", nullptr);
+    saveAction->addMidIcon("Save", "SIGA.png");
+    this->toolBar->addMidAction(*saveAction);
+
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);

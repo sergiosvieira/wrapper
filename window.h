@@ -12,6 +12,8 @@
 #include "mid-qt5-image.h"
 #include "mid-list-box.h"
 #include "mid-qt5-list-box.h"
+#include "mid-tool-bar.h"
+#include "mid-qt5-tool-bar.h"
 
 class Button;
 class RadioButton;
@@ -54,6 +56,7 @@ class Window: public MidWindow<MidQt5Window>
     TextEdit *textEdit1 = nullptr;
     MidStatusBar<MidQt5StatusBar> *statusBar = nullptr;
     MidListBox<MidQt5ListBox> *listBox = nullptr;
+    MidToolBar<MidQt5ToolBar> *toolBar = nullptr;
 public:
     /*!
      * \brief Window
