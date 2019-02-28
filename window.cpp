@@ -118,7 +118,7 @@ Window::Window(int width,
     MidQT5ButtonHandler qt5ButtonHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
-        this->statusBar->showStatusBar("Hello Button Click");
+        this->statusBar->showMidStatusBar("Hello Button Click");
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
@@ -165,7 +165,7 @@ Window::Window(int width,
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
-        this->statusBar->showStatusBar("Hello Action");
+        this->statusBar->showMidStatusBar("Hello Action");
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);

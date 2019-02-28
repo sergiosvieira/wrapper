@@ -22,7 +22,7 @@ public:
               MidObject parent = nullptr):
         MidObject(new T{id, title, parent}){}
 
-    void showStatusBar(const std::string &title)
+    void showMidStatusBar(const std::string &title)
     {
         T *obj = static_cast<T*>(this->get());
         obj->showStatusBar(title);
