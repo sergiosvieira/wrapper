@@ -32,6 +32,7 @@
 #include "tabPage.h"
 #include "treeWidget.h"
 #include "treeWidgetItem.h"
+#include "treeWidgetSubitem.h"
 
 
 Window::Window(int width,
@@ -91,14 +92,19 @@ Window::Window(int width,
     this->textEdit1 = new TextEdit(id++, msg, nullptr);
     vLayout->add(*textEdit1);
 
-    //Adicionar treeWidget here
-    TreeWidget* treeWidget = new TreeWidget(id++, 2, {"Col 1", "Col 2"}, *this);
+    TreeWidget* treeWidget = new TreeWidget(id++, 2, {"Coluna 1", "Coluna 2"}, *this);
     TreeWidgetItem* treeWidgetA = new TreeWidgetItem
             (id++, {"A1","A2"}, {true, true}, {false, true}, *treeWidget);
     TreeWidgetItem* treeWidgetB = new TreeWidgetItem
             (id++, {"B1","B2"}, {false, false}, {false, false}, *treeWidget);
     TreeWidgetItem* treeWidgetC = new TreeWidgetItem
             (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
+    TreeWidgetSubitem* treeWidgetSubC1 = new TreeWidgetSubitem
+            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC);
+    TreeWidgetSubitem* treeWidgetSubSubC1 = new TreeWidgetSubitem
+            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1);
+    TreeWidgetItem* treeWidgetD = new TreeWidgetItem
+            (id++, {"D1","D2"}, {true, false}, {false, false}, *treeWidget);
     vLayout->add(*treeWidget);
 
 

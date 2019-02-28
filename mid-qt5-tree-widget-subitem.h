@@ -1,5 +1,5 @@
-#ifndef MID_QT5_TREE_WIDGET_ITEM_H
-#define MID_QT5_TREE_WIDGET_ITEM_H
+#ifndef MID_QT5_TREE_WIDGET_SUBITEM_H
+#define MID_QT5_TREE_WIDGET_SUBITEM_H
 
 #include <QTreeWidgetItem>
 #include "mid-qt5-window.h"
@@ -12,15 +12,15 @@
 /*!
  * \brief The MidQt5TreeWidgetItem class
  */
-class MidQt5TreeWidgetItem: public QTreeWidgetItem
+class MidQt5TreeWidgetSubitem: public QTreeWidgetItem
 {
 public:
     /*!
-     * \brief MidQt5TreeWidgetItem
+     * \brief MidQt5TreeWidgetSubitem
      * \param id
      * \param parent
      */
-    MidQt5TreeWidgetItem
+    MidQt5TreeWidgetSubitem
     (
             Id id = 0,
             const std::vector<std::string>& texts = {},
@@ -29,7 +29,7 @@ public:
             MidObject parent = nullptr
     ):
         QTreeWidgetItem(
-                static_cast<QTreeWidget*>(parent.get())
+                static_cast<QTreeWidgetItem*>(parent.get())
             )
     {
         for (int index = 0; index<texts.size(); ++index)
@@ -46,4 +46,4 @@ public:
     }
 };
 
-#endif /* MID_QT5_TREE_WIDGET_ITEM_H */
+#endif /* MID_QT5_TREE_WIDGET_SUBITEM_H */

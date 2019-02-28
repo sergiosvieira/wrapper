@@ -118,5 +118,7 @@ HEADERS += \
     mid-tree-widget-item.h \
     treeWidgetItem.h \
     treeWidgetItem.h \
-    window_sample15.h
+    window_sample15.h \
+    mid-qt5-tree-widget-subitem.h \
+    treeWidgetSubitem.h
 
