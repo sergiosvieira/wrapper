@@ -3,7 +3,7 @@
 
 #include <QLineEdit>
 #include "mid-qt5-window.h"
-
+#include "mid-color.h"
 #include "mid-window.h"
 
 /*!
@@ -32,7 +32,6 @@ public:
         QString text = this->text();
         return text.toStdString().c_str();
     }
-
     /*!
      * \brief setMidText
      * \param text
@@ -40,6 +39,17 @@ public:
     void setMidText(const std::string &text)
     {
         setText(QString(text.c_str()));
+    }
+    /*!
+     * \brief setMidTextColor
+     * \param color
+     */
+    void setMidTextColor(MidObject color)
+    {
+        QPalette p = this->palette();
+        MidColor<QColor> *c = static_cast<MidColor<QColor>*>(color.get());
+        p.setColor(this->foregroundRole(), c->getColor());
+        this->setPalette(p);
     }
 };
 

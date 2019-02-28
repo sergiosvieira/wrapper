@@ -24,11 +24,12 @@ public:
         const std::string &title = "",
         MidObject parent = nullptr
     ):
-        QPlainTextEdit (title.c_str(), static_cast<QWidget*>(parent.get()))
-    {
-    }
-
-    std::string getText()
+        QPlainTextEdit (title.c_str(), static_cast<QWidget*>(parent.get())){}
+    /*!
+     * \brief getMidText
+     * \return
+     */
+    std::string getMidText()
     {
         QString text = this->toPlainText();
         return text.toStdString();

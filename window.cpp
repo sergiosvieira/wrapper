@@ -1,7 +1,9 @@
 #include "window.h"
+#include "window_sample15.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
+#include "mid-qt5-colors.h"
 #include "mid-msg-dialog.h"
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
@@ -42,9 +44,14 @@ Window::Window(int width,
     this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-    this->button1 = new Button{id++, "Botão 01", nullptr};
+    this->button1 = new Button{id++, "Botão 01", nullptr};    
+    this->btnSample15 = new Button{id++, "Sample 15", nullptr};
+
+
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
+    vLayout->add(*btnSample15);
+
     vLayout->add(*radioButton1);
     this->textField1 = new TextField(id++, "Text field text", nullptr);
     vLayout->add(*textField1);
@@ -54,6 +61,8 @@ Window::Window(int width,
     progressBar1->setMidValue(30);
     //vLayout->add(*progressBar1);
     this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
+    MidObject red = std::make_shared<MidQt5ColorRed>();
+    this->textLabel1->setMidTextColor(red);
     vLayout->add(*textLabel1);
 
     MidImage<MidQt5Image> *image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
@@ -113,6 +122,15 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+
+    MidQT5ButtonHandler qt5BbtnSample15 ([&](){
+        WindowSample15 *win15 = new WindowSample15(300, 400, "Minimal Window QT");
+        win15->show();
+        return true;
+    });
+    connector->connect(*btnSample15, EventTable::BUTTONCLICK, &qt5BbtnSample15);
+
+
     this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     this->button2 = new Button{id++, "Botão 02", nullptr};
@@ -133,6 +151,7 @@ Window::Window(int width,
     vLayout->add(*hl);
 
     vLayout->add(*gp1);
+    this->setMidLayout(*vLayout);
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
@@ -141,7 +160,7 @@ Window::Window(int width,
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
-    vLayout->setMidMenuBar(*menuBar);
+    this->setMidMenuBar(*menuBar);
 
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
@@ -150,7 +169,6 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
-    this->setMidLayout(*vLayout);
 }
 
 Window::~Window()
@@ -165,9 +183,6 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
-    //if (this->button2) delete button2;
-    //if (this->radioButton2) delete radioButton2;
-
 }
 
 
