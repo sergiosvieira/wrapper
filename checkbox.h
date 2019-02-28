@@ -5,16 +5,21 @@
 #include "mid-check-box.h"
 #include "mid-qt5-check-box.h"
 
-#include "window.h"
-
-using std::cout;
-
+/*!
+ * \brief The CheckBox class
+ */
 class CheckBox: public MidCheckBox<MidQt5CheckBox>
 {
 public:
+    /*!
+     * \brief CheckBox
+     * \param midID
+     * \param title
+     * \param parent
+     */
     CheckBox
     (
-        long long int midID = 0,
+        Id midID = 0,
         const std::string &title = "",
         MidObject parent = nullptr
     ):

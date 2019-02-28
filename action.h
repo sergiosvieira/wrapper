@@ -1,13 +1,10 @@
-#ifndef __ACTION__
-#define __ACTION__
+#ifndef ACTION_H
+#define ACTION_H
 
 #include <iostream>
 #include "mid-action.h"
 #include "mid-qt5-action.h"
 
-#include "window.h"
-
-using std::cout;
 
 /*!
  * \brief The Action class
@@ -15,6 +12,12 @@ using std::cout;
 class Action: public MidAction<MidQt5Action>
 {
 public:
+    /*!
+     * \brief Action
+     * \param id
+     * \param title
+     * \param parent
+     */
     Action
     (
         Id id = 0,
@@ -24,4 +27,4 @@ public:
         MidAction<MidQt5Action>(id, title, parent) {}
 };
 
-#endif // __ACTION__
+#endif // ACTION_H

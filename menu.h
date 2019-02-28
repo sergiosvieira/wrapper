@@ -1,25 +1,29 @@
-#ifndef __MENU__
-#define __MENU__
+#ifndef MENU_H
+#define MENU_H
 
 #include <iostream>
 #include "mid-menu.h"
 #include "mid-qt5-menu.h"
 
-#include "window.h"
-
-using std::cout;
-
+/*!
+ * \brief The Menu class
+ */
 class Menu: public MidMenu<MidQt5Menu>
 {
 public:
+    /*!
+     * \brief Menu
+     * \param midID
+     * \param title
+     * \param parent
+     */
     Menu
     (
-
-        long long int midID = 0,
-        const char *title = "",
+        Id id = 0,
+        const std::string &title = "",
         MidObject parent = nullptr
     ):
-        MidMenu<MidQt5Menu>(midID, title, parent) {}
+        MidMenu<MidQt5Menu>(id, title, parent) {}
 };
 
-#endif // __MENU__
+#endif // MENU_H

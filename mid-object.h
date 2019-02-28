@@ -1,9 +1,14 @@
-#ifndef __MID_OBJECT__
-#define __MID_OBJECT__
+#ifndef MID_OBJECT_H
+#define MID_OBJECT_H
 
 #include <memory>
-
+/*!
+ * MidObject
+ */
 using MidObject = std::shared_ptr<void>;
+/*!
+ * Id
+ */
 using Id = long long int;
 
-#endif /* __MID_OBJECT__ */
+#endif /* MID_OBJECT_H */

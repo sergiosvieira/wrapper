@@ -1,5 +1,5 @@
-#ifndef __MID_QT5_LINE__
-#define __MID_QT5_LINE__
+#ifndef MID_QT5_LINE_H
+#define MID_QT5_LINE_H
 
 #include <QFrame>
 #include "definitions.h"
@@ -7,9 +7,18 @@
 
 #include "mid-window.h"
 
+/*!
+ * \brief The MidQt5Line class
+ */
 class MidQt5Line: public QFrame
 {
 public:
+    /*!
+     * \brief MidQt5Line
+     * \param parent
+     * \param midID
+     * \param type
+     */
     MidQt5Line
     (
         Id midID = 0,
@@ -29,4 +38,4 @@ public:
     }
 };
 
-#endif /* __MID_QT5_LINE__ */
+#endif /* MID_QT5_LINE_H */

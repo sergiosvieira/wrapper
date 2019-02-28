@@ -1,19 +1,22 @@
-#ifndef MIDHANDLER_H
-#define MIDHANDLER_H
+#ifndef MID_HANDLER_H
+#define MID_HANDLER_H
 
 #include <functional>
 
-
+/*!
+ * \brief The MidHandler class
+ */
 class MidHandler
 {
 public:
-    /*using Lambda = std::function<bool()>;
-    MidHandler(Lambda y): lambda(y){}
-    ~MidHandler() {}
-    Lambda lambda;*/
-
-    MidHandler() {}
+    /*!
+     * \brief MidHandler
+     */
+    MidHandler(){}
+    /*!
+     * \brief ~MidHandler
+     */
     virtual ~MidHandler() {}
 };
 
-#endif // MIDHANDLER_H
+#endif // MID_HANDLER_H

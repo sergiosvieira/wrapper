@@ -1,12 +1,21 @@
-#ifndef __MID_MESSAGE_DIALOG__
-#define __MID_MESSAGE_DIALOG__
+#ifndef MID_MESSAGE_DIALOG_H
+#define MID_MESSAGE_DIALOG_H
 
 #include "mid-window.h"
 
+/*!
+ * \brief MidMessageDialog Template
+ */
 template <class T>
 class MidMessageDialog : public MidObject
 {
 public:
+    /*!
+     * \brief MidMessageDialog
+     * \param parent
+     * \param title
+     * \param text
+     */
     MidMessageDialog
     (
         Id id = 0,
@@ -14,7 +23,9 @@ public:
         const std::string &text = "",
         MidObject parent = nullptr
     ):MidObject (new T(id, title, text, parent)){}
-
+    /*!
+     * \brief show
+     */
     void show()
     {
         T *obj = static_cast<T*>(this->get());
@@ -22,4 +33,4 @@ public:
     }
 };
 
-#endif /* __MID_MESSAGE_DIALOG__ */
+#endif /* MID_MESSAGE_DIALOG_H */

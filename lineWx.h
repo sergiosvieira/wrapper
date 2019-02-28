@@ -11,12 +11,14 @@ using std::cout;
 
 class LineWx: public MidLine<MidWxLine>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    LineWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              MidLineType lineType = MidLineType::VERTICAL):
-        MidLine<MidWxLine>(parent, midID, lineType), parent(parent) {}
+    LineWx
+    (
+        Id midID = 0,
+        MidLineType lineType = MidLineType::VERTICAL,
+        MidObject parent = nullptr
+    ):
+        MidLine<MidWxLine>(midID, lineType, parent) {}
 };
 
 #endif // __LINEWX__

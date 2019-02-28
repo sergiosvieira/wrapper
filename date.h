@@ -4,11 +4,18 @@
 #include "mid-date.h"
 #include "mid-qt5-date.h"
 
-#include "window.h"
-
+/*!
+ * \brief The Date class
+ */
 class Date: public MidDate<MidQt5Date>
 {
 public:
+    /*!
+     * \brief Date
+     * \param day
+     * \param month
+     * \param year
+     */
     Date(int day = 1,
         int month = 1,
         int year = 1400):

@@ -1,23 +1,27 @@
-#ifndef __MENUBAR__
-#define __MENUBAR__
+#ifndef MENU_BAR_H
+#define MENU_BAR_H
 
 #include <iostream>
 #include "mid-menu-bar.h"
 #include "mid-qt5-menu-bar.h"
 
-#include "window.h"
-
-using std::cout;
-
+/*!
+ * \brief The MenuBar class
+ */
 class MenuBar: public MidMenuBar<MidQt5MenuBar>
 {
 public:
+    /*!
+     * \brief MenuBar
+     * \param midID
+     * \param parent
+     */
     MenuBar
     (
-            Id midID = 0,
-            MidObject parent = nullptr
+        Id midID = 0,
+        MidObject parent = nullptr
     ):
         MidMenuBar<MidQt5MenuBar>(midID, parent) {}
 };
 
-#endif // __MENUBAR__
+#endif // MENU_BAR_H

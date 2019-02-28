@@ -1,16 +1,19 @@
-#ifndef __MIDTEXTEDIT__
-#define __MIDTEXTEDIT__
+#ifndef MID_TEXT_EDIT_H
+#define MID_TEXT_EDIT_H
 
 #include "mid-object.h"
 #include "mid-window.h"
 
+/*!
+ * \brief The MidTextEdit class
+ */
 template <class T>
 class MidTextEdit : public MidObject
 {
 public:
     MidTextEdit
     (
-        long long int midID = 0,
+        Id midID = 0,
         const std::string &title = "",
         MidObject parent = nullptr
     ):
@@ -18,12 +21,20 @@ public:
     {
     }
 
+    /*!
+     * \brief getText
+     * \return
+     */
     std::string getText()
     {
         T *obj = static_cast<T*>(this->get());
         return obj->getText();
     }
 
+    /*!
+     * \brief setMidText
+     * \param caption
+     */
     void setMidText(const std::string &caption)
     {
         T *obj = static_cast<T*>(this->get());
@@ -31,4 +42,4 @@ public:
     }
 };
 
-#endif // __MIDTEXTEDIT__
+#endif // MID_TEXT_EDIT_H

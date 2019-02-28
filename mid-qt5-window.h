@@ -7,24 +7,51 @@
 #include <memory>
 #include "mainwindow.h"
 #include "mid-object.h"
-
-using std::cout;
+#include <QMenuBar>
 
 class MidQt5Button;
 
-class MidQt5Window: public QWidget
+/*!
+ * \brief The MidQt5Window class
+ */
+class MidQt5Window: public QMainWindow
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief MidQt5Window
+     * \param width
+     * \param height
+     * \param title
+     * \param parent
+     */
     explicit MidQt5Window(int width,
                           int height,
                           const std::string &title,
                           MidObject parent);
+    /*!
+     * \brief show
+     */
     void show();
+    /*!
+     * \brief setMidLayout
+     * \param layout
+     */
     void setMidLayout(MidObject layout)
     {
-        setLayout(static_cast<QLayout*>(layout.get()));
+        QWidget *window = new QWidget();
+        window-> setLayout(static_cast<QLayout*>(layout.get()));
+        setCentralWidget(window);
+    }
+
+    void setMidMenuBar(MidObject menuBar)
+    {
+        QMenuBar *obj = static_cast<QMenuBar*>(menuBar.get());
+        if (obj && this->layout())
+        {
+            this->layout()->setMenuBar(obj);
+        }
     }
 };
 
-#endif /* __MID_QT5_WINDO__ */
+#endif /* __MID_QT5_WINDOW__ */

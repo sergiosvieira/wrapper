@@ -7,11 +7,21 @@
 
 #include "window.h"
 
-using std::cout;
-
+/*!
+ * \brief The ProgressBar class
+ */
 class ProgressBar: public MidProgressBar<MidQt5ProgressBar>
 {
 public:
+    /*!
+     * \brief ProgressBar
+     * \param id
+     * \param min
+     * \param max
+     * \param title
+     * \param msg
+     * \param parent
+     */
     ProgressBar
 (
 	Id id = 0,

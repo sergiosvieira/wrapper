@@ -1,6 +1,9 @@
-#ifndef __DEFINITIONS__
-#define __DEFINITIONS__
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 
-enum MidLineType {HORIZONAL, VERTICAL};
+/*!
+ * \brief The MidLineType enum
+ */
+enum class MidLineType {HORIZONAL, VERTICAL};
 
 #endif // __DEFINITIONS__

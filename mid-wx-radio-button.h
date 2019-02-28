@@ -7,16 +7,17 @@
 
 class MidWxRadioButton: public wxRadioButton
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxRadioButton(MidWindow<MidWxWindow>* parent = nullptr,
-                      long long int midID = 0,
-                      const char *title = ""):
+    MidWxRadioButton
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
         wxRadioButton(
-        (parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-            midID,
-            title
+            static_cast<wxWindow*>(parent.get()),
+            id,
+            title.c_str()
         ){}
 };
 

@@ -1,16 +1,32 @@
-#ifndef _MIDBUTTONHANDLER__
-#define _MIDBUTTONHANDLER__
+#ifndef MID_BUTTON_HANDLER_H
+#define MID_BUTTON_HANDLER_H
 
 #include <functional>
 #include "mid-handler.h"
 
+/*!
+ * \brief The MidButtonHandler class
+ */
 class MidButtonHandler: public MidHandler
 {
 public:
+    /*!
+     * ButtonLambda
+     */
     using ButtonLambda = std::function<bool()>;
+    /*!
+     * \brief MidButtonHandler
+     * \param y
+     */
     MidButtonHandler(ButtonLambda y): lambda(y){}
-    ~MidButtonHandler() {}
+    /*!
+     * \brief ~MidButtonHandler
+     */
+    virtual ~MidButtonHandler() {}
+    /*!
+     * \brief lambda
+     */
     ButtonLambda lambda;
 };
 
-#endif // _MIDBUTTONHANDLER__
+#endif // MID_BUTTON_HANDLER_H

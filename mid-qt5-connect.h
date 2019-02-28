@@ -1,5 +1,5 @@
-#ifndef MIDQT5CONNECT_H
-#define MIDQT5CONNECT_H
+#ifndef MID_QT5_CONNECT_H
+#define MID_QT5_CONNECT_H
 
 #include "mid-connect.h"
 #include "mid-qt5-window.h"
@@ -13,14 +13,26 @@
 #include "QPushButton"
 
 #include <iostream>
-using std::cout;
-using std::endl;
 
+/*!
+ * \brief The MidQt5Connect class
+ */
 class MidQt5Connect: public QObject
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief MidQt5Connect
+     * \param parent
+     */
     MidQt5Connect(MidObject parent = nullptr){}
+    /*!
+     * \brief connect
+     * \param source
+     * \param eventTable
+     * \param eventhandler
+     * \return
+     */
     bool connect
     (
         MidObject source,
@@ -32,4 +44,4 @@ public:
     }
 };
 
-#endif // MIDQT5CONNECT_H
+#endif // MID_QT5_CONNECT_H

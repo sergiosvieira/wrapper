@@ -4,6 +4,8 @@
 #include <iostream>
 #include "mid-window.h"
 #include "mid-qt5-window.h"
+#include "mid-qt5-status-bar.h"
+#include "mid-status-bar.h"
 
 class Button;
 class RadioButton;
@@ -19,6 +21,9 @@ class CheckBox;
 class TextEdit;
 class TabPage;
 
+/*!
+ * \brief The Window class
+ */
 class Window: public MidWindow<MidQt5Window>
 {
     Button *button1 = nullptr;
@@ -39,7 +44,15 @@ class Window: public MidWindow<MidQt5Window>
     GroupBox *gp1 = nullptr;
     CheckBox *chBox1 = nullptr;
     TextEdit *textEdit1 = nullptr;
+    MidStatusBar<MidQt5StatusBar> *statusBar = nullptr;
 public:
+    /*!
+     * \brief Window
+     * \param width
+     * \param height
+     * \param title
+     * \param object
+     */
     Window(int width,
            int height,
            const std::string &title,

@@ -9,16 +9,16 @@ class MidWxVerticalLayout : public wxBoxSizer
 public:
     MidWxVerticalLayout() :
         wxBoxSizer(wxVERTICAL) {}
-    void add(MidObject *object)
+    void add(MidObject object)
     {
-        wxWindow* widget = object->ref<wxWindow>();
+        wxWindow* widget = static_cast<wxWindow*>(object.get());
         if (widget != nullptr)
             Add(widget, 1, wxEXPAND | wxALL, 5);  //wxEXPAND | wxexpand);
             //Add(widget);
     }
-    void addMidLayout(MidObject *object)
+    void addMidLayout(MidObject object)
     {
-        wxSizer* sizer = object->ref<wxSizer>();
+        wxSizer* sizer = static_cast<wxSizer*>(object.get());
         if (sizer != nullptr)
             //Add(sizer);
             Add(sizer, 1, wxEXPAND | wxALL, 5);

@@ -8,15 +8,16 @@
 
 class MidWxTextLabel: public wxStaticText
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxTextLabel(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *text = ""):
+    MidWxTextLabel
+    (
+        Id id = 0,
+        const std::string &text = "",
+        MidObject parent = nullptr
+    ):
         wxStaticText(
-            (parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-                midID,
+            static_cast<wxWindow*>(parent.get()),
+                id,
                 wxString(text)
         )
     {
@@ -30,10 +31,6 @@ public:
     void setMidText(const char *caption)
     {
         SetLabel(wxString(caption));
-    }
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
     }
 };
 

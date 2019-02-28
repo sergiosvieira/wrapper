@@ -1,5 +1,5 @@
-#ifndef __PANEL__
-#define __PANEL__
+#ifndef PANEL_H
+#define PANEL_H
 
 #include <iostream>
 #include "mid-panel.h"
@@ -7,9 +7,18 @@
 
 #include "window.h"
 
+/*!
+ * \brief The Panel class
+ */
 class Panel: public MidPanel<MidQt5Panel>
 {
 public:
+    /*!
+     * \brief Panel
+     * \param parent
+     * \param width
+     * \param height
+     */
     Panel
     (
         int width = 600,
@@ -20,4 +29,4 @@ public:
         {}
 };
 
-#endif // __PANEL__
+#endif // PANEL_H

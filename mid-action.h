@@ -1,13 +1,22 @@
-#ifndef __MIDACTION__
-#define __MIDACTION__
+#ifndef MID_ACTION_H
+#define MID_ACTION_H
 
 #include "mid-object.h"
 #include "mid-window.h"
 
+/*!
+ * \brief MidAction Template
+ */
 template <class T>
 class MidAction : public MidObject
 {
 public:
+    /*!
+     * \brief MidAction
+     * \param id
+     * \param title
+     * \param parent
+     */
     MidAction
     (
         Id id = 0,
@@ -19,4 +28,4 @@ public:
     }
 };
 
-#endif // __MIDACTION__
+#endif // MID_ACTION_H

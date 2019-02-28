@@ -7,17 +7,16 @@
 
 #include "window.h"
 
-using std::cout;
-
 class CheckBoxWx: public MidCheckBox<MidWxCheckBox>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    CheckBoxWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidCheckBox<MidWxCheckBox>(parent, midID, title),
-        parent(parent) {}
+    CheckBoxWx
+    (
+        Id midID = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidCheckBox<MidWxCheckBox>(midID, title, parent) {}
 };
 
 #endif // __CHECKBOXWX__

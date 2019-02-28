@@ -1,5 +1,5 @@
-#ifndef TEXTFIELD_H
-#define TEXTFIELD_H
+#ifndef TEXT_FIELD_H
+#define TEXT_FIELD_H
 
 #include <iostream>
 #include "mid-text-field.h"
@@ -7,15 +7,23 @@
 
 #include "window.h"
 
-using std::cout;
 
+/*!
+ * \brief The TextField class
+ */
 class TextField: public MidTextField<MidQt5TextField>
 {
 public:
+    /*!
+     * \brief TextField
+     * \param id
+     * \param text
+     * \param parent
+     */
     TextField(Id id = 0,
               const std::string &text = "",
               MidObject parent = nullptr):
         MidTextField<MidQt5TextField>(id, text, parent){}
 };
 
-#endif // TEXTFIELD_H
+#endif // TEXT_FIELD_H
