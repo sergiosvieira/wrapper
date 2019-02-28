@@ -89,6 +89,11 @@ HEADERS += \
     mid-qt5-action-handler.h \
     mid-action.h \
     mid-status-bar.h \
+    mid-image.h \
+    mid-list-box.h \
+    mid-qt5-list-box.h \
+    mid-image-label.h \
+    mid-qt5-image.h \
     mid-qt5-status-bar.h \
     mid-qt5-action.h \
     action.h \
@@ -100,6 +105,7 @@ HEADERS += \
     gauge.h \
     tabPage.h \
     mid-qt5-connect-factory.h \
+    mid-qt5-image-label.h \
     mid-canvas.h \
     mid-color.h \
     mid-qt5-colors.h \
@@ -109,6 +115,6 @@ HEADERS += \
     mid-qt5-tree-widget-item.h \
     mid-tree-widget-item.h \
     treeWidgetItem.h \
-    treeWidgetItem.h
+    treeWidgetItem.h \
     window_sample15.h
 
