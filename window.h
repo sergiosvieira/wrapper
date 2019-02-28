@@ -10,6 +10,8 @@
 #include "mid-qt5-image-label.h"
 #include "mid-image.h"
 #include "mid-qt5-image.h"
+#include "mid-list-box.h"
+#include "mid-qt5-list-box.h"
 
 class Button;
 class RadioButton;
@@ -51,6 +53,7 @@ class Window: public MidWindow<MidQt5Window>
     CheckBox *chBox1 = nullptr;
     TextEdit *textEdit1 = nullptr;
     MidStatusBar<MidQt5StatusBar> *statusBar = nullptr;
+    MidListBox<MidQt5ListBox> *listBox = nullptr;
 public:
     /*!
      * \brief Window

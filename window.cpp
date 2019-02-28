@@ -68,6 +68,8 @@ Window::Window(int width,
     this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image, nullptr);
     vLayout->add(*imageLabel);
 
+    this->listBox = new MidListBox<MidQt5ListBox>(id++, {"item1", "item2", "item3"}, nullptr);
+     vLayout->add(*listBox);
 
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
@@ -185,6 +187,7 @@ Window::~Window()
     if (this->imageLabel) delete imageLabel;
     if (this->statusBar) delete statusBar;
     if (this->image) delete image;
+    if (this->listBox) delete listBox;
 }
 
 

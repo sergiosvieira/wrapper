@@ -90,6 +90,8 @@ HEADERS += \
     mid-action.h \
     mid-status-bar.h \
     mid-image.h \
+    mid-list-box.h \
+    mid-qt5-list-box.h \
     mid-image-label.h \
     mid-qt5-image.h \
     mid-qt5-status-bar.h \
