@@ -31,7 +31,6 @@ public:
         T *obj = static_cast<T*>(this->get());
         return obj->getText();
     }
-
     /*!
      * \brief setMidText
      * \param text
@@ -40,6 +39,15 @@ public:
     {
         T *obj = static_cast<T*>(this->get());
         obj->setMidText(text);
+    }
+    /*!
+     * \brief setMidTextColor
+     * \param color
+     */
+    void setMidTextColor(MidObject color)
+    {
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidTextColor(color);
     }
 };
 

@@ -97,4 +97,7 @@ HEADERS += \
     gauge.h \
     tabPage.h \
     mid-qt5-connect-factory.h \
+    mid-canvas.h \
+    mid-color.h \
+    mid-qt5-colors.h
 

@@ -2,6 +2,7 @@
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
+#include "mid-qt5-colors.h"
 #include "mid-msg-dialog.h"
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
@@ -49,6 +50,8 @@ Window::Window(int width,
     progressBar1->setMidValue(30);
     //vLayout->add(*progressBar1);
     this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
+    MidObject red = std::make_shared<MidQt5ColorRed>();
+    this->textLabel1->setMidTextColor(red);
     vLayout->add(*textLabel1);
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
