@@ -36,6 +36,13 @@ public:
         T *obj = static_cast<T*>(this->get());
         obj->show();
     }
+
+    void showStatusBar(const std::string &msg)
+    {
+        T *obj = static_cast<T*>(this->get());
+        obj->showStatusBar(msg);
+    }
+
     /*!
      * \brief setMidLayout
      * \param layout

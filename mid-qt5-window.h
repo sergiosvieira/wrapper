@@ -13,7 +13,7 @@ class MidQt5Button;
 /*!
  * \brief The MidQt5Window class
  */
-class MidQt5Window: public QWidget
+class MidQt5Window: public QMainWindow
 {
     Q_OBJECT
 public:
@@ -34,12 +34,23 @@ public:
     void show();
 
     /*!
+     * \brief showStatusBar
+     * \param msg
+     */
+    void showStatusBar(const std::string &msg)
+    {
+        statusBar()->showMessage(tr(msg.c_str()));
+    }
+
+    /*!
      * \brief setMidLayout
      * \param layout
      */
     void setMidLayout(MidObject layout)
     {
-        setLayout(static_cast<QLayout*>(layout.get()));
+        QWidget *window = new QWidget();
+        window-> setLayout(static_cast<QLayout*>(layout.get()));
+        setCentralWidget(window);
     }
 };
 
