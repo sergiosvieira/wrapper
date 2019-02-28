@@ -29,6 +29,7 @@
 #include "panel.h"
 #include "tabPage.h"
 
+
 Window::Window(int width,
            	   int height,
                const std::string &title,
@@ -36,6 +37,9 @@ Window::Window(int width,
     MidWindow<MidQt5Window>(width, height, title, parent)
 {
     long long id = 1;
+
+    this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
+
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1 = new Button{id++, "Botão 01", nullptr};
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
@@ -95,10 +99,10 @@ Window::Window(int width,
     tab1->addMidTab(*base2, "tab2");
     vLayout->add(*tab1);
     MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
-    MidQT5ButtonHandler qt5ButtonHandler ([&](){
+    MidQT5ButtonHandler qt5ButtonHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
-        this->showStatusBar("Hello Button 1");
+        this->statusBar->showStatusBar("Hello Button Click");
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
@@ -132,15 +136,14 @@ Window::Window(int width,
     menuBar->addMidMenu(*menuFile);
     vLayout->setMidMenuBar(*menuBar);
 
-    MidQT5ActionHandler qt5ActionHandler ([&](){
+    MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
-        this->showStatusBar("Action triggerred");
+        this->statusBar->showStatusBar("Hello Action");
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
     this->setMidLayout(*vLayout);
-    this->showStatusBar("Status Bar");
 }
 
 Window::~Window()

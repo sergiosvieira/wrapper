@@ -87,6 +87,8 @@ HEADERS += \
     mid-action-handler.h \
     mid-qt5-action-handler.h \
     mid-action.h \
+    mid-status-bar.h \
+    mid-qt5-status-bar.h \
     mid-qt5-action.h \
     action.h \
     textEdit.h \

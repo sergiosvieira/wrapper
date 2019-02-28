@@ -32,16 +32,6 @@ public:
      * \brief show
      */
     void show();
-
-    /*!
-     * \brief showStatusBar
-     * \param msg
-     */
-    void showStatusBar(const std::string &msg)
-    {
-        statusBar()->showMessage(tr(msg.c_str()));
-    }
-
     /*!
      * \brief setMidLayout
      * \param layout

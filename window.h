@@ -4,6 +4,8 @@
 #include <iostream>
 #include "mid-window.h"
 #include "mid-qt5-window.h"
+#include "mid-qt5-status-bar.h"
+#include "mid-status-bar.h"
 
 class Button;
 class RadioButton;
@@ -40,6 +42,7 @@ class Window: public MidWindow<MidQt5Window>
     GroupBox *gp1 = nullptr;
     CheckBox *chBox1 = nullptr;
     TextEdit *textEdit1 = nullptr;
+    MidStatusBar<MidQt5StatusBar> *statusBar = nullptr;
 public:
     /*!
      * \brief Window
