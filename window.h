@@ -38,6 +38,13 @@ class Window: public MidWindow<MidQt5Window>
 {
     Button *button1 = nullptr;
     Button *btnSample15 = nullptr;
+    Button *btnSample58 = nullptr;
+    Button *btnSample68 = nullptr;
+
+    Button *btnSample69 = nullptr;
+    Button *btnSample117 = nullptr;
+    Button *btnSample229 = nullptr;
+    Button *btnSample242 = nullptr;
 
     RadioButton *radioButton1 = nullptr;
     Button *button2 = nullptr;

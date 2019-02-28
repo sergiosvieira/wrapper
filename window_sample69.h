@@ -1,5 +1,5 @@
-#ifndef WINDOW_SAMPLE15_H
-#define WINDOW_SAMPLE15_H
+#ifndef WINDOW_SAMPLE69_H
+#define WINDOW_SAMPLE69_H
 
 #include <iostream>
 #include "mid-window.h"
@@ -19,15 +19,15 @@ class CheckBox;
 class TextEdit;
 class TabPage;
 
-class WindowSample15: public MidWindow<MidQt5Window>
+class WindowSample69: public MidWindow<MidQt5Window>
 {
 
 public:
-    WindowSample15(int width,
+    WindowSample69(int width,
            int height,
            const std::string &title,
            MidObject object = nullptr);
-    virtual ~WindowSample15();
+    virtual ~WindowSample69();
 };
 
-#endif // WINDOW_SAMPLE15_H
+#endif // WINDOW_SAMPLE69_H
