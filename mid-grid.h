@@ -2,7 +2,7 @@
 #define MID_GRID_H
 
 #include "mid-object.h"
-
+#include <vector>
 
 template<class T>
 class MidGrid : public MidObject
@@ -16,6 +16,12 @@ public:
         MidObject parent = nullptr
     ):
         MidObject(new T{id, numRows, numCols, parent}){}
+
+    void setMidColLabels(const std::vector<std::string> &labels)
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->setMidColLabels(labels);
+    }
 };
 
 #endif // MID_GRID_H

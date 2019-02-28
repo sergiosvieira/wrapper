@@ -19,6 +19,12 @@ public:
         this->setRowCount(numRows);
         this->setColumnCount(numCols);
     }
+    void setMidColLabels(const std::vector<std::string> &labels)
+    {
+        QStringList stringLabels;
+        for (auto &str: labels) stringLabels << str.c_str();
+        this->setHorizontalHeaderLabels(stringLabels);
+    }
 };
 
 #endif // MID_QT5_GRID_H
