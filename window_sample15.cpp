@@ -28,6 +28,10 @@
 #include "textEdit.h"
 #include "panel.h"
 #include "tabPage.h"
+#include "tabPage.h"
+
+#include "mid-qt5-status-bar.h"
+#include "mid-status-bar.h"
 
 WindowSample15::WindowSample15(int width,
            	   int height,
@@ -38,15 +42,19 @@ WindowSample15::WindowSample15(int width,
     long long id = 1;
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
 
+    MidStatusBar<MidQt5StatusBar>* statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Welcome to MidWindow", *this);
+
     this->setMidLayout(*vLayout);
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
+    Menu* menuHelp = new Menu(id++, "Help", nullptr);
     Action* saveAction = new Action(id++, "Save", nullptr);
     Action* exitAction = new Action(id++, "Exit", nullptr);
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
+    menuBar->addMidMenu(*menuHelp);
     vLayout->setMidMenuBar(*menuBar);
 
     MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
@@ -71,9 +79,6 @@ WindowSample15::~WindowSample15()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
-    //if (this->button2) delete button2;
-    //if (this->radioButton2) delete radioButton2;
-
 }
 
 

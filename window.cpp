@@ -113,7 +113,7 @@ Window::Window(int width,
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
 
     MidQT5ButtonHandler qt5BbtnSample15 ([&](){
-        WindowSample15 *win15 = new WindowSample15(800, 600, "Minimal Window QT");
+        WindowSample15 *win15 = new WindowSample15(300, 400, "Minimal Window QT");
         win15->show();
         return true;
     });
@@ -140,6 +140,7 @@ Window::Window(int width,
     vLayout->add(*hl);
 
     vLayout->add(*gp1);
+    this->setMidLayout(*vLayout);
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
@@ -148,7 +149,7 @@ Window::Window(int width,
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
-    vLayout->setMidMenuBar(*menuBar);
+    this->setMidMenuBar(*menuBar);
 
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
@@ -157,7 +158,6 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
-    this->setMidLayout(*vLayout);
 }
 
 Window::~Window()
@@ -172,9 +172,6 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
-    //if (this->button2) delete button2;
-    //if (this->radioButton2) delete radioButton2;
-
 }
 
 
