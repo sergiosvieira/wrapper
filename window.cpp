@@ -30,8 +30,7 @@
 #include "textEdit.h"
 #include "panel.h"
 #include "tabPage.h"
-#include "mid-image.h"
-#include "mid-qt5-image.h"
+
 
 Window::Window(int width,
            	   int height,
@@ -65,7 +64,7 @@ Window::Window(int width,
     this->textLabel1->setMidTextColor(red);
     vLayout->add(*textLabel1);
 
-    MidImage<MidQt5Image> *image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
+    this->image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
     this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image, nullptr);
     vLayout->add(*imageLabel);
 
@@ -183,6 +182,9 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
+    if (this->imageLabel) delete imageLabel;
+    if (this->statusBar) delete statusBar;
+    if (this->image) delete image;
 }
 
 
