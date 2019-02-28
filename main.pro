@@ -110,6 +110,8 @@ HEADERS += \
     mid-qt5-image-label.h \
     mid-canvas.h \
     mid-color.h \
+    mid-grid.h \
+    mid-qt5-grid.h \
     mid-qt5-colors.h \
     mid-qt5-tree-widget.h \
     mid-tree-widget.h \

@@ -14,6 +14,8 @@
 #include "mid-qt5-list-box.h"
 #include "mid-tool-bar.h"
 #include "mid-qt5-tool-bar.h"
+#include "mid-grid.h"
+#include "mid-qt5-grid.h"
 
 class Button;
 class RadioButton;
@@ -57,6 +59,7 @@ class Window: public MidWindow<MidQt5Window>
     MidStatusBar<MidQt5StatusBar> *statusBar = nullptr;
     MidListBox<MidQt5ListBox> *listBox = nullptr;
     MidToolBar<MidQt5ToolBar> *toolBar = nullptr;
+    MidGrid<MidQt5Grid> *grid = nullptr;
 public:
     /*!
      * \brief Window

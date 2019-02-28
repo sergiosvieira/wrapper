@@ -73,7 +73,11 @@ Window::Window(int width,
     vLayout->add(*imageLabel);
 
     this->listBox = new MidListBox<MidQt5ListBox>(id++, {"item1", "item2", "item3"}, nullptr);
-     vLayout->add(*listBox);
+    vLayout->add(*listBox);
+
+    this->grid = new MidGrid<MidQt5Grid>(id++, 2, 2, *this);
+    vLayout->add(*grid);
+
 
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
