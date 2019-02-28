@@ -1,5 +1,6 @@
 #include "window.h"
 #include "window_sample15.h"
+#include "window_sample58.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
@@ -43,11 +44,13 @@ Window::Window(int width,
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1 = new Button{id++, "Botão 01", nullptr};    
     this->btnSample15 = new Button{id++, "Sample 15", nullptr};
+    this->btnSample58 = new Button{id++, "Sample 58", nullptr};
 
 
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
     vLayout->add(*btnSample15);
+    vLayout->add(*btnSample58);
 
     vLayout->add(*radioButton1);
     this->textField1 = new TextField(id++, "Text field text", nullptr);
@@ -112,12 +115,22 @@ Window::Window(int width,
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
 
+    //Sample 15
     MidQT5ButtonHandler qt5BbtnSample15 ([&](){
-        WindowSample15 *win15 = new WindowSample15(300, 400, "Minimal Window QT");
+        WindowSample15 *win15 = new WindowSample15(300, 200, "Minimal Window QT");
         win15->show();
         return true;
     });
     connector->connect(*btnSample15, EventTable::BUTTONCLICK, &qt5BbtnSample15);
+
+    //Sample 58
+    MidQT5ButtonHandler qt5BbtnSample58 ([&](){
+        WindowSample58 *win58 = new WindowSample58(630, 480, "Minimal Window QT");
+        win58->show();
+        return true;
+    });
+    connector->connect(*btnSample58, EventTable::BUTTONCLICK, &qt5BbtnSample58);
+
 
 
     this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);

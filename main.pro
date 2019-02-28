@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     mid-qt5-check-box.cpp \
     mid-qt5-progress-bar.cpp \
     mid-qt5-connect-factory.cpp \
-    window_sample15.cpp
+    window_sample15.cpp \
+    window_sample58.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
@@ -100,5 +101,6 @@ HEADERS += \
     gauge.h \
     tabPage.h \
     mid-qt5-connect-factory.h \
-    window_sample15.h
+    window_sample15.h \
+    window_sample58.h
 
