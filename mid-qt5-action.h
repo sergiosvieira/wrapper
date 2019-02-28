@@ -43,6 +43,16 @@ public:
     {
         setText(QString(caption));
     }
+
+    void addMidIcon
+    (
+            const std::string &name,
+            const std::string &filename
+    )
+    {
+         const QIcon newIcon = QIcon::fromTheme(name.c_str(), QIcon(filename.c_str()));
+         this->setIcon(newIcon);
+    }
 };
 
 #endif // MID_QT5_ACTION_H
