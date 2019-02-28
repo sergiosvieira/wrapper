@@ -28,6 +28,17 @@ public:
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidRowsLabels(labels);
     }
+
+    void setMidCellValue
+    (
+            unsigned int row,
+            unsigned int col,
+            const std::string &value
+    )
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->setMidCellValue(row, col, value);
+    }
 };
 
 #endif // MID_GRID_H

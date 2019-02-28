@@ -31,6 +31,16 @@ public:
         for (auto &str: labels) stringLabels << str.c_str();
         this->setVerticalHeaderLabels(stringLabels);
     }
+
+    void setMidCellValue
+    (
+            unsigned int row,
+            unsigned int col,
+            const std::string &value
+    )
+    {
+        this->setItem(row, col, new QTableWidgetItem(value.c_str()));
+    }
 };
 
 #endif // MID_QT5_GRID_H

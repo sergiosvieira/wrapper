@@ -92,6 +92,10 @@ Window::Window(int width,
     this->grid = new MidGrid<MidQt5Grid>(id++, 2, 2, *this);
     this->grid->setMidColsLabels({"col1", "col2"});
     this->grid->setMidRowsLabels({"row1", "row2"});
+    this->grid->setMidCellValue(0, 0, "1");
+    this->grid->setMidCellValue(0, 1, "2");
+    this->grid->setMidCellValue(1, 0, "3");
+    this->grid->setMidCellValue(1, 1, "4");
     vLayout->add(*grid);
 
 
