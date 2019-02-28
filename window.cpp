@@ -1,4 +1,5 @@
 #include "window.h"
+#include "window_sample15.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
@@ -37,10 +38,18 @@ Window::Window(int width,
     MidWindow<MidQt5Window>(width, height, title, parent)
 {
     long long id = 1;
+
+    this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
+
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-    this->button1 = new Button{id++, "Botão 01", nullptr};
+    this->button1 = new Button{id++, "Botão 01", nullptr};    
+    this->btnSample15 = new Button{id++, "Sample 15", nullptr};
+
+
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
+    vLayout->add(*btnSample15);
+
     vLayout->add(*radioButton1);
     this->textField1 = new TextField(id++, "Text field text", nullptr);
     vLayout->add(*textField1);
@@ -98,13 +107,22 @@ Window::Window(int width,
     tab1->addMidTab(*base2, "tab2");
     vLayout->add(*tab1);
     MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
-    MidQT5ButtonHandler qt5ButtonHandler ([&](){
+    MidQT5ButtonHandler qt5ButtonHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
-        this->showStatusBar("Hello Button 1");
+        this->statusBar->showStatusBar("Hello Button Click");
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+
+    MidQT5ButtonHandler qt5BbtnSample15 ([&](){
+        WindowSample15 *win15 = new WindowSample15(300, 400, "Minimal Window QT");
+        win15->show();
+        return true;
+    });
+    connector->connect(*btnSample15, EventTable::BUTTONCLICK, &qt5BbtnSample15);
+
+
     this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
     this->button2 = new Button{id++, "Botão 02", nullptr};
@@ -125,12 +143,8 @@ Window::Window(int width,
     vLayout->add(*hl);
 
     vLayout->add(*gp1);
-
-
-
     this->setMidLayout(*vLayout);
 
-    //Só deve adicionar o menu após configurar o layout na janela
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Action* saveAction = new Action(id++, "Save", nullptr);
@@ -138,18 +152,15 @@ Window::Window(int width,
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
-
-    //vLayout->setMidMenuBar(*menuBar);  //Old way
     this->setMidMenuBar(*menuBar);
 
-
-    MidQT5ActionHandler qt5ActionHandler ([&](){
+    MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
+        this->statusBar->showStatusBar("Hello Action");
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
-    //this->setMidLayout(*vLayout);
 }
 
 Window::~Window()
@@ -164,9 +175,6 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
-    //if (this->button2) delete button2;
-    //if (this->radioButton2) delete radioButton2;
-
 }
 
 

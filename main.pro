@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     window.cpp \
     mid-qt5-check-box.cpp \
     mid-qt5-progress-bar.cpp \
-    mid-qt5-connect-factory.cpp
+    mid-qt5-connect-factory.cpp \
+    window_sample15.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
@@ -87,6 +88,8 @@ HEADERS += \
     mid-action-handler.h \
     mid-qt5-action-handler.h \
     mid-action.h \
+    mid-status-bar.h \
+    mid-qt5-status-bar.h \
     mid-qt5-action.h \
     action.h \
     textEdit.h \
@@ -100,4 +103,5 @@ HEADERS += \
     mid-canvas.h \
     mid-color.h \
     mid-qt5-colors.h
+    window_sample15.h
 
