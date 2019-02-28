@@ -7,8 +7,7 @@
 #include <memory>
 #include "mainwindow.h"
 #include "mid-object.h"
-
-using std::cout;
+#include <QMenuBar>
 
 class MidQt5Button;
 
@@ -24,6 +23,15 @@ public:
     void setMidLayout(MidObject layout)
     {
         setLayout(static_cast<QLayout*>(layout.get()));
+    }
+
+    void setMidMenuBar(MidObject menuBar)
+    {
+        QMenuBar *obj = static_cast<QMenuBar*>(menuBar.get());
+        if (obj && this->layout())
+        {
+            this->layout()->setMenuBar(obj);
+        }
     }
 };
 

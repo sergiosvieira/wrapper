@@ -32,6 +32,9 @@
 #include "mid-wx-horizontal-layout.h"
 
 #include "mid-menu.h"
+#include "menu-bar-wx.h"
+#include "menuWx.h"
+#include "actionWx.h"
 
 WindowWx::WindowWx(int width,
            	       int height,
@@ -128,22 +131,26 @@ WindowWx::WindowWx(int width,
 
     vLayout->add(*gp1);
 
-    /*MenuBarWx* menuBar = new MenuBarWx(id++, nullptr);
+    MenuBarWx* menuBar = new MenuBarWx(id++, nullptr);
     MenuWx* menuFile = new MenuWx(id++, "File", nullptr);
-    Action* saveAction = new Action(id++, "Save", nullptr);
-    Action* exitAction = new Action(id++, "Exit", nullptr);
+    ActionWx* saveAction = new ActionWx(id++, "Save", nullptr);
+    ActionWx* exitAction = new ActionWx(id++, "Exit", nullptr);
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
-    vLayout->setMidMenuBar(*menuBar);
+    //vLayout->setMidMenuBar(*menuBar);
 
-    MidQT5ActionHandler qt5ActionHandler([&]() {
+    this->setMidLayout(*vLayout);
+
+    this->setMidMenuBar(*menuBar);
+
+    /*MidQT5ActionHandler qt5ActionHandler([&]() {
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);*/
-    this->setMidLayout(*vLayout);
+    //this->setMidLayout(*vLayout);
 
     /*long long id = 1;
     MidLayout<MidWxVerticalLayout> *mainVertical = new MidLayout<MidWxVerticalLayout>();

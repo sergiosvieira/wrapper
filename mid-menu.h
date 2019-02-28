@@ -11,7 +11,7 @@ class MidMenu : public MidObject
 public:
     MidMenu
     (
-        long long int midID = 0,
+        Id midID = 0,
         const std::string &title = "",
         MidObject parent = nullptr
     ):

@@ -119,9 +119,13 @@ Window::Window(int width,
 
     Line *hl = new Line(id++, MidLineType::HORIZONAL, nullptr);
     vLayout->add(*hl);
-
     vLayout->add(*gp1);
 
+
+
+    this->setMidLayout(*vLayout);
+
+    //Só deve adicionar o menu após configurar o layout na janela
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Action* saveAction = new Action(id++, "Save", nullptr);
@@ -129,7 +133,10 @@ Window::Window(int width,
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
-    vLayout->setMidMenuBar(*menuBar);
+
+    //vLayout->setMidMenuBar(*menuBar);  //Old way
+    this->setMidMenuBar(*menuBar);
+
 
     MidQT5ActionHandler qt5ActionHandler ([&](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
@@ -137,7 +144,6 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
-    this->setMidLayout(*vLayout);
 }
 
 Window::~Window()

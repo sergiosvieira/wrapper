@@ -3,6 +3,7 @@
 
 #include <wx/frame.h>
 #include "mid-object.h"
+#include <wx/menu.h>
 
 class MidWxWindow: public wxFrame
 {
@@ -34,6 +35,12 @@ public:
     {
         wxSizer* sizer = static_cast<wxSizer*>(layout.get());
         SetSizer(sizer);
+    }
+
+    void setMidMenuBar(MidObject menuBar)
+    {
+        wxMenuBar *obj = static_cast<wxMenuBar*>(menuBar.get());
+        this->SetMenuBar(obj);
     }
 };
 

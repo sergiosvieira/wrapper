@@ -28,6 +28,12 @@ public:
         T *obj = static_cast<T*>(this->get());
         obj->setMidLayout(layout);
     }
+
+    void setMidMenuBar(MidObject layout)
+    {
+        T *obj = static_cast<T*>(this->get());
+        obj->setMidMenuBar(layout);
+    }
 };
 
 #endif /* __MID_WINDOW__ */
