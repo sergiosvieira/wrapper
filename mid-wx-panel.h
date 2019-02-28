@@ -1,11 +1,8 @@
 #ifndef __MIDWXPANEL__
 #define __MIDWXPANEL__
 
-//#include <QtWidgets>
-//#include <QString>
 #include <iostream>
 #include <memory>
-//#include "mainwindow.h"
 
 #include <wx/window.h>
 
@@ -13,25 +10,27 @@ using std::cout;
 
 class MidWxPanel : public wxPanel
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
-
-    //wxWindow *parentTest = nullptr;
 public:
-    explicit MidWxPanel(
-        MidWindow<MidWxWindow>* parent = nullptr,
+    explicit MidWxPanel
+    (
         int width = 600,
-        int height = 800):
-        wxPanel((parent->get()), wxID_ANY, wxDefaultPosition,
-            wxSize(width, height)), parent(parent)
+        int height = 800,
+        MidObject parent = nullptr
+    ):
+        wxPanel(
+            static_cast<wxWindow*>(parent.get()),
+            wxID_ANY,
+            wxDefaultPosition,
+            wxSize(width, height))
     {
     }
 
     void show() {}
     ~MidWxPanel() {}
 
-    void setMidLayout(wxSizer* layout)
+    void setMidLayout(MidObject layout)
     {
-        SetSizer(layout);
+        SetSizer(static_cast<wxSizer*>(layout.get()));
     }
 };
 

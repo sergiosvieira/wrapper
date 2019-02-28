@@ -9,37 +9,27 @@
 
 class MidWxTab: public wxNotebook
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxTab(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0):
+    MidWxTab
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
         wxNotebook(
-        //(parent->get() != nullptr) ? (wxWindow*) parent->get() : nullptr,
-        (parent->get() != nullptr) ? parent->get() : nullptr,
-        midID), parent (parent)
+            static_cast<wxWindow*>(parent.get()),
+            id)
     {
     }
 
-    void setParent(MidWindow<MidWxWindow>* parent)
+    void addMidTab(MidObject object, const std::string& tabTitle)
     {
-        this->parent = parent;
-    }
-
-    void addMidTab(MidObject *object, const char *tabTitle = "")
-    {
-        wxPanel* pointer = object->ref<wxPanel>();
-        AddPage(pointer, tabTitle);
+        wxPanel* widget = static_cast<wxPanel*>(object.get());
+        AddPage(widget, tabTitle.c_str());
 
         //Não se deve adicionar um componente diretamente no tab
         //Deve configurar um layout no tab (esse layout deve ter o componente)
     }
-
-    /*template <class L>
-    void setMidLayout(MidLayout<L> layout)
-    {
-        this->get()->setMidLayout(layout.get());
-    }*/
 };
 
 #endif // __MIDWXTAB__

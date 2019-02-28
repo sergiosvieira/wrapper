@@ -29,7 +29,6 @@
 #include "panel.h"
 #include "tabPage.h"
 
-
 Window::Window(int width,
            	   int height,
                const std::string &title,

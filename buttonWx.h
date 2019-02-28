@@ -11,12 +11,11 @@ using std::cout;
 
 class ButtonWx: public MidButton<MidWxButton>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    ButtonWx(MidWindow<MidWxWindow>* parent = nullptr,
-        long long int midID = 0,
-              const char *title = ""):
-        MidButton<MidWxButton>(parent, midID, title), parent(parent) {}
+    ButtonWx(Id id = 0,
+            const std::string &title = "",
+            MidObject parent = nullptr):
+        MidButton<MidWxButton>(id, title, parent) {}
 };
 
 #endif // BUTTON_H

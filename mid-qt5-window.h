@@ -1,5 +1,5 @@
-#ifndef MID_QT5_WINDOW_H
-#define MID_QT5_WINDOW_H
+#ifndef __MID_QT5_WINDOW__
+#define __MID_QT5_WINDOW__
 
 #include <QtWidgets>
 #include <QString>
@@ -7,6 +7,7 @@
 #include <memory>
 #include "mainwindow.h"
 #include "mid-object.h"
+#include <QMenuBar>
 
 class MidQt5Button;
 
@@ -42,6 +43,15 @@ public:
         window-> setLayout(static_cast<QLayout*>(layout.get()));
         setCentralWidget(window);
     }
+
+    void setMidMenuBar(MidObject menuBar)
+    {
+        QMenuBar *obj = static_cast<QMenuBar*>(menuBar.get());
+        if (obj && this->layout())
+        {
+            this->layout()->setMenuBar(obj);
+        }
+    }
 };
 
-#endif /* MID_QT5_WINDOW_H */
+#endif /* __MID_QT5_WINDOW__ */

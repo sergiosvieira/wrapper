@@ -13,31 +13,27 @@ using std::endl;
 
 class MidWxConnect
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
-
 public:
-    MidWxConnect(MidWindow<MidWxWindow>* parent = nullptr):
-        parent(parent){}
-    bool connect(MidObject* source,
+    MidWxConnect(MidObject parent = nullptr)
+        {}
+    bool connect(MidObject source,
                  EventTable eventTable,
-                 MidButtonHandler* eventhandler)
+                 MidHandler* eventhandler)
         
     {
         if (eventTable == EventTable::BUTTONCLICK)
         {
-            wxButton* ref = (wxButton*)source->ref<MidWxButton>();
-            auto& f = eventhandler->lambda;
+            MidWxButton *ref = static_cast<MidWxButton*>(source.get());
+
+            MidButtonHandler* pointer = dynamic_cast<MidButtonHandler*>(eventhandler);
+
+            auto &f = pointer->lambda;
             ref->Bind(wxEVT_COMMAND_BUTTON_CLICKED,
-                [&](wxCommandEvent&) {
-                if (parent == nullptr)
-                {
-                    throw std::exception("parent is null");
-                }
+                [&f](wxCommandEvent&) {
                 f(); //Calling the function
+                //pointer->lambda();
             },
-                source->getID());
-                //BUTTON_Hello);
+                ref->GetId());
         }
 
         return true;

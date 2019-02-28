@@ -7,32 +7,31 @@
 #include "mid-wx-window.h"
 
 
-class MidWxMsgDialog
+class MidWxMsgDialog: public wxMessageDialog
 {
-    wxMessageDialog *msg = nullptr;
 public:
-    MidWxMsgDialog(MidWindow<MidWxWindow> *parent,
-                   const char *title,
-                   const char *text)
+    MidWxMsgDialog
+    (
+        Id id = 0,
+        const std::string &title = "",
+        const std::string &text = "",
+        MidObject parent = nullptr
+    ):
+        wxMessageDialog(static_cast<wxWindow*>(parent.get()), text, title, wxOK | wxICON_INFORMATION)
     {
-        wxFrame *p = nullptr;
-        if (parent != nullptr)
-        {
-            p = parent->get();
-        }
-        this->msg = new wxMessageDialog(p, text, title, wxOK | wxICON_INFORMATION);
     }
-    void setTitle(const char *title)
+    void setMidTitle(const char *title)
     {
-        this->msg->SetTitle(title);
+        this->SetTitle(title);
     }
-    void setText(const char *text)
+    void setMidText(const char *text)
     {
-        this->msg->SetMessage(text);
+        this->SetMessage(text);
     }
     void show()
     {
-        this->msg->ShowModal();
+        this->ShowModal();
+        //this->Show();
     }
 };
 
