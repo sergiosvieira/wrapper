@@ -6,6 +6,8 @@
 #include "mid-qt5-window.h"
 #include "mid-qt5-status-bar.h"
 #include "mid-status-bar.h"
+#include "mid-image-label.h"
+#include "mid-qt5-image-label.h"
 
 class Button;
 class RadioButton;
@@ -33,6 +35,7 @@ class Window: public MidWindow<MidQt5Window>
     TextField *textField1 = nullptr;
     ProgressBar *progressBar1 = nullptr;
     TextLabel* textLabel1 = nullptr;
+    MidImageLabel<MidQt5ImageLabel> *imageLabel = nullptr;
     ComboBox *cb1 = nullptr;
     SpinBox* sp1 = nullptr;
     DateEdit * dateEdit1 = nullptr;

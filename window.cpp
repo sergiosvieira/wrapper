@@ -28,6 +28,8 @@
 #include "textEdit.h"
 #include "panel.h"
 #include "tabPage.h"
+#include "mid-image.h"
+#include "mid-qt5-image.h"
 
 Window::Window(int width,
            	   int height,
@@ -53,6 +55,12 @@ Window::Window(int width,
     //vLayout->add(*progressBar1);
     this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
     vLayout->add(*textLabel1);
+
+    MidImage<MidQt5Image> *image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
+    this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image, nullptr);
+    vLayout->add(*imageLabel);
+
+
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
     cb1->addMidItem("Item 02");

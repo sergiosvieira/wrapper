@@ -29,4 +29,4 @@ public:
     }
 };
 
-#endif /* MID_BUTTON_H */
+#endif /* MID_STATUS_BAR_H */

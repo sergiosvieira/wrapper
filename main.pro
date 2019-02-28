@@ -88,6 +88,9 @@ HEADERS += \
     mid-qt5-action-handler.h \
     mid-action.h \
     mid-status-bar.h \
+    mid-image.h \
+    mid-image-label.h \
+    mid-qt5-image.h \
     mid-qt5-status-bar.h \
     mid-qt5-action.h \
     action.h \
@@ -99,4 +102,5 @@ HEADERS += \
     gauge.h \
     tabPage.h \
     mid-qt5-connect-factory.h \
+    mid-qt5-image-label.h
 
