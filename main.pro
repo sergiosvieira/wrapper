@@ -102,6 +102,13 @@ HEADERS += \
     mid-qt5-connect-factory.h \
     mid-canvas.h \
     mid-color.h \
-    mid-qt5-colors.h
+    mid-qt5-colors.h \
+    mid-qt5-tree-widget.h \
+    mid-tree-widget.h \
+    treeWidget.h \
+    mid-qt5-tree-widget-item.h \
+    mid-tree-widget-item.h \
+    treeWidgetItem.h \
+    treeWidgetItem.h
     window_sample15.h
 

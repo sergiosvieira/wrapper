@@ -30,6 +30,8 @@
 #include "textEdit.h"
 #include "panel.h"
 #include "tabPage.h"
+#include "treeWidget.h"
+#include "treeWidgetItem.h"
 
 Window::Window(int width,
            	   int height,
@@ -78,6 +80,17 @@ Window::Window(int width,
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
     this->textEdit1 = new TextEdit(id++, msg, nullptr);
     vLayout->add(*textEdit1);
+
+    //Adicionar treeWidget here
+    TreeWidget* treeWidget = new TreeWidget(id++, 2, {"Col 1", "Col 2"}, *this);
+    TreeWidgetItem* treeWidgetA = new TreeWidgetItem
+            (id++, {"A1","A2"}, {true, true}, {false, true}, *treeWidget);
+    TreeWidgetItem* treeWidgetB = new TreeWidgetItem
+            (id++, {"B1","B2"}, {false, false}, {false, false}, *treeWidget);
+    TreeWidgetItem* treeWidgetC = new TreeWidgetItem
+            (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
+    vLayout->add(*treeWidget);
+
 
     Panel *panel = new Panel(100, 100, *this);
     Button *b17 = new Button(id++, "Hello World Button 17", *panel);
