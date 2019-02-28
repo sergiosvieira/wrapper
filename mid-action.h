@@ -26,6 +26,16 @@ public:
         MidObject(new T{id, title, parent})
     {
     }
+
+    void addMidIcon
+    (
+            const std::string &name,
+            const std::string &filename
+    )
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->addMidIcon(name, filename);
+    }
 };
 
 #endif // MID_ACTION_H

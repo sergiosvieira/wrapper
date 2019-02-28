@@ -7,7 +7,7 @@
 #include "mid-window.h"
 
 /*!
- * \brief The MidQt5Button class
+ * \brief The MidQt5StatusBar class
  */
 class MidQt5StatusBar
 {
@@ -19,9 +19,9 @@ public:
      * \param title
      * \param parent
      */
-    MidQt5StatusBar(Id id = 0,
-                 const std::string &title = "",
-                 MidObject parent = nullptr)
+    MidQt5StatusBar(Id id,
+                 const std::string &title,
+                 MidObject parent)
     {
         this->parent =  static_cast<QMainWindow*>(parent.get());
         if (this->parent == nullptr)
@@ -46,4 +46,4 @@ public:
 
 };
 
-#endif /* MID_QT5_BUTTON_H */
+#endif /* MID_QT5_STATUS_BAR_H */

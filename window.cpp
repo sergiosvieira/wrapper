@@ -33,6 +33,10 @@
 #include "textEdit.h"
 #include "panel.h"
 #include "tabPage.h"
+#include "treeWidget.h"
+#include "treeWidgetItem.h"
+#include "treeWidgetSubitem.h"
+
 
 Window::Window(int width,
            	   int height,
@@ -43,6 +47,7 @@ Window::Window(int width,
     long long id = 1;
 
     this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
+    this->toolBar = new MidToolBar<MidQt5ToolBar>(id++, "SIGA", *this);
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1      = new Button{id++, "Botão 01", nullptr};
@@ -76,6 +81,14 @@ Window::Window(int width,
     MidObject red = std::make_shared<MidQt5ColorRed>();
     this->textLabel1->setMidTextColor(red);
     vLayout->add(*textLabel1);
+
+    this->image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
+    this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image, nullptr);
+    vLayout->add(*imageLabel);
+
+    this->listBox = new MidListBox<MidQt5ListBox>(id++, {"item1", "item2", "item3"}, nullptr);
+     vLayout->add(*listBox);
+
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
     cb1->addMidItem("Item 02");
@@ -92,6 +105,22 @@ Window::Window(int width,
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
     this->textEdit1 = new TextEdit(id++, msg, nullptr);
     vLayout->add(*textEdit1);
+
+    TreeWidget* treeWidget = new TreeWidget(id++, 2, {"Coluna 1", "Coluna 2"}, *this);
+    TreeWidgetItem* treeWidgetA = new TreeWidgetItem
+            (id++, {"A1","A2"}, {true, true}, {false, true}, *treeWidget);
+    TreeWidgetItem* treeWidgetB = new TreeWidgetItem
+            (id++, {"B1","B2"}, {false, false}, {false, false}, *treeWidget);
+    TreeWidgetItem* treeWidgetC = new TreeWidgetItem
+            (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
+    TreeWidgetSubitem* treeWidgetSubC1 = new TreeWidgetSubitem
+            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC);
+    TreeWidgetSubitem* treeWidgetSubSubC1 = new TreeWidgetSubitem
+            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1);
+    TreeWidgetItem* treeWidgetD = new TreeWidgetItem
+            (id++, {"D1","D2"}, {true, false}, {false, false}, *treeWidget);
+    vLayout->add(*treeWidget);
+
 
     Panel *panel = new Panel(100, 100, *this);
     Button *b17 = new Button(id++, "Hello World Button 17", *panel);
@@ -124,7 +153,7 @@ Window::Window(int width,
     MidQT5ButtonHandler qt5ButtonHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
-        this->statusBar->showStatusBar("Hello Button Click");
+        this->statusBar->showMidStatusBar("Hello Button Click");
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
@@ -189,6 +218,9 @@ Window::Window(int width,
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Action* saveAction = new Action(id++, "Save", nullptr);
     Action* exitAction = new Action(id++, "Exit", nullptr);
+    saveAction->addMidIcon("Save", "SIGA.png");
+    this->toolBar->addMidAction(*saveAction);
+
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
@@ -197,7 +229,7 @@ Window::Window(int width,
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
-        this->statusBar->showStatusBar("Hello Action");
+        this->statusBar->showMidStatusBar("Hello Action");
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
@@ -215,6 +247,10 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
+    if (this->imageLabel) delete imageLabel;
+    if (this->statusBar) delete statusBar;
+    if (this->image) delete image;
+    if (this->listBox) delete listBox;
 }
 
 
