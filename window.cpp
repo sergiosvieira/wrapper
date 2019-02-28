@@ -90,7 +90,8 @@ Window::Window(int width,
     vLayout->add(*listBox);
 
     this->grid = new MidGrid<MidQt5Grid>(id++, 2, 2, *this);
-    this->grid->setMidColLabels({"col1", "col2"});
+    this->grid->setMidColsLabels({"col1", "col2"});
+    this->grid->setMidRowsLabels({"row1", "row2"});
     vLayout->add(*grid);
 
 

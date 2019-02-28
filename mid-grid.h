@@ -17,10 +17,16 @@ public:
     ):
         MidObject(new T{id, numRows, numCols, parent}){}
 
-    void setMidColLabels(const std::vector<std::string> &labels)
+    void setMidColsLabels(const std::vector<std::string> &labels)
     {
         T *obj = static_cast<T*>(this->get());
-        if (obj) obj->setMidColLabels(labels);
+        if (obj) obj->setMidColsLabels(labels);
+    }
+
+    void setMidRowsLabels(const std::vector<std::string> &labels)
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->setMidRowsLabels(labels);
     }
 };
 
