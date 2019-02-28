@@ -1,6 +1,7 @@
 #ifndef MID_TEXT_EDIT_H
 #define MID_TEXT_EDIT_H
 
+#include "mid-color.h"
 #include "mid-object.h"
 #include "mid-window.h"
 
@@ -11,26 +12,28 @@ template <class T>
 class MidTextEdit : public MidObject
 {
 public:
+    /*!
+     * \brief MidTextEdit
+     * \param midID
+     * \param title
+     * \param parent
+     */
     MidTextEdit
     (
         Id midID = 0,
         const std::string &title = "",
         MidObject parent = nullptr
     ):
-        MidObject(new T{midID, title, parent})
-    {
-    }
-
+        MidObject(new T{midID, title, parent}){}
     /*!
-     * \brief getText
+     * \brief getMidText
      * \return
      */
-    std::string getText()
+    std::string getMidText()
     {
         T *obj = static_cast<T*>(this->get());
-        return obj->getText();
+        return obj->getMidText();
     }
-
     /*!
      * \brief setMidText
      * \param caption

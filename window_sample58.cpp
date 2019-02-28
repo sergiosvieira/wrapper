@@ -99,12 +99,12 @@ WindowSample58::WindowSample58(int width,
     this->base1->setMidLayout(*vLayoutTab2);
     tab2->addMidTab(*base3, "Café Menu");
     tab2->addMidTab(*base4, "Scraps");
-    tab2->addMidTab(*base5, "Scraps");
-    tab2->addMidTab(*base6, "Scraps");
-    tab2->addMidTab(*base7, "Scraps");
-    tab2->addMidTab(*base8, "Scraps");
-    tab2->addMidTab(*base9, "Scraps");
-    tab2->addMidTab(*base10, "Scraps");
+    tab2->addMidTab(*base5, "Cookies");
+    tab2->addMidTab(*base6, "Web");
+    tab2->addMidTab(*base7, "Forum");
+    tab2->addMidTab(*base8, "Journal");
+    tab2->addMidTab(*base9, "Notebook");
+    tab2->addMidTab(*base10, "Refrish");
 
     hLayout->add(*tab1);
     hLayout->add(*tab2);

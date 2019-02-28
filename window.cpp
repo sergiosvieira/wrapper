@@ -1,9 +1,12 @@
 #include "window.h"
 #include "window_sample15.h"
 #include "window_sample58.h"
+#include "window_sample68.h"
+#include "window_sample69.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
+#include "mid-qt5-colors.h"
 #include "mid-msg-dialog.h"
 #include "mid-qt5-msg-dialog.h"
 #include "mid-connect.h"
@@ -42,15 +45,24 @@ Window::Window(int width,
     this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-    this->button1 = new Button{id++, "Botão 01", nullptr};    
-    this->btnSample15 = new Button{id++, "Sample 15", nullptr};
-    this->btnSample58 = new Button{id++, "Sample 58", nullptr};
-
+    this->button1      = new Button{id++, "Botão 01", nullptr};
+    this->btnSample15  = new Button{id++, "Sample 15", nullptr};
+    this->btnSample58  = new Button{id++, "Sample 58", nullptr};
+    this->btnSample68  = new Button{id++, "Sample 68", nullptr};
+    this->btnSample69  = new Button{id++, "Sample 69", nullptr};
+    this->btnSample117 = new Button{id++, "Sample 117", nullptr};
+    this->btnSample229 = new Button{id++, "Sample 229", nullptr};
+    this->btnSample242 = new Button{id++, "Sample 242", nullptr};
 
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
     vLayout->add(*btnSample15);
     vLayout->add(*btnSample58);
+    vLayout->add(*btnSample68);
+    vLayout->add(*btnSample69);
+    vLayout->add(*btnSample117);
+    vLayout->add(*btnSample229);
+    vLayout->add(*btnSample242);
 
     vLayout->add(*radioButton1);
     this->textField1 = new TextField(id++, "Text field text", nullptr);
@@ -61,6 +73,8 @@ Window::Window(int width,
     progressBar1->setMidValue(30);
     //vLayout->add(*progressBar1);
     this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
+    MidObject red = std::make_shared<MidQt5ColorRed>();
+    this->textLabel1->setMidTextColor(red);
     vLayout->add(*textLabel1);
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
@@ -125,11 +139,27 @@ Window::Window(int width,
 
     //Sample 58
     MidQT5ButtonHandler qt5BbtnSample58 ([&](){
-        WindowSample58 *win58 = new WindowSample58(630, 480, "Minimal Window QT");
+        WindowSample58 *win58 = new WindowSample58(630, 480, "Writer´s cafe");
         win58->show();
         return true;
     });
     connector->connect(*btnSample58, EventTable::BUTTONCLICK, &qt5BbtnSample58);
+
+    //Sample 68
+    MidQT5ButtonHandler qt5BbtnSample68 ([&](){
+        WindowSample68 *win68 = new WindowSample68(400, 200, "Personal Record");
+        win68->show();
+        return true;
+    });
+    connector->connect(*btnSample68, EventTable::BUTTONCLICK, &qt5BbtnSample68);
+
+    //Sample 69
+    MidQT5ButtonHandler qt5BbtnSample69 ([&](){
+        WindowSample69 *win69 = new WindowSample69(400, 500, "Settings");
+        win69->show();
+        return true;
+    });
+    connector->connect(*btnSample69, EventTable::BUTTONCLICK, &qt5BbtnSample69);
 
 
 
