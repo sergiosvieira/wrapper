@@ -5,6 +5,7 @@
 #include "mid-qt5-window.h"
 
 #include "mid-window.h"
+#include "general.h"
 
 #include <vector>
 #include <iostream>
@@ -15,6 +16,7 @@
 class MidQt5TreeWidgetItem: public QTreeWidgetItem
 {
 public:
+
     /*!
      * \brief MidQt5TreeWidgetItem
      * \param id
@@ -22,15 +24,38 @@ public:
      */
     MidQt5TreeWidgetItem
     (
-            Id id = 0,
-            const std::vector<std::string>& texts = {},
-            const std::vector<bool>& mustHaveACheck = {},
-            const std::vector<bool>& checkInput = {},
-            MidObject parent = nullptr
+            Id id,
+            const std::vector<std::string>& texts,
+            const std::vector<bool>& mustHaveACheck,
+            const std::vector<bool>& checkInput,
+            MidObject parent
     ):
         QTreeWidgetItem(
                 static_cast<QTreeWidget*>(parent.get())
             )
+    {
+        init(texts, mustHaveACheck, checkInput);
+    }
+
+    MidQt5TreeWidgetItem
+    (
+            Id id,
+            const std::vector<std::string>& texts,
+            const std::vector<bool>& mustHaveACheck,
+            const std::vector<bool>& checkInput,
+            MidObject parent,
+            enum Type type
+    ):
+        QTreeWidgetItem(
+                static_cast<QTreeWidgetItem*>(parent.get())
+            )
+    {
+        init(texts, mustHaveACheck, checkInput);
+    }
+
+    void init(const std::vector<std::string>& texts,
+              const std::vector<bool>& mustHaveACheck,
+              const std::vector<bool>& checkInput)
     {
         for (int index = 0; index<texts.size(); ++index)
         {

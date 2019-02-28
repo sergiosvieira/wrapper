@@ -7,6 +7,8 @@
 #include <vector>
 #include <iostream>
 
+#include "general.h"
+
 /*!
  * \brief MidTreeWidgetItem Template
  */
@@ -21,13 +23,24 @@ public:
      */
     MidTreeWidgetItem
     (
-        Id id = 0,
-        const std::vector<std::string>& texts = {},
-        const std::vector<bool>& mustHaveACheck = {},
-        const std::vector<bool>& checkInput = {},
-        MidObject parent = nullptr
+        Id id,
+        const std::vector<std::string>& texts,
+        const std::vector<bool>& mustHaveACheck,
+        const std::vector<bool>& checkInput,
+        MidObject parent
     ):
         MidObject(new T{id, texts, mustHaveACheck, checkInput, parent}){}
+
+    MidTreeWidgetItem
+    (
+        Id id,
+        const std::vector<std::string>& texts,
+        const std::vector<bool>& mustHaveACheck,
+        const std::vector<bool>& checkInput,
+        MidObject parent,
+        enum Type type
+    ):
+        MidObject(new T{id, texts, mustHaveACheck, checkInput, parent, type}){}
 };
 
 #endif /* MID_TREE_WIDGET_ITEM_H */

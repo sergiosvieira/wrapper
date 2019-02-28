@@ -29,6 +29,18 @@ public:
     ):
         MidTreeWidgetItem<MidQt5TreeWidgetItem>
             (id, texts, mustHaveACheck, checkInput, parent){}
+
+    TreeWidgetItem
+    (
+        Id id,
+        const std::vector<std::string>& texts,
+        const std::vector<bool>& mustHaveACheck,
+        const std::vector<bool>& checkInput,
+        MidObject parent,
+        enum Type type
+    ):
+        MidTreeWidgetItem<MidQt5TreeWidgetItem>
+            (id, texts, mustHaveACheck, checkInput, parent, type){}
 };
 
 #endif // TREE_WIDGET_ITEM_H

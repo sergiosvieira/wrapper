@@ -32,7 +32,6 @@
 #include "tabPage.h"
 #include "treeWidget.h"
 #include "treeWidgetItem.h"
-#include "treeWidgetSubitem.h"
 
 
 Window::Window(int width,
@@ -98,10 +97,10 @@ Window::Window(int width,
             (id++, {"B1","B2"}, {false, false}, {false, false}, *treeWidget);
     TreeWidgetItem* treeWidgetC = new TreeWidgetItem
             (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
-    TreeWidgetSubitem* treeWidgetSubC1 = new TreeWidgetSubitem
-            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC);
-    TreeWidgetSubitem* treeWidgetSubSubC1 = new TreeWidgetSubitem
-            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1);
+    TreeWidgetItem* treeWidgetSubC1 = new TreeWidgetItem
+            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC, Type::SUBMENU);
+    TreeWidgetItem* treeWidgetSubSubC1 = new TreeWidgetItem
+            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1, Type::SUBMENU);
     TreeWidgetItem* treeWidgetD = new TreeWidgetItem
             (id++, {"D1","D2"}, {true, false}, {false, false}, *treeWidget);
     vLayout->add(*treeWidget);
