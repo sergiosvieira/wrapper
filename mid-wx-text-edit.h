@@ -8,16 +8,17 @@
 
 class MidWxTextEdit: public wxTextCtrl
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxTextEdit(MidWindow<MidWxWindow>* parent = nullptr,
-                 long long int midID = 0,
-                 const char *text = ""):
+    MidWxTextEdit
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
         wxTextCtrl(
-            (parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-                midID,
-                wxString(text)
+            static_cast<wxWindow*>(parent.get()),
+                id,
+                wxString(title.c_str())
         )
     {
         //this->SetWindowStyle(wxTE_MULTILINE | wxHSCROLL);
@@ -33,10 +34,6 @@ public:
     void setMidText(const char *caption)
     {
         SetLabel(wxString(caption));
-    }
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
     }
 };
 

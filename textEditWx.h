@@ -11,13 +11,15 @@ using std::cout;
 
 class TextEditWx: public MidTextEdit<MidWxTextEdit>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    TextEditWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidTextEdit<MidWxTextEdit>(parent, midID, title),
-        parent(parent) {}
+    TextEditWx
+    (
+        Id midID = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidTextEdit<MidWxTextEdit>(midID, title, parent)
+        {}
 };
 
 #endif // __TEXTEDITWX__

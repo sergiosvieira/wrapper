@@ -7,15 +7,15 @@
 
 class TabPageWx: public MidTabPage<MidWxTabPage>
 {
-    MidTab<MidWxTab>* parent = nullptr;
 public:
     TabPageWx(
-        MidTab<MidWxTab>* parent = nullptr,
+        Id id = 0,
         int width = 600,
-        int height = 800
+        int height = 800,
+        const std::string &title = "",
+        MidObject parent = nullptr
     ):
-        MidTabPage<MidWxTabPage>(parent, width, height),
-        parent(parent)
+        MidTabPage<MidWxTabPage>(id, width, height, title, parent)
         {}
 };
 

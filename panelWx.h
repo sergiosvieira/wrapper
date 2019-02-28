@@ -7,15 +7,13 @@
 
 class PanelWx: public MidPanel<MidWxPanel>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
     PanelWx(
-        MidWindow<MidWxWindow>* parent = nullptr,
         int width = 600,
-        int height = 800
+        int height = 800,
+        MidObject parent = nullptr
     ):
-            MidPanel<MidWxPanel>(parent, width, height),
-        parent(parent)
+            MidPanel<MidWxPanel>(width, height, parent)
         {}
 };
 

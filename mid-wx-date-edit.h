@@ -9,24 +9,20 @@
 
 class MidWxDateEdit: public wxDatePickerCtrl
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxDateEdit(MidWindow<MidWxWindow>* parent = nullptr,
-                   long long int midID = 0,
-                   MidDate<MidWxDate> date = {}):
+    MidWxDateEdit
+    (
+        Id id = 0,
+        MidObject date = nullptr,
+        MidObject parent = nullptr
+    ):
         wxDatePickerCtrl
         (
-            (parent != nullptr) ? parent->get() : nullptr,
-            midID,
-            *date.ref<wxDateTime>()
+            static_cast<wxWindow*>(parent.get()),
+            id,
+            *static_cast<wxDateTime*>(date.get())
         )
     {}
-
-    void setParent(MidWindow<MidWxWindow>* parent)
-    {
-        this->parent = parent;
-    }
 };
 
 

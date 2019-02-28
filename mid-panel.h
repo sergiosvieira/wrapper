@@ -1,5 +1,5 @@
-#ifndef MID_PANEL_H
-#define MID_PANEL_H
+#ifndef __MIDPANEL__
+#define __MIDPANEL__
 
 #include <vector>
 #include <iostream>
@@ -8,13 +8,16 @@
 #include "mid-layout.h"
 #include "mid-window.h"
 
+using std::vector;
+using std::shared_ptr;
+using std::make_shared;
+using std::cout;
+using std::is_reference;
 
-/*!
- * \brief The MidPanel template
- */
 template <class T>
 class MidPanel: public MidObject
 {
+    vector<shared_ptr<MidObject>> child;
 public:
     /*!
      * \brief MidPanel
@@ -54,6 +57,16 @@ public:
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->midShow();
     }
+
+    virtual ~MidPanel()
+    { }
+
+    void show()
+    {
+        T *obj = static_cast<T*>(this->get());
+        obj->show();
+    }
+
     /*!
      * \brief setMidLayout
      * \param layout
@@ -61,8 +74,10 @@ public:
     void setMidLayout(MidObject layout)
     {
         T *obj = static_cast<T*>(this->get());
-        return obj->setMidLayout(layout);
+        obj->setMidLayout(layout);
     }
+
+    MidPanel(const T& t): MidObject(t){}
 };
 
-#endif // MID_PANEL_H
+#endif // __MIDPANEL__

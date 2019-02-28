@@ -3,15 +3,20 @@
 
 #include <wx/frame.h>
 #include "mid-object.h"
+#include <wx/menu.h>
 
 class MidWxWindow: public wxFrame
 {
 public:
     MidWxWindow(int width,
                 int height,
-                const char *title,
-                wxFrame *parent = nullptr):
-        wxFrame(parent, wxID_ANY, title)
+                const std::string &title,
+                MidObject parent):
+        wxFrame(
+            static_cast<wxWindow*>(parent.get()),
+            wxID_ANY,
+            title.c_str()
+        )
     {
         this->SetSize(0, 20, width, height);
     }
@@ -26,9 +31,16 @@ public:
         this->Show(true);
     }
 
-    void setMidLayout(wxSizer* layout)
+    void setMidLayout(MidObject layout)
     {
-        SetSizer(layout);
+        wxSizer* sizer = static_cast<wxSizer*>(layout.get());
+        SetSizer(sizer);
+    }
+
+    void setMidMenuBar(MidObject menuBar)
+    {
+        wxMenuBar *obj = static_cast<wxMenuBar*>(menuBar.get());
+        this->SetMenuBar(obj);
     }
 };
 

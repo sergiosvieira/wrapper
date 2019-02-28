@@ -1,5 +1,5 @@
-#ifndef MID_QT5_PANEL_H
-#define MID_QT5_PANEL_H
+#ifndef __MIDQT5PANEL__
+#define __MIDQT5PANEL__
 
 #include <QtWidgets>
 #include <QString>
@@ -51,4 +51,4 @@ public:
     }
 };
 
-#endif // MID_QT5_PANEL_H
+#endif // __MIDQT5PANEL__

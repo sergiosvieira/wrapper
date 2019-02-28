@@ -1,5 +1,5 @@
-#ifndef MID_QT5_CHECK_BOX_H
-#define MID_QT5_CHECK_BOX_H
+#ifndef __MID_QT5_CHECK_BOX__
+#define __MID_QT5_CHECK_BOX__
 
 #include <QCheckBox>
 #include "mid-qt5-window.h"
@@ -27,10 +27,7 @@ public:
         QCheckBox(QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
     }
-    /*!
-     * \brief MidQt5CheckBox
-     */
-    MidQt5CheckBox();
+
     /*!
      * \brief setCaption
      * \param caption
@@ -49,4 +46,4 @@ public:
     }
 };
 
-#endif /* MID_QT5_CHECK_BOX_H */
+#endif /* __MID_QT5_CHECKBOX__ */

@@ -7,15 +7,16 @@
 
 #include "window.h"
 
-using std::cout;
-
 class TabWx: public MidTab<MidWxTab>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    TabWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0):
-        MidTab<MidWxTab>(parent, midID), parent(parent) {}
+    TabWx
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidTab<MidWxTab>(id, title, parent) {}
 };
 
 #endif // __TABWX__

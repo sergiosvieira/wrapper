@@ -6,12 +6,14 @@
 
 class GroupBoxWx: public MidGroupBox<MidWxGroupBox>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    GroupBoxWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidGroupBox<MidWxGroupBox>(parent, midID, title), parent(parent) {}
+    GroupBoxWx
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidGroupBox<MidWxGroupBox>(id, title, parent) {}
 };
 
 #endif // __GROUP_BOX_WX_

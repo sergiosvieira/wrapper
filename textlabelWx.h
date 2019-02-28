@@ -7,17 +7,17 @@
 
 #include "window.h"
 
-using std::cout;
-
 class TextLabelWx: public MidTextLabel<MidWxTextLabel>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    TextLabelWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidTextLabel<MidWxTextLabel>(parent, midID, title),
-        parent(parent) {}
+    TextLabelWx
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidTextLabel<MidWxTextLabel>(id, title, parent)
+        {}
 };
 
 #endif // __TEXTLABELWX__

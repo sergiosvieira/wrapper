@@ -6,12 +6,14 @@
 
 class RadioButtonWx: public MidRadioButton<MidWxRadioButton>
 {
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    RadioButtonWx(MidWindow<MidWxWindow>* parent = nullptr,
-           long long int midID = 0,
-              const char *title = ""):
-        MidRadioButton<MidWxRadioButton>(parent, midID, title), parent(parent) {}
+    RadioButtonWx
+    (
+        Id id = 0,
+        const std::string &title = "",
+        MidObject parent = nullptr
+    ):
+        MidRadioButton<MidWxRadioButton>(id, title, parent) {}
 
 };
 

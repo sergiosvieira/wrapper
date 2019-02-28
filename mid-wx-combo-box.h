@@ -8,17 +8,18 @@
 
 class MidWxComboBox: public wxComboBox
 {
-private:
-    MidWindow<MidWxWindow>* parent = nullptr;
 public:
-    MidWxComboBox(MidWindow<MidWxWindow>* parent = nullptr,
-                   long long int midID = 0):
+    MidWxComboBox
+    (
+        Id id = 0,
+        MidObject parent = nullptr
+    ):
         wxComboBox(
-        (parent != nullptr) ? (wxWindow*) parent->get() : nullptr,
-            midID){}
-    void addMidItem(const char* item)
+            static_cast<wxWindow*>(parent.get()),
+            id){}
+    void addMidItem(const std::string &item)
     {
-        this->Append(wxString(item));
+        this->Append(wxString(item.c_str()));
         this->SetSelection(0);
     }
 };

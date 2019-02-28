@@ -8,21 +8,17 @@ class MidWxWindow;
 
 class MidWxButton: public wxButton
 {
-    MidWindow<MidWxWindow> *parent = nullptr;
 public:
-    MidWxButton(MidWindow<MidWxWindow> *parent = nullptr,
-                long long int midID = 0,
-                const char *title = ""):
-        wxButton(parent != nullptr? parent->get(): nullptr,
-            midID,
-            title) {}
+    MidWxButton(Id id = 0,
+                const std::string &title = "",
+                MidObject parent = nullptr):
+        wxButton(static_cast<wxWindow*>(parent.get()),
+            id,
+            title.c_str()) {}
+
     void setText(const char *title)
     {
         this->SetLabelText(title);
-    }
-    void setParent(MidWindow<MidWxWindow> *parent)
-    {
-        this->parent = parent;
     }
 };
 

@@ -1,5 +1,5 @@
-#ifndef MID_MENU_H
-#define MID_MENU_H
+#ifndef __MIDMENU__
+#define __MIDMENU__
 
 #include "mid-object.h"
 #include "mid-window.h"
@@ -11,12 +11,6 @@ template <class T>
 class MidMenu : public MidObject
 {
 public:
-    /*!
-     * \brief MidMenu
-     * \param id
-     * \param title
-     * \param parent
-     */
     MidMenu
     (
         Id id = 0,
@@ -35,4 +29,4 @@ public:
     }
 };
 
-#endif // MID_MENU_H
+#endif // __MIDMENU__
