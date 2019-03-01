@@ -16,20 +16,21 @@ public:
      * \brief Action
      * \param id
      * \param title
-     * \param checkable
+     * \param type
      * \param checkInput
+     * \param shortcut
      * \param parent
      */
     Action
     (
         Id id = 0,
         const std::string &title = "",
-        bool checkable = false,
+        const ActionType type = ActionType::DEFAULT,
         bool checkInput = false,
         const std::string& shortcut = "",
         MidObject parent = nullptr
     ):
-        MidAction<MidQt5Action>(id, title, checkable, checkInput, shortcut, parent) {}
+        MidAction<MidQt5Action>(id, title, type, checkInput, shortcut, parent) {}
 };
 
 #endif // ACTION_H

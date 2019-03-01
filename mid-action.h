@@ -3,6 +3,7 @@
 
 #include "mid-object.h"
 #include "mid-window.h"
+#include "general.h"
 
 /*!
  * \brief MidAction Template
@@ -15,8 +16,9 @@ public:
      * \brief MidAction
      * \param id
      * \param title
-     * \param checkable
+     * \param type
      * \param checkInput
+     * \param shortcut
      * \param parent
      */
 
@@ -24,12 +26,12 @@ public:
     (
         Id id = 0,
         const std::string &title = "",
-        bool checkable = false,
+        const ActionType type = ActionType::DEFAULT,
         bool checkInput = false,
         const std::string& shortcut = "",
         MidObject parent = nullptr
     ):
-        MidObject(new T{id, title, checkable, checkInput, shortcut, parent})
+        MidObject(new T{id, title, type, checkInput, shortcut, parent})
     {
     }
 
