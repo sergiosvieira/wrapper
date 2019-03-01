@@ -133,5 +133,7 @@ HEADERS += \
     window_sample69.h \
     mid-qt5-tree-widget-subitem.h \
     treeWidgetSubitem.h \
-    general.h
+    general.h \
+    mid-grid-selected-cell-handler.h \
+    mid-qt5-grid-selected-cell-handler.h
 

@@ -55,6 +55,12 @@ protected:
         MidObject source,
         MidHandler *eventHandler
     );
+
+    static bool makeMidQt5GridSelectedCell
+    (
+        MidObject source,
+        MidHandler *eventHandler
+    );
 };
 
 

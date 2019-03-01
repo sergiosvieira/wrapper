@@ -1,16 +1,21 @@
 #include "mid-qt5-connect-factory.h"
 #include "QPushButton"
 #include "QAction"
+#include <QTableWidget>
 #include "mid-button-handler.h"
 #include "mid-action-handler.h"
+#include "mid-grid-selected-cell-handler.h"
 #include "mid-qt5-button.h"
 #include "mid-qt5-action.h"
+#include "mid-qt5-grid.h"
 
 
 MidQt5ConnectFactory::MapOfCallbacks MidQt5ConnectFactory::mapOfCallbacks =
 {
     {EventTable::BUTTONCLICK, &MidQt5ConnectFactory::makeMidQt5Button},
-    {EventTable::ACTIONTRIGERRED, &MidQt5ConnectFactory::makeMidQt5Action}
+    {EventTable::ACTIONTRIGERRED, &MidQt5ConnectFactory::makeMidQt5Action},
+    {EventTable::GRIDSELECTEDCELL, &MidQt5ConnectFactory::makeMidQt5GridSelectedCell}
+
 };
 
 bool MidQt5ConnectFactory::makeMidQt5Button
@@ -45,6 +50,21 @@ bool MidQt5ConnectFactory::makeMidQt5Action
         QObject::connect(obj,
                          &QAction::triggered,
                          pointer->lambda);
+    return true;
+}
+
+bool MidQt5ConnectFactory::makeMidQt5GridSelectedCell(MidObject source, MidHandler *eventHandler)
+{
+    QTableWidget *obj = static_cast<MidQt5Grid*>(source.get());
+    if (obj == nullptr) return false;
+    MidGridSelectedCellHandler* pointer = dynamic_cast<MidGridSelectedCellHandler*>(eventHandler);
+    if (pointer != nullptr && pointer->lambda != nullptr)
+    QObject::connect
+    (
+        obj,
+        &QTableWidget::cellDoubleClicked,
+        pointer->lambda
+    );
     return true;
 }
 

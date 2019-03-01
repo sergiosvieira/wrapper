@@ -4,6 +4,6 @@
 /*!
  * \brief The EventTable enum
  */
-enum class EventTable { BUTTONCLICK, FRAMEENTER, FRAMEXIT, ACTIONTRIGERRED };
+enum class EventTable { BUTTONCLICK, FRAMEENTER, FRAMEXIT, ACTIONTRIGERRED, GRIDSELECTEDCELL };
 
 #endif // EVENTTABLE_H

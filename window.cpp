@@ -13,6 +13,7 @@
 #include "mid-qt5-connect.h"
 #include "mid-qt5-button-handler.h"
 #include "mid-qt5-action-handler.h"
+#include "mid-qt5-grid-selected-cell-handler.h"
 #include "mid-layout.h"
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
@@ -89,8 +90,8 @@ Window::Window(int width,
     vLayout->add(*listBox);
 
     this->grid = new MidGrid<MidQt5Grid>(id++, 2, 2, *this);
-    this->grid->setMidColsLabels({"col1", "col2"});
-    this->grid->setMidRowsLabels({"row1", "row2"});
+    this->grid->setMidColsLabels({"col0", "col1"});
+    this->grid->setMidRowsLabels({"row0", "row1"});
     this->grid->setMidCellValue(0, 0, "1");
     this->grid->setMidCellValue(0, 1, "2");
     this->grid->setMidCellValue(1, 0, "3");
@@ -166,6 +167,16 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+
+
+    MidQt5GridSelectedHandler qt5GridSelectedCellHandler ([&id, this](int row, int col){
+        std::string msg = "row" + std::to_string(row) + " " + "col" + std::to_string(col);
+        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", msg, *this);
+        m.show();
+        this->statusBar->showMidStatusBar("Grid");
+        return true;
+    });
+    connector->connect(*grid, EventTable::GRIDSELECTEDCELL, &qt5GridSelectedCellHandler);
 
     //Sample 15
     MidQT5ButtonHandler qt5BbtnSample15 ([&](){
