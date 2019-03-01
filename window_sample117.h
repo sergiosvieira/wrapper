@@ -1,5 +1,5 @@
-#ifndef WINDOW_SAMPLE69_H
-#define WINDOW_SAMPLE69_H
+#ifndef WINDOW_SAMPLE117_H
+#define WINDOW_SAMPLE117_H
 
 #include <iostream>
 #include "mid-window.h"
@@ -31,9 +31,8 @@ class CheckBox;
 class TextEdit;
 class TabPage;
 
-class WindowSample69: public MidWindow<MidQt5Window>
+class WindowSample117: public MidWindow<MidQt5Window>
 {
-
     RadioButton *radioButton1 = nullptr;
     Button *button2 = nullptr;
     RadioButton *radioButton2 = nullptr;
@@ -56,13 +55,12 @@ class WindowSample69: public MidWindow<MidQt5Window>
     MidToolBar<MidQt5ToolBar> *toolBar = nullptr;
     MidGrid<MidQt5Grid> *grid = nullptr;
 
-
 public:
-    WindowSample69(int width,
+    WindowSample117(int width,
            int height,
            const std::string &title,
            MidObject object = nullptr);
-    virtual ~WindowSample69();
+    virtual ~WindowSample117();
 };
 
-#endif // WINDOW_SAMPLE69_H
+#endif // WINDOW_SAMPLE117_H

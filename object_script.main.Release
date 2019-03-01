@@ -1,0 +1,16 @@
+release/main.o
+release/mid-button.o
+release/mid-qt5-button.o
+release/mid-qt5-window.o
+release/window.o
+release/mid-qt5-check-box.o
+release/mid-qt5-progress-bar.o
+release/mid-qt5-connect-factory.o
+release/window_sample15.o
+release/window_sample58.o
+release/window_sample68.o
+release/window_sample69.o
+release/window_sample117.o
+release/moc_mid-qt5-window.o
+release/moc_mid-qt5-connect.o
+release/moc_mid-qt5-panel.o

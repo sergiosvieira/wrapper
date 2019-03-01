@@ -1,0 +1,16 @@
+debug/main.o
+debug/mid-button.o
+debug/mid-qt5-button.o
+debug/mid-qt5-window.o
+debug/window.o
+debug/mid-qt5-check-box.o
+debug/mid-qt5-progress-bar.o
+debug/mid-qt5-connect-factory.o
+debug/window_sample15.o
+debug/window_sample58.o
+debug/window_sample68.o
+debug/window_sample69.o
+debug/window_sample117.o
+debug/moc_mid-qt5-window.o
+debug/moc_mid-qt5-connect.o
+debug/moc_mid-qt5-panel.o

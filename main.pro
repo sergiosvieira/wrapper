@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     window_sample15.cpp \
     window_sample58.cpp \
     window_sample68.cpp \
-    window_sample69.cpp
+    window_sample69.cpp \
+    window_sample117.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
@@ -135,5 +136,6 @@ HEADERS += \
     treeWidgetSubitem.h \
     general.h \
     mid-grid-selected-cell-handler.h \
-    mid-qt5-grid-selected-cell-handler.h
+    mid-qt5-grid-selected-cell-handler.h \
+    window_sample117.h
 

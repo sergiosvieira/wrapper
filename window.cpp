@@ -3,6 +3,7 @@
 #include "window_sample58.h"
 #include "window_sample68.h"
 #include "window_sample69.h"
+#include "window_sample117.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
@@ -209,6 +210,14 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*btnSample69, EventTable::BUTTONCLICK, &qt5BbtnSample69);
+
+    //Sample 117
+    MidQT5ButtonHandler qt5BbtnSample117 ([&](){
+        WindowSample117 *win117 = new WindowSample117(400, 500, "Toolbar");
+        win117->show();
+        return true;
+    });
+    connector->connect(*btnSample117, EventTable::BUTTONCLICK, &qt5BbtnSample117);
 
 
 

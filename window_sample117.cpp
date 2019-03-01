@@ -1,4 +1,4 @@
-#include "window_sample69.h"
+#include "window_sample117.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
@@ -33,7 +33,7 @@
 #include "mid-qt5-status-bar.h"
 #include "mid-status-bar.h"
 
-WindowSample69::WindowSample69(int width,
+WindowSample117::WindowSample117(int width,
            	   int height,
                const std::string &title,
                MidObject parent):
@@ -51,32 +51,23 @@ WindowSample69::WindowSample69(int width,
     Menu* viewFile = new Menu(id++, "View", nullptr);
     Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
     Action* saveAction = new Action(id++, "Save", false, false, nullptr);
-    Action* newAction = new Action(id++, "New", false, false, nullptr);
-    Action* openAction = new Action(id++, "Open", false, false, nullptr);
-    Action* checkAction = new Action(id++, "Check", false, false, nullptr);
-    Action* radio1Action = new Action(id++, "Radio 1", false, false, nullptr);
-    Action* radio2Action = new Action(id++, "Radio 2", false, false, nullptr);
-    Action* radio3Action = new Action(id++, "Radio 3", false, false, nullptr);
-    Action* radio4Action = new Action(id++, "Radio 4", false, false, nullptr);
-
     Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
     Action* zoomInAction = new Action(id++, "Zoom in", false, false, nullptr);
     Action* zoomOutAction = new Action(id++, "Zoom out", false, false, nullptr);
     Action* portraitAction = new Action(id++, "Portrait", true, true, nullptr);
     Action* landscapeAction = new Action(id++, "Landscape", true, false, nullptr);
-    saveAction->addMidIcon("Save", "SIGA.png");
+    saveAction->addMidIcon("Save", "01.png");
+    exitAction->addMidIcon("Exit", "02.png");
+    zoomInAction->addMidIcon("Zoom In", "03.png");
+    zoomOutAction->addMidIcon("Zoom Out", "04.png");
+
     this->toolBar->addMidAction(*saveAction);
+    this->toolBar->addMidAction(*exitAction);
+    this->toolBar->addMidAction(*zoomInAction);
+    this->toolBar->addMidAction(*zoomOutAction);
 
     menuFile->addMidAction(*saveAction);
-    menuFile->addMidAction(*newAction);
-    menuFile->addMidAction(*openAction);
-    menuFile->addMidAction(*checkAction);
-    menuFile->addMidAction(*radio1Action);
-    menuFile->addMidAction(*radio1Action);
-    menuFile->addMidAction(*radio2Action);
-    menuFile->addMidAction(*radio3Action);
-    menuFile->addMidAction(*radio4Action);
-
+    menuFile->addMidAction(*exitAction);
     viewFile->addMidAction(*zoomInAction);
     viewFile->addMidAction(*zoomOutAction);
     viewFile->addMidSeparator();  //Inserts a separator
@@ -88,9 +79,7 @@ WindowSample69::WindowSample69(int width,
     this->setMidMenuBar(*menuBar);
 }
 
-WindowSample69::~WindowSample69()
+WindowSample117::~WindowSample117()
 {
 
 }
-
-
