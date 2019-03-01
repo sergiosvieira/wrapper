@@ -3,7 +3,6 @@
 
 #include <QMenu>
 #include "mid-qt5-window.h"
-
 #include "mid-window.h"
 
 /*!
@@ -20,13 +19,14 @@ public:
      */
     MidQt5Menu
     (
-        Id midID = 0,
-        const std::string &title = "",
-        MidObject parent = nullptr
+        Id midID,
+        const std::string &title,
+        MidObject parent
     ):
         QMenu (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
     }
+
     /*!
      * \brief setMidText
      * \param caption
@@ -43,6 +43,24 @@ public:
     {
         QAction* action = static_cast<QAction*>(object.get());
         this->addAction(action);
+    }
+
+    /*!
+     * \brief addMidMenu
+     * \param object
+     */
+    void addMidMenu(MidObject object)
+    {
+        QMenu* menu = static_cast<QMenu*>(object.get());
+        this->addMenu(menu);
+    }
+
+    /*!
+     * \brief addSeparator
+     */
+    void addMidSeparator()
+    {
+        this->addSeparator();
     }
 };
 

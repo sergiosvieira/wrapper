@@ -22,10 +22,14 @@ public:
     (
         Id id = 0,
         const std::string &title = "",
+        bool checkable = false,
+        bool checkInput = false,
         MidObject parent = nullptr
     ):
         QAction (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
+        this->setCheckable(checkable);
+        if (checkable) this->setChecked(checkInput);
     }
     /*!
      * \brief setCaption

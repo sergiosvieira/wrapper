@@ -124,9 +124,9 @@ Window::Window(int width,
     TreeWidgetItem* treeWidgetC = new TreeWidgetItem
             (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
     TreeWidgetItem* treeWidgetSubC1 = new TreeWidgetItem
-            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC, Type::SUBMENU);
+            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC, Type::SUBITEM);
     TreeWidgetItem* treeWidgetSubSubC1 = new TreeWidgetItem
-            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1, Type::SUBMENU);
+            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1, Type::SUBITEM);
     TreeWidgetItem* treeWidgetD = new TreeWidgetItem
             (id++, {"D1","D2"}, {true, false}, {false, false}, *treeWidget);
     vLayout->add(*treeWidget);
@@ -236,14 +236,27 @@ Window::Window(int width,
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
-    Action* saveAction = new Action(id++, "Save", nullptr);
-    Action* exitAction = new Action(id++, "Exit", nullptr);
+    Menu* viewFile = new Menu(id++, "View", nullptr);
+    Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
+    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
+    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
+    Action* zoomInAction = new Action(id++, "Zoom in", false, false, nullptr);
+    Action* zoomOutAction = new Action(id++, "Zoom out", false, false, nullptr);
+    Action* portraitAction = new Action(id++, "Portrait", true, true, nullptr);
+    Action* landscapeAction = new Action(id++, "Landscape", true, false, nullptr);
     saveAction->addMidIcon("Save", "SIGA.png");
     this->toolBar->addMidAction(*saveAction);
 
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
+    viewFile->addMidAction(*zoomInAction);
+    viewFile->addMidAction(*zoomOutAction);
+    viewFile->addMidSeparator();  //Inserts a separator
+    viewFile->addMidMenu(*orientation);  //Insert a submenu
+    orientation->addMidAction(*portraitAction);
+    orientation->addMidAction(*landscapeAction);
     menuBar->addMidMenu(*menuFile);
+    menuBar->addMidMenu(*viewFile);
     this->setMidMenuBar(*menuBar);
 
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){
