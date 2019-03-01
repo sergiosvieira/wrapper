@@ -48,8 +48,8 @@ WindowSample15::WindowSample15(int width,
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Menu* menuHelp = new Menu(id++, "Help", nullptr);
-    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
-    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
+    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "", nullptr);
+    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "", nullptr);
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);

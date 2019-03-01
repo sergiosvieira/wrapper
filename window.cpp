@@ -249,12 +249,12 @@ Window::Window(int width,
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Menu* viewFile = new Menu(id++, "View", nullptr);
     Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
-    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
-    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
-    Action* zoomInAction = new Action(id++, "Zoom in", false, false, nullptr);
-    Action* zoomOutAction = new Action(id++, "Zoom out", false, false, nullptr);
-    Action* portraitAction = new Action(id++, "Portrait", true, true, nullptr);
-    Action* landscapeAction = new Action(id++, "Landscape", true, false, nullptr);
+    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "s", nullptr);  //Tem action e shortcut
+    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "", nullptr);
+    Action* zoomInAction = new Action(id++, "Zoom in", ActionType::DEFAULT, false, "", nullptr);
+    Action* zoomOutAction = new Action(id++, "Zoom out", ActionType::DEFAULT, false, "", nullptr);
+    Action* portraitAction = new Action(id++, "Portrait", ActionType::CHECK, true, "", nullptr);
+    Action* landscapeAction = new Action(id++, "Landscape", ActionType::CHECK, false, "", nullptr);
     saveAction->addMidIcon("Save", "SIGA.png");
     this->toolBar->addMidAction(*saveAction);
 

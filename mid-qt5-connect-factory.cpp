@@ -37,13 +37,9 @@ bool MidQt5ConnectFactory::makeMidQt5Action
     MidObject eventAction
 )
 {
-//    QAction *obj = static_cast<MidQt5Action*>(source.get());
-//    if (obj == nullptr) return false;
-//    MidActionHandler* pointer = dynamic_cast<MidActionHandler*>(eventHandler);
-//    if (pointer != nullptr && pointer->lambda != nullptr)
-//        QObject::connect(obj,
-//                         &QAction::triggered,
-//                         pointer->lambda);
+    QAction *action = static_cast<QAction*>(source.get());
+    OnMenuItemClicked *event = static_cast<OnMenuItemClicked*>(eventAction.get());
+    QObject::connect(action, &QAction::triggered, event->getLambda());
     return true;
 }
 
