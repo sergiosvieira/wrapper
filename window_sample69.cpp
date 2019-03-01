@@ -29,6 +29,7 @@
 #include "panel.h"
 #include "tabPage.h"
 #include "tabPage.h"
+#include "group-action.h"
 
 #include "mid-qt5-status-bar.h"
 #include "mid-status-bar.h"
@@ -50,20 +51,23 @@ WindowSample69::WindowSample69(int width,
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Menu* viewFile = new Menu(id++, "View", nullptr);
     Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
-    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
-    Action* newAction = new Action(id++, "New", false, false, nullptr);
-    Action* openAction = new Action(id++, "Open", false, false, nullptr);
-    Action* checkAction = new Action(id++, "Check", false, false, nullptr);
-    Action* radio1Action = new Action(id++, "Radio 1", false, false, nullptr);
-    Action* radio2Action = new Action(id++, "Radio 2", false, false, nullptr);
-    Action* radio3Action = new Action(id++, "Radio 3", false, false, nullptr);
-    Action* radio4Action = new Action(id++, "Radio 4", false, false, nullptr);
+    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false,"", nullptr);
+    Action* newAction = new Action(id++, "New", ActionType::DEFAULT, false,"", nullptr);
+    Action* openAction = new Action(id++, "Open", ActionType::DEFAULT, false,"", nullptr);
+    Action* checkAction = new Action(id++, "Check", ActionType::CHECK, false,"", nullptr);
 
-    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
-    Action* zoomInAction = new Action(id++, "Zoom in", false, false, nullptr);
-    Action* zoomOutAction = new Action(id++, "Zoom out", false, false, nullptr);
-    Action* portraitAction = new Action(id++, "Portrait", true, true, nullptr);
-    Action* landscapeAction = new Action(id++, "Landscape", true, false, nullptr);
+    Action* radio1Action = new Action(id++, "Radio 1", ActionType::RADIO, true,"", nullptr);
+    Action* radio2Action = new Action(id++, "Radio 2", ActionType::RADIO, false,"", nullptr);
+    Action* radio3Action = new Action(id++, "Radio 3", ActionType::RADIO, false,"", nullptr);
+    Action* radio4Action = new Action(id++, "Radio 4", ActionType::RADIO, false,"", nullptr);
+
+     GroupAction* groupAction = new GroupAction(id++, {*radio1Action, *radio2Action,*radio3Action,*radio4Action,}, nullptr);
+
+    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false,"", nullptr);
+    Action* zoomInAction = new Action(id++, "Zoom in", ActionType::DEFAULT, false,"", nullptr);
+    Action* zoomOutAction = new Action(id++, "Zoom out", ActionType::DEFAULT, false,"", nullptr);
+    Action* portraitAction = new Action(id++, "Portrait", ActionType::DEFAULT, true,"", nullptr);
+    Action* landscapeAction = new Action(id++, "Landscape", ActionType::DEFAULT, false,"", nullptr);
     saveAction->addMidIcon("Save", "SIGA.png");
     this->toolBar->addMidAction(*saveAction);
 

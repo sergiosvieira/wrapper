@@ -137,5 +137,7 @@ HEADERS += \
     general.h \
     mid-grid-selected-cell-handler.h \
     mid-qt5-grid-selected-cell-handler.h \
-    window_sample117.h
-
+    window_sample117.h \
+    mid-qt5-group-action.h \
+    mid-group-action.h \
+    group-action.h
