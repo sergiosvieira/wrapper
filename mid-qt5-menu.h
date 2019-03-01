@@ -54,6 +54,14 @@ public:
         QMenu* menu = static_cast<QMenu*>(object.get());
         this->addMenu(menu);
     }
+
+    /*!
+     * \brief addSeparator
+     */
+    void addMidSeparator()
+    {
+        this->addSeparator();
+    }
 };
 
 #endif // MID_QT5_MENU_H

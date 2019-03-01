@@ -240,6 +240,7 @@ Window::Window(int width,
     menuFile->addMidAction(*exitAction);
     viewFile->addMidAction(*zoomInAction);
     viewFile->addMidAction(*zoomOutAction);
+    viewFile->addMidSeparator();  //Inserts a separator
     viewFile->addMidMenu(*orientation);  //Insert a submenu
     orientation->addMidAction(*portraitAction);
     orientation->addMidAction(*landscapeAction);

@@ -37,6 +37,15 @@ public:
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->addMidMenu(action);
     }
+
+    /*!
+     * \brief addSeparator
+     */
+    void addMidSeparator()
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->addMidSeparator();
+    }
 };
 
 #endif // __MIDMENU__
