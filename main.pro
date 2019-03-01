@@ -140,4 +140,7 @@ HEADERS += \
     window_sample117.h \
     mid-qt5-group-action.h \
     mid-group-action.h \
-    group-action.h
+    group-action.h \
+    mid-qt5-file-dialog.h \
+    mid-file-dialog.h \
+    file-dialog.h

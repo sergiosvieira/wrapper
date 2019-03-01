@@ -38,6 +38,7 @@
 #include "treeWidget.h"
 #include "treeWidgetItem.h"
 #include "group-action.h"
+#include "file-dialog.h"
 
 
 Window::Window(int width,
@@ -53,7 +54,7 @@ Window::Window(int width,
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1      = new Button{id++, "Botão 01", nullptr};
-    this->buttonEvtA      = new Button{id++, "Botão 02", nullptr};
+    this->buttonEvtA      = new Button{id++, "Botão Salvar Arquivo", nullptr};
     this->buttonEvtB      = new Button{id++, "Botão 03", nullptr};
     this->buttonEvtC      = new Button{id++, "Botão 04", nullptr};
     this->buttonEvtD      = new Button{id++, "Botão 05", nullptr};
@@ -191,6 +192,23 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+
+
+
+    MidQT5ButtonHandler qt5ButtonHandler2 ([&id, this](){
+        FileDialog* fileDialog = new FileDialog(id++, nullptr);
+        FileSaveStruct ret = fileDialog->saveMidFile
+        ("Salvar arquivo", "",
+            {
+                {"Json Files","*.json"},
+                {"All Files","*"}
+            }
+        );
+        return true;
+    });
+    connector->connect(*buttonEvtA, EventTable::BUTTONCLICK, &qt5ButtonHandler2);
+
+
 
 
     MidQt5GridSelectedHandler qt5GridSelectedCellHandler ([&id, this](int row, int col){
