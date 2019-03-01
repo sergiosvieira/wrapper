@@ -225,14 +225,26 @@ Window::Window(int width,
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
+    Menu* viewFile = new Menu(id++, "View", nullptr);
+    Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
     Action* saveAction = new Action(id++, "Save", nullptr);
     Action* exitAction = new Action(id++, "Exit", nullptr);
+    Action* zoomInAction = new Action(id++, "Zoom in", nullptr);
+    Action* zoomOutAction = new Action(id++, "Zoom out", nullptr);
+    Action* portraitAction = new Action(id++, "Portrait", nullptr);
+    Action* landscapeAction = new Action(id++, "Landscape", nullptr);
     saveAction->addMidIcon("Save", "SIGA.png");
     this->toolBar->addMidAction(*saveAction);
 
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
+    viewFile->addMidAction(*zoomInAction);
+    viewFile->addMidAction(*zoomOutAction);
+    viewFile->addMidMenu(*orientation);  //Insert a submenu
+    orientation->addMidAction(*portraitAction);
+    orientation->addMidAction(*landscapeAction);
     menuBar->addMidMenu(*menuFile);
+    menuBar->addMidMenu(*viewFile);
     this->setMidMenuBar(*menuBar);
 
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){

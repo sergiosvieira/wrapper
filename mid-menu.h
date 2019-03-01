@@ -27,6 +27,16 @@ public:
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->addMidAction(action);
     }
+
+    /*!
+     * \brief addMidMenu
+     * \param action
+     */
+    void addMidMenu(MidObject action)
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->addMidMenu(action);
+    }
 };
 
 #endif // __MIDMENU__
