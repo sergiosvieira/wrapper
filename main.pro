@@ -102,6 +102,7 @@ HEADERS += \
     mid-qt5-connect-factory.h \
     mid-canvas.h \
     mid-color.h \
-    mid-qt5-colors.h
+    mid-qt5-colors.h \
+    mid-qt5-canvas.h
     window_sample15.h
 

@@ -161,6 +161,8 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
+
+
 }
 
 Window::~Window()
