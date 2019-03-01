@@ -19,28 +19,14 @@ class MidConnect: public MidObject
 public:
     /*!
      * \brief MidConnect
-     * \param parent
+     * \param source
+     * \param eventType
+     * \param eventAction
      */
-    MidConnect(MidObject parent = nullptr) :
-        MidObject(new T{ parent }) {}
-    /*!
-     * \brief connect
-     * \param source: source of the event
-     * \param signal: function that is going to trigger the event
-     *
-     * \return
-     */
-    bool connect
-    (
-        MidObject source,
-        EventTable eventTable,
-        MidHandler* eventhandler
-    )
-    {
-        T *obj = static_cast<T*>(this->get());
-        obj->connect(source, eventTable, eventhandler);
-        return true;
-    }
+    MidConnect(MidObject source,
+               EventTable eventType,
+               MidObject eventAction) :
+        MidObject(new T{source, eventType, eventAction}){}
 };
 
 #endif // MID_CONNECT_H

@@ -23,24 +23,15 @@ class MidQt5Connect: public QObject
 public:
     /*!
      * \brief MidQt5Connect
-     * \param parent
-     */
-    MidQt5Connect(MidObject parent = nullptr){}
-    /*!
-     * \brief connect
      * \param source
-     * \param eventTable
-     * \param eventhandler
-     * \return
+     * \param eventType
+     * \param eventAction
      */
-    bool connect
-    (
-        MidObject source,
-        EventTable eventTable,
-        MidHandler* eventHandler
-    )
+    MidQt5Connect(MidObject source,
+                  EventTable eventType,
+                  MidObject eventAction)
     {
-        return MidQt5ConnectFactory::make(eventTable, source, eventHandler);
+        MidQt5ConnectFactory::make(source, eventType, eventAction);
     }
 };
 

@@ -22,10 +22,14 @@ public:
     (
         Id id = 0,
         const std::string &title = "",
+        bool checkable = false,
+        bool checkInput = false,
         MidObject parent = nullptr
     ):
         QAction (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
+        this->setCheckable(checkable);
+        if (checkable) this->setChecked(checkInput);
     }
     /*!
      * \brief setCaption
@@ -42,6 +46,16 @@ public:
     void setActionText(const char *caption)
     {
         setText(QString(caption));
+    }
+
+    void addMidIcon
+    (
+            const std::string &name,
+            const std::string &filename
+    )
+    {
+         const QIcon newIcon = QIcon::fromTheme(name.c_str(), QIcon(filename.c_str()));
+         this->setIcon(newIcon);
     }
 };
 

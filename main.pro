@@ -10,7 +10,10 @@ SOURCES += main.cpp \
     mid-qt5-check-box.cpp \
     mid-qt5-progress-bar.cpp \
     mid-qt5-connect-factory.cpp \
-    window_sample15.cpp
+    window_sample15.cpp \
+    window_sample58.cpp \
+    window_sample68.cpp \
+    window_sample69.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
@@ -89,6 +92,13 @@ HEADERS += \
     mid-qt5-action-handler.h \
     mid-action.h \
     mid-status-bar.h \
+    mid-image.h \
+    mid-list-box.h \
+    mid-qt5-list-box.h \
+    mid-tool-bar.h \
+    mid-qt5-tool-bar.h \
+    mid-image-label.h \
+    mid-qt5-image.h \
     mid-qt5-status-bar.h \
     mid-qt5-action.h \
     action.h \
@@ -103,6 +113,30 @@ HEADERS += \
     mid-canvas.h \
     mid-color.h \
     mid-qt5-colors.h \
-    mid-qt5-canvas.h
-    window_sample15.h
+    mid-qt5-canvas.h \
+    mid-qt5-image-label.h \
+    mid-canvas.h \
+    mid-color.h \
+    mid-grid.h \
+    mid-qt5-grid.h \
+    mid-qt5-colors.h \
+    mid-qt5-tree-widget.h \
+    mid-tree-widget.h \
+    mid-qt5-tree-widget-item.h \
+    mid-qt5-tree-widget-subitem.h \
+    treeWidget.h \
+    mid-tree-widget-item.h \
+    treeWidgetItem.h \
+    treeWidgetSubitem.h \
+    window_sample15.h \
+    window_sample58.h \
+    window_sample68.h \
+    window_sample69.h \
+    mid-qt5-tree-widget-subitem.h \
+    treeWidgetSubitem.h \
+    general.h \
+    mid-grid-selected-cell-handler.h \
+    mid-qt5-grid-selected-cell-handler.h \
+    mid-lambda.h \
+    mid-events.h
 

@@ -14,48 +14,57 @@ class MidHandler;
  */
 class MidQt5ConnectFactory
 {
-    using Funcs =  std::function<bool(MidObject, MidHandler*)>;
+    using Funcs =  std::function<bool(MidObject, MidObject)>;
     using MapOfCallbacks = std::map<EventTable, Funcs>;
     static MapOfCallbacks mapOfCallbacks;
 public:
     /*!
      * \brief make
-     * \param eventTable
      * \param source
-     * \param eventHandler
+     * \param eventType
+     * \param eventAction
      * \return
      */
     static bool make
-    (
-        EventTable eventTable,
+    (        
         MidObject source,
-        MidHandler* eventHandler
+        EventTable eventType,
+        MidObject eventAction
     );
-
 protected:
     /*!
      * \brief makeMidQt5Button
      * \param source
-     * \param eventhandler
+     * \param eventAction
      * \return
      */
-    static bool makeMidQt5Button
+    static bool makeOnClick
     (
         MidObject source,
-        MidHandler *eventhandler
+        MidObject eventAction
     );
     /*!
      * \brief makeMidQt5Action
      * \param source
-     * \param eventHandler
+     * \param eventAction
      * \return
      */
     static bool makeMidQt5Action
     (
         MidObject source,
-        MidHandler *eventHandler
+        MidObject eventAction
+    );
+    /*!
+     * \brief makeMidQt5GridSelectedCell
+     * \param source
+     * \param eventAction
+     * \return
+     */
+    static bool makeMidQt5GridSelectedCell
+    (
+        MidObject source,
+        MidObject eventAction
     );
 };
-
 
 #endif /*MID_QT5_CONNECT_FACTORY_H*/

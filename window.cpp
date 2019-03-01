@@ -1,5 +1,8 @@
 #include "window.h"
 #include "window_sample15.h"
+#include "window_sample58.h"
+#include "window_sample68.h"
+#include "window_sample69.h"
 #include "button.h"
 #include "checkbox.h"
 #include "textfield.h"
@@ -10,7 +13,9 @@
 #include "mid-qt5-connect.h"
 #include "mid-qt5-button-handler.h"
 #include "mid-qt5-action-handler.h"
+#include "mid-qt5-grid-selected-cell-handler.h"
 #include "mid-layout.h"
+#include "mid-events.h"
 #include "midqtverticallayout.h"
 #include "mid-qt5-horizontal-layout.h"
 #include "radio-button.h"
@@ -30,6 +35,9 @@
 #include "textEdit.h"
 #include "panel.h"
 #include "tabPage.h"
+#include "treeWidget.h"
+#include "treeWidgetItem.h"
+
 
 Window::Window(int width,
            	   int height,
@@ -40,15 +48,27 @@ Window::Window(int width,
     long long id = 1;
 
     this->statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Hello StatusBar", *this);
+    this->toolBar = new MidToolBar<MidQt5ToolBar>(id++, "SIGA", *this);
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-    this->button1 = new Button{id++, "Botão 01", nullptr};    
-    this->btnSample15 = new Button{id++, "Sample 15", nullptr};
-
+    this->button1      = new Button{id++, "Botão 01", nullptr};
+    this->btnSample15  = new Button{id++, "Sample 15", nullptr};
+    this->btnSample58  = new Button{id++, "Sample 58", nullptr};
+    this->btnSample68  = new Button{id++, "Sample 68", nullptr};
+    this->btnSample69  = new Button{id++, "Sample 69", nullptr};
+    this->btnSample117 = new Button{id++, "Sample 117", nullptr};
+    this->btnSample229 = new Button{id++, "Sample 229", nullptr};
+    this->btnSample242 = new Button{id++, "Sample 242", nullptr};
 
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
     vLayout->add(*btnSample15);
+    vLayout->add(*btnSample58);
+    vLayout->add(*btnSample68);
+    vLayout->add(*btnSample69);
+    vLayout->add(*btnSample117);
+    vLayout->add(*btnSample229);
+    vLayout->add(*btnSample242);
 
     vLayout->add(*radioButton1);
     this->textField1 = new TextField(id++, "Text field text", nullptr);
@@ -62,6 +82,24 @@ Window::Window(int width,
     MidObject red = std::make_shared<MidQt5ColorRed>();
     this->textLabel1->setMidTextColor(red);
     vLayout->add(*textLabel1);
+
+    this->image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
+    this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image, nullptr);
+    vLayout->add(*imageLabel);
+
+    this->listBox = new MidListBox<MidQt5ListBox>(id++, {"item1", "item2", "item3"}, nullptr);
+    vLayout->add(*listBox);
+
+    this->grid = new MidGrid<MidQt5Grid>(id++, 2, 2, *this);
+    this->grid->setMidColsLabels({"col0", "col1"});
+    this->grid->setMidRowsLabels({"row0", "row1"});
+    this->grid->setMidCellValue(0, 0, "1");
+    this->grid->setMidCellValue(0, 1, "2");
+    this->grid->setMidCellValue(1, 0, "3");
+    this->grid->setMidCellValue(1, 1, "4");
+    vLayout->add(*grid);
+
+
     this->cb1 = new ComboBox(id++, nullptr);
     cb1->addMidItem("Item 01");
     cb1->addMidItem("Item 02");
@@ -78,6 +116,22 @@ Window::Window(int width,
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
     this->textEdit1 = new TextEdit(id++, msg, nullptr);
     vLayout->add(*textEdit1);
+
+    TreeWidget* treeWidget = new TreeWidget(id++, 2, {"Coluna 1", "Coluna 2"}, *this);
+    TreeWidgetItem* treeWidgetA = new TreeWidgetItem
+            (id++, {"A1","A2"}, {true, true}, {false, true}, *treeWidget);
+    TreeWidgetItem* treeWidgetB = new TreeWidgetItem
+            (id++, {"B1","B2"}, {false, false}, {false, false}, *treeWidget);
+    TreeWidgetItem* treeWidgetC = new TreeWidgetItem
+            (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
+    TreeWidgetItem* treeWidgetSubC1 = new TreeWidgetItem
+            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC, Type::SUBITEM);
+    TreeWidgetItem* treeWidgetSubSubC1 = new TreeWidgetItem
+            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1, Type::SUBITEM);
+    TreeWidgetItem* treeWidgetD = new TreeWidgetItem
+            (id++, {"D1","D2"}, {true, false}, {false, false}, *treeWidget);
+    vLayout->add(*treeWidget);
+
 
     Panel *panel = new Panel(100, 100, *this);
     Button *b17 = new Button(id++, "Hello World Button 17", *panel);
@@ -106,21 +160,67 @@ Window::Window(int width,
     tab1->addMidTab(*base1, "tab1");
     tab1->addMidTab(*base2, "tab2");
     vLayout->add(*tab1);
-    MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
-    MidQT5ButtonHandler qt5ButtonHandler ([&id, this](){
+
+
+    MidConnect<MidQt5Connect>(*button1, EventTable::BUTTONCLICK, OnClicked::makeShared([&id, this]()
+    {
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
-        this->statusBar->showStatusBar("Hello Button Click");
+        this->statusBar->showMidStatusBar("Hello Button Click");
         return true;
-    });
-    connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+    }));
 
+
+    MidConnect<MidQt5Connect>(*grid, EventTable::GRIDSELECTEDCELL, OnItemDoubleClicked::makeShared([&id, this](int row, int col)
+    {
+        std::string msg = "row" + std::to_string(row) + " " + "col" + std::to_string(col);
+        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", msg, *this);
+        m.show();
+        this->statusBar->showMidStatusBar("Grid");
+    }));
+
+
+//    MidQt5GridSelectedHandler qt5GridSelectedCellHandler ([&id, this](int row, int col){
+//        std::string msg = "row" + std::to_string(row) + " " + "col" + std::to_string(col);
+//        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", msg, *this);
+//        m.show();
+//        this->statusBar->showMidStatusBar("Grid");
+//        return true;
+//    });
+//    connector->connect(*grid, EventTable::GRIDSELECTEDCELL, &qt5GridSelectedCellHandler);
+
+    //Sample 15
     MidQT5ButtonHandler qt5BbtnSample15 ([&](){
-        WindowSample15 *win15 = new WindowSample15(300, 400, "Minimal Window QT");
+        WindowSample15 *win15 = new WindowSample15(300, 200, "Minimal Window QT");
         win15->show();
         return true;
     });
-    connector->connect(*btnSample15, EventTable::BUTTONCLICK, &qt5BbtnSample15);
+//    connector->connect(*btnSample15, EventTable::BUTTONCLICK, &qt5BbtnSample15);
+
+    //Sample 58
+    MidQT5ButtonHandler qt5BbtnSample58 ([&](){
+        WindowSample58 *win58 = new WindowSample58(630, 480, "Writer´s cafe");
+        win58->show();
+        return true;
+    });
+//    connector->connect(*btnSample58, EventTable::BUTTONCLICK, &qt5BbtnSample58);
+
+    //Sample 68
+    MidQT5ButtonHandler qt5BbtnSample68 ([&](){
+        WindowSample68 *win68 = new WindowSample68(400, 200, "Personal Record");
+        win68->show();
+        return true;
+    });
+//    connector->connect(*btnSample68, EventTable::BUTTONCLICK, &qt5BbtnSample68);
+
+    //Sample 69
+    MidQT5ButtonHandler qt5BbtnSample69 ([&](){
+        WindowSample69 *win69 = new WindowSample69(400, 500, "Settings");
+        win69->show();
+        return true;
+    });
+//    connector->connect(*btnSample69, EventTable::BUTTONCLICK, &qt5BbtnSample69);
+
 
 
     this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);
@@ -147,20 +247,36 @@ Window::Window(int width,
 
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
-    Action* saveAction = new Action(id++, "Save", nullptr);
-    Action* exitAction = new Action(id++, "Exit", nullptr);
+    Menu* viewFile = new Menu(id++, "View", nullptr);
+    Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
+    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
+    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
+    Action* zoomInAction = new Action(id++, "Zoom in", false, false, nullptr);
+    Action* zoomOutAction = new Action(id++, "Zoom out", false, false, nullptr);
+    Action* portraitAction = new Action(id++, "Portrait", true, true, nullptr);
+    Action* landscapeAction = new Action(id++, "Landscape", true, false, nullptr);
+    saveAction->addMidIcon("Save", "SIGA.png");
+    this->toolBar->addMidAction(*saveAction);
+
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
+    viewFile->addMidAction(*zoomInAction);
+    viewFile->addMidAction(*zoomOutAction);
+    viewFile->addMidSeparator();  //Inserts a separator
+    viewFile->addMidMenu(*orientation);  //Insert a submenu
+    orientation->addMidAction(*portraitAction);
+    orientation->addMidAction(*landscapeAction);
     menuBar->addMidMenu(*menuFile);
+    menuBar->addMidMenu(*viewFile);
     this->setMidMenuBar(*menuBar);
 
     MidQT5ActionHandler qt5ActionHandler ([&id, this](){
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
         m.show();
-        this->statusBar->showStatusBar("Hello Action");
+        this->statusBar->showMidStatusBar("Hello Action");
         return true;
     });
-    connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
+//    connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
 
 
 }
@@ -177,6 +293,10 @@ Window::~Window()
     if (this->dateEdit1) delete dateEdit1;
     if (this->tab1) delete tab1;
     if (this->gp1) delete gp1;
+    if (this->imageLabel) delete imageLabel;
+    if (this->statusBar) delete statusBar;
+    if (this->image) delete image;
+    if (this->listBox) delete listBox;
 }
 
 

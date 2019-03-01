@@ -41,7 +41,6 @@ WindowSample15::WindowSample15(int width,
 {
     long long id = 1;
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-
     MidStatusBar<MidQt5StatusBar>* statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Welcome to MidWindow", *this);
 
     this->setMidLayout(*vLayout);
@@ -49,36 +48,27 @@ WindowSample15::WindowSample15(int width,
     MenuBar* menuBar = new MenuBar(id++, nullptr);
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Menu* menuHelp = new Menu(id++, "Help", nullptr);
-    Action* saveAction = new Action(id++, "Save", nullptr);
-    Action* exitAction = new Action(id++, "Exit", nullptr);
+    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
+    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
     menuBar->addMidMenu(*menuHelp);
     vLayout->setMidMenuBar(*menuBar);
 
-    MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
-    MidQT5ActionHandler qt5ActionHandler ([&](){
-        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
-        m.show();
-        return true;
-    });
-    connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
+//    MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*this);
+//    MidQT5ActionHandler qt5ActionHandler ([&](){
+//        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Action trigerred!", *this);
+//        m.show();
+//        return true;
+//    });
+//    connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
 
 }
 
 WindowSample15::~WindowSample15()
 {
-    if (this->button1) delete button1;
-    if (this->radioButton1) delete radioButton1;
-    if (this->textField1) delete textField1;
-    if (this->progressBar1) delete progressBar1;
-    if (this->textLabel1) delete textLabel1;
-    if (this->cb1) delete cb1;
-    if (this->sp1) delete sp1;
-    if (this->dateEdit1) delete dateEdit1;
-    if (this->tab1) delete tab1;
-    if (this->gp1) delete gp1;
+
 }
 
 
