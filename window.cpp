@@ -55,7 +55,7 @@ Window::Window(int width,
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1      = new Button{id++, "Botão 01", nullptr};
     this->buttonEvtA      = new Button{id++, "Botão Salvar Arquivo", nullptr};
-    this->buttonEvtB      = new Button{id++, "Botão 03", nullptr};
+    this->buttonEvtB      = new Button{id++, "Botão Abrir Arquivo", nullptr};
     this->buttonEvtC      = new Button{id++, "Botão 04", nullptr};
     this->buttonEvtD      = new Button{id++, "Botão 05", nullptr};
     this->btnSample15  = new Button{id++, "Sample 15", nullptr};
@@ -208,6 +208,19 @@ Window::Window(int width,
     });
     connector->connect(*buttonEvtA, EventTable::BUTTONCLICK, &qt5ButtonHandler2);
 
+
+    MidQT5ButtonHandler qt5ButtonHandler3 ([&id, this](){
+        FileDialog* fileDialog = new FileDialog(id++, nullptr);
+        FileOpenStruct ret = fileDialog->openMidFile
+        ("Abrir arquivo", "",
+            {
+                {"Json Files","*.json"},
+                {"All Files","*"}
+            }
+        );
+        return true;
+    });
+    connector->connect(*buttonEvtB, EventTable::BUTTONCLICK, &qt5ButtonHandler3);
 
 
 

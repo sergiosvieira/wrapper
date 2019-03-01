@@ -27,11 +27,8 @@ public:
     )
     {
         FileSaveStruct ret;
-        /*QString fileName = QFileDialog::getSaveFileName(this,
-                tr("Save Address Book"), "",
-                tr("Address Book (*.abk);;All Files (*)"));*/
-
         std::string filter;
+
         for(int index = 0; index < filters.size(); ++index)
         {
             if (index > 0) filter += ";;";
@@ -55,6 +52,44 @@ public:
         else
         {
             ret.fileSave = FileSave::FileSaveCancel;
+        }
+
+        return ret;
+    }
+
+    FileOpenStruct openMidFile
+    (
+            const std::string& title,
+            const std::string& initialDir,
+            const std::vector<Filter>& filters
+    )
+    {
+        FileOpenStruct ret;
+        std::string filter;
+
+        for(int index = 0; index < filters.size(); ++index)
+        {
+            if (index > 0) filter += ";;";
+            filter += (filters.at(index).name+" ("+filters.at(index).extension)+")";
+        }
+
+        QString fileName = getOpenFileName
+        (
+            parentWidget(),
+            title.c_str(),
+            initialDir.c_str(),
+            filter.c_str()
+        );
+
+        //check the return
+        if(!fileName.isEmpty() && !fileName.isNull())
+        {
+            ret.fileOpen = FileOpen::FileOpen;
+            ret.fullUrl = fileName.toStdString();
+        }
+        else
+        {
+            ret.fileOpen = FileOpen::FileOpenCancel;
         }
 
         return ret;

@@ -27,6 +27,17 @@ public:
         T *obj = static_cast<T*>(this->get());
         return obj->saveMidFile(title, initialDir, filters);
     }
+
+    FileOpenStruct openMidFile
+    (
+            const std::string& title,
+            const std::string& initialDir,
+            const std::vector<Filter>& filters
+    )
+    {
+        T *obj = static_cast<T*>(this->get());
+        return obj->openMidFile(title, initialDir, filters);
+    }
 };
 
 #endif /* MID_FILE_DIALOG_H */
