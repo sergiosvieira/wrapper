@@ -1,6 +1,6 @@
 #ifndef GENERAL_H
 #define GENERAL_H
 
-enum Type {SUBMENU};
+enum Type {SUBITEM};
 
 #endif // GENERAL_H

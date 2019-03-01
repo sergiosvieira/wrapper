@@ -123,9 +123,9 @@ Window::Window(int width,
     TreeWidgetItem* treeWidgetC = new TreeWidgetItem
             (id++, {"C1","C2"}, {true, true}, {false, false}, *treeWidget);
     TreeWidgetItem* treeWidgetSubC1 = new TreeWidgetItem
-            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC, Type::SUBMENU);
+            (id++, {"C11","C21"}, {true, true}, {false, false}, *treeWidgetC, Type::SUBITEM);
     TreeWidgetItem* treeWidgetSubSubC1 = new TreeWidgetItem
-            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1, Type::SUBMENU);
+            (id++, {"C111","C211"}, {true, true}, {false, false}, *treeWidgetSubC1, Type::SUBITEM);
     TreeWidgetItem* treeWidgetD = new TreeWidgetItem
             (id++, {"D1","D2"}, {true, false}, {false, false}, *treeWidget);
     vLayout->add(*treeWidget);
