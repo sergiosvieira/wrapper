@@ -26,9 +26,10 @@ public:
         const std::string &title = "",
         bool checkable = false,
         bool checkInput = false,
+        const std::string& shortcut = "",
         MidObject parent = nullptr
     ):
-        MidAction<MidQt5Action>(id, title, checkable, checkInput, parent) {}
+        MidAction<MidQt5Action>(id, title, checkable, checkInput, shortcut, parent) {}
 };
 
 #endif // ACTION_H

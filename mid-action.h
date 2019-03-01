@@ -26,9 +26,10 @@ public:
         const std::string &title = "",
         bool checkable = false,
         bool checkInput = false,
+        const std::string& shortcut = "",
         MidObject parent = nullptr
     ):
-        MidObject(new T{id, title, checkable, checkInput, parent})
+        MidObject(new T{id, title, checkable, checkInput, shortcut, parent})
     {
     }
 

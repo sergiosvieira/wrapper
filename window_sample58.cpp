@@ -53,8 +53,8 @@ WindowSample58::WindowSample58(int width,
     Menu* menuTools = new Menu(id++, "Tools", nullptr);
     Menu* menuBrowser = new Menu(id++, "Browser", nullptr);
     Menu* menuHelp = new Menu(id++, "Help", nullptr);
-    Action* saveAction = new Action(id++, "Save", false, false, nullptr);
-    Action* exitAction = new Action(id++, "Exit", false, false, nullptr);
+    Action* saveAction = new Action(id++, "Save", false, false, "", nullptr);
+    Action* exitAction = new Action(id++, "Exit", false, false, "", nullptr);
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);

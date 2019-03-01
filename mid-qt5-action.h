@@ -24,12 +24,18 @@ public:
         const std::string &title = "",
         bool checkable = false,
         bool checkInput = false,
+        const std::string& shortcut = "",
         MidObject parent = nullptr
     ):
         QAction (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {
         this->setCheckable(checkable);
         if (checkable) this->setChecked(checkInput);
+
+        if (shortcut.compare("") != 0)
+        {
+            this->setShortcut(QKeySequence(shortcut.c_str()));
+        }
     }
     /*!
      * \brief setCaption
