@@ -39,6 +39,7 @@
 #include "treeWidgetItem.h"
 #include "group-action.h"
 #include "file-dialog.h"
+#include "dir-dialog.h"
 
 
 Window::Window(int width,
@@ -221,6 +222,15 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*buttonEvtB, EventTable::BUTTONCLICK, &qt5ButtonHandler3);
+
+
+    MidQT5ButtonHandler qt5ButtonHandler4 ([&id, this](){
+        DirDialog* dirDialog = new DirDialog(id++, nullptr);
+        DirChooseStruct ret = dirDialog->chooseMidDirectory
+        ("Escolher folder", "");
+        return true;
+    });
+    connector->connect(*buttonEvtC, EventTable::BUTTONCLICK, &qt5ButtonHandler4);
 
 
 

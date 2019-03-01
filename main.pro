@@ -143,4 +143,7 @@ HEADERS += \
     group-action.h \
     mid-qt5-file-dialog.h \
     mid-file-dialog.h \
-    file-dialog.h
+    file-dialog.h \
+    mid-qt5-dir-dialog.h \
+    mid-dir-dialog.h \
+    dir-dialog.h

@@ -27,6 +27,14 @@ struct FileSaveStruct
     std::string dirName;
 };
 
+enum DirChoose {DirChoose, DirChooseCalcel};
+
+struct DirChooseStruct
+{
+    enum DirChoose dirChoose;
+    std::string url;
+};
+
 struct Filter
 {
     std::string name;
