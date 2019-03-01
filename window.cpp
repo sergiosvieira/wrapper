@@ -63,13 +63,21 @@ Window::Window(int width,
 
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
     vLayout->add(*button1);
-    vLayout->add(*btnSample15);
-    vLayout->add(*btnSample58);
-    vLayout->add(*btnSample68);
-    vLayout->add(*btnSample69);
-    vLayout->add(*btnSample117);
-    vLayout->add(*btnSample229);
-    vLayout->add(*btnSample242);
+
+
+    Panel *panelDemos = new Panel(100, 100, *this);
+    MidLayout<MidQt5HorizontalLayout> *panelLayoutDemos = new MidLayout<MidQt5HorizontalLayout>();
+    panelDemos->setMidLayout(*panelLayoutDemos);
+    vLayout->add(*panelDemos);
+
+
+    panelLayoutDemos->add(*btnSample15);
+    panelLayoutDemos->add(*btnSample58);
+    panelLayoutDemos->add(*btnSample68);
+    panelLayoutDemos->add(*btnSample69);
+    panelLayoutDemos->add(*btnSample117);
+    panelLayoutDemos->add(*btnSample229);
+    panelLayoutDemos->add(*btnSample242);
 
     vLayout->add(*radioButton1);
     this->textField1 = new TextField(id++, "Text field text", nullptr);
