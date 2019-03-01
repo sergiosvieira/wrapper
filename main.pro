@@ -135,5 +135,8 @@ HEADERS += \
     treeWidgetSubitem.h \
     general.h \
     mid-grid-selected-cell-handler.h \
-    mid-qt5-grid-selected-cell-handler.h
+    mid-qt5-grid-selected-cell-handler.h \
+    mid-qt5-group-action.h \
+    mid-group-action.h \
+    group-action.h
 

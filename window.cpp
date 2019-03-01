@@ -36,6 +36,7 @@
 #include "tabPage.h"
 #include "treeWidget.h"
 #include "treeWidgetItem.h"
+#include "group-action.h"
 
 
 Window::Window(int width,
@@ -238,12 +239,20 @@ Window::Window(int width,
     Menu* menuFile = new Menu(id++, "File", nullptr);
     Menu* viewFile = new Menu(id++, "View", nullptr);
     Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
+    Menu* resolution = new Menu(id++, "Resolution", *viewFile); //submenu
     Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "s", nullptr);  //Tem action e shortcut
     Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "", nullptr);
     Action* zoomInAction = new Action(id++, "Zoom in", ActionType::DEFAULT, false, "", nullptr);
     Action* zoomOutAction = new Action(id++, "Zoom out", ActionType::DEFAULT, false, "", nullptr);
     Action* portraitAction = new Action(id++, "Portrait", ActionType::CHECK, true, "", nullptr);
     Action* landscapeAction = new Action(id++, "Landscape", ActionType::CHECK, false, "", nullptr);
+
+    Action* res1Action = new Action(id++, "800 x 600", ActionType::RADIO, true, "", nullptr);
+    Action* res2Action = new Action(id++, "1024 x 576", ActionType::RADIO, false, "", nullptr);
+
+    GroupAction* groupAction = new GroupAction(id++, {*res1Action, *res2Action}, nullptr);
+    //GroupAction* groupAction = new GroupAction(id++, {}, nullptr);
+
     saveAction->addMidIcon("Save", "SIGA.png");
     this->toolBar->addMidAction(*saveAction);
 
@@ -253,8 +262,13 @@ Window::Window(int width,
     viewFile->addMidAction(*zoomOutAction);
     viewFile->addMidSeparator();  //Inserts a separator
     viewFile->addMidMenu(*orientation);  //Insert a submenu
+    viewFile->addMidMenu(*resolution);  //Insert a submenu
     orientation->addMidAction(*portraitAction);
     orientation->addMidAction(*landscapeAction);
+
+    resolution->addMidAction(*res1Action);
+    resolution->addMidAction(*res2Action);
+
     menuBar->addMidMenu(*menuFile);
     menuBar->addMidMenu(*viewFile);
     this->setMidMenuBar(*menuBar);

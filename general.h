@@ -5,4 +5,6 @@ enum Type {SUBITEM};
 
 enum ActionType {DEFAULT, CHECK, RADIO};
 
+
+
 #endif // GENERAL_H
