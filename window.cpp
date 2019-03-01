@@ -53,6 +53,10 @@ Window::Window(int width,
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
     this->button1      = new Button{id++, "Botão 01", nullptr};
+    this->buttonEvtA      = new Button{id++, "Botão 02", nullptr};
+    this->buttonEvtB      = new Button{id++, "Botão 03", nullptr};
+    this->buttonEvtC      = new Button{id++, "Botão 04", nullptr};
+    this->buttonEvtD      = new Button{id++, "Botão 05", nullptr};
     this->btnSample15  = new Button{id++, "Sample 15", nullptr};
     this->btnSample58  = new Button{id++, "Sample 58", nullptr};
     this->btnSample68  = new Button{id++, "Sample 68", nullptr};
@@ -62,14 +66,24 @@ Window::Window(int width,
     this->btnSample242 = new Button{id++, "Sample 242", nullptr};
 
     this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
-    vLayout->add(*button1);
+    //vLayout->add(*button1);
 
+    //Inserting button with events
+    Panel *panelButtons = new Panel(100, 100, *this);
+    MidLayout<MidQt5HorizontalLayout> *panelLayoutButtons = new MidLayout<MidQt5HorizontalLayout>();
+    panelButtons->setMidLayout(*panelLayoutButtons);
+    vLayout->add(*panelButtons);
+    panelLayoutButtons->add(*button1);
+    panelLayoutButtons->add(*buttonEvtA);
+    panelLayoutButtons->add(*buttonEvtB);
+    panelLayoutButtons->add(*buttonEvtC);
+    panelLayoutButtons->add(*buttonEvtD);
 
+    //Inserting demos of other apps
     Panel *panelDemos = new Panel(100, 100, *this);
     MidLayout<MidQt5HorizontalLayout> *panelLayoutDemos = new MidLayout<MidQt5HorizontalLayout>();
     panelDemos->setMidLayout(*panelLayoutDemos);
     vLayout->add(*panelDemos);
-
 
     panelLayoutDemos->add(*btnSample15);
     panelLayoutDemos->add(*btnSample58);

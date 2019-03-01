@@ -37,6 +37,12 @@ class TabPage;
 class Window: public MidWindow<MidQt5Window>
 {
     Button *button1 = nullptr;
+
+    Button *buttonEvtA = nullptr;
+    Button *buttonEvtB = nullptr;
+    Button *buttonEvtC = nullptr;
+    Button *buttonEvtD = nullptr;
+
     Button *btnSample15 = nullptr;
     Button *btnSample58 = nullptr;
     Button *btnSample68 = nullptr;
