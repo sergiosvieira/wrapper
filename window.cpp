@@ -59,7 +59,7 @@ Window::Window(int width,
     this->button1      = new Button{id++, "Botão 01", nullptr};
     this->buttonEvtA      = new Button{id++, "Botão Salvar Arquivo", nullptr};
     this->buttonEvtB      = new Button{id++, "Botão Abrir Arquivo", nullptr};
-    this->buttonEvtC      = new Button{id++, "Botão 04", nullptr};
+    this->buttonEvtC      = new Button{id++, "Botão escolher diretorio", nullptr};
     this->buttonEvtD      = new Button{id++, "Botão 05", nullptr};
     this->btnSample15  = new Button{id++, "Sample 15", nullptr};
     this->btnSample58  = new Button{id++, "Sample 58", nullptr};

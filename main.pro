@@ -14,7 +14,8 @@ SOURCES += main.cpp \
     window_sample58.cpp \
     window_sample68.cpp \
     window_sample69.cpp \
-    window_sample117.cpp
+    window_sample117.cpp \
+    StringUtils.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
@@ -150,4 +151,5 @@ HEADERS += \
     mid-chart-view.h \
     mid-qt5-chart-view.h \
     mid-chart.h \
-    mid-qt5-chart.h
+    mid-qt5-chart.h \
+    StringUtils.h
