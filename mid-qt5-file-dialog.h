@@ -9,6 +9,8 @@
 #include "general.h"
 #include <vector>
 
+#include "StringUtils.h"
+
 /*!
  * \brief The MidQt5FileDialog class
  */
@@ -48,6 +50,8 @@ public:
         {
             ret.fileSave = FileSave::FileSave;
             ret.fullUrl = fileName.toStdString();
+            ret.dirName = StringUtils::getDirectory(fileName.toStdString());
+            ret.fileName = StringUtils::getFileName(fileName.toStdString());
         }
         else
         {
@@ -86,6 +90,8 @@ public:
         {
             ret.fileOpen = FileOpen::FileOpen;
             ret.fullUrl = fileName.toStdString();
+            ret.dirName = StringUtils::getDirectory(fileName.toStdString());
+            ret.fileName = StringUtils::getFileName(fileName.toStdString());
         }
         else
         {

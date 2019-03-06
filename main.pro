@@ -14,7 +14,8 @@ SOURCES += main.cpp \
     window_sample58.cpp \
     window_sample68.cpp \
     window_sample69.cpp \
-    window_sample117.cpp
+    window_sample117.cpp \
+    StringUtils.cpp
 
 CONFIG += c++17 console
 #CONFIG -= app_bundle
@@ -146,4 +147,5 @@ HEADERS += \
     file-dialog.h \
     mid-qt5-dir-dialog.h \
     mid-dir-dialog.h \
-    dir-dialog.h
+    dir-dialog.h \
+    StringUtils.h
