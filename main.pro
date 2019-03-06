@@ -1,4 +1,4 @@
-QT += core gui widgets
+QT += core gui widgets charts
 TARGET = main
 TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -146,4 +146,8 @@ HEADERS += \
     file-dialog.h \
     mid-qt5-dir-dialog.h \
     mid-dir-dialog.h \
-    dir-dialog.h
+    dir-dialog.h \
+    mid-chart-view.h \
+    mid-qt5-chart-view.h \
+    mid-chart.h \
+    mid-qt5-chart.h

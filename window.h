@@ -16,6 +16,8 @@
 #include "mid-qt5-tool-bar.h"
 #include "mid-grid.h"
 #include "mid-qt5-grid.h"
+#include "mid-chart-view.h"
+#include "mid-qt5-chart-view.h"
 
 class Button;
 class RadioButton;

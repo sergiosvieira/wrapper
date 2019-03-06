@@ -40,6 +40,8 @@
 #include "group-action.h"
 #include "file-dialog.h"
 #include "dir-dialog.h"
+#include "mid-chart.h"
+#include "mid-qt5-chart.h"
 
 
 Window::Window(int width,
@@ -193,6 +195,24 @@ Window::Window(int width,
         return true;
     });
     connector->connect(*button1, EventTable::BUTTONCLICK, &qt5ButtonHandler);
+
+
+    MidQT5ButtonHandler qt5ButtonHandler5 ([&id, this](){
+
+
+        MidWindow<MidQt5Window> *m = new MidWindow<MidQt5Window>(400, 300, "Chart", nullptr);
+
+        MidChart<MidQt5Chart> *chart = new MidChart<MidQt5Chart>(id++, "Chart Title");
+        chart->addMidLine({1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0}, {2.0, 4.0, 30.0, 8.0, 0.0, 2.0, 4.0, 1.0, 18.0, 20.0}, 0x000000, 2, "Line1");
+        chart->addMidLine({1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0}, {1.0, 5.0, 30.0, 2.0, 0.0, 20.0, 4.0, 1.0, 3.0, 50.0}, 0xFF0000, 2, "Line2");
+        MidChartView<MidQt5ChartView> *chartView = new MidChartView<MidQt5ChartView>(*chart, id++, "chartView", *this);
+        MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
+        m->setMidLayout(*vLayout);
+        vLayout->add(*chartView);
+        m->show();
+        return true;
+    });
+    connector->connect(*buttonEvtD, EventTable::BUTTONCLICK, &qt5ButtonHandler5);
 
 
 
