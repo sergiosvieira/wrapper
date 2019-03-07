@@ -43,7 +43,7 @@ public:
     WindowSample68(int width,
            int height,
            const std::string &title,
-           MidObject object = nullptr);
+                   MidObject object = {});
     virtual ~WindowSample68();
 };
 

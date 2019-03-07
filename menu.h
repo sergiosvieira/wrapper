@@ -21,7 +21,7 @@ public:
     (
         Id id = 0,
         const std::string &title = "",
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidMenu<MidQt5Menu>(id, title, parent) {}
 };

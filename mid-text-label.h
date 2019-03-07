@@ -19,7 +19,7 @@ public:
      */
     MidTextLabel(Id id = 0,
                  const std::string &text = "",
-                 MidObject parent = nullptr):
+                 MidObject parent = {}):
         MidObject(new T{id, text, parent}){}
 
     /*!

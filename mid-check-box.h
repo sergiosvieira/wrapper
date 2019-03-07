@@ -21,7 +21,7 @@ public:
     (
         Id midID = 0,
         const std::string &title = "",
-        MidObject parent = nullptr
+            MidObject parent = {}
      ):
         MidObject(new T{midID, title, parent}){}
 };

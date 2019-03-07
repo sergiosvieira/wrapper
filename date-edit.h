@@ -21,8 +21,8 @@ public:
       * \param parent
       */
     DateEdit(Id id = 0,
-             MidObject date = nullptr,
-             MidObject parent = nullptr):
+             MidObject date = {},
+             MidObject parent = {}):
         MidDateEdit<MidQt5DateEdit>(id, date, parent){}
 };
 

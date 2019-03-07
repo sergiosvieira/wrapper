@@ -29,7 +29,7 @@ public:
 	int max = 100,
     const std::string &title = "",
     const std::string &msg = "",
-    MidObject parent = nullptr
+            MidObject parent = {}
 ):
         MidProgressBar<MidQt5ProgressBar>(id, min, max, title, msg, parent){}
 

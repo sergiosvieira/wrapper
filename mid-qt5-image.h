@@ -20,7 +20,7 @@ public:
      */
     MidQt5Image(Id id = 0,
                  const std::string &filename = "",
-                 MidObject parent = nullptr)
+                MidObject parent = {})
     {
         if (!this->load(filename.c_str()));
         {

@@ -13,7 +13,7 @@ public:
         Id id = 0,
         unsigned int numRows = 0,
         unsigned int numCols = 0,
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         MidObject(new T{id, numRows, numCols, parent}){}
 

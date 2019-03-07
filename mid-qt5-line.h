@@ -23,7 +23,7 @@ public:
     (
         Id midID = 0,
         MidLineType type = MidLineType::VERTICAL,
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         QFrame (static_cast<QWidget*>(parent.get()))
     {

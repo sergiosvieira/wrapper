@@ -25,7 +25,7 @@ public:
         const std::vector<std::string>& texts = {},
         const std::vector<bool>& mustHaveACheck = {},
         const std::vector<bool>& checkInput = {},
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidTreeWidgetItem<MidQt5TreeWidgetItem>
             (id, texts, mustHaveACheck, checkInput, parent){}

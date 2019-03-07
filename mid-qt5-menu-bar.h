@@ -20,7 +20,7 @@ public:
     MidQt5MenuBar
     (
         Id midID = 0,
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         QMenuBar (static_cast<QWidget*>(parent.get()))
     {

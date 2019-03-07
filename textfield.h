@@ -22,7 +22,7 @@ public:
      */
     TextField(Id id = 0,
               const std::string &text = "",
-              MidObject parent = nullptr):
+              MidObject parent = {}):
         MidTextField<MidQt5TextField>(id, text, parent){}
 };
 

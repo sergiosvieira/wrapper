@@ -51,8 +51,8 @@ WindowSample68::WindowSample68(int width,
     MidStatusBar<MidQt5StatusBar>* statusBar = new MidStatusBar<MidQt5StatusBar>(id++, "Show the settings dialog", *this);
 
 
-    this->textLabel = new TextLabel(id++, "É um fato conhecido de todos que um leitor se distrairá com.", nullptr);
-    this->textLabelName = new TextLabel(id++, "Name:", nullptr);
+    this->textLabel = new TextLabel(id++, "É um fato conhecido de todos que um leitor se distrairá com.");
+    this->textLabelName = new TextLabel(id++, "Name:");
     this->tfName = new TextField(id++, "Input your name");
 
     vLayout->add(*textLabel);
@@ -60,16 +60,16 @@ WindowSample68::WindowSample68(int width,
     vLayout->add(*tfName);
 
 
-    this->textLabelAge = new TextLabel(id++, "Name:", nullptr);
-    this->sp1 = new SpinBox(id++, 10, 77, nullptr);
-    this->textLabelSex = new TextLabel(id++, "Name:", nullptr);
+    this->textLabelAge = new TextLabel(id++, "Name:");
+    this->sp1 = new SpinBox(id++, 10, 77);
+    this->textLabelSex = new TextLabel(id++, "Name:");
 
-    this->cb1 = new ComboBox(id++, nullptr);
+    this->cb1 = new ComboBox(id++);
     cb1->addMidItem("Male");
     cb1->addMidItem("Female");
     cb1->addMidItem("Clebson");
 
-    this->chBox1 = new CheckBox(id++, "Vote", nullptr);
+    this->chBox1 = new CheckBox(id++, "Vote");
 
     //ADD in hLayout
     hLayout->add(*textLabelAge);
@@ -81,13 +81,13 @@ WindowSample68::WindowSample68(int width,
     panel->setMidLayout(*hLayout);
     vLayout->add(*panel);
 
-    Line *vl = new Line(id++, MidLineType::HORIZONAL, nullptr);
+    Line *vl = new Line(id++, MidLineType::HORIZONAL);
     vLayout->add(*vl);
 
-    this->button1 = new Button{id++, "Botão 01", nullptr};
-    this->button2 = new Button{id++, "Botão 02", nullptr};
-    this->button3 = new Button{id++, "Botão 03", nullptr};
-    this->button4 = new Button{id++, "Botão 04", nullptr};
+    this->button1 = new Button{id++, "Botão 01"};
+    this->button2 = new Button{id++, "Botão 02"};
+    this->button3 = new Button{id++, "Botão 03"};
+    this->button4 = new Button{id++, "Botão 04"};
 
     hLayoutBtn->add(*button1);
     hLayoutBtn->add(*button2);

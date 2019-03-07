@@ -22,7 +22,7 @@ public:
      */
     TextLabel(Id id = 0,
               const std::string &title = "",
-              MidObject parent = nullptr):
+              MidObject parent = {}):
         MidTextLabel<MidQt5TextLabel>(id, title, parent){}
 };
 

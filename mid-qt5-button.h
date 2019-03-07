@@ -20,7 +20,7 @@ public:
      */
     MidQt5Button(Id id = 0,
                  const std::string &title = "",
-                 MidObject parent = nullptr):
+                 MidObject parent = {}):
         QPushButton(QString(title.c_str()), static_cast<QWidget*>(parent.get())){}
 };
 

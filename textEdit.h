@@ -20,7 +20,7 @@ public:
     (
         Id midID = 0,
         const std::string &title = "",
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidTextEdit<MidQt5TextEdit>(midID, title, parent)
         {}

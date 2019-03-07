@@ -20,7 +20,7 @@ public:
      */
     MidQt5TextLabel(Id d  = 0,
                     const std::string &text = "",
-                    MidObject parent = nullptr):
+                    MidObject parent = {}):
         QLabel (QString(text.c_str()), static_cast<QWidget*>(parent.get())){}
 
     /*!

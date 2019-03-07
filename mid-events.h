@@ -15,12 +15,16 @@ public:
     {
         this->type = EventTable::BUTTONCLICK;
     }
+    static EventTable Type()
+    {
+        return EventTable::BUTTONCLICK;
+    }
 };
 
-class OnMenuItemClicked: public MidLambda<BoolVoid>
+class OnActionTriggered: public MidLambda<BoolVoid>
 {
 public:
-    OnMenuItemClicked(BoolVoid lambda):
+    OnActionTriggered(BoolVoid lambda):
         MidLambda<BoolVoid>(lambda)
     {
         this->type = EventTable::ACTIONTRIGERRED;

@@ -17,7 +17,7 @@ public:
      * \param parent
      */
     MidComboBox(Id id = 0,
-                MidObject parent = nullptr):
+                MidObject parent = {}):
         MidObject(new T{id, parent}){}
     /*!
      * \brief addMidItem

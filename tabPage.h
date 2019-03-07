@@ -28,7 +28,7 @@ public:
         int width = 600,
         int height = 800,
         const std::string &title = "",
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidWindow<MidQt5Window>(width, height, title, parent) {}
 };

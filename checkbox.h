@@ -21,7 +21,7 @@ public:
     (
         Id midID = 0,
         const std::string &title = "",
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         MidCheckBox<MidQt5CheckBox>(midID, title, parent){}
 };

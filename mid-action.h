@@ -29,7 +29,7 @@ public:
         const ActionType type = ActionType::DEFAULT,
         bool checkInput = false,
         const std::string& shortcut = "",
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidObject(new T{id, title, type, checkInput, shortcut, parent})
     {

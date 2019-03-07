@@ -20,7 +20,7 @@ public:
      */
     Button(Id id = 0,
            const std::string &title = "",
-           MidObject parent = nullptr):
+           MidObject parent = {}):
         MidButton<MidQt5Button>(id, title, parent){}
 };
 

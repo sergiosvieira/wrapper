@@ -32,6 +32,7 @@ public:
                   MidObject eventAction)
     {
         MidQt5ConnectFactory::make(source, eventType, eventAction);
+//        MidQt5ConnectFactory::make(source, eventAction);
     }
 };
 

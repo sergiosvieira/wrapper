@@ -45,16 +45,16 @@ WindowSample58::WindowSample58(int width,
 
     this->setMidLayout(*hLayout);
 
-    MenuBar* menuBar = new MenuBar(id++, nullptr);
-    Menu* menuFile = new Menu(id++, "File", nullptr);
-    Menu* menuEdit = new Menu(id++, "Edit", nullptr);
-    Menu* menuScraps = new Menu(id++, "Scraps", nullptr);
-    Menu* menuView = new Menu(id++, "View", nullptr);
-    Menu* menuTools = new Menu(id++, "Tools", nullptr);
-    Menu* menuBrowser = new Menu(id++, "Browser", nullptr);
-    Menu* menuHelp = new Menu(id++, "Help", nullptr);
-    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "", nullptr);
-    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "", nullptr);
+    MenuBar* menuBar = new MenuBar(id++);
+    Menu* menuFile = new Menu(id++, "File");
+    Menu* menuEdit = new Menu(id++, "Edit");
+    Menu* menuScraps = new Menu(id++, "Scraps");
+    Menu* menuView = new Menu(id++, "View");
+    Menu* menuTools = new Menu(id++, "Tools");
+    Menu* menuBrowser = new Menu(id++, "Browser");
+    Menu* menuHelp = new Menu(id++, "Help");
+    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "");
+    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "");
     menuFile->addMidAction(*saveAction);
     menuFile->addMidAction(*exitAction);
     menuBar->addMidMenu(*menuFile);
@@ -77,24 +77,24 @@ WindowSample58::WindowSample58(int width,
 //    connector->connect(*saveAction, EventTable::ACTIONTRIGERRED, &qt5ActionHandler);
 
     //Tab 1
-    this->tab1 = new Tab(id++, "tab1", nullptr);
-    this->base1 = new TabPage(id++, 200, 600, "base1", nullptr);
-    this->base2 = new TabPage(id++, 200, 600, "base2", nullptr);
+    this->tab1 = new Tab(id++, "tab1");
+    this->base1 = new TabPage(id++, 200, 600, "base1");
+    this->base2 = new TabPage(id++, 200, 600, "base2");
     MidLayout<MidQt5VerticalLayout> *vLayoutTab1 = new MidLayout<MidQt5VerticalLayout>();
     this->base1->setMidLayout(*vLayoutTab1);
     tab1->addMidTab(*base1, "Scrapbbok");
     tab1->addMidTab(*base2, "Search");
 
     //Tab 2
-    this->tab2 = new Tab(id++, "tab1", nullptr);
-    this->base3  = new TabPage(id++, 400, 600, "base1", nullptr);
-    this->base4  = new TabPage(id++, 400, 600, "base2", nullptr);
-    this->base5  = new TabPage(id++, 400, 600, "base1", nullptr);
-    this->base6  = new TabPage(id++, 400, 600, "base2", nullptr);
-    this->base7  = new TabPage(id++, 400, 600, "base1", nullptr);
-    this->base8  = new TabPage(id++, 400, 600, "base2", nullptr);
-    this->base9  = new TabPage(id++, 400, 600, "base1", nullptr);
-    this->base10 = new TabPage(id++, 400, 600, "base2", nullptr);
+    this->tab2 = new Tab(id++, "tab1");
+    this->base3  = new TabPage(id++, 400, 600, "base1");
+    this->base4  = new TabPage(id++, 400, 600, "base2");
+    this->base5  = new TabPage(id++, 400, 600, "base1");
+    this->base6  = new TabPage(id++, 400, 600, "base2");
+    this->base7  = new TabPage(id++, 400, 600, "base1");
+    this->base8  = new TabPage(id++, 400, 600, "base2");
+    this->base9  = new TabPage(id++, 400, 600, "base1");
+    this->base10 = new TabPage(id++, 400, 600, "base2");
     MidLayout<MidQt5VerticalLayout> *vLayoutTab2 = new MidLayout<MidQt5VerticalLayout>();
     this->base1->setMidLayout(*vLayoutTab2);
     tab2->addMidTab(*base3, "Café Menu");

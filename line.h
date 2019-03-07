@@ -19,7 +19,7 @@ public:
      */
     Line(Id id = 0,
          MidLineType lineType = MidLineType::VERTICAL,
-         MidObject parent = nullptr):
+         MidObject parent = {}):
         MidLine<MidQt5Line>(id, lineType, parent){}
 };
 

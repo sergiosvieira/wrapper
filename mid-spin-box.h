@@ -21,7 +21,7 @@ public:
     MidSpinBox(Id id = 0,
                int minValue = 0,
                int maxValue = 100,
-               MidObject parent = nullptr):
+               MidObject parent = {}):
         MidObject(new T{id, minValue, maxValue, parent}){}
 
     /*!

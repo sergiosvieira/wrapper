@@ -20,7 +20,7 @@ public:
     MidMenuBar
     (
         Id midID = 0,
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         MidObject(new T{midID, parent}){}
     /*!

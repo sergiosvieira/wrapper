@@ -18,7 +18,7 @@ public:
      */
     GroupBox(Id id = 0,
              const std::string &title = "",
-             MidObject parent = nullptr):
+             MidObject parent = {}):
         MidGroupBox<MidQt5GroupBox>(id, title, parent){}
 };
 

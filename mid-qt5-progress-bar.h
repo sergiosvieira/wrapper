@@ -28,7 +28,7 @@ public:
             int max = 100,
             const std::string &title = "",
             const std::string &msg = "",
-            MidObject parent = nullptr
+            MidObject parent = {}
     ):
         QProgressDialog (title.c_str(), msg.c_str(), min, max, static_cast<QWidget*>(parent.get()))
     {

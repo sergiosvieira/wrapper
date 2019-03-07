@@ -30,7 +30,7 @@ public:
         const ActionType type = ActionType::DEFAULT,
         bool checkInput = false,
         const std::string& shortcut = "",
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         QAction (QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {

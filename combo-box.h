@@ -16,7 +16,7 @@ public:
       * \param parent
       */
      ComboBox(Id id = 0,
-              MidObject parent = nullptr):
+              MidObject parent = {}):
         MidComboBox<MidQt5ComboBox>(id, parent){}
 };
 

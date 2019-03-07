@@ -19,7 +19,7 @@ public:
     MidTreeWidget(Id id = 0,
                   int nColumns = 0,
                   const std::vector<std::string>& titles = {},
-              MidObject parent = nullptr):
+              MidObject parent = {}):
         MidObject(new T{id, nColumns, titles, parent}){}
 };
 

@@ -38,7 +38,6 @@
 #include "treeWidget.h"
 #include "treeWidgetItem.h"
 
-
 Window::Window(int width,
            	   int height,
                const std::string &title,
@@ -51,16 +50,16 @@ Window::Window(int width,
     this->toolBar = new MidToolBar<MidQt5ToolBar>(id++, "SIGA", *this);
 
     MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
-    this->button1      = new Button{id++, "Botão 01", nullptr};
-    this->btnSample15  = new Button{id++, "Sample 15", nullptr};
-    this->btnSample58  = new Button{id++, "Sample 58", nullptr};
-    this->btnSample68  = new Button{id++, "Sample 68", nullptr};
-    this->btnSample69  = new Button{id++, "Sample 69", nullptr};
-    this->btnSample117 = new Button{id++, "Sample 117", nullptr};
-    this->btnSample229 = new Button{id++, "Sample 229", nullptr};
-    this->btnSample242 = new Button{id++, "Sample 242", nullptr};
+    this->button1      = new Button{id++, "Botão 01"};
+    this->btnSample15  = new Button{id++, "Sample 15"};
+    this->btnSample58  = new Button{id++, "Sample 58"};
+    this->btnSample68  = new Button{id++, "Sample 68"};
+    this->btnSample69  = new Button{id++, "Sample 69"};
+    this->btnSample117 = new Button{id++, "Sample 117"};
+    this->btnSample229 = new Button{id++, "Sample 229"};
+    this->btnSample242 = new Button{id++, "Sample 242"};
 
-    this->radioButton1 = new RadioButton{id++, "Radio Button 1", nullptr};
+    this->radioButton1 = new RadioButton{id++, "Radio Button 1"};
     vLayout->add(*button1);
     vLayout->add(*btnSample15);
     vLayout->add(*btnSample58);
@@ -71,23 +70,23 @@ Window::Window(int width,
     vLayout->add(*btnSample242);
 
     vLayout->add(*radioButton1);
-    this->textField1 = new TextField(id++, "Text field text", nullptr);
+    this->textField1 = new TextField(id++, "Text field text");
     vLayout->add(*textField1);
-    this->progressBar1 = new ProgressBar(id++, 0, 100, "title", "msg", nullptr);
+    this->progressBar1 = new ProgressBar(id++, 0, 100, "title", "msg");
     int min = progressBar1->getMinValue();
     int max = progressBar1->getMaxValue();
     progressBar1->setMidValue(30);
     //vLayout->add(*progressBar1);
-    this->textLabel1 = new TextLabel(id++, "TL 5", nullptr);
-    MidObject red = std::make_shared<MidQt5ColorRed>();
-    this->textLabel1->setMidTextColor(red);
+    this->textLabel1 = new TextLabel(id++, "TL 5");
+//    MidObject *red = new MidQt5ColorRed();
+//    this->textLabel1->setMidTextColor(*red);
     vLayout->add(*textLabel1);
 
-    this->image = new MidImage<MidQt5Image>(id++, "SIGA.png", nullptr);
-    this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image, nullptr);
+    this->image = new MidImage<MidQt5Image>(id++, "SIGA.png");
+    this->imageLabel = new MidImageLabel<MidQt5ImageLabel>(id++, *image);
     vLayout->add(*imageLabel);
 
-    this->listBox = new MidListBox<MidQt5ListBox>(id++, {"item1", "item2", "item3"}, nullptr);
+    this->listBox = new MidListBox<MidQt5ListBox>(id++, {"item1", "item2", "item3"});
     vLayout->add(*listBox);
 
     this->grid = new MidGrid<MidQt5Grid>(id++, 2, 2, *this);
@@ -100,21 +99,21 @@ Window::Window(int width,
     vLayout->add(*grid);
 
 
-    this->cb1 = new ComboBox(id++, nullptr);
+    this->cb1 = new ComboBox(id++);
     cb1->addMidItem("Item 01");
     cb1->addMidItem("Item 02");
     cb1->addMidItem("Item 03");
     vLayout->add(*cb1);
-    this->sp1 = new SpinBox(id++, 10, 77, nullptr);
+    this->sp1 = new SpinBox(id++, 10, 77);
     vLayout->add(*sp1);
     Date date(19, 2, 2019);
-    this->dateEdit1 = new DateEdit(id++, date, nullptr);
+    this->dateEdit1 = new DateEdit(id++, date);
     vLayout->add(*dateEdit1);
 
     std::string msg = "A Funceme, como instituição pertencente ao Sistema de Gestão dos Recursos Hídricos do Estado do Ceará, vem implementando um conjunto de ações integradas, que visam obter e gerar, sistematicamente, uma série de informações que subsidiem os órgãos gestores no processo de gerenciamento e planejamento dos recursos hídricos, permitindo o aproveitamento, uso racional e preservação da água.\
             A área de recursos hídricos da Funceme desenvolve projetos em diversas linhas de pesquisa, envolvendo qualidade das águas superficiais e subterrâneas, hidrologia básica, hidráulica de canais, operação de reservatórios, hidrogeologia, sedimentologia, drenagem urbana, interação rio-aquífero, acoplamento de previsão climática a modelagem hidrológica.\
             Concentra seus esforços em três grandes áreas de atuação: Desenvolvimento de Estudos Básicos, Sistema de Suporte e Tratamento de Dados Básicos.";
-    this->textEdit1 = new TextEdit(id++, msg, nullptr);
+    this->textEdit1 = new TextEdit(id++, msg);
     vLayout->add(*textEdit1);
 
     TreeWidget* treeWidget = new TreeWidget(id++, 2, {"Coluna 1", "Coluna 2"}, *this);
@@ -141,43 +140,44 @@ Window::Window(int width,
     vLayout->add(*panel);
 
 
-    this->tab1 = new Tab(8, "tab1", nullptr);
-    this->base1 = new TabPage(id++, 600, 800, "base1", nullptr);
+    this->tab1 = new Tab(8, "tab1");
+    this->base1 = new TabPage(id++, 600, 800, "base1");
 
-    Button *buttonTab1 = new Button{id++, "Botão tab1", nullptr};
+    Button *buttonTab1 = new Button{id++, "Botão tab1"};
     MidLayout<MidQt5VerticalLayout> *vLayoutTab1 = new MidLayout<MidQt5VerticalLayout>();
     vLayoutTab1->add(*buttonTab1);
     this->base1->setMidLayout(*vLayoutTab1);
 
-    Button *buttonTab2 = new Button{id++, "Botão tab2", nullptr};
-    this->base2 = new TabPage(id++,600, 800, "base2", nullptr);
+    Button *buttonTab2 = new Button{id++, "Botão tab2"};
+    this->base2 = new TabPage(id++,600, 800, "base2");
     MidLayout<MidQt5VerticalLayout> *vLayoutTab2 = new MidLayout<MidQt5VerticalLayout>();
     vLayoutTab2->add(*buttonTab2);
     this->base2->setMidLayout(*vLayoutTab2);
-
-
-
     tab1->addMidTab(*base1, "tab1");
     tab1->addMidTab(*base2, "tab2");
     vLayout->add(*tab1);
 
+    class Connect: public MidConnect<MidQt5Connect>
+    {
+    public:
+        Connect(MidObject source, EventTable type, MidObject eventAction):
+            MidConnect<MidQt5Connect>(source, type, eventAction){}
+    };
 
-    MidConnect<MidQt5Connect>(*button1, EventTable::BUTTONCLICK, OnClicked::makeShared([&id, this]()
+    Connect *b = new Connect(*button1, OnClicked::Type(), *OnClicked::makeShared([&id, this]()
     {
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
         this->statusBar->showMidStatusBar("Hello Button Click");
         return true;
     }));
-
-
-    MidConnect<MidQt5Connect>(*grid, EventTable::GRIDSELECTEDCELL, OnItemDoubleClicked::makeShared([&id, this](int row, int col)
-    {
-        std::string msg = "row" + std::to_string(row) + " " + "col" + std::to_string(col);
-        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", msg, *this);
-        m.show();
-        this->statusBar->showMidStatusBar("Grid");
-    }));
+//    MidConnect<MidQt5Connect>(*grid, EventTable::GRIDSELECTEDCELL, OnItemDoubleClicked::makeShared([&id, this](int row, int col)
+//    {
+//        std::string msg = "row" + std::to_string(row) + " " + "col" + std::to_string(col);
+//        MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", msg, *this);
+//        m.show();
+//        this->statusBar->showMidStatusBar("Grid");
+//    }));
 
 
 //    MidQt5GridSelectedHandler qt5GridSelectedCellHandler ([&id, this](int row, int col){
@@ -223,38 +223,38 @@ Window::Window(int width,
 
 
 
-    this->gp1 = new GroupBox(id++, "Main Group Box", nullptr);
+    this->gp1 = new GroupBox(id++, "Main Group Box");
     MidLayout<MidQt5HorizontalLayout> *h1 = new MidLayout<MidQt5HorizontalLayout>();
-    this->button2 = new Button{id++, "Botão 02", nullptr};
-    this->radioButton2 = new RadioButton{id++, "Radio Button 2", nullptr};
+    this->button2 = new Button{id++, "Botão 02"};
+    this->radioButton2 = new RadioButton{id++, "Radio Button 2"};
 
-    this->chBox1 = new CheckBox(id++, "Hello World CheckBox", nullptr);
+    this->chBox1 = new CheckBox(id++, "Hello World CheckBox");
 
     h1->add(*button2);
     h1->add(*radioButton2);
 
-    Line *vl = new Line(id++, MidLineType::VERTICAL, nullptr);
+    Line *vl = new Line(id++, MidLineType::VERTICAL);
     h1->add(*vl);
 
     h1->add(*chBox1);
     gp1->setMidLayout(*h1);
 
-    Line *hl = new Line(id++, MidLineType::HORIZONAL, nullptr);
+    Line *hl = new Line(id++, MidLineType::HORIZONAL);
     vLayout->add(*hl);
 
     vLayout->add(*gp1);
     this->setMidLayout(*vLayout);
 
-    MenuBar* menuBar = new MenuBar(id++, nullptr);
-    Menu* menuFile = new Menu(id++, "File", nullptr);
-    Menu* viewFile = new Menu(id++, "View", nullptr);
+    MenuBar* menuBar = new MenuBar(id++);
+    Menu* menuFile = new Menu(id++, "File");
+    Menu* viewFile = new Menu(id++, "View");
     Menu* orientation = new Menu(id++, "View", *viewFile); //submenu
-    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "s", nullptr);  //Tem action e shortcut
-    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "", nullptr);
-    Action* zoomInAction = new Action(id++, "Zoom in", ActionType::DEFAULT, false, "", nullptr);
-    Action* zoomOutAction = new Action(id++, "Zoom out", ActionType::DEFAULT, false, "", nullptr);
-    Action* portraitAction = new Action(id++, "Portrait", ActionType::CHECK, true, "", nullptr);
-    Action* landscapeAction = new Action(id++, "Landscape", ActionType::CHECK, false, "", nullptr);
+    Action* saveAction = new Action(id++, "Save", ActionType::DEFAULT, false, "s");  //Tem action e shortcut
+    Action* exitAction = new Action(id++, "Exit", ActionType::DEFAULT, false, "");
+    Action* zoomInAction = new Action(id++, "Zoom in", ActionType::DEFAULT, false, "");
+    Action* zoomOutAction = new Action(id++, "Zoom out", ActionType::DEFAULT, false, "");
+    Action* portraitAction = new Action(id++, "Portrait", ActionType::CHECK, true, "");
+    Action* landscapeAction = new Action(id++, "Landscape", ActionType::CHECK, false, "");
     saveAction->addMidIcon("Save", "SIGA.png");
     this->toolBar->addMidAction(*saveAction);
 

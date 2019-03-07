@@ -15,7 +15,7 @@ public:
     (
         Id id = 0,
         const std::vector<std::string> &list = {},
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         MidObject(new T{id, list, parent}){}
 };

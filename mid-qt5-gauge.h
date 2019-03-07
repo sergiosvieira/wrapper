@@ -14,7 +14,7 @@
 class MidQt5Gauge: public QProgressBar
 {
 private:
-    MidWindow<MidQt5Window>* parent = nullptr;
+    MidWindow<MidQt5Window>* parent = {};
 public:
     /*!
      * \brief MidQt5Gauge
@@ -25,7 +25,7 @@ public:
      * \param title
      * \param msg
      */
-    MidQt5Gauge(MidWindow<MidQt5Window>* parent = nullptr,
+    MidQt5Gauge(MidWindow<MidQt5Window>* parent = {},
                       long long int midID = 0, int min = 0, int max = 100, const char *title = "", const char *msg = ""):
         QProgressBar ((parent != nullptr) ? parent->get() : nullptr)
     {

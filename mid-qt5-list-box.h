@@ -16,7 +16,7 @@ public:
     (
             Id id = 0,
             const std::vector<std::string> list = {},
-            MidObject parent = nullptr
+            MidObject parent = {}
     ):
         QListView(static_cast<QWidget*>(parent.get()))
     {

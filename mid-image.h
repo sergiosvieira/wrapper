@@ -19,7 +19,7 @@ public:
      */
     MidImage(Id id ,
               const std::string &filename = "",
-              MidObject parent = nullptr):
+             MidObject parent = {}):
         MidObject(new T{id, filename, parent}){}
 
 };

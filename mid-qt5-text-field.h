@@ -20,7 +20,7 @@ public:
      */
     MidQt5TextField(Id id = 0,
                     const std::string &text = "",
-                    MidObject parent = nullptr):
+                    MidObject parent = {}):
         QLineEdit (QString(text.c_str()), static_cast<QWidget*>(parent.get())){}
 
     /*!

@@ -21,7 +21,7 @@ public:
      */
     MidLine(Id id = 0,
             MidLineType lineType = MidLineType::VERTICAL,
-            MidObject parent = nullptr):
+            MidObject parent = {}):
         MidObject(new T{id, lineType, parent}){}
 };
 

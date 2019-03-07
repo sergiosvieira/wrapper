@@ -18,7 +18,7 @@ public:
      */
     RadioButton(Id id = 0,
                 const std::string &title = "",
-                MidObject parent = nullptr):
+                MidObject parent = {}):
         MidRadioButton<MidQt5RadioButton>(id, title, parent){}
 };
 

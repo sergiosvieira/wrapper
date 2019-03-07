@@ -28,7 +28,7 @@ public:
     MidPanel(
         int width = 600,
         int height = 800,
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidObject(new T{width, height, parent}){}
     /*!

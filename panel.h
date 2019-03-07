@@ -23,7 +23,7 @@ public:
     (
         int width = 600,
         int height = 800,
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
             MidPanel<MidQt5Panel>(width, height, parent)
         {}

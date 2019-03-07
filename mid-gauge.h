@@ -21,7 +21,7 @@ public:
     MidGauge(Id id = 0,
              int min = 0,
              int max = 100,
-             MidObject parent = nullptr):
+             MidObject parent = {}):
         MidObject(new T{id, min, max, parent}){}
     /*!
      * \brief setMidRange

@@ -19,7 +19,7 @@ public:
      */
     MidImageLabel(Id id,
                  MidObject image,
-                 MidObject parent = nullptr):
+                  MidObject parent = {}):
         MidObject(new T{id, image, parent}){}
 };
 

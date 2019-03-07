@@ -18,7 +18,7 @@ public:
      */
     MidCanvas(int width,
               int height,
-              MidObject parent = nullptr):
+              MidObject parent = {}):
         MidObject(new T{width, height, parent}){}
     /*!
      * \brief midfill

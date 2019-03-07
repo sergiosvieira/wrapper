@@ -18,7 +18,7 @@ public:
 	int max = 100, 
     const std::string &title = "",
     const std::string &msg = "",
-	MidObject parent = nullptr
+            MidObject parent = {}
 ):
         MidObject(new T{id, min, max, title, msg, parent}){}
     /*!

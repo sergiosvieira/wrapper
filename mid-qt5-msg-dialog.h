@@ -22,7 +22,7 @@ public:
         Id id = 0,
         const std::string &title = "",
         const std::string &text = "",
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         QMessageBox(
             QMessageBox::Icon::Information,

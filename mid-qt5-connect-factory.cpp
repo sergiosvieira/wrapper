@@ -25,9 +25,18 @@ bool MidQt5ConnectFactory::makeOnClick
     MidObject eventAction
 )
 {
-    QAbstractButton *widget = static_cast<QAbstractButton*>(source.get());
+//    QAbstractButton *widget = static_cast<QAbstractButton*>(source.get());
     OnClicked *onClicked = static_cast<OnClicked*>(eventAction.get());
-    QObject::connect(widget, &QPushButton::clicked, onClicked->getLambda());
+    auto action = source;
+    QObject::connect(source, &QPushButton::clicked, onClicked->getLambda());
+    return true;
+}
+
+bool MidQt5ConnectFactory::make(MidObject source, MidObject action)
+{
+    auto widget = source.get();
+    auto event = action.get();
+//    QObject::connect(widget, &QAction::triggered, event->getLambda());
     return true;
 }
 
@@ -37,9 +46,11 @@ bool MidQt5ConnectFactory::makeMidQt5Action
     MidObject eventAction
 )
 {
-    QAction *action = static_cast<QAction*>(source.get());
-    OnMenuItemClicked *event = static_cast<OnMenuItemClicked*>(eventAction.get());
-    QObject::connect(action, &QAction::triggered, event->getLambda());
+//    QAction *action = static_cast<QAction*>(source.get());
+    //auto action = source;
+    OnActionTriggered *event = static_cast<OnActionTriggered*>(eventAction.get());
+    auto action = source;
+    QObject::connect(source, &QAction::triggered, event->getLambda());
     return true;
 }
 

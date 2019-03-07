@@ -17,7 +17,7 @@ public:
      * \param parent
      */
     MidQt5ComboBox(Id id = 0,
-                   MidObject parent = nullptr):
+                   MidObject parent = {}):
         QComboBox (static_cast<QWidget*>(parent.get())){}
     /*!
      * \brief addMidItem

@@ -22,7 +22,7 @@ public:
     (
         Id midID = 0,
         const std::string &title = "",
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         QCheckBox(QString(title.c_str()), static_cast<QWidget*>(parent.get()))
     {

@@ -12,7 +12,7 @@
  */
 class MidQt5Canvas: public QPixmap
 {
-    MidObject parent = nullptr;
+    MidObject parent = {};
 public:
     /*!
      * \brief MidQt5Canvas
@@ -22,7 +22,7 @@ public:
      */
     MidQt5Canvas(int width,
                  int height,
-                 MidObject parent = nullptr):
+                 MidObject parent = {}):
         QPixmap(width, height),
         parent(parent){}
     /*!

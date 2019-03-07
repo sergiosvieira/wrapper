@@ -20,7 +20,7 @@ public:
     MidQt5TreeWidget(Id id = 0,
                      int nColumns = 0,
                      const std::vector<std::string>& titles = {},
-                 MidObject parent = nullptr):
+                 MidObject parent = {}):
         QTreeWidget(static_cast<QWidget*>(parent.get()))
     {
         this->setColumnCount(nColumns);

@@ -22,7 +22,7 @@ public:
     MidQt5SpinBox(Id id = 0,
                   int minValue = 0,
                   int maxValue = 100,
-                  MidObject parent = nullptr):
+                  MidObject parent = {}):
         QSpinBox (static_cast<QWidget*>(parent.get()))
     {
         setRange(minValue, maxValue);

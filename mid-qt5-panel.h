@@ -26,7 +26,7 @@ public:
     (
             int width = 600,
             int height = 800,
-            MidObject parent = nullptr
+            MidObject parent = {}
     ) : QWidget(static_cast<QWidget*>(parent.get()))
     {
         this->resize(width, height);

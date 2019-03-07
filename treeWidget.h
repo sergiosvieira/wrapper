@@ -22,7 +22,7 @@ public:
         Id id = 0,
         int nColumns = 0,
         const std::vector<std::string>& titles = {},
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidTreeWidget<MidQt5TreeWidget>(id, nColumns, titles, parent){}
 };

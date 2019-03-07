@@ -19,7 +19,7 @@ public:
     MenuBar
     (
         Id midID = 0,
-        MidObject parent = nullptr
+            MidObject parent = {}
     ):
         MidMenuBar<MidQt5MenuBar>(midID, parent) {}
 };

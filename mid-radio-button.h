@@ -19,7 +19,7 @@ public:
      */
     MidRadioButton(Id id = 0,
                    const std::string &title = "",
-                   MidObject parent = nullptr):
+                   MidObject parent = {}):
         MidObject(new T{id, title, parent}){}
 };
 

@@ -28,7 +28,7 @@ public:
         const ActionType type = ActionType::DEFAULT,
         bool checkInput = false,
         const std::string& shortcut = "",
-        MidObject parent = nullptr
+        MidObject parent = {}
     ):
         MidAction<MidQt5Action>(id, title, type, checkInput, shortcut, parent) {}
 };

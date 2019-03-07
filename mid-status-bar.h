@@ -19,7 +19,7 @@ public:
      */
     MidStatusBar(Id id ,
               const std::string &title = "",
-              MidObject parent = nullptr):
+                 MidObject parent = {}):
         MidObject(new T{id, title, parent}){}
 
     void showMidStatusBar(const std::string &title)

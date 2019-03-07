@@ -20,8 +20,8 @@ public:
      * \param parent
      */
     MidQt5DateEdit(Id id = 0,
-                   MidObject date = nullptr,
-                   MidObject parent = nullptr):
+                   MidObject date = {},
+                   MidObject parent = {}):
         QDateEdit (*static_cast<QDate*>(date.get()),
                    static_cast<QWidget*>(parent.get())){}
 };

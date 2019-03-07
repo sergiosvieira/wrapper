@@ -19,7 +19,7 @@ public:
      */
     MidQt5GroupBox(Id id = 0,
                    const std::string &title = "",
-                   MidObject parent = nullptr):
+                   MidObject parent = {}):
         QGroupBox (QString(title.c_str()),
                    static_cast<QWidget*>(parent.get())){}
     /*!

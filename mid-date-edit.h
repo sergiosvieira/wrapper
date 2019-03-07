@@ -19,8 +19,8 @@ public:
      * \param parent
      */
     MidDateEdit(Id id = 0,
-                MidObject date = nullptr,
-                MidObject parent = nullptr):
+                MidObject date = {},
+                MidObject parent = {}):
         MidObject(new T{id, date, parent}){}
 };
 

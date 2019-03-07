@@ -17,7 +17,7 @@ public:
      * \param midID
      */
     Gauge(Id midID = 0,
-          MidObject parent = nullptr):
+          MidObject parent = {}):
         MidGauge<MidQt5Gauge>(parent, midID){}
 };
 

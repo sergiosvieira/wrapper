@@ -21,7 +21,7 @@ public:
      */
     Tab(Id id = 0,
         const std::string &title = "",
-        MidObject parent = nullptr):
+        MidObject parent = {}):
         MidTab<MidQt5Tab>(id, title, parent){}
 };
 
