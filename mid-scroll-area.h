@@ -25,6 +25,12 @@ public:
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->setComponent(component);
     }
+
+    void setMidGeometry(int originX, int originY, int width, int height)
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->setMidGeometry(originX, originY, width, height);
+    }
 };
 
 #endif /* MID_SCROLL_AREA_H */

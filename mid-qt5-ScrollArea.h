@@ -24,7 +24,6 @@ public:
         this->setWidgetResizable( true );
 
         this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
-        this->setGeometry( 10, 10, 200, 200 );
     }
 
     void setComponent(MidObject component)
@@ -33,10 +32,10 @@ public:
         if (comp) setWidget(comp);
     }
 
-    /*void setMidGeometry()
+    void setMidGeometry(int originX, int originY, int width, int height)
     {
-
-    }*/
+        this->setGeometry(originX, originY, width, height);
+    }
 };
 
 #endif /* MID_QT5_SCROLL_AREA_H */

@@ -261,6 +261,7 @@ Window::Window(int width,
         /* Inserindo novos componentes */
 
         scrollArea->setComponent(*panel);
+        //scrollArea->setMidGeometry(20, 20, 100, 200);
 
         m->show();
         return true;
