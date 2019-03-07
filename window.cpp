@@ -60,7 +60,8 @@ Window::Window(int width,
     this->buttonEvtA      = new Button{id++, "Botão Salvar Arquivo", nullptr};
     this->buttonEvtB      = new Button{id++, "Botão Abrir Arquivo", nullptr};
     this->buttonEvtC      = new Button{id++, "Botão escolher diretorio", nullptr};
-    this->buttonEvtD      = new Button{id++, "Botão 05", nullptr};
+    this->buttonEvtD      = new Button{id++, "Botão Chart", nullptr};
+    this->buttonEvtE      = new Button{id++, "Botão ScrollPanel", nullptr};
     this->btnSample15  = new Button{id++, "Sample 15", nullptr};
     this->btnSample58  = new Button{id++, "Sample 58", nullptr};
     this->btnSample68  = new Button{id++, "Sample 68", nullptr};
@@ -82,6 +83,7 @@ Window::Window(int width,
     panelLayoutButtons->add(*buttonEvtB);
     panelLayoutButtons->add(*buttonEvtC);
     panelLayoutButtons->add(*buttonEvtD);
+    panelLayoutButtons->add(*buttonEvtE);
 
     //Inserting demos of other apps
     Panel *panelDemos = new Panel(100, 100, *this);
@@ -236,6 +238,16 @@ Window::Window(int width,
     });
     connector->connect(*buttonEvtD, EventTable::BUTTONCLICK, &qt5ButtonHandler5);
 
+
+    MidQT5ButtonHandler qt5ButtonHandler6 ([&id, this](){
+        MidWindow<MidQt5Window> *m = new MidWindow<MidQt5Window>(400, 300, "Chart", nullptr);
+        MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
+        m->setMidLayout(*vLayout);
+        //vLayout->add(*chartView);
+        m->show();
+        return true;
+    });
+    connector->connect(*buttonEvtE, EventTable::BUTTONCLICK, &qt5ButtonHandler6);
 
 
     MidQT5ButtonHandler qt5ButtonHandler2 ([&id, this](){

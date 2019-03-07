@@ -44,6 +44,7 @@ class Window: public MidWindow<MidQt5Window>
     Button *buttonEvtB = nullptr;
     Button *buttonEvtC = nullptr;
     Button *buttonEvtD = nullptr;
+    Button *buttonEvtE = nullptr;
 
     Button *btnSample15 = nullptr;
     Button *btnSample58 = nullptr;
