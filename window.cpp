@@ -198,17 +198,39 @@ Window::Window(int width,
 
 
     MidQT5ButtonHandler qt5ButtonHandler5 ([&id, this](){
-
-
         MidWindow<MidQt5Window> *m = new MidWindow<MidQt5Window>(400, 300, "Chart", nullptr);
-
         MidChart<MidQt5Chart> *chart = new MidChart<MidQt5Chart>(id++, "Chart Title");
         chart->addMidLine({1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0}, {2.0, 4.0, 30.0, 8.0, 0.0, 2.0, 4.0, 1.0, 18.0, 20.0}, 0x000000, 2, "Line1");
         chart->addMidLine({1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0}, {1.0, 5.0, 30.0, 2.0, 0.0, 20.0, 4.0, 1.0, 3.0, 50.0}, 0xFF0000, 2, "Line2");
         MidChartView<MidQt5ChartView> *chartView = new MidChartView<MidQt5ChartView>(*chart, id++, "chartView", *this);
         MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
+
+        Button *button1 = new Button{id++, "ZoomIn", nullptr};
+
+        MidConnect<MidQt5Connect> *connector  = new MidConnect<MidQt5Connect>(*m);
+        MidQT5ButtonHandler qt5Button1Handler ([chart](){
+            chart->zoomIn();
+            return true;
+        });
+        connector->connect(*button1, EventTable::BUTTONCLICK, &qt5Button1Handler);
+        Button *button2 = new Button{id++, "ZoomOut", nullptr};
+        MidQT5ButtonHandler qt5Button2Handler ([chart](){
+            chart->zoomOut();
+            return true;
+        });
+        connector->connect(*button2, EventTable::BUTTONCLICK, &qt5Button2Handler);
+        Button *button3 = new Button{id++, "ZoomReset", nullptr};
+        MidQT5ButtonHandler qt5Button3Handler ([chart](){
+            chart->zoomReset();
+            return true;
+        });
+        connector->connect(*button3, EventTable::BUTTONCLICK, &qt5Button3Handler);
+
         m->setMidLayout(*vLayout);
         vLayout->add(*chartView);
+        vLayout->add(*button1);
+        vLayout->add(*button2);
+        vLayout->add(*button3);
         m->show();
         return true;
     });
