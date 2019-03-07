@@ -19,6 +19,12 @@ public:
     MidScrollArea(Id id = 0,
               MidObject parent = nullptr):
         MidObject(new T{id, parent}){}
+
+    void setComponent(MidObject component)
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->setComponent(component);
+    }
 };
 
 #endif /* MID_SCROLL_AREA_H */

@@ -248,17 +248,19 @@ Window::Window(int width,
         ScrollArea *scrollArea = new ScrollArea{id++, nullptr}; //tem que passar o pai
         vLayout->add(*scrollArea);
 
-
         /* Inserindo novos componentes */
-        /*Panel *panel = new Panel(100, 100, *scrollArea);
-        Button *b = new Button(id++, "Hello World Button 17", *panel);
+        Panel *panel = new Panel(100, 100, *scrollArea);
         MidLayout<MidQt5VerticalLayout> *panelLay = new MidLayout<MidQt5VerticalLayout>();
-        panelLay->add(*b);
-        panel->setMidLayout(*panelLay);*/
+
+        for(int i=0;i<10;++i)
+        {
+            panelLay->add(*(new Button(id++, "Button "+std::to_string(i), *panel)));
+        }
+
+        panel->setMidLayout(*panelLay);
         /* Inserindo novos componentes */
 
-        //TODO: implement
-        //scrollArea->setComponent(panel);
+        scrollArea->setComponent(*panel);
 
         m->show();
         return true;

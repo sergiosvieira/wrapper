@@ -19,7 +19,24 @@ public:
      */
     MidQt5ScrollArea(Id id = 0,
                  MidObject parent = nullptr):
-        QScrollArea(static_cast<QWidget*>(parent.get())){}
+        QScrollArea(static_cast<QWidget*>(parent.get()))
+    {
+        this->setWidgetResizable( true );
+
+        this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
+        this->setGeometry( 10, 10, 200, 200 );
+    }
+
+    void setComponent(MidObject component)
+    {
+        QWidget *comp = static_cast<QWidget*>(component.get());
+        if (comp) setWidget(comp);
+    }
+
+    /*void setMidGeometry()
+    {
+
+    }*/
 };
 
 #endif /* MID_QT5_SCROLL_AREA_H */
