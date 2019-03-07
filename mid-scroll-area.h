@@ -3,6 +3,7 @@
 
 #include "mid-object.h"
 #include "mid-window.h"
+#include "definitions.h"
 
 /*!
  * \brief MidScrollArea Template
@@ -30,6 +31,12 @@ public:
     {
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->setMidGeometry(originX, originY, width, height);
+    }
+
+    void setMidScrollBarPolicy(MidScrollBarPolicy policy)
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->setMidScrollBarPolicy(policy);
     }
 };
 

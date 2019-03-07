@@ -5,6 +5,7 @@
 #include "mid-qt5-window.h"
 
 #include "mid-window.h"
+#include "definitions.h"
 
 /*!
  * \brief The MidQt5ScrollArea class
@@ -22,8 +23,6 @@ public:
         QScrollArea(static_cast<QWidget*>(parent.get()))
     {
         this->setWidgetResizable( true );
-
-        this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
     }
 
     void setComponent(MidObject component)
@@ -35,6 +34,16 @@ public:
     void setMidGeometry(int originX, int originY, int width, int height)
     {
         this->setGeometry(originX, originY, width, height);
+    }
+
+    void setMidScrollBarPolicy(MidScrollBarPolicy policy)
+    {
+        if (policy == MidScrollBarPolicy::AlwaysOn)
+            this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        else if (policy == MidScrollBarPolicy::AlwaysOff)
+            this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        else
+            this->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     }
 };
 

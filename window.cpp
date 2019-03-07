@@ -262,6 +262,7 @@ Window::Window(int width,
 
         scrollArea->setComponent(*panel);
         //scrollArea->setMidGeometry(20, 20, 100, 200);
+        scrollArea->setMidScrollBarPolicy(MidScrollBarPolicy::AlwaysOn);
 
         m->show();
         return true;

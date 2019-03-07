@@ -6,4 +6,9 @@
  */
 enum class MidLineType {HORIZONAL, VERTICAL};
 
+/*!
+ * \brief The MidScrollBarPolicy enum
+ */
+enum class MidScrollBarPolicy {UseAsNeeded, AlwaysOff, AlwaysOn};
+
 #endif // __DEFINITIONS__
