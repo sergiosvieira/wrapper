@@ -35,6 +35,24 @@ public:
         T *obj = static_cast<T*>(this->get());
         if (obj) obj->addLine(x, y, hexColor, lineWidth, lineTitle);
     }
+
+    void zoomIn()
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->zoomIn();
+    }
+
+    void zoomOut()
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->zoomOut();
+    }
+
+    void zoomReset()
+    {
+        T *obj = static_cast<T*>(this->get());
+        if (obj) obj->zoomReset();
+    }
 };
 
 #endif /* MID_CHART_H */
