@@ -26,9 +26,10 @@ public:
     MidObject(T *t = nullptr): std::shared_ptr<void>(t){}
     MidObject(): std::shared_ptr<void>(){}
     template <class T>
-    operator const T&() const
+    operator const T*() const
     {
-        return *static_cast<T*>(this->get());
+        T *ptr = static_cast<T*>(this->get());
+        return  ptr;
     }
 };
 

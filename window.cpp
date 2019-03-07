@@ -164,13 +164,18 @@ Window::Window(int width,
             MidConnect<MidQt5Connect>(source, type, eventAction){}
     };
 
-    Connect *b = new Connect(*button1, OnClicked::Type(), *OnClicked::makeShared([&id, this]()
+    BoolVoid lambda = [&id, this]()
     {
         MidMessageDialog<MidQt5MsgDialog> m(id++, "SIGA", "Hello world!", *this);
         m.show();
         this->statusBar->showMidStatusBar("Hello Button Click");
         return true;
-    }));
+    };
+    OnClicked *onclicked = new OnClicked(lambda);
+    Connect *b = new Connect(*button1, OnClicked::Type(), onclicked);
+
+
+
 //    MidConnect<MidQt5Connect>(*grid, EventTable::GRIDSELECTEDCELL, OnItemDoubleClicked::makeShared([&id, this](int row, int col)
 //    {
 //        std::string msg = "row" + std::to_string(row) + " " + "col" + std::to_string(col);

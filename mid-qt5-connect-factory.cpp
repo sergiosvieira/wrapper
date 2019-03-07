@@ -2,6 +2,7 @@
 #include "QPushButton"
 #include "QAction"
 #include <QTableWidget>
+#include <exception>
 #include "mid-button-handler.h"
 #include "mid-action-handler.h"
 #include "mid-grid-selected-cell-handler.h"
@@ -25,9 +26,7 @@ bool MidQt5ConnectFactory::makeOnClick
     MidObject eventAction
 )
 {
-//    QAbstractButton *widget = static_cast<QAbstractButton*>(source.get());
     OnClicked *onClicked = static_cast<OnClicked*>(eventAction.get());
-    auto action = source;
     QObject::connect(source, &QPushButton::clicked, onClicked->getLambda());
     return true;
 }
@@ -73,6 +72,7 @@ bool MidQt5ConnectFactory::make
         MidObject eventAction
 )
 {
+    if (eventAction == nullptr) throw std::invalid_argument("Null pointer to event");
     auto lambda = mapOfCallbacks.find(eventTable);
     if (lambda == mapOfCallbacks.end())
     {
