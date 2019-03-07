@@ -42,6 +42,7 @@
 #include "dir-dialog.h"
 #include "mid-chart.h"
 #include "mid-qt5-chart.h"
+#include "scroll-area.h"
 
 
 Window::Window(int width,
@@ -218,10 +219,25 @@ Window::Window(int width,
 
 
     MidQT5ButtonHandler qt5ButtonHandler6 ([&id, this](){
-        MidWindow<MidQt5Window> *m = new MidWindow<MidQt5Window>(400, 300, "Chart", nullptr);
+        MidWindow<MidQt5Window> *m = new MidWindow<MidQt5Window>(400, 300, "ScrollArea DEMO", nullptr);
         MidLayout<MidQt5VerticalLayout> *vLayout = new MidLayout<MidQt5VerticalLayout>();
         m->setMidLayout(*vLayout);
-        //vLayout->add(*chartView);
+
+        ScrollArea *scrollArea = new ScrollArea{id++, nullptr}; //tem que passar o pai
+        vLayout->add(*scrollArea);
+
+
+        /* Inserindo novos componentes */
+        /*Panel *panel = new Panel(100, 100, *scrollArea);
+        Button *b = new Button(id++, "Hello World Button 17", *panel);
+        MidLayout<MidQt5VerticalLayout> *panelLay = new MidLayout<MidQt5VerticalLayout>();
+        panelLay->add(*b);
+        panel->setMidLayout(*panelLay);*/
+        /* Inserindo novos componentes */
+
+        //TODO: implement
+        //scrollArea->setComponent(panel);
+
         m->show();
         return true;
     });

@@ -152,4 +152,7 @@ HEADERS += \
     mid-qt5-chart-view.h \
     mid-chart.h \
     mid-qt5-chart.h \
-    StringUtils.h
+    StringUtils.h \
+    mid-qt5-ScrollArea.h \
+    mid-scroll-area.h \
+    scroll-area.h
